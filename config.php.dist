@@ -1,0 +1,14 @@
+<?php
+
+/*
+
+// Path to Twig
+$_SERVER['TWIG_LIB'] = '/path/to/twig/lib';
+
+// Path to Plovr (http://plovr.org)
+$_SERVER['PLOVR_BIN'] = '/path/to/plovr.jar';
+
+// Path to Java
+$_SERVER['JAVA_BIN'] = '/path/to/java';
+
+*/

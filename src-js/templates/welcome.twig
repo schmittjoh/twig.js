@@ -1,0 +1,22 @@
+{% extends ajax is not defined ? "layout.twig" : "ajax_layout.twig" %}
+{% use "traitable.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script language="javascript" type="text/javascript" src="welcome.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    <h1>Welcome {{ name|default("World") }}!</h1>
+
+    <p>
+        {%- if name is not empty -%}
+        Some Status.
+        {%- else -%}
+        Please login.
+        {%- endif -%}
+    </p>
+
+{% endblock %}

@@ -32,7 +32,6 @@ ever need in your templates. There are some things which are not (yet) available
   - compatibility with older Twig versions (anything but Twig head) is untested    
   - Conditional template includes at runtime are not supported
   - ExtensionReferences are not supported
-  - Custom functions are not supported
   - strict variables behavior is not supported
 
 If you need support for any of these, patches are very welcome, and if you can attach a few

@@ -13,7 +13,7 @@ Hello {{ name|default("World") }}!
 ```html
 <script language="javascript" type="text/javascript" src="twig.js"></script>
 <script language="javascript" type="text/javascript" src="greeting.js"></script>
-<script language"javascript" type="text/javascript">
+<script language="javascript" type="text/javascript">
     alert(Twig.render(greeting, {name: "Johannes"}));
 </script>
 ```
@@ -41,14 +41,10 @@ unit tests even better :)
 Integration
 -----------
 
-With Symfony2
-~~~~~~~~~~~~~
-Seamless integration with Symfony2 is provided by the [JMSTwigJsBundle][2].
+  - **With Symfony2**: Seamless integration with Symfony2 is provided by the [JMSTwigJsBundle][2].
 
-With Assetic
-~~~~~~~~~~~~
-If you are not using Symfony2, but [Assetic][3], you can leverage the TwigJsFilter 
-which ships with twig.js.
+  - **With Assetic**: If you are not using Symfony2, but [Assetic][3], you can leverage the TwigJsFilter 
+                  which ships with twig.js.
 
 Documentation
 -------------

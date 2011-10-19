@@ -187,6 +187,7 @@ class JsCompiler extends \Twig_Compiler
             'upper' => 'String.prototype.toUpperCase.call',
             'lower' => 'String.prototype.toLowerCase.call',
             'url_encode' => 'encodeURIComponent',
+            'replace' => 'twig.filter.replace',
         );
 
         $this->functionMap = array(

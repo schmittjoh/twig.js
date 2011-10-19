@@ -19,6 +19,15 @@
         goog.require('goog.testing.jsunit');
         goog.require('goog.testing.FunctionMock');
         
+        function testReplace() {
+        	assertEquals("I love foo, and bar.", twig.filter.replace(
+        		"I love %this%, and %that%.", {"%this%": "foo", "%that%": "bar"}));
+        	assertEquals("Hemmo Johannes", twig.filter.replace("greet", {
+        		"greet": "Hello Johannes",
+        		"l": "m"
+        	}));
+        }
+        
         function testDefault() {
         	assertEquals("foo", twig.filter.def("", "foo"));
         	assertEquals("bar", twig.filter.def("bar", "foo"));

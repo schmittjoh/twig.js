@@ -395,8 +395,8 @@ $goog$exportSymbol$$("twig.forEach", function($v$$3$$, $func$$3$$, $opt_this$$2$
   }
 });
 $goog$exportSymbol$$("twig.empty", $twig$empty$$);
-$goog$exportSymbol$$("twig.filter.capitalize", function($env$$1$$, $str$$45$$) {
-  return $str$$45$$.charAt(0).toUpperCase() + $str$$45$$.substring(1)
+$goog$exportSymbol$$("twig.filter.capitalize", function($env$$1$$, $str$$46$$) {
+  return $str$$46$$.charAt(0).toUpperCase() + $str$$46$$.substring(1)
 });
 $goog$exportSymbol$$("twig.filter.escape", function($env$$2_s$$inline_38_str$$inline_171$$, $sb$$inline_39_value$$61$$, $i$$inline_40_opt_type$$5$$, $JSCompiler_temp_const$$150_opt_charset$$, $JSCompiler_temp_const$$149_opt_autoescape$$) {
   var a;
@@ -459,6 +459,12 @@ $goog$exportSymbol$$("twig.filter.length", function($env$$3$$, $value$$62$$) {
 });
 $goog$exportSymbol$$("twig.filter.def", function($value$$60$$, $opt_default$$) {
   return $twig$empty$$($value$$60$$) ? $opt_default$$ || "" : $value$$60$$
+});
+$goog$exportSymbol$$("twig.filter.replace", function($str$$45$$, $map$$) {
+  for(var $key$$44$$ in $map$$) {
+    $str$$45$$ = $str$$45$$.replace(RegExp($key$$44$$, "g"), $map$$[$key$$44$$])
+  }
+  return $str$$45$$
 });
 $goog$exportSymbol$$("twig.StringBuffer", $goog$string$StringBuffer$$);
 $goog$string$StringBuffer$$.prototype.append = $goog$string$StringBuffer$$.prototype.append;

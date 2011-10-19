@@ -24,6 +24,20 @@ goog.require('goog.object');
 
 /**
  * @export
+ * @param {string} str
+ * @param {Object.<string>} map
+ * @return {string}
+ */
+twig.filter.replace = function(str, map) {
+	for (var key in map) {
+		str = str.replace(new RegExp(key, 'g'), map[key]);
+	}
+	
+	return str;
+};
+
+/**
+ * @export
  * @param {*} value
  * @param {*=} opt_default
  * @return {*}

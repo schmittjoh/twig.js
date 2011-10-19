@@ -2,7 +2,7 @@ Filters
 #######
 
 twig.js has support for the following filters built-in: 
-default, capitalize, escape, length, upper, lower, url_encode
+default, capitalize, escape, length, upper, lower, url_encode, replace
 
 Adding A Compile-Time Filter
 ----------------------------

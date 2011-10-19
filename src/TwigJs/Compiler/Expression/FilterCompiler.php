@@ -39,7 +39,10 @@ class FilterCompiler implements TypeCompilerInterface
             throw new \Twig_Error_Syntax(sprintf('The filter "%s" does not exist', $name), $node->getLine());
         }
 
-        if ($functionName = $compiler->getFilterFunction($name)) {
+        if (($filterCompiler = $compiler->getFilterCompiler($name))
+                && false !== $filterCompiler->compile($compiler, $node)) {
+            return;
+        } else if ($functionName = $compiler->getFilterFunction($name)) {
             $compiler->raw($functionName.'(');
         } else {
             $compiler

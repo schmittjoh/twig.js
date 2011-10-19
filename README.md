@@ -58,8 +58,8 @@ ever need in your templates. There are some things which are not (yet) available
   - ExtensionReferences are not supported
   - strict variables behavior is not supported
 
-If you need support for any of these, patches are very welcome, and if you can attach a few
-unit tests even better :)
+If you need support for any of these, patches are very welcome, and if you can 
+attach a few unit tests even better :)
 
 Integration
 -----------

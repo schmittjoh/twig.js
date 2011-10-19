@@ -93,15 +93,18 @@ class JsCompiler extends \Twig_Compiler
     /** Map for local variables */
     public $localVarMap = array();
 
+    private $defines = array();
+
     private $scopes = array();
     private $scopeVariables = array();
+    private $functionNamingStrategy;
 
     private $typeCompilers;
+    private $filterCompilers;
     private $testCompilers;
 
     private $filterFunctions;
     private $functionMap;
-    private $functionNamingStrategy;
 
     public function __construct(\Twig_Environment $env)
     {
@@ -175,6 +178,7 @@ class JsCompiler extends \Twig_Compiler
             'sameas' => new SameAsCompiler(),
         );
 
+        $this->filterCompilers = array();
         $this->filterFunctions = array(
             'escape' => 'twig.filter.escape',
             'length' => 'twig.filter.length',
@@ -188,6 +192,16 @@ class JsCompiler extends \Twig_Compiler
         $this->functionMap = array(
             'range' => 'twig.range',
         );
+    }
+
+    public function setDefine($key, $value)
+    {
+        $this->defines[$key] = $value;
+    }
+
+    public function getDefine($key)
+    {
+        return isset($this->defines[$key]) ? $this->defines[$key] : null;
     }
 
     public function setFunctionNamingStrategy(FunctionNamingStrategyInterface $strategy)
@@ -240,6 +254,17 @@ class JsCompiler extends \Twig_Compiler
     public function setFilterFunction($filterName, $functionName)
     {
         $this->filterFunctions[$filterName] = $functionName;
+    }
+
+    public function getFilterCompiler($name)
+    {
+        return isset($this->filterCompilers[$name]) ?
+            $this->filterCompilers[$name] : null;
+    }
+
+    public function addFilterCompiler(FilterCompilerInterface $compiler)
+    {
+        $this->filterCompilers[$compiler->getName()] = $compiler;
     }
 
     public function setJsFunction($twigFunctionName, $jsFunctionName)

@@ -34,7 +34,7 @@ class TwigJsFilter implements FilterInterface
 
     public function filterDump(AssetInterface $asset)
     {
-        $values = $asset->getValues();
+        $values = method_exists($asset, 'getValues') ? $asset->getValues() : array();
         $defines = array();
 
         if (isset($values['locale'])) {

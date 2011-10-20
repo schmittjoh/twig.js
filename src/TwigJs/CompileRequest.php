@@ -22,8 +22,9 @@ class CompileRequest
 {
     private $name;
     private $source;
+    private $defines;
 
-    public function __construct($name, $source)
+    public function __construct($name, $source, array $defines = array())
     {
         if (empty($name)) {
             throw new \InvalidArgumentException('$name cannot be empty.');
@@ -31,6 +32,7 @@ class CompileRequest
 
         $this->name = $name;
         $this->source = $source;
+        $this->defines = $defines;
     }
 
     public function getSource()
@@ -41,5 +43,10 @@ class CompileRequest
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getDefines()
+    {
+        return $this->defines;
     }
 }

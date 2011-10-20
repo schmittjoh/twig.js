@@ -33,6 +33,7 @@ class CompileRequestHandler
     {
         $curCompiler = $this->env->getCompiler();
         $this->env->setCompiler($this->compiler);
+        $this->compiler->setDefines($request->getDefines());
 
         try {
             if (!$source = $request->getSource()) {

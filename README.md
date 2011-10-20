@@ -48,7 +48,6 @@ While twig.js already provides support for most of Twig's features that you will
 ever need in your templates. There are some things which are not (yet) available:
 
   - the behavior for a variable named "prototype" is undefined
-  - macros are not available
   - some filters are not available (see doc/filters.rst)
   - some functions are not available (see doc/functions.rst)
   - some tests are not available (see doc/tests.rst)

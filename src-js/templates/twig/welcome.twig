@@ -1,5 +1,6 @@
 {% extends ajax is not defined ? "layout.twig" : "ajax_layout.twig" %}
 {% use "traitable.twig" %}
+{% from "macros.twig" import link %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -15,7 +16,7 @@
         {%- if name is not empty -%}
         Some Status.
         {%- else -%}
-        Please login.
+        {{ link("/login", "Please login.", "Login") }}
         {%- endif -%}
     </p>
 

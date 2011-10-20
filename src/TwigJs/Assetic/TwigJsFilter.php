@@ -32,13 +32,20 @@ class TwigJsFilter implements FilterInterface
         $this->compileRequestHandler = $handler;
     }
 
-    public function filterLoad(AssetInterface $asset)
+    public function filterDump(AssetInterface $asset)
     {
-        $compileRequest = new CompileRequest($asset->getSourcePath(), $asset->getContent());
+        $values = $asset->getValues();
+        $defines = array();
+
+        if (isset($values['locale'])) {
+            $defines['locale'] = $values['locale'];
+        }
+
+        $compileRequest = new CompileRequest($asset->getSourcePath(), $asset->getContent(), $defines);
         $asset->setContent($this->compileRequestHandler->process($compileRequest));
     }
 
-    public function filterDump(AssetInterface $asset)
+    public function filterLoad(AssetInterface $asset)
     {
     }
 }

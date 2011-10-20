@@ -18,6 +18,7 @@
 
 namespace TwigJs;
 
+use TwigJs\Compiler\MacroCompiler;
 use TwigJs\Compiler\Test\SameAsCompiler;
 use TwigJs\Compiler\Test\OddCompiler;
 use TwigJs\Compiler\Test\NullCompiler;
@@ -126,6 +127,7 @@ class JsCompiler extends \Twig_Compiler
             'Twig_Node_BlockReference' => new BlockReferenceCompiler(),
             'Twig_Node_AutoEscape' => new AutoEscapeCompiler(),
             'Twig_Node_Import' => new ImportCompiler(),
+            'Twig_Node_Macro' => new MacroCompiler(),
             'Twig_Node_Expression_TempName' => new TempNameCompiler(),
             'Twig_Node_Expression_DefaultFilter' => new DefaultFilterCompiler(),
             'Twig_Node_Expression_ExtensionReference' => new ExtensionReferenceCompiler(),
@@ -193,6 +195,11 @@ class JsCompiler extends \Twig_Compiler
         $this->functionMap = array(
             'range' => 'twig.range',
         );
+    }
+
+    public function setDefines(array $defines)
+    {
+        $this->defines = $defines;
     }
 
     public function setDefine($key, $value)

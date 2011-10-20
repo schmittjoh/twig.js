@@ -1,7 +1,7 @@
 <?php
 
 /* traitable.twig */
-class __TwigTemplate_8b61f71ee47a5328e7bc64f19a79d793 extends Twig_Template
+class __TwigTemplate_92d4ab5a07ce0910dd9ae6a4d9c998af extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {

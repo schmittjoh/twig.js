@@ -44,44 +44,46 @@ welcome.prototype.getParent_ = function(context) {
  * @inheritDoc
  */
 welcome.prototype.render_ = function(sb, context, blocks) {
+    // line 3
+    context["__internal_9162a8dce4458f34ee79ba42a570ec4d_1"] = this.env_.createTemplate(macros);
     this.getParent(context).render_(sb, context, twig.extend({}, this.getBlocks(), blocks));
 };
 
-// line 4
+// line 5
 /**
  * @param {!twig.StringBuffer} sb
  * @param {Object.<*>} context
  * @param {Object.<Function>} blocks
  */
 welcome.prototype.block_javascripts = function(sb, context, blocks) {
-    // line 5
+    // line 6
     sb.append("    ");
     sb.append(this.renderParentBlock("javascripts", context, blocks));
     sb.append("\n\n    <script language=\"javascript\" type=\"text\/javascript\" src=\"welcome.js\"><\/script>\n");
 };
 
-// line 10
+// line 11
 /**
  * @param {!twig.StringBuffer} sb
  * @param {Object.<*>} context
  * @param {Object.<Function>} blocks
  */
 welcome.prototype.block_body = function(sb, context, blocks) {
-    // line 11
-    sb.append("\n    <h1>Welcome ");
     // line 12
+    sb.append("\n    <h1>Welcome ");
+    // line 13
     var tmp_name = ("name" in context) ? context["name"] : null;
     sb.append(twig.filter.escape(this.env_, ((("name" in context)) ? (twig.filter.def(tmp_name, "World")) : ("World")), "html", null, true));
     sb.append("!<\/h1>\n\n    <p>");
-    // line 15
+    // line 16
     if ((!twig.empty(tmp_name))) {
-        // line 16
+        // line 17
         sb.append("Some Status.");
     } else {
-        // line 18
-        sb.append("Please login.");
+        // line 19
+        sb.append(twig.filter.escape(this.env_, twig.attr(context["__internal_9162a8dce4458f34ee79ba42a570ec4d_1"], "link", ["\/login", "Please login.", "Login"], "method"), "html", null, true));
     }
-    // line 20
+    // line 21
     sb.append("<\/p>\n\n");
 };
 

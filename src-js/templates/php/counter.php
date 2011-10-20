@@ -1,7 +1,7 @@
 <?php
 
 /* counter.twig */
-class __TwigTemplate_0fd54dee50363230c6617f6046fc927b extends Twig_Template
+class __TwigTemplate_458b8acfdc7c0728b61335e858574fc0 extends Twig_Template
 {
     protected function doGetParent(array $context)
     {

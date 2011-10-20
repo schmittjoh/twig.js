@@ -180,6 +180,13 @@ twig.Environment.prototype.setGlobal = function(key, value) {
 };
 
 /**
+ * @return {Object}
+ */
+twig.Environment.prototype.getGlobals = function() {
+	return this.globals_;
+};
+
+/**
  * @return {string}
  */
 twig.Environment.prototype.getCharset = function() {

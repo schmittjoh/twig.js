@@ -1,7 +1,7 @@
 <?php
 
 /* welcome.twig */
-class __TwigTemplate_a992a92742da141f6874dbb3379d9374 extends Twig_Template
+class __TwigTemplate_9162a8dce4458f34ee79ba42a570ec4d extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -34,13 +34,15 @@ class __TwigTemplate_a992a92742da141f6874dbb3379d9374 extends Twig_Template
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+        // line 3
+        $context["__internal_9162a8dce4458f34ee79ba42a570ec4d_1"] = $this->env->loadTemplate("macros.twig");
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 4
+    // line 5
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 5
+        // line 6
         echo "    ";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
@@ -49,28 +51,28 @@ class __TwigTemplate_a992a92742da141f6874dbb3379d9374 extends Twig_Template
 ";
     }
 
-    // line 10
+    // line 11
     public function block_body($context, array $blocks = array())
     {
-        // line 11
+        // line 12
         echo "
     <h1>Welcome ";
-        // line 12
+        // line 13
         if (isset($context["name"])) { $_name_ = $context["name"]; } else { $_name_ = null; }
         echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (twig_default_filter($_name_, "World")) : ("World")), "html", null, true);
         echo "!</h1>
 
     <p>";
-        // line 15
+        // line 16
         if (isset($context["name"])) { $_name_ = $context["name"]; } else { $_name_ = null; }
         if ((!twig_test_empty($_name_))) {
-            // line 16
+            // line 17
             echo "Some Status.";
         } else {
-            // line 18
-            echo "Please login.";
+            // line 19
+            echo twig_escape_filter($this->env, $this->getAttribute($context["__internal_9162a8dce4458f34ee79ba42a570ec4d_1"], "link", array("/login", "Please login.", "Login", ), "method"), "html", null, true);
         }
-        // line 20
+        // line 21
         echo "</p>
 
 ";

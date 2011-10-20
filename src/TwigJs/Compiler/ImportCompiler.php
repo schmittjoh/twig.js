@@ -36,7 +36,7 @@ class ImportCompiler implements TypeCompilerInterface
 
         $compiler
             ->addDebugInfo($node)
-            ->write('var ')
+            ->write("")
             ->subcompile($node->getNode('var'))
             ->raw(' = ')
         ;

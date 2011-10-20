@@ -31,58 +31,44 @@ class MacroCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Macro) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Macro, but got "%s".', get_class($node)));
+            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_Macro, but got "%s".', get_class($node)));
         }
 
-//         $arguments = array();
-//         foreach ($this->getNode('arguments') as $argument) {
-//             $arguments[] = '$'.$argument->getAttribute('name').' = null';
-//         }
+        $compiler->enterScope();
 
-//         $compiler
-//             ->addDebugInfo($this)
-//             ->write(sprintf("public function get%s(%s)\n", $this->getAttribute('name'), implode(', ', $arguments)), "{\n")
-//             ->indent()
-//         ;
+        $arguments = array();
+        foreach ($node->getNode('arguments') as $argument) {
+            $name = $argument->getAttribute('name');
 
-//         if (!count($this->getNode('arguments'))) {
-//             $compiler->write("\$context = \$this->env->getGlobals();\n\n");
-//         } else {
-//             $compiler
-//                 ->write("\$context = array_merge(\$this->env->getGlobals(), array(\n")
-//                 ->indent()
-//             ;
+            $arguments[] = 'opt_'.$name;
+            $compiler->setVar($name, 'opt_'.$name);
+        }
 
-//             foreach ($this->getNode('arguments') as $argument) {
-//                 $compiler
-//                     ->write('')
-//                     ->string($argument->getAttribute('name'))
-//                     ->raw(' => $'.$argument->getAttribute('name'))
-//                     ->raw(",\n")
-//                 ;
-//             }
+        $compiler
+            ->addDebugInfo($node)
+            ->write("/**\n", " * Macro \"".$node->getAttribute('name')."\"\n", " *\n")
+        ;
 
-//             $compiler
-//                 ->outdent()
-//                 ->write("));\n\n")
-//             ;
-//         }
+        foreach ($arguments as $arg => $var) {
+            $compiler->write(" * @param {*} $var\n");
+        }
 
-//         $compiler
-//             ->write("ob_start();\n")
-//             ->write("try {\n")
-//             ->indent()
-//             ->subcompile($this->getNode('body'))
-//             ->outdent()
-//             ->write("} catch(Exception \$e) {\n")
-//             ->indent()
-//             ->write("ob_end_clean();\n\n")
-//             ->write("throw \$e;\n")
-//             ->outdent()
-//             ->write("}\n\n")
-//             ->write("return ob_get_clean();\n")
-//             ->outdent()
-//             ->write("}\n\n")
-//         ;
+        $compiler
+            ->write(" * @return {string}\n")
+            ->write(" */\n")
+            ->raw($compiler->templateFunctionName)
+            ->raw(".prototype.get")
+            ->raw($node->getAttribute('name'))
+            ->raw(" = function(".implode(', ', $arguments).") {\n")
+            ->indent()
+            ->write("var context = twig.extend({}, this.env_.getGlobals());\n\n")
+            ->write("var sb = new twig.StringBuffer;\n")
+            ->subcompile($node->getNode('body'))
+            ->raw("\n")
+            ->write("return new twig.Markup(sb.toString());\n")
+            ->outdent()
+            ->write("};\n\n")
+            ->leaveScope()
+        ;
     }
 }

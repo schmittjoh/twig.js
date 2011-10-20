@@ -1,7 +1,7 @@
 <?php
 
 /* hello_world.twig */
-class __TwigTemplate_60cb694330e2221786dea494f3464a10 extends Twig_Template
+class __TwigTemplate_ed1f3ea75184b22957868d33e5d3e206 extends Twig_Template
 {
     protected function doGetParent(array $context)
     {

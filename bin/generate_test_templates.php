@@ -24,19 +24,19 @@ if (!isset($_SERVER['TWIG_LIB'])) {
 
 $env = new Twig_Environment();
 $env->setLoader(new Twig_Loader_Filesystem(array(
-    __DIR__.'/../src-js/templates',
+    __DIR__.'/../src-js/templates/twig',
 )));
 $env->addExtension(new Twig_Extension_Core());
 $handler = new TwigJs\CompileRequestHandler($env, new TwigJs\JsCompiler($env));
 
-foreach (new RecursiveDirectoryIterator(__DIR__.'/../src-js/templates', RecursiveDirectoryIterator::SKIP_DOTS) as $file) {
+foreach (new RecursiveDirectoryIterator(__DIR__.'/../src-js/templates/twig', RecursiveDirectoryIterator::SKIP_DOTS) as $file) {
     if ('.twig' !== substr($file, -5)) {
         continue;
     }
 
     $request = new TwigJs\CompileRequest(basename($file), file_get_contents($file));
-    file_put_contents(__DIR__.'/../src-js/templates/'.basename($file, '.twig').'.js',
+    file_put_contents(__DIR__.'/../src-js/templates/js/'.basename($file, '.twig').'.js',
         $handler->process($request));
-    file_put_contents(__DIR__.'/../src-js/templates/'.basename($file, '.twig').'.php',
+    file_put_contents(__DIR__.'/../src-js/templates/php/'.basename($file, '.twig').'.php',
             $env->compileSource(file_get_contents($file), basename($file)));
 }

@@ -111,8 +111,8 @@ class ModuleCompiler implements TypeCompilerInterface
         $filename = $node->getAttribute('filename');
         if (!empty($filename)
                 && false !== strpos($filename, DIRECTORY_SEPARATOR)) {
-            $filename = implode(DIRECTORY_SEPARATOR, array_splice(
-                    explode(DIRECTORY_SEPARATOR, realpath($filename)), -4));
+            $parts = explode(DIRECTORY_SEPARATOR, $filename);
+            $filename = implode(DIRECTORY_SEPARATOR, array_splice($parts, -4));
         }
 
         $compiler

@@ -22,7 +22,7 @@ if (!isset($_SERVER['TWIG_LIB'])) {
     throw new \RuntimeException('$_SERVER["TWIG_LIB"] must be set.');
 }
 
-$dir = $_SERVER['TWIG_LIB'];
+$dir = realpath($_SERVER['TWIG_LIB'].'/Twig/Node');
 $dirLength = strlen($dir);
 
 $iterator = new RecursiveIteratorIterator(

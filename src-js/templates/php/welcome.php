@@ -59,7 +59,7 @@ class __TwigTemplate_9162a8dce4458f34ee79ba42a570ec4d extends Twig_Template
     <h1>Welcome ";
         // line 13
         if (isset($context["name"])) { $_name_ = $context["name"]; } else { $_name_ = null; }
-        echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (twig_default_filter($_name_, "World")) : ("World")), "html", null, true);
+        echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter($_name_, "World")) : ("World")), "html", null, true);
         echo "!</h1>
 
     <p>";

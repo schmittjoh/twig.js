@@ -94,7 +94,7 @@ class ForCompiler implements TypeCompilerInterface
                 ->write("};\n")
             ;
 
-            if (null === $node->getNode('ifexpr')) {
+            if (false === $node->getAttribute('ifexpr')) {
                 $compiler
                     ->write("if (twig.countable($seqName)) {\n")
                     ->indent()
@@ -109,6 +109,13 @@ class ForCompiler implements TypeCompilerInterface
             }
         }
 
+        $ref = new \ReflectionProperty($node, 'loop');
+        $ref->setAccessible(true);
+        $loop = $ref->getValue($node);
+        $loop->setAttribute('else', null !== $node->getNode('else'));
+        $loop->setAttribute('with_loop', $node->getAttribute('with_loop'));
+        $loop->setAttribute('ifexpr', $node->getAttribute('ifexpr'));
+
         $compiler
             ->write("twig.forEach($seqName, function($valueName, $keyName) {\n")
             ->indent()
@@ -118,49 +125,7 @@ class ForCompiler implements TypeCompilerInterface
             ->write("")
             ->subcompile($node->getNode('value_target'))
             ->raw(" = $valueName;\n")
-        ;
-
-        if (null !== $node->getNode('ifexpr')) {
-            $compiler
-                ->write("if (!(")
-                ->subcompile($node->getNode('ifexpr'))
-                ->raw(")) {\n")
-                ->indent()
-                ->write("return;\n")
-                ->outdent()
-                ->write("}\n\n")
-            ;
-        }
-
-        $compiler
             ->subcompile($node->getNode('body'))
-        ;
-
-        if (null !== $node->getNode('else')) {
-            $compiler->write("$iteratedName = true;\n");
-        }
-
-        if ($node->getAttribute('with_loop')) {
-            $compiler
-                ->write("++{$loopName}['index0'];\n")
-                ->write("++{$loopName}['index'];\n")
-                ->write("{$loopName}['first'] = false;\n")
-            ;
-
-            if (null === $node->getNode('ifexpr')) {
-                $compiler
-                    ->write("if ({$loopName}['length']) {\n")
-                    ->indent()
-                    ->write("--{$loopName}['revindex0'];\n")
-                    ->write("--{$loopName}['revindex'];\n")
-                    ->write("{$loopName}['last'] = 0 === {$loopName}['revindex0'];\n")
-                    ->outdent()
-                    ->write("}\n")
-                ;
-            }
-        }
-
-        $compiler
             ->outdent()
             ->write("}, this);\n")
         ;

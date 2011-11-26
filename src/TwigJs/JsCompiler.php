@@ -73,6 +73,7 @@ use TwigJs\Compiler\Expression\GetAttrCompiler;
 use TwigJs\Compiler\Expression\ConstantCompiler;
 use TwigJs\Compiler\Expression\AssignNameCompiler;
 use TwigJs\Compiler\ForCompiler;
+use TwigJs\Compiler\ForLoopCompiler;
 use TwigJs\Compiler\Filter\EscapeCompiler;
 use TwigJs\Compiler\Expression\FilterCompiler;
 use TwigJs\Compiler\PrintCompiler;
@@ -120,6 +121,7 @@ class JsCompiler extends \Twig_Compiler
             'Twig_Node_If' => new IfCompiler(),
             'Twig_Node_Print' => new PrintCompiler(),
             'Twig_Node_For' => new ForCompiler(),
+            'Twig_Node_ForLoop' => new ForLoopCompiler(),
             'Twig_Node_Set' => new SetCompiler(),
             'Twig_Node_Include' => new IncludeCompiler(),
             'Twig_Node_Spaceless' => new SpacelessCompiler(),
@@ -140,6 +142,7 @@ class JsCompiler extends \Twig_Compiler
             'Twig_Node_Expression_Test' => new TestCompiler(),
             'Twig_Node_Expression_Name' => new NameCompiler(),
             'Twig_Node_Expression_Filter' => new FilterCompiler(),
+            'Twig_Node_Expression_Filter_Default' => new Compiler\Expression\Filter\DefaultCompiler(),
             'Twig_Node_Expression_Constant' => new ConstantCompiler(),
             'Twig_Node_Expression_GetAttr' => new GetAttrCompiler(),
             'Twig_Node_Expression_Binary_Add' => new AddCompiler(),
@@ -167,6 +170,14 @@ class JsCompiler extends \Twig_Compiler
             'Twig_Node_Expression_Unary_Neg' => new NegCompiler(),
             'Twig_Node_Expression_Unary_Not' => new NotCompiler(),
             'Twig_Node_Expression_Unary_Pos' => new PosCompiler(),
+            'Twig_Node_Expression_Test_Constant' => new Compiler\Expression\Test\ConstantCompiler(),
+            'Twig_Node_Expression_Test_Defined' => new Compiler\Expression\Test\DefinedCompiler(),
+            'Twig_Node_Expression_Test_Divisibleby' => new Compiler\Expression\Test\DivisiblebyCompiler(),
+            'Twig_Node_Expression_Test_Even' => new Compiler\Expression\Test\EvenCompiler(),
+            'Twig_Node_Expression_Test_Null' => new Compiler\Expression\Test\NullCompiler(),
+            'Twig_Node_Expression_Test_Odd' => new Compiler\Expression\Test\OddCompiler(),
+            'Twig_Node_Expression_Test_Sameas' => new Compiler\Expression\Test\SameasCompiler(),
+
         );
 
         $this->testCompilers = array(
@@ -186,6 +197,7 @@ class JsCompiler extends \Twig_Compiler
             'length' => 'twig.filter.length',
             'capitalize' => 'twig.filter.capitalize',
             'default' => 'twig.filter.def',
+            '_default' => 'twig.filter.def',
             'upper' => 'String.prototype.toUpperCase.call',
             'lower' => 'String.prototype.toLowerCase.call',
             'url_encode' => 'encodeURIComponent',

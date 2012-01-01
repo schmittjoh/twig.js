@@ -1,13 +1,8 @@
 <?php
 
 /* counter.twig */
-class __TwigTemplate_458b8acfdc7c0728b61335e858574fc0 extends Twig_Template
+class __TwigTemplate_2b87a4da1ef5e5a05eaa0a4a8016428c extends Twig_Template
 {
-    protected function doGetParent(array $context)
-    {
-        return false;
-    }
-
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1

@@ -1,7 +1,7 @@
 <?php
 
 /* traitable.twig */
-class __TwigTemplate_92d4ab5a07ce0910dd9ae6a4d9c998af extends Twig_Template
+class __TwigTemplate_3425c06aa00ecbce78b8b480cc5e0e5a extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -10,11 +10,6 @@ class __TwigTemplate_92d4ab5a07ce0910dd9ae6a4d9c998af extends Twig_Template
         $this->blocks = array(
             'title' => array($this, 'block_title'),
         );
-    }
-
-    protected function doGetParent(array $context)
-    {
-        return false;
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -33,8 +28,4 @@ class __TwigTemplate_92d4ab5a07ce0910dd9ae6a4d9c998af extends Twig_Template
         return "traitable.twig";
     }
 
-    public function isTraitable()
-    {
-        return true;
-    }
 }

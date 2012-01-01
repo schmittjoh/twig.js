@@ -1,13 +1,8 @@
 <?php
 
 /* macros.twig */
-class __TwigTemplate_26abd91759dde93329439e4f8b9b1b33 extends Twig_Template
+class __TwigTemplate_5286dda4662b2b657c4d5d487ec24317 extends Twig_Template
 {
-    protected function doGetParent(array $context)
-    {
-        return false;
-    }
-
     protected function doDisplay(array $context, array $blocks = array())
     {
     }
@@ -20,6 +15,8 @@ class __TwigTemplate_26abd91759dde93329439e4f8b9b1b33 extends Twig_Template
             "content" => $content,
             "title" => $title,
         ));
+
+        $blocks = array();
 
         ob_start();
         try {

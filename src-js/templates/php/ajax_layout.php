@@ -1,7 +1,7 @@
 <?php
 
 /* ajax_layout.twig */
-class __TwigTemplate_36192d5d395bb75605e885ba40a5d127 extends Twig_Template
+class __TwigTemplate_96a905a83a4712f4569ce3bec9775310 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -10,11 +10,6 @@ class __TwigTemplate_36192d5d395bb75605e885ba40a5d127 extends Twig_Template
         $this->blocks = array(
             'body' => array($this, 'block_body'),
         );
-    }
-
-    protected function doGetParent(array $context)
-    {
-        return false;
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -32,8 +27,4 @@ class __TwigTemplate_36192d5d395bb75605e885ba40a5d127 extends Twig_Template
         return "ajax_layout.twig";
     }
 
-    public function isTraitable()
-    {
-        return true;
-    }
 }

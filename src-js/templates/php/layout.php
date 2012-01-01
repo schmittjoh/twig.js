@@ -1,7 +1,7 @@
 <?php
 
 /* layout.twig */
-class __TwigTemplate_251e451d8d4a556b56f2b3a1434ce2e4 extends Twig_Template
+class __TwigTemplate_b2cd35190054ae68d051b904fd6d99e6 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -13,11 +13,6 @@ class __TwigTemplate_251e451d8d4a556b56f2b3a1434ce2e4 extends Twig_Template
             'body' => array($this, 'block_body'),
             'javascripts' => array($this, 'block_javascripts'),
         );
-    }
-
-    protected function doGetParent(array $context)
-    {
-        return false;
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -79,8 +74,4 @@ class __TwigTemplate_251e451d8d4a556b56f2b3a1434ce2e4 extends Twig_Template
         return "layout.twig";
     }
 
-    public function isTraitable()
-    {
-        return true;
-    }
 }

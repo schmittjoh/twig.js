@@ -1,13 +1,8 @@
 <?php
 
 /* hello_world.twig */
-class __TwigTemplate_ed1f3ea75184b22957868d33e5d3e206 extends Twig_Template
+class __TwigTemplate_529fb3c0648b250e9a5dd946198721e8 extends Twig_Template
 {
-    protected function doGetParent(array $context)
-    {
-        return false;
-    }
-
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1

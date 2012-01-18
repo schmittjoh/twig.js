@@ -135,7 +135,7 @@ twig.filter.date = function (str, format) {
                     finalDate += ((date.getDate() < 10) ? '0' : '') + date.getDate();
                     break;
                 case 'D':
-                    finalDate += dayAbbr[date.getDate()];
+                    finalDate += dayAbbr[date.getDay()];
                     break;
                 case 'j':
                     finalDate += date.getDate();

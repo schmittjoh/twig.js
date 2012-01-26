@@ -4,7 +4,7 @@ Filters
 twig.js has support for the following filters built-in: 
 default, capitalize, escape, length, upper, lower, url_encode, replace, date
 
-date filter don't support all php date format characters:
+The date filter doesn't support all the php date format characters:
 o (ISO-8601 year number), B (Swatch Internet time), u (Microseconds),
 e (Timezone identifier), I (daylight saving time), O (Difference to Greenwich time (GMT) in hours),
 P (Difference to Greenwich time (GMT) with colon between hours and minutes), T (Timezone abbreviation) and

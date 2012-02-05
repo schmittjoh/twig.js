@@ -62,7 +62,7 @@ class IncludeCompiler implements TypeCompilerInterface
 
         if (false === $node->getAttribute('only')) {
             if (null === $node->getNode('variables')) {
-                $compiler->raw('$context');
+                $compiler->raw('context');
             } else {
                 $compiler
                     ->raw('twig.extend({}, context, ')

@@ -194,6 +194,7 @@ class JsCompiler extends \Twig_Compiler
         $this->filterCompilers = array();
         $this->filterFunctions = array(
             'escape' => 'twig.filter.escape',
+            'e' => 'twig.filter.escape',
             'length' => 'twig.filter.length',
             'capitalize' => 'twig.filter.capitalize',
             'default' => 'twig.filter.def',

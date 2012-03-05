@@ -48,6 +48,15 @@
         function testCounter() {
         	assertEquals("1, 1, 2, 2, 3, 3, 4, 4, 5, 5", Twig.render(counter));
         }
+
+        function testRenderBlockWithEmptyContext() {
+            var welcomeTpl = Twig.createTemplate(welcome);
+            
+            assertEquals(
+                twig.spaceless('<h1>Welcome World</h1><p><a href=\"/login\" title=\"Login\">Please login.</a></p>'),
+                twig.spaceless(welcomeTpl.renderBlock("body"))
+            );
+        }
     </script>
 </body>
 </html>

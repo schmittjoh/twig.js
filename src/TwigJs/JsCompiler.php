@@ -203,6 +203,7 @@ class JsCompiler extends \Twig_Compiler
             'lower' => 'String.prototype.toLowerCase.call',
             'url_encode' => 'encodeURIComponent',
             'replace' => 'twig.filter.replace',
+            'date' => 'twig.filter.date'
         );
 
         $this->functionMap = array(

@@ -50,6 +50,15 @@
         	assertEquals(0, twig.filter.length(null, []));
         	assertEquals(1, twig.filter.length(null, {foo:"bar"}));
         }
+
+        function testDate() {
+            assertEquals("Fri, 05 Jan 2012, 3:09pm", twig.filter.date("Thu, 05 Jan 2012 15:09:30 -0500", "D, d M Y, g:ia"));
+            assertEquals("Thu Jan 05 2012 15:09:30 GMT-0500 (EST)", twig.filter.date("Thu, 05 Jan 2012 15:09:30 -0500", "r"));
+            assertEquals("Monday, the 19th of December, 2011", twig.filter.date("Mon, 19 Dec 2011 11:16:25 -0500", "l, \\t\\h\\e jS \\o\\f F, Y"));
+            assertEquals("8:16am or 08:16:25", twig.filter.date("Mon, 19 Dec 2011 08:16:25 -0500", "g:ia \\o\\r H:i:s"));
+            assertEquals("17\\1\\12, 17 day of year, 3 week", twig.filter.date("Tue, 17 Jan 2012 15:39:04 -0500", "j\\\\n\\\\y, z \\d\\a\\y \\o\\f \\y\\e\\a\\r, W \\w\\e\\e\\k"));
+        }
+
     </script>
 </body>
 </html>

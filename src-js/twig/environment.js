@@ -61,6 +61,12 @@ twig.Environment = function() {
 	 * @type {Object}
 	 */
 	this.globals_ = {};
+    
+    /**
+	 * @private
+	 * @type {boolean}
+	 */
+    this.runtimeInitialized = false;
 
 	/**
 	 * @private
@@ -288,9 +294,14 @@ twig.Environment.prototype.getExtensions = function() {
  */
 twig.Environment.prototype.createTemplate = function(ctor) {
 	var uid = goog.getUid(ctor);
+    
 	if (goog.object.containsKey(this.createdTemplates_, uid)) {
 		return this.createdTemplates_[uid];
 	}
+
+    if (false === this.runtimeInitialized) {
+        this.initRuntime();
+    }
 
 	var template = /** @type {twig.Template} */ (new ctor(this));
 	this.createdTemplates_[uid] = template;

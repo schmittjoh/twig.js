@@ -16,9 +16,6 @@
 
 goog.provide('twig.ExtensionInterface');
 
-goog.require('twig');
-goog.require('twig.Environment');
-
 /**
  * Interface implemented by extension classes.
  *
@@ -30,42 +27,42 @@ twig.ExtensionInterface = function() {};
  * Initializes the runtime environment.
  *
  * This is where you can load some file that contains filter functions for instance.
- * 
+ *
  * @param {twig.Environment} environment The current environment instance
  */
-twig.Extension.prototype.initRuntime = function(environment) {};
+twig.ExtensionInterface.prototype.initRuntime = function(environment) {};
 
 /**
  * Returns a list of filters to add to the existing list.
  *
  * @return {Array} An array of filters
  */
-twig.Extension.prototype.getFilters = function() {};
+twig.ExtensionInterface.prototype.getFilters = function() {};
 
 /**
  * Returns a list of tests to add to the existing list.
  *
  * @return {Array} An array of tests
  */
-twig.Extension.prototype.getTests = function() {};
+twig.ExtensionInterface.prototype.getTests = function() {};
 
 /**
  * Returns a list of functions to add to the existing list.
  *
  * @return {Array} An array of functions
  */
-twig.Extension.prototype.getFunctions = function() {};
+twig.ExtensionInterface.prototype.getFunctions = function() {};
 
 /**
  * Returns a list of global variables to add to the existing list.
  *
  * @return {Array} An array of global variables
  */
-twig.Extension.prototype.getGlobals = function() {};
+twig.ExtensionInterface.prototype.getGlobals = function() {};
 
 /**
  * Returns the name of the extension.
  *
  * @return {string} The extension name
  */
-twig.Extension.prototype.getName = function() {};
+twig.ExtensionInterface.prototype.getName = function() {};

@@ -16,9 +16,7 @@
 
 goog.provide('twig.Extension');
 
-goog.require('twig');
 goog.require('twig.ExtensionInterface');
-goog.require('twig.Environment');
 
 /**
  * @constructor
@@ -30,12 +28,10 @@ twig.Extension = function() {};
  * Initializes the runtime environment.
  *
  * This is where you can load some file that contains filter functions for instance.
- * 
+ *
  * @param {twig.Environment} environment The current environment instance
  */
-twig.Extension.prototype.initRuntime = function(environment) {
-    
-};
+twig.Extension.prototype.initRuntime = function(environment) {};
 
 /**
  * Returns a list of filters to add to the existing list.

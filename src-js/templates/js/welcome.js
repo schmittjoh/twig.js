@@ -45,7 +45,7 @@ welcome.prototype.getParent_ = function(context) {
  */
 welcome.prototype.render_ = function(sb, context, blocks) {
     // line 3
-    context["__internal_2547295a140ac5330ced4d5f977bde50_1"] = this.env_.createTemplate(macros);
+    context["__internal_cbdb1597869ae2ad41fe8fbbd05106d9_1"] = this.env_.createTemplate(macros);
     this.getParent(context).render_(sb, context, twig.extend({}, this.getBlocks(), blocks));
 };
 
@@ -81,7 +81,7 @@ welcome.prototype.block_body = function(sb, context, blocks) {
         sb.append("Some Status.");
     } else {
         // line 19
-        sb.append(twig.filter.escape(this.env_, twig.attr(context["__internal_2547295a140ac5330ced4d5f977bde50_1"], "link", ["\/login", "Please login.", "Login"], "method"), "html", null, true));
+        sb.append(twig.filter.escape(this.env_, twig.attr(context["__internal_cbdb1597869ae2ad41fe8fbbd05106d9_1"], "link", ["\/login", "Please login.", "Login"], "method"), "html", null, true));
     }
     // line 21
     sb.append("<\/p>\n\n");

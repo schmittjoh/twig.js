@@ -8,7 +8,7 @@
  * Portions of this code are from the Google Closure Library received
  * from the Closure Authors under the Apache 2.0 License.
  */
-(function() {var $JSCompiler_alias_NULL$$ = null, $JSCompiler_alias_FALSE$$ = !1, $JSCompiler_prototypeAlias$$, $goog$global$$ = this;
+(function() {var $JSCompiler_alias_TRUE$$ = !0, $JSCompiler_alias_NULL$$ = null, $JSCompiler_alias_FALSE$$ = !1, $JSCompiler_prototypeAlias$$, $goog$global$$ = this;
 function $goog$exportPath_$$($name$$55_parts$$, $opt_object$$, $cur_opt_objectToExportTo$$) {
   $name$$55_parts$$ = $name$$55_parts$$.split(".");
   $cur_opt_objectToExportTo$$ = $cur_opt_objectToExportTo$$ || $goog$global$$;
@@ -191,7 +191,7 @@ function $goog$asserts$assert$$($condition$$1$$, $opt_message$$8$$, $var_args$$3
 };
 var $twig$bind$$ = $goog$bind$$, $goog$UID_PROPERTY_$$ = "twig_ui_" + Math.floor(2147483648 * Math.random()).toString(36);
 function $twig$empty$$($value$$58$$) {
-  return $JSCompiler_alias_NULL$$ === $value$$58$$ || $JSCompiler_alias_FALSE$$ === $value$$58$$ || void 0 === $value$$58$$ || 0 === $value$$58$$ ? !0 : $twig$countable$$($value$$58$$) ? 0 === $twig$count$$($value$$58$$) : $JSCompiler_alias_FALSE$$
+  return $JSCompiler_alias_NULL$$ === $value$$58$$ || $JSCompiler_alias_FALSE$$ === $value$$58$$ || void 0 === $value$$58$$ || 0 === $value$$58$$ ? $JSCompiler_alias_TRUE$$ : $twig$countable$$($value$$58$$) ? 0 === $twig$count$$($value$$58$$) : $JSCompiler_alias_FALSE$$
 }
 function $twig$extend$$($target$$39$$, $var_args$$52$$) {
   $goog$object$extend$$.apply($JSCompiler_alias_NULL$$, Array.prototype.slice.call(arguments, 0));
@@ -280,7 +280,8 @@ function $twig$Environment$$() {
   this.$functions_$ = {};
   this.$tests_$ = {};
   this.$createdTemplates_$ = {};
-  this.$globals_$ = {}
+  this.$globals_$ = {};
+  this.$runtimeInitialized$ = $JSCompiler_alias_FALSE$$
 }
 $JSCompiler_prototypeAlias$$ = $twig$Environment$$.prototype;
 $JSCompiler_prototypeAlias$$.$render$ = function $$JSCompiler_prototypeAlias$$$$render$$($ctor$$2$$, $opt_context$$6$$) {
@@ -318,6 +319,7 @@ $JSCompiler_prototypeAlias$$.$getGlobals$ = function $$JSCompiler_prototypeAlias
   return this.$globals_$
 };
 $JSCompiler_prototypeAlias$$.$initRuntime$ = function $$JSCompiler_prototypeAlias$$$$initRuntime$$() {
+  this.$runtimeInitialized$ = $JSCompiler_alias_TRUE$$;
   $twig$forEach$$(this.$extensions_$, function($extension$$) {
     $extension$$.$initRuntime$()
   })
@@ -350,6 +352,7 @@ $JSCompiler_prototypeAlias$$.$createTemplate$ = function $$JSCompiler_prototypeA
   if($uid$$ in this.$createdTemplates_$) {
     return this.$createdTemplates_$[$uid$$]
   }
+  $JSCompiler_alias_FALSE$$ === this.$runtimeInitialized$ && this.$initRuntime$();
   $ctor$$3_template$$1$$ = new $ctor$$3_template$$1$$(this);
   return this.$createdTemplates_$[$uid$$] = $ctor$$3_template$$1$$
 };
@@ -368,10 +371,10 @@ $goog$exportSymbol$$("twig.attr", function($obj$$56$$, $attr_functionName$$, $op
   $isTest_opt_isTest$$ = void 0 !== $isTest_opt_isTest$$ ? $isTest_opt_isTest$$ : $JSCompiler_alias_FALSE$$;
   if($attr_functionName$$ in $obj$$56$$) {
     if("array" !== $accessType_opt_accessType$$ && "function" == $goog$typeOf$$($obj$$56$$[$attr_functionName$$])) {
-      return $isTest_opt_isTest$$ ? !0 : $obj$$56$$[$attr_functionName$$].apply($obj$$56$$, $opt_args$$1$$ || [])
+      return $isTest_opt_isTest$$ ? $JSCompiler_alias_TRUE$$ : $obj$$56$$[$attr_functionName$$].apply($obj$$56$$, $opt_args$$1$$ || [])
     }
     if("method" !== $accessType_opt_accessType$$) {
-      return $isTest_opt_isTest$$ ? !0 : $obj$$56$$[$attr_functionName$$]
+      return $isTest_opt_isTest$$ ? $JSCompiler_alias_TRUE$$ : $obj$$56$$[$attr_functionName$$]
     }
   }
   if("array" === $accessType_opt_accessType$$ || $goog$isArray$$($obj$$56$$)) {
@@ -381,7 +384,7 @@ $goog$exportSymbol$$("twig.attr", function($obj$$56$$, $attr_functionName$$, $op
   return($attr_functionName$$ = $goog$object$findKey$$($obj$$56$$, function($v$$, $k$$) {
     $k$$ = $k$$.toLowerCase();
     return $k$$ === $getter$$ || $k$$ === $isser$$
-  })) && "function" == $goog$typeOf$$($obj$$56$$[$attr_functionName$$]) ? $isTest_opt_isTest$$ ? !0 : $obj$$56$$[$attr_functionName$$].apply($obj$$56$$, $opt_args$$1$$ || []) : $isTest_opt_isTest$$ ? $JSCompiler_alias_FALSE$$ : $JSCompiler_alias_NULL$$
+  })) && "function" == $goog$typeOf$$($obj$$56$$[$attr_functionName$$]) ? $isTest_opt_isTest$$ ? $JSCompiler_alias_TRUE$$ : $obj$$56$$[$attr_functionName$$].apply($obj$$56$$, $opt_args$$1$$ || []) : $isTest_opt_isTest$$ ? $JSCompiler_alias_FALSE$$ : $JSCompiler_alias_NULL$$
 });
 $goog$exportSymbol$$("twig.bind", $twig$bind$$);
 $goog$exportSymbol$$("twig.inherits", $goog$inherits$$);
@@ -406,7 +409,7 @@ $goog$exportSymbol$$("twig.contains", function($haystack$$, $needle$$) {
       a: {
         for($JSCompiler_temp$$123_JSCompiler_temp$$124_key$$inline_127$$ in $haystack$$) {
           if($haystack$$[$JSCompiler_temp$$123_JSCompiler_temp$$124_key$$inline_127$$] == $needle$$) {
-            $JSCompiler_temp$$123_JSCompiler_temp$$124_key$$inline_127$$ = !0;
+            $JSCompiler_temp$$123_JSCompiler_temp$$124_key$$inline_127$$ = $JSCompiler_alias_TRUE$$;
             break a
           }
         }

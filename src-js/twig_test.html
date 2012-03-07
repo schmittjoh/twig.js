@@ -53,6 +53,11 @@
 
             assertNull(twig.attr(null, "baz"));
             assertNull(twig.attr(undefined, "baz"));
+            assertNull(twig.attr(true, "baz"));
+            assertNull(twig.attr(false, "baz"));
+            assertNull(twig.attr(NaN, "baz"));
+            assertNull(twig.attr(Infinity, "baz"));
+            assertNull(twig.attr(-Infinity, "baz"));
             assertNull(twig.attr("", "baz"));
             assertNull(twig.attr({}, "baz"));
             assertNull(twig.attr([], "baz"));

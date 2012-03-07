@@ -1,7 +1,7 @@
 <?php
 
 /* counter.twig */
-class __TwigTemplate_2b87a4da1ef5e5a05eaa0a4a8016428c extends Twig_Template
+class __TwigTemplate_afc69a1699a06372a0048f1e0665dc69 extends Twig_Template
 {
     protected function doDisplay(array $context, array $blocks = array())
     {
@@ -39,7 +39,7 @@ class __TwigTemplate_2b87a4da1ef5e5a05eaa0a4a8016428c extends Twig_Template
             $context = array_merge($_parent, array_intersect_key($context, $_parent));
             // line 8
             if (isset($context["loop"])) { $_loop_ = $context["loop"]; } else { $_loop_ = null; }
-            if ((!$this->getAttribute($_loop_, "last"))) {
+            if ((!twig_template_get_attributes($this, $_loop_, "last"))) {
                 echo ", ";
             }
             ++$context['loop']['index0'];

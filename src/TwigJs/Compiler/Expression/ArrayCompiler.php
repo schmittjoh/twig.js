@@ -36,19 +36,37 @@ class ArrayCompiler implements TypeCompilerInterface
 
         // FIXME: Should real JS arrays be supported, i.e. numeric PHP arrays?
         $compiler->raw('{');
+
         $first = true;
-        foreach ($node as $name => $subNode) {
+
+        foreach ($this->getKeyValuePairs($node) as $pair) {
             if (!$first) {
                 $compiler->raw(', ');
             }
+
             $first = false;
 
             $compiler
-                ->repr($name)
+                ->subcompile($pair['key'])
                 ->raw(': ')
-                ->subcompile($subNode)
+                ->subcompile($pair['value'])
             ;
         }
+
         $compiler->raw('}');
+    }
+
+    private function getKeyValuePairs(\Twig_Node $node)
+    {
+        $pairs = array();
+
+        foreach (array_chunk($node->getIterator()->getArrayCopy(), 2) as $pair) {
+            $pairs[] = array(
+                'key'   => $pair[0],
+                'value' => $pair[1],
+            );
+        }
+
+        return $pairs;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /* hello_world.twig */
-class __TwigTemplate_529fb3c0648b250e9a5dd946198721e8 extends Twig_Template
+class __TwigTemplate_5be6e86026ba27f32fb794690e2c8914 extends Twig_Template
 {
     protected function doDisplay(array $context, array $blocks = array())
     {

@@ -1,7 +1,7 @@
 <?php
 
 /* welcome.twig */
-class __TwigTemplate_2547295a140ac5330ced4d5f977bde50 extends Twig_Template
+class __TwigTemplate_cbdb1597869ae2ad41fe8fbbd05106d9 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -35,7 +35,7 @@ class __TwigTemplate_2547295a140ac5330ced4d5f977bde50 extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-        $context["__internal_2547295a140ac5330ced4d5f977bde50_1"] = $this->env->loadTemplate("macros.twig");
+        $context["__internal_cbdb1597869ae2ad41fe8fbbd05106d9_1"] = $this->env->loadTemplate("macros.twig");
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -70,7 +70,7 @@ class __TwigTemplate_2547295a140ac5330ced4d5f977bde50 extends Twig_Template
             echo "Some Status.";
         } else {
             // line 19
-            echo twig_escape_filter($this->env, $this->getAttribute($context["__internal_2547295a140ac5330ced4d5f977bde50_1"], "link", array("/login", "Please login.", "Login", ), "method"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_template_get_attributes($this, $context["__internal_cbdb1597869ae2ad41fe8fbbd05106d9_1"], "link", array("/login", "Please login.", "Login", ), "method"), "html", null, true);
         }
         // line 21
         echo "</p>

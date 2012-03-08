@@ -18,44 +18,35 @@
         goog.require('goog.testing.asserts');
         goog.require('goog.testing.jsunit');
         goog.require('goog.string');
-    
+
         function testHelloWorld() {
         	var helloWorldTpl = Twig.createTemplate(hello_world);
         	var counterTpl = Twig.createTemplate(counter);
-        	
+
         	assertEquals("Hello World!", Twig.render(hello_world));
         	assertEquals("Hello Johannes!", Twig.render(hello_world, {name: "Johannes"}));
         	assertEquals("Hello &lt;aFoo!", Twig.render(hello_world, {name: "<aFoo"}));
         }
-        
+
          function testWelcome() {
         	assertEquals(
-        		twig.spaceless("<!DOCTYPE html>\n<html>\n <head>\n <title>foo</title>\n <link rel=\"stylesheet\" href=\"foo.css\" />\n </head>\n<body>\n \n <h1>Welcome Johannes!</h1>\n\n <p>Some Status.</p>\n\n <script language=\"javascript\" type=\"text/javascript\" src=\"jquery.js\"><"+"/script>\n \n\n <script language=\"javascript\" type=\"text/javascript\" src=\"welcome.js\"><"+"/script>\n</body>\n</html>"), 
+        		twig.spaceless("<!DOCTYPE html>\n<html>\n <head>\n <title>foo</title>\n <link rel=\"stylesheet\" href=\"foo.css\" />\n </head>\n<body>\n \n <h1>Welcome Johannes!</h1>\n\n <p>Some Status.</p>\n\n <script language=\"javascript\" type=\"text/javascript\" src=\"jquery.js\"><"+"/script>\n \n\n <script language=\"javascript\" type=\"text/javascript\" src=\"welcome.js\"><"+"/script>\n</body>\n</html>"),
         		twig.spaceless(Twig.render(welcome, {name: "Johannes"}))
         	);
-        	
+
         	assertEquals(
         	    twig.spaceless('<h1>Welcome Johannes!</h1>\n\n <p>Some Status.</p>'),
         	    twig.spaceless(Twig.render(welcome, {ajax: true, name: "Johannes"}))
         	);
-        	
+
         	assertEquals(
         	    twig.spaceless('<h1>Welcome World!</h1><p><a href=\"/login\" title=\"Login\">Please login.</a></p>'),
         	    twig.spaceless(Twig.render(welcome, {ajax: true}))
         	);
         }
-        
+
         function testCounter() {
         	assertEquals("1, 1, 2, 2, 3, 3, 4, 4, 5, 5", Twig.render(counter));
-        }
-
-        function testRenderBlockWithEmptyContext() {
-            var welcomeTpl = Twig.createTemplate(welcome);
-            
-            assertEquals(
-                twig.spaceless('<h1>Welcome World</h1><p><a href=\"/login\" title=\"Login\">Please login.</a></p>'),
-                twig.spaceless(welcomeTpl.renderBlock("body"))
-            );
         }
     </script>
 </body>

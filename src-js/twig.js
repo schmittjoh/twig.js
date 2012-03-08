@@ -249,7 +249,7 @@ twig.forEach = function(v, func, opt_this) {
 /**
  * Creates an object literal if keys can be dynamic.
  * 
- * @param {*..} var_args
+ * @param {...*} var_args
  * @return {Object}
  */
 twig.createObj = function(var_args) {

@@ -264,7 +264,7 @@ $JSCompiler_prototypeAlias$$.$renderBlock$ = function $$JSCompiler_prototypeAlia
     return $parent$$4_sb$$3$$.toString()
   }
   if($name$$59$$ in this.$blocks_$) {
-    return $parent$$4_sb$$3$$ = new $goog$string$StringBuffer$$, this.$blocks_$[$name$$59$$]($parent$$4_sb$$3$$, $context$$2$$ || {}, $opt_blocks$$1$$ || {}), $parent$$4_sb$$3$$.toString()
+    return $parent$$4_sb$$3$$ = new $goog$string$StringBuffer$$, this.$blocks_$[$name$$59$$]($parent$$4_sb$$3$$, $context$$2$$, $opt_blocks$$1$$), $parent$$4_sb$$3$$.toString()
   }
   $parent$$4_sb$$3$$ = this.getParent($context$$2$$);
   return $JSCompiler_alias_FALSE$$ !== $parent$$4_sb$$3$$ ? $parent$$4_sb$$3$$.$renderBlock$($name$$59$$, $context$$2$$, $opt_blocks$$1$$) : ""

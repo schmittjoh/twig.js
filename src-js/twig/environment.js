@@ -221,7 +221,7 @@ twig.Environment.prototype.initRuntime = function() {
 
     twig.forEach(this.getExtensions(), function(extension) {
         extension.initRuntime(this);
-    });
+    }, this);
 };
 
 /**

@@ -35,28 +35,28 @@ twig.ExtensionInterface.prototype.initRuntime = function(environment) {};
 /**
  * Returns a list of filters to add to the existing list.
  *
- * @return {Array} An array of filters
+ * @return {Object} An array of filters
  */
 twig.ExtensionInterface.prototype.getFilters = function() {};
 
 /**
  * Returns a list of tests to add to the existing list.
  *
- * @return {Array} An array of tests
+ * @return {Object} An array of tests
  */
 twig.ExtensionInterface.prototype.getTests = function() {};
 
 /**
  * Returns a list of functions to add to the existing list.
  *
- * @return {Array} An array of functions
+ * @return {Object} An array of functions
  */
 twig.ExtensionInterface.prototype.getFunctions = function() {};
 
 /**
  * Returns a list of global variables to add to the existing list.
  *
- * @return {Array} An array of global variables
+ * @return {Object} An array of global variables
  */
 twig.ExtensionInterface.prototype.getGlobals = function() {};
 

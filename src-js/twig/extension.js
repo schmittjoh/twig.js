@@ -35,7 +35,7 @@ twig.Extension.prototype.initRuntime = function(environment) {};
  * @inheritDoc
  */
 twig.Extension.prototype.getFilters = function() {
-	return [];
+	return {};
 };
 
 
@@ -43,7 +43,7 @@ twig.Extension.prototype.getFilters = function() {
  * @inheritDoc
  */
 twig.Extension.prototype.getTests = function() {
-	return [];
+	return {};
 };
 
 
@@ -51,14 +51,14 @@ twig.Extension.prototype.getTests = function() {
  * @inheritDoc
  */
 twig.Extension.prototype.getFunctions = function() {
-	return [];
+	return {};
 };
 
 /**
  * @inheritDoc
  */
 twig.Extension.prototype.getGlobals = function() {
-	return [];
+	return {};
 };
 
 /**

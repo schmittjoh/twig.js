@@ -200,10 +200,12 @@ class JsCompiler extends \Twig_Compiler
             'capitalize' => 'twig.filter.capitalize',
             'default' => 'twig.filter.def',
             '_default' => 'twig.filter.def',
-            'upper' => 'String.prototype.toUpperCase.call',
-            'lower' => 'String.prototype.toLowerCase.call',
+            'upper' => 'twig.filter.upper',
+            'lower' => 'twig.filter.lower',
             'url_encode' => 'encodeURIComponent',
             'replace' => 'twig.filter.replace',
+            'join' => 'twig.filter.join',
+            'keys' => 'twig.filter.keys',
         );
 
         $this->functionMap = array(
@@ -353,6 +355,13 @@ class JsCompiler extends \Twig_Compiler
     {
         $this->localVarMap[$var] =
         $this->scopeVariables[$var] = $localName;
+
+        return $this;
+    }
+
+    public function unsetVar($var)
+    {
+        unset($this->localVarMap[$var]);
 
         return $this;
     }

@@ -2,25 +2,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Integration Test &quot;<?php echo $testName ?>&quot;</title>
+<title>Integration Test &quot;expressions/array&quot;</title>
 </head>
 <body>
     <script language="javascript" type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
     <script language="javascript" type="text/javascript" src="./../../../../../twig.dev.js"></script>
-<?php foreach (array_keys($templates) as $name): ?>
-    <script language="javascript" type="text/javascript" src="./<?php echo $name ?>.js"></script>
-<?php endforeach ?>
+    <script language="javascript" type="text/javascript" src="./index.twig.js"></script>
     <script language="javascript" type="text/javascript">
         goog.require('goog.testing.asserts');
         goog.require('goog.testing.jsunit');
         goog.require('goog.string');
 
-<?php for ($i=0,$c=count($outputs); $i<$c; $i++): ?>
 
-        function testOutput<?php echo $i ?>() {
-            assertEquals(goog.string.trim(<?php echo json_encode($outputs[$i][3]) ?>), goog.string.trim(Twig.render(index, <?php echo json_encode(eval($outputs[$i][1].';')) ?>)));
+        function testOutput0() {
+            assertEquals(goog.string.trim("1,2\nfoo,bar\n1,bar\n0,foo\n\n1,bar\n0,foo\n\n1,2\nbar\n\nbar\n\nFOO,BAR,false\n\n1,2\n\n1,foo,c,1foo\na,b,c,d"), goog.string.trim(Twig.render(index, {"bar":"bar","foo":{"bar":"bar"}})));
         }
-<?php endfor ?>
     </script>
 </body>
 </html>

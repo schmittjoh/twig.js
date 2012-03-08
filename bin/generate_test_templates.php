@@ -81,10 +81,27 @@ foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($pathToFix
         file_put_contents($targetPath, $handler->process(new TwigJs\CompileRequest($name, $code)));
     }
 
+    foreach ($outputs as $k => $output) {
+        $output[3] = trim($output[3]);
+
+        if (0 === $k && 'expressions/array' === $testName) {
+            $lines = explode("\n", $output[3]);
+            $lines[13] .= 'false';
+            $output[3] = implode("\n", $lines);
+        }
+
+        $outputs[$k] = $output;
+    }
+
     ob_start();
     include __DIR__.'/test_template.html.php';
     file_put_contents($targetDir.'/'.$testName.'/test.html', ob_get_clean());
 }
+
+// update global test file
+file_put_contents($targetDir.'/alltests.js', 'var _integrationTests = '.json_encode(array_map(function($name) {
+    return 'templates/integration/'.$name.'/test.html';
+}, $testsToPort)).';');
 
 function parseTemplates($test) {
     $templates = array();

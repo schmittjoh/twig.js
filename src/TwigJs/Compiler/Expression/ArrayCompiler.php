@@ -34,26 +34,74 @@ class ArrayCompiler implements TypeCompilerInterface
             throw new \RuntimeException(sprintf('$node must be an instanceof of \Expression_Array, but got "%s".', get_class($node)));
         }
 
-        // FIXME: Should real JS arrays be supported, i.e. numeric PHP arrays?
-        $compiler->raw('{');
+
+        $pairs = $this->getKeyValuePairs($node);
+
+        if ($isList = $this->isList($pairs)) {
+            $compiler->raw('[');
+        } else if ($hasDynamicKeys = $this->hasDynamicKeys($pairs)) {
+            $compiler->raw('twig.createObj(');
+        } else {
+            $compiler->raw('{');
+        }
 
         $first = true;
-
-        foreach ($this->getKeyValuePairs($node) as $pair) {
+        foreach ($pairs as $pair) {
             if (!$first) {
                 $compiler->raw(', ');
             }
-
             $first = false;
 
-            $compiler
-                ->subcompile($pair['key'])
-                ->raw(': ')
-                ->subcompile($pair['value'])
-            ;
+            if ($isList) {
+                $compiler->subcompile($pair['value']);
+            } else if ($hasDynamicKeys) {
+                $compiler
+                    ->subcompile($pair['key'])
+                    ->raw(', ')
+                    ->subcompile($pair['value'])
+                ;
+            } else {
+                $compiler
+                    ->subcompile($pair['key'])
+                    ->raw(': ')
+                    ->subcompile($pair['value'])
+                ;
+            }
         }
 
-        $compiler->raw('}');
+        if ($isList) {
+            $compiler->raw(']');
+        } else if ($hasDynamicKeys) {
+            $compiler->raw(')');
+        } else {
+            $compiler->raw('}');
+        }
+    }
+
+    private function hasDynamicKeys(array $pairs)
+    {
+        foreach ($pairs as $pair) {
+            if (!$pair['key'] instanceof \Twig_Node_Expression_Constant) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function isList(array $pairs)
+    {
+        for ($i=0,$c=count($pairs); $i<$c; $i++) {
+            if (!$pairs[$i]['key'] instanceof \Twig_Node_Expression_Constant) {
+                return false;
+            }
+
+            if ($pairs[$i]['key']->getAttribute('value') !== $i) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private function getKeyValuePairs(\Twig_Node $node)

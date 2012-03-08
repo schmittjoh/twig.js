@@ -1,7 +1,7 @@
 <?php
 
 /* macros.twig */
-class __TwigTemplate_5286dda4662b2b657c4d5d487ec24317 extends Twig_Template
+class __TwigTemplate_2ccab0f85b7bd5a784d846e735cba04f extends Twig_Template
 {
     protected function doDisplay(array $context, array $blocks = array())
     {

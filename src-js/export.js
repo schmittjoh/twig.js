@@ -40,11 +40,16 @@ goog.exportSymbol('twig.countable', twig.countable);
 goog.exportSymbol('twig.count', twig.count);
 goog.exportSymbol('twig.forEach', twig.forEach);
 goog.exportSymbol('twig.empty', twig.empty);
+goog.exportSymbol('twig.createObj', twig.createObj);
 goog.exportSymbol('twig.filter.capitalize', twig.filter.capitalize);
 goog.exportSymbol('twig.filter.escape', twig.filter.escape);
 goog.exportSymbol('twig.filter.length', twig.filter.length);
 goog.exportSymbol('twig.filter.def', twig.filter.def);
 goog.exportSymbol('twig.filter.replace', twig.filter.replace);
+goog.exportSymbol('twig.filter.join', twig.filter.join);
+goog.exportSymbol('twig.filter.keys', twig.filter.keys);
+goog.exportSymbol('twig.filter.upper', twig.filter.upper);
+goog.exportSymbol('twig.filter.lower', twig.filter.lower);
 
 goog.exportSymbol('twig.StringBuffer', twig.StringBuffer);
 goog.exportProperty(twig.StringBuffer.prototype, 'append', twig.StringBuffer.prototype.append);

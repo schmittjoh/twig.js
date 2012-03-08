@@ -16,7 +16,7 @@
 
 /**
  * @fileoverview Contains some utility functions
- * 
+ *
  * The implementation of these methods are taken from the Google Closure Library,
  * but may be overridden by using implementations of jQuery et. al.
  */
@@ -32,7 +32,7 @@ goog.require('goog.array');
 twig.inherits = goog.inherits;
 twig.bind = goog.bind;
 
-goog.UID_PROPERTY_ = 'twig_ui_' + 
+goog.UID_PROPERTY_ = 'twig_ui_' +
 	Math.floor(Math.random() * 2147483648).toString(36);
 
 /**
@@ -43,12 +43,12 @@ twig.StringBuffer = goog.string.StringBuffer;
 
 /**
  * Whether the given value is considered empty.
- * 
+ *
  * @param {*} value
  * @return {boolean}
  */
 twig.empty = function(value) {
-	if (null === value || false === value || undefined === value 
+	if (null === value || false === value || undefined === value
 			|| 0 === value) {
 		return true;
 	}
@@ -56,7 +56,7 @@ twig.empty = function(value) {
 	if (twig.countable(value)) {
 		return 0 === twig.count(value);
 	}
-	
+
 	return false;
 };
 
@@ -67,7 +67,7 @@ twig.empty = function(value) {
  */
 twig.extend = function(target, var_args) {
 	goog.object.extend.apply(null, Array.prototype.slice.call(arguments, 0));
-	
+
 	return target;
 };
 
@@ -82,7 +82,9 @@ twig.AttrAccess = {
 
 /**
  * Returns the value of the given attr for the given object.
- * 
+ *
+ * Returns null if the given object is not an array or an object.
+ *
  * @param {Object|Array} obj
  * @param {string|number} attr
  * @param {Array.<*>=} opt_args
@@ -91,11 +93,15 @@ twig.AttrAccess = {
  * @return {*}
  */
 twig.attr = function(obj, attr, opt_args, opt_accessType, opt_isTest) {
+    if (!goog.isArray(obj) && !goog.isObject(obj)) {
+        return null;
+    }
+
 	var accessType = opt_accessType || twig.AttrAccess.ANY;
 	var isTest = goog.isDef(opt_isTest) ? opt_isTest : false;
-	
+
 	if (attr in obj) {
-		if (twig.AttrAccess.ARRAY !== accessType 
+		if (twig.AttrAccess.ARRAY !== accessType
 				&& goog.isFunction(obj[attr])) {
 			if (isTest) {
 				return true;
@@ -103,7 +109,7 @@ twig.attr = function(obj, attr, opt_args, opt_accessType, opt_isTest) {
 
 			return obj[attr].apply(obj, opt_args || []);
 		}
-		
+
 		if (twig.AttrAccess.METHOD !== accessType) {
 			if (isTest) {
 				return true;
@@ -112,46 +118,46 @@ twig.attr = function(obj, attr, opt_args, opt_accessType, opt_isTest) {
 			return obj[attr];
 		}
 	}
-	
+
 	if (twig.AttrAccess.ARRAY === accessType
 			|| goog.isArray(obj)) {
 		if (isTest) {
 			return false;
 		}
-		
+
 		// FIXME: Should we add strict behavior similar to Twig's implementation?
 		return null;
 	}
-	
+
 	// check for getters/issers
 	attr = attr.toLowerCase();
 	var getter = 'get' + attr;
 	var isser = 'is' + attr;
 	var functionName = goog.object.findKey(obj, function(v, k) {
 		k = k.toLowerCase();
-		
+
 		return k === getter || k === isser;
 	});
-	
+
 	if (functionName && goog.isFunction(obj[functionName])) {
 		if (isTest) {
 			return true;
 		}
-		
+
 		return obj[functionName].apply(obj, opt_args || []);
 	}
-	
+
 	if (isTest) {
 		return false;
 	}
-	
+
 	// FIXME: Strict behavior?
 	return null;
 };
 
 /**
  * Removes all non-meaningful spaces from the HTML.
- * 
+ *
  * @param {string} s
  * @return {string}
  */
@@ -159,12 +165,12 @@ twig.spaceless = function(s) {
 	// Since IE doesn't include non-breaking-space (0xa0) in their \s character
 	// class (as required by section 7.2 of the ECMAScript spec), we explicitly
 	// include it in the regexp to enforce consistent cross-browser behavior.
-	return goog.string.trim(s.replace(/>[\s\xa0]+</g, "><"));	
+	return goog.string.trim(s.replace(/>[\s\xa0]+</g, "><"));
 };
 
 /**
  * Port of the PHP range() function.
- * 
+ *
  * @param {number} start
  * @param {number} end
  * @return {Array.<number>}
@@ -174,7 +180,7 @@ twig.range = function(start, end) {
 	for (;start <= end; start += 1) {
 		rs.push(start);
 	}
-	
+
 	return rs;
 };
 
@@ -190,13 +196,13 @@ twig.contains = function(haystack, needle) {
 	if (goog.isString(haystack)) {
 		return goog.string.contains(haystack, /** @type {string} */ (needle));
 	}
-	
+
 	return goog.object.contains(/** @type {Object} */ (haystack), needle);
 };
 
 /**
  * Returns whether the given value is countable.
- * 
+ *
  * @param {*} v
  * @return {boolean}
  */
@@ -206,7 +212,7 @@ twig.countable = function(v) {
 
 /**
  * Returns the count for the given value.
- * 
+ *
  * @param {*} v
  * @return {number}
  */
@@ -214,20 +220,20 @@ twig.count = function(v) {
 	if (goog.isArray(v)) {
 		return v.length;
 	}
-	
+
 	if (goog.isString(v)) {
 		return v.length;
 	}
-	
+
 	if (goog.isObject(v)) {
 		return goog.object.getCount(v);
 	}
-	
+
 	throw Error((typeof v) + " is not countable.");
 };
 
 /**
- * 
+ *
  * @param {Array|Object} v
  * @param {Function} func
  * @param {Object=} opt_this
@@ -235,9 +241,9 @@ twig.count = function(v) {
 twig.forEach = function(v, func, opt_this) {
 	if (goog.isArray(v)) {
 		goog.array.forEach(/** @type {Array} */ (v), func, opt_this);
-		
+
 		return;
 	}
-	
+
 	goog.object.forEach(/** @type {Object} */ (v), func, opt_this);
 };

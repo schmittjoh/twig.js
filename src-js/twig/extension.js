@@ -24,47 +24,44 @@ goog.require('twig.ExtensionInterface');
  */
 twig.Extension = function() {};
 
+
 /**
- * Initializes the runtime environment.
- *
- * This is where you can load some file that contains filter functions for instance.
- *
- * @param {twig.Environment} environment The current environment instance
+ * @inheritDoc
  */
 twig.Extension.prototype.initRuntime = function(environment) {};
 
+
 /**
- * Returns a list of filters to add to the existing list.
- *
- * @return {Array} An array of filters
+ * @inheritDoc
  */
 twig.Extension.prototype.getFilters = function() {
 	return [];
 };
 
+
 /**
- * Returns a list of tests to add to the existing list.
- *
- * @return {Array} An array of tests
+ * @inheritDoc
  */
 twig.Extension.prototype.getTests = function() {
 	return [];
 };
 
+
 /**
- * Returns a list of functions to add to the existing list.
- *
- * @return {Array} An array of functions
+ * @inheritDoc
  */
 twig.Extension.prototype.getFunctions = function() {
 	return [];
 };
 
 /**
- * Returns a list of global variables to add to the existing list.
- *
- * @return {Array} An array of global variables
+ * @inheritDoc
  */
 twig.Extension.prototype.getGlobals = function() {
 	return [];
 };
+
+/**
+ * @inheritDoc
+ */
+twig.Extension.prototype.getName = goog.abstractMethod;

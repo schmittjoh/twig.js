@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-namespace TwigJs\Compiler\Expression;
+namespace TwigJs\Compiler;
 
 use TwigJs\JsCompiler;
 use TwigJs\TypeCompilerInterface;
@@ -25,23 +25,18 @@ class ExtensionReferenceCompiler implements TypeCompilerInterface
 {
     public function getType()
     {
-        return 'Twig_Node_Expression_ExtensionReference';
+        return 'Twig_Node_ExtensionReference';
     }
 
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
-        if (!$node instanceof \Twig_Node_Expression_ExtensionReference) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_Expression_ExtensionReference, but got "%s".', get_class($node)));
+        if (!$node instanceof \Twig_Node_ExtensionReference) {
+            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_ExtensionReference, but got "%s".', get_class($node)));
         }
 
         $compiler
-            ->raw("this.env_.getExtension(")
-            ->subcompile($node->getNode('name'))
-            ->raw(")")
+            ->addDebugInfo($node)
+            ->write(sprintf("this.env_.getExtension(%s);\n", json_encode($node->getAttribute('name'))))
         ;
-
-        if ($output) {
-            $compiler->raw(";\n");
-        }
     }
 }

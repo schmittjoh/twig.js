@@ -31,13 +31,14 @@ use TwigJs\Compiler\ImportCompiler;
 use TwigJs\Compiler\AutoEscapeCompiler;
 use TwigJs\Compiler\Expression\TempNameCompiler;
 use TwigJs\Compiler\SetTempCompiler;
+use TwigJs\Compiler\ExtensionReferenceCompiler;
 use TwigJs\Compiler\BlockReferenceCompiler;
 use TwigJs\Compiler\Expression\DefaultFilterCompiler;
 use TwigJs\Compiler\BodyCompiler;
 use TwigJs\Compiler\SetCompiler;
 use TwigJs\Compiler\SpacelessCompiler;
 use TwigJs\Compiler\IncludeCompiler;
-use TwigJs\Compiler\Expression\ExtensionReferenceCompiler;
+use TwigJs\Compiler\Expression\ExtensionReferenceCompiler as ExpressionExtensionReferenceCompiler;
 use TwigJs\Compiler\Expression\ConditionalCompiler;
 use TwigJs\Compiler\Expression\ArrayCompiler;
 use TwigJs\Compiler\Expression\FunctionCompiler;
@@ -126,13 +127,14 @@ class JsCompiler extends \Twig_Compiler
             'Twig_Node_Include' => new IncludeCompiler(),
             'Twig_Node_Spaceless' => new SpacelessCompiler(),
             'Twig_Node_SetTemp' => new SetTempCompiler(),
+            'Twig_Node_ExtensionReference' => new ExtensionReferenceCompiler(),
             'Twig_Node_BlockReference' => new BlockReferenceCompiler(),
             'Twig_Node_AutoEscape' => new AutoEscapeCompiler(),
             'Twig_Node_Import' => new ImportCompiler(),
             'Twig_Node_Macro' => new MacroCompiler(),
             'Twig_Node_Expression_TempName' => new TempNameCompiler(),
             'Twig_Node_Expression_DefaultFilter' => new DefaultFilterCompiler(),
-            'Twig_Node_Expression_ExtensionReference' => new ExtensionReferenceCompiler(),
+            'Twig_Node_Expression_ExtensionReference' => new ExpressionExtensionReferenceCompiler(),
             'Twig_Node_Expression_Conditional' => new ConditionalCompiler(),
             'Twig_Node_Expression_Array' => new ArrayCompiler(),
             'Twig_Node_Expression_Function' => new FunctionCompiler(),

@@ -6,7 +6,7 @@
 </head>
 <body>
     <script language="javascript" type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
-    <script language="javascript" type="text/javascript" src="./../../twig.dev.js"></script>
+    <script language="javascript" type="text/javascript" src="../../twig.dev.js"></script>
     <script language="javascript" type="text/javascript" src="./js/hello_world.js"></script>
     <script language="javascript" type="text/javascript" src="./js/layout.js"></script>
     <script language="javascript" type="text/javascript" src="./js/ajax_layout.js"></script>
@@ -14,39 +14,40 @@
     <script language="javascript" type="text/javascript" src="./js/macros.js"></script>
     <script language="javascript" type="text/javascript" src="./js/welcome.js"></script>
     <script language="javascript" type="text/javascript" src="./js/counter.js"></script>
+    <script language="javascript" type="text/javascript" src="./js/fields.js"></script>
     <script language="javascript" type="text/javascript">
         goog.require('goog.testing.asserts');
         goog.require('goog.testing.jsunit');
         goog.require('goog.string');
 
         function testHelloWorld() {
-        	var helloWorldTpl = Twig.createTemplate(hello_world);
-        	var counterTpl = Twig.createTemplate(counter);
+            var helloWorldTpl = Twig.createTemplate(hello_world);
+            var counterTpl = Twig.createTemplate(counter);
 
-        	assertEquals("Hello World!", Twig.render(hello_world));
-        	assertEquals("Hello Johannes!", Twig.render(hello_world, {name: "Johannes"}));
-        	assertEquals("Hello &lt;aFoo!", Twig.render(hello_world, {name: "<aFoo"}));
+            assertEquals("Hello World!", Twig.render(hello_world));
+            assertEquals("Hello Johannes!", Twig.render(hello_world, {name: "Johannes"}));
+            assertEquals("Hello &lt;aFoo!", Twig.render(hello_world, {name: "<aFoo"}));
         }
 
          function testWelcome() {
-        	assertEquals(
-        		twig.spaceless("<!DOCTYPE html>\n<html>\n <head>\n <title>foo</title>\n <link rel=\"stylesheet\" href=\"foo.css\" />\n </head>\n<body>\n \n <h1>Welcome Johannes!</h1>\n\n <p>Some Status.</p>\n\n <script language=\"javascript\" type=\"text/javascript\" src=\"jquery.js\"><"+"/script>\n \n\n <script language=\"javascript\" type=\"text/javascript\" src=\"welcome.js\"><"+"/script>\n</body>\n</html>"),
-        		twig.spaceless(Twig.render(welcome, {name: "Johannes"}))
-        	);
+            assertEquals(
+                twig.spaceless("<!DOCTYPE html>\n<html>\n <head>\n <title>foo</title>\n <link rel=\"stylesheet\" href=\"foo.css\" />\n </head>\n<body>\n \n <h1>Welcome Johannes!</h1>\n\n <p>Some Status.</p>\n\n <script language=\"javascript\" type=\"text/javascript\" src=\"jquery.js\"><"+"/script>\n \n\n <script language=\"javascript\" type=\"text/javascript\" src=\"welcome.js\"><"+"/script>\n</body>\n</html>"),
+                twig.spaceless(Twig.render(welcome, {name: "Johannes"}))
+            );
 
-        	assertEquals(
-        	    twig.spaceless('<h1>Welcome Johannes!</h1>\n\n <p>Some Status.</p>'),
-        	    twig.spaceless(Twig.render(welcome, {ajax: true, name: "Johannes"}))
-        	);
+            assertEquals(
+                twig.spaceless('<h1>Welcome Johannes!</h1>\n\n <p>Some Status.</p>'),
+                twig.spaceless(Twig.render(welcome, {ajax: true, name: "Johannes"}))
+            );
 
-        	assertEquals(
-        	    twig.spaceless('<h1>Welcome World!</h1><p><a href=\"/login\" title=\"Login\">Please login.</a></p>'),
-        	    twig.spaceless(Twig.render(welcome, {ajax: true}))
-        	);
+            assertEquals(
+                twig.spaceless('<h1>Welcome World!</h1><p><a href=\"/login\" title=\"Login\">Please login.</a></p>'),
+                twig.spaceless(Twig.render(welcome, {ajax: true}))
+            );
         }
 
         function testCounter() {
-        	assertEquals("1, 1, 2, 2, 3, 3, 4, 4, 5, 5", Twig.render(counter));
+            assertEquals("1, 1, 2, 2, 3, 3, 4, 4, 5, 5", Twig.render(counter));
         }
     </script>
 </body>

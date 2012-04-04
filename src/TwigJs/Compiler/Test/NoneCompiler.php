@@ -15,8 +15,9 @@ class NoneCompiler implements TestCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_Node_Expression_Test $node)
     {
         $compiler
-            ->raw('null === ')
+            ->raw('(null === ')
             ->subcompile($node->getNode('node'))
+            ->raw(')')
         ;
     }
 }

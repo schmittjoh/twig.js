@@ -22,8 +22,9 @@ use TwigJs\CompileRequestHandler;
 use TwigJs\CompileRequest;
 use Assetic\Asset\AssetInterface;
 use Assetic\Filter\FilterInterface;
+use Assetic\Filter\HashableInterface;
 
-class TwigJsFilter implements FilterInterface
+class TwigJsFilter implements FilterInterface, HashableInterface
 {
     private $compileRequestHandler;
 
@@ -47,5 +48,10 @@ class TwigJsFilter implements FilterInterface
 
     public function filterLoad(AssetInterface $asset)
     {
+    }
+
+    function hash()
+    {
+        return 'twigjsfilter';
     }
 }

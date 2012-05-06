@@ -305,6 +305,13 @@ $JSCompiler_prototypeAlias$$.test = function $$JSCompiler_prototypeAlias$$$test$
   }
   return this.$tests_$[$name$$62$$].apply($JSCompiler_alias_NULL$$, Array.prototype.slice.call(arguments, 1))
 };
+$JSCompiler_prototypeAlias$$.$macro$ = function $$JSCompiler_prototypeAlias$$$$macro$$($templateCtor$$, $macroName$$, $var_args$$57$$) {
+  var $template$$1$$ = this.$createTemplate$($templateCtor$$), $macro$$ = $template$$1$$["get" + $macroName$$];
+  if(!$macro$$) {
+    throw Error("The macro '" + $macroName$$ + "' does not exist on template '" + $template$$1$$.$getTemplateName$() + "'.");
+  }
+  return $macro$$.apply($template$$1$$, Array.prototype.slice.call(arguments, 2)).toString()
+};
 $JSCompiler_prototypeAlias$$.$setFilter$ = function $$JSCompiler_prototypeAlias$$$$setFilter$$($name$$63$$, $filter$$) {
   this.$filters_$[$name$$63$$] = $filter$$
 };
@@ -346,14 +353,14 @@ $JSCompiler_prototypeAlias$$.$setExtensions$ = function $$JSCompiler_prototypeAl
 $JSCompiler_prototypeAlias$$.$getExtensions$ = function $$JSCompiler_prototypeAlias$$$$getExtensions$$() {
   return this.$extensions_$
 };
-$JSCompiler_prototypeAlias$$.$createTemplate$ = function $$JSCompiler_prototypeAlias$$$$createTemplate$$($ctor$$3_template$$1$$) {
-  var $uid$$ = $ctor$$3_template$$1$$[$goog$UID_PROPERTY_$$] || ($ctor$$3_template$$1$$[$goog$UID_PROPERTY_$$] = ++$goog$uidCounter_$$);
+$JSCompiler_prototypeAlias$$.$createTemplate$ = function $$JSCompiler_prototypeAlias$$$$createTemplate$$($ctor$$3_template$$2$$) {
+  var $uid$$ = $ctor$$3_template$$2$$[$goog$UID_PROPERTY_$$] || ($ctor$$3_template$$2$$[$goog$UID_PROPERTY_$$] = ++$goog$uidCounter_$$);
   if($uid$$ in this.$createdTemplates_$) {
     return this.$createdTemplates_$[$uid$$]
   }
   $JSCompiler_alias_FALSE$$ === this.$runtimeInitialized$ && this.$initRuntime$();
-  $ctor$$3_template$$1$$ = new $ctor$$3_template$$1$$(this);
-  return this.$createdTemplates_$[$uid$$] = $ctor$$3_template$$1$$
+  $ctor$$3_template$$2$$ = new $ctor$$3_template$$2$$(this);
+  return this.$createdTemplates_$[$uid$$] = $ctor$$3_template$$2$$
 };
 function $twig$Markup$$($content$$) {
   this.$content_$ = $content$$
@@ -401,25 +408,25 @@ $goog$exportSymbol$$("twig.range", function($start$$6$$, $end$$2$$) {
   return $rs$$
 });
 $goog$exportSymbol$$("twig.contains", function($haystack$$, $needle$$) {
-  var $JSCompiler_temp$$117_JSCompiler_temp$$118_key$$inline_121$$;
+  var $JSCompiler_temp$$121_JSCompiler_temp$$122_key$$inline_125$$;
   if($goog$isArray$$($haystack$$)) {
-    $JSCompiler_temp$$117_JSCompiler_temp$$118_key$$inline_121$$ = 0 <= $goog$array$indexOf$$($haystack$$, $needle$$)
+    $JSCompiler_temp$$121_JSCompiler_temp$$122_key$$inline_125$$ = 0 <= $goog$array$indexOf$$($haystack$$, $needle$$)
   }else {
     if($goog$isString$$($haystack$$)) {
-      $JSCompiler_temp$$117_JSCompiler_temp$$118_key$$inline_121$$ = -1 != $haystack$$.indexOf($needle$$)
+      $JSCompiler_temp$$121_JSCompiler_temp$$122_key$$inline_125$$ = -1 != $haystack$$.indexOf($needle$$)
     }else {
       a: {
-        for($JSCompiler_temp$$117_JSCompiler_temp$$118_key$$inline_121$$ in $haystack$$) {
-          if($haystack$$[$JSCompiler_temp$$117_JSCompiler_temp$$118_key$$inline_121$$] == $needle$$) {
-            $JSCompiler_temp$$117_JSCompiler_temp$$118_key$$inline_121$$ = $JSCompiler_alias_TRUE$$;
+        for($JSCompiler_temp$$121_JSCompiler_temp$$122_key$$inline_125$$ in $haystack$$) {
+          if($haystack$$[$JSCompiler_temp$$121_JSCompiler_temp$$122_key$$inline_125$$] == $needle$$) {
+            $JSCompiler_temp$$121_JSCompiler_temp$$122_key$$inline_125$$ = $JSCompiler_alias_TRUE$$;
             break a
           }
         }
-        $JSCompiler_temp$$117_JSCompiler_temp$$118_key$$inline_121$$ = $JSCompiler_alias_FALSE$$
+        $JSCompiler_temp$$121_JSCompiler_temp$$122_key$$inline_125$$ = $JSCompiler_alias_FALSE$$
       }
     }
   }
-  return $JSCompiler_temp$$117_JSCompiler_temp$$118_key$$inline_121$$
+  return $JSCompiler_temp$$121_JSCompiler_temp$$122_key$$inline_125$$
 });
 $goog$exportSymbol$$("twig.countable", $twig$countable$$);
 $goog$exportSymbol$$("twig.count", $twig$count$$);
@@ -434,48 +441,48 @@ $goog$exportSymbol$$("twig.createObj", function($var_args$$53$$) {
 $goog$exportSymbol$$("twig.filter.capitalize", function($env$$1$$, $str$$46$$) {
   return $str$$46$$.charAt(0).toUpperCase() + $str$$46$$.substring(1)
 });
-$goog$exportSymbol$$("twig.filter.escape", function($env$$2_s$$inline_15_str$$inline_128$$, $sb$$inline_16_value$$61$$, $i$$inline_17_opt_type$$5$$, $JSCompiler_temp_const$$114_opt_charset$$, $JSCompiler_temp_const$$113_opt_autoescape$$) {
-  if($JSCompiler_temp_const$$113_opt_autoescape$$ && $sb$$inline_16_value$$61$$ instanceof $twig$Markup$$) {
+$goog$exportSymbol$$("twig.filter.escape", function($env$$2_s$$inline_15_str$$inline_132$$, $sb$$inline_16_value$$61$$, $i$$inline_17_opt_type$$5$$, $JSCompiler_temp_const$$118_opt_charset$$, $JSCompiler_temp_const$$117_opt_autoescape$$) {
+  if($JSCompiler_temp_const$$117_opt_autoescape$$ && $sb$$inline_16_value$$61$$ instanceof $twig$Markup$$) {
     return $sb$$inline_16_value$$61$$.toString()
   }
   $sb$$inline_16_value$$61$$ = $sb$$inline_16_value$$61$$ == $JSCompiler_alias_NULL$$ ? "" : "" + $sb$$inline_16_value$$61$$;
   if("js" === $i$$inline_17_opt_type$$5$$) {
-    $env$$2_s$$inline_15_str$$inline_128$$ = "" + $sb$$inline_16_value$$61$$;
-    if($env$$2_s$$inline_15_str$$inline_128$$.quote) {
-      $sb$$inline_16_value$$61$$ = $env$$2_s$$inline_15_str$$inline_128$$.quote()
+    $env$$2_s$$inline_15_str$$inline_132$$ = "" + $sb$$inline_16_value$$61$$;
+    if($env$$2_s$$inline_15_str$$inline_132$$.quote) {
+      $sb$$inline_16_value$$61$$ = $env$$2_s$$inline_15_str$$inline_132$$.quote()
     }else {
       $sb$$inline_16_value$$61$$ = ['"'];
-      for($i$$inline_17_opt_type$$5$$ = 0;$i$$inline_17_opt_type$$5$$ < $env$$2_s$$inline_15_str$$inline_128$$.length;$i$$inline_17_opt_type$$5$$++) {
-        var $JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$ = $env$$2_s$$inline_15_str$$inline_128$$.charAt($i$$inline_17_opt_type$$5$$), $cc$$inline_19_rv$$inline_124$$ = $JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$.charCodeAt(0), $JSCompiler_temp_const$$114_opt_charset$$ = $sb$$inline_16_value$$61$$, $JSCompiler_temp_const$$113_opt_autoescape$$ = $i$$inline_17_opt_type$$5$$ + 1, $JSCompiler_temp$$115_cc$$inline_125$$;
-        if(!($JSCompiler_temp$$115_cc$$inline_125$$ = $goog$string$specialEscapeChars_$$[$JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$])) {
-          if(!(31 < $cc$$inline_19_rv$$inline_124$$ && 127 > $cc$$inline_19_rv$$inline_124$$)) {
-            if($JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$ in $goog$string$jsEscapeCache_$$) {
-              $JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$]
+      for($i$$inline_17_opt_type$$5$$ = 0;$i$$inline_17_opt_type$$5$$ < $env$$2_s$$inline_15_str$$inline_132$$.length;$i$$inline_17_opt_type$$5$$++) {
+        var $JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$ = $env$$2_s$$inline_15_str$$inline_132$$.charAt($i$$inline_17_opt_type$$5$$), $cc$$inline_19_rv$$inline_128$$ = $JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$.charCodeAt(0), $JSCompiler_temp_const$$118_opt_charset$$ = $sb$$inline_16_value$$61$$, $JSCompiler_temp_const$$117_opt_autoescape$$ = $i$$inline_17_opt_type$$5$$ + 1, $JSCompiler_temp$$119_cc$$inline_129$$;
+        if(!($JSCompiler_temp$$119_cc$$inline_129$$ = $goog$string$specialEscapeChars_$$[$JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$])) {
+          if(!(31 < $cc$$inline_19_rv$$inline_128$$ && 127 > $cc$$inline_19_rv$$inline_128$$)) {
+            if($JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$ in $goog$string$jsEscapeCache_$$) {
+              $JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$]
             }else {
-              if($JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$ in $goog$string$specialEscapeChars_$$) {
-                $JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$] = $goog$string$specialEscapeChars_$$[$JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$]
+              if($JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$ in $goog$string$specialEscapeChars_$$) {
+                $JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$] = $goog$string$specialEscapeChars_$$[$JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$]
               }else {
-                $cc$$inline_19_rv$$inline_124$$ = $JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$;
-                $JSCompiler_temp$$115_cc$$inline_125$$ = $JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$.charCodeAt(0);
-                if(31 < $JSCompiler_temp$$115_cc$$inline_125$$ && 127 > $JSCompiler_temp$$115_cc$$inline_125$$) {
-                  $cc$$inline_19_rv$$inline_124$$ = $JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$
+                $cc$$inline_19_rv$$inline_128$$ = $JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$;
+                $JSCompiler_temp$$119_cc$$inline_129$$ = $JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$.charCodeAt(0);
+                if(31 < $JSCompiler_temp$$119_cc$$inline_129$$ && 127 > $JSCompiler_temp$$119_cc$$inline_129$$) {
+                  $cc$$inline_19_rv$$inline_128$$ = $JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$
                 }else {
-                  if(256 > $JSCompiler_temp$$115_cc$$inline_125$$) {
-                    if($cc$$inline_19_rv$$inline_124$$ = "\\x", 16 > $JSCompiler_temp$$115_cc$$inline_125$$ || 256 < $JSCompiler_temp$$115_cc$$inline_125$$) {
-                      $cc$$inline_19_rv$$inline_124$$ += "0"
+                  if(256 > $JSCompiler_temp$$119_cc$$inline_129$$) {
+                    if($cc$$inline_19_rv$$inline_128$$ = "\\x", 16 > $JSCompiler_temp$$119_cc$$inline_129$$ || 256 < $JSCompiler_temp$$119_cc$$inline_129$$) {
+                      $cc$$inline_19_rv$$inline_128$$ += "0"
                     }
                   }else {
-                    $cc$$inline_19_rv$$inline_124$$ = "\\u", 4096 > $JSCompiler_temp$$115_cc$$inline_125$$ && ($cc$$inline_19_rv$$inline_124$$ += "0")
+                    $cc$$inline_19_rv$$inline_128$$ = "\\u", 4096 > $JSCompiler_temp$$119_cc$$inline_129$$ && ($cc$$inline_19_rv$$inline_128$$ += "0")
                   }
-                  $cc$$inline_19_rv$$inline_124$$ += $JSCompiler_temp$$115_cc$$inline_125$$.toString(16).toUpperCase()
+                  $cc$$inline_19_rv$$inline_128$$ += $JSCompiler_temp$$119_cc$$inline_129$$.toString(16).toUpperCase()
                 }
-                $JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$] = $cc$$inline_19_rv$$inline_124$$
+                $JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$] = $cc$$inline_19_rv$$inline_128$$
               }
             }
           }
-          $JSCompiler_temp$$115_cc$$inline_125$$ = $JSCompiler_temp$$116_c$$inline_123_ch$$inline_18$$
+          $JSCompiler_temp$$119_cc$$inline_129$$ = $JSCompiler_temp$$120_c$$inline_127_ch$$inline_18$$
         }
-        $JSCompiler_temp_const$$114_opt_charset$$[$JSCompiler_temp_const$$113_opt_autoescape$$] = $JSCompiler_temp$$115_cc$$inline_125$$
+        $JSCompiler_temp_const$$118_opt_charset$$[$JSCompiler_temp_const$$117_opt_autoescape$$] = $JSCompiler_temp$$119_cc$$inline_129$$
       }
       $sb$$inline_16_value$$61$$.push('"');
       $sb$$inline_16_value$$61$$ = $sb$$inline_16_value$$61$$.join("")
@@ -483,8 +490,8 @@ $goog$exportSymbol$$("twig.filter.escape", function($env$$2_s$$inline_15_str$$in
     return $sb$$inline_16_value$$61$$.substring(1, $sb$$inline_16_value$$61$$.length - 1)
   }
   if(!$i$$inline_17_opt_type$$5$$ || "html" === $i$$inline_17_opt_type$$5$$) {
-    return $env$$2_s$$inline_15_str$$inline_128$$ = $sb$$inline_16_value$$61$$, $goog$string$allRe_$$.test($env$$2_s$$inline_15_str$$inline_128$$) && (-1 != $env$$2_s$$inline_15_str$$inline_128$$.indexOf("&") && ($env$$2_s$$inline_15_str$$inline_128$$ = $env$$2_s$$inline_15_str$$inline_128$$.replace($goog$string$amperRe_$$, "&amp;")), -1 != $env$$2_s$$inline_15_str$$inline_128$$.indexOf("<") && ($env$$2_s$$inline_15_str$$inline_128$$ = $env$$2_s$$inline_15_str$$inline_128$$.replace($goog$string$ltRe_$$, 
-    "&lt;")), -1 != $env$$2_s$$inline_15_str$$inline_128$$.indexOf(">") && ($env$$2_s$$inline_15_str$$inline_128$$ = $env$$2_s$$inline_15_str$$inline_128$$.replace($goog$string$gtRe_$$, "&gt;")), -1 != $env$$2_s$$inline_15_str$$inline_128$$.indexOf('"') && ($env$$2_s$$inline_15_str$$inline_128$$ = $env$$2_s$$inline_15_str$$inline_128$$.replace($goog$string$quotRe_$$, "&quot;"))), $env$$2_s$$inline_15_str$$inline_128$$
+    return $env$$2_s$$inline_15_str$$inline_132$$ = $sb$$inline_16_value$$61$$, $goog$string$allRe_$$.test($env$$2_s$$inline_15_str$$inline_132$$) && (-1 != $env$$2_s$$inline_15_str$$inline_132$$.indexOf("&") && ($env$$2_s$$inline_15_str$$inline_132$$ = $env$$2_s$$inline_15_str$$inline_132$$.replace($goog$string$amperRe_$$, "&amp;")), -1 != $env$$2_s$$inline_15_str$$inline_132$$.indexOf("<") && ($env$$2_s$$inline_15_str$$inline_132$$ = $env$$2_s$$inline_15_str$$inline_132$$.replace($goog$string$ltRe_$$, 
+    "&lt;")), -1 != $env$$2_s$$inline_15_str$$inline_132$$.indexOf(">") && ($env$$2_s$$inline_15_str$$inline_132$$ = $env$$2_s$$inline_15_str$$inline_132$$.replace($goog$string$gtRe_$$, "&gt;")), -1 != $env$$2_s$$inline_15_str$$inline_132$$.indexOf('"') && ($env$$2_s$$inline_15_str$$inline_132$$ = $env$$2_s$$inline_15_str$$inline_132$$.replace($goog$string$quotRe_$$, "&quot;"))), $env$$2_s$$inline_15_str$$inline_132$$
   }
   throw Error("The type '" + $i$$inline_17_opt_type$$5$$ + "' is not supported.");
 });
@@ -529,6 +536,7 @@ $twig$Environment$$.prototype.createTemplate = $twig$Environment$$.prototype.$cr
 $twig$Environment$$.prototype.filter = $twig$Environment$$.prototype.filter;
 $twig$Environment$$.prototype.invoke = $twig$Environment$$.prototype.$invoke$;
 $twig$Environment$$.prototype.test = $twig$Environment$$.prototype.test;
+$twig$Environment$$.prototype.macro = $twig$Environment$$.prototype.$macro$;
 $twig$Environment$$.prototype.setFilter = $twig$Environment$$.prototype.$setFilter$;
 $twig$Environment$$.prototype.setFunction = $twig$Environment$$.prototype.$setFunction$;
 $twig$Environment$$.prototype.setTest = $twig$Environment$$.prototype.$setTest$;

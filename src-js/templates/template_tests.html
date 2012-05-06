@@ -28,6 +28,10 @@
             assertEquals("Hello Johannes!", Twig.render(hello_world, {name: "Johannes"}));
             assertEquals("Hello &lt;aFoo!", Twig.render(hello_world, {name: "<aFoo"}));
         }
+        
+        function testMacros() {
+        	assertEquals('<a href="a" title="c">b</a>', Twig.macro(macros, 'link', 'a', 'b', 'c').trim());
+        }
 
          function testWelcome() {
             assertEquals(

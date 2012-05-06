@@ -139,6 +139,25 @@ twig.Environment.prototype.test = function(name, arg1, var_args) {
 };
 
 /**
+ * Delegates to a macro at runtime.
+ * 
+ * @param {Function} templateCtor
+ * @param {string} macroName
+ * @param {...*} var_args
+ * @return {string}
+ */
+twig.Environment.prototype.macro = function(templateCtor, macroName, var_args) {
+	var template = this.createTemplate(templateCtor);
+	var macro = template['get' + macroName];
+	
+	if (!macro) {
+		throw Error("The macro '" + macroName + "' does not exist on template '" + template.getTemplateName() + "'.");
+	}
+	
+	return macro.apply(template, Array.prototype.slice.call(arguments, 2)).toString();
+};
+
+/**
  * Sets a dynamic filter function at runtime.
  *
  * @export

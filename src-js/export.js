@@ -59,6 +59,7 @@ goog.exportProperty(twig.Environment.prototype, 'createTemplate', twig.Environme
 goog.exportProperty(twig.Environment.prototype, 'filter', twig.Environment.prototype.filter);
 goog.exportProperty(twig.Environment.prototype, 'invoke', twig.Environment.prototype.invoke);
 goog.exportProperty(twig.Environment.prototype, 'test', twig.Environment.prototype.test);
+goog.exportProperty(twig.Environment.prototype, 'macro', twig.Environment.prototype.macro);
 goog.exportProperty(twig.Environment.prototype, 'setFilter', twig.Environment.prototype.setFilter);
 goog.exportProperty(twig.Environment.prototype, 'setFunction', twig.Environment.prototype.setFunction);
 goog.exportProperty(twig.Environment.prototype, 'setTest', twig.Environment.prototype.setTest);

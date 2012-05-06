@@ -50,7 +50,7 @@ class TwigJsFilter implements FilterInterface, HashableInterface
     {
     }
 
-    function hash()
+    public function hash()
     {
         return 'twigjsfilter';
     }

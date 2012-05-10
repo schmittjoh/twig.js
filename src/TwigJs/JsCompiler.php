@@ -308,6 +308,8 @@ class JsCompiler extends \Twig_Compiler
     {
         $this->lastLine = null;
         $this->source = '';
+        $this->sourceOffset = 0;
+        $this->sourceLine = 0;
         $this->indentation = $indentation;
 
         $this->subcompile($node);

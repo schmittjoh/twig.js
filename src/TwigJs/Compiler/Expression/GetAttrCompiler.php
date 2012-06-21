@@ -59,12 +59,15 @@ class GetAttrCompiler implements TypeCompilerInterface
         if (!$defaultArguments) {
             $compiler->raw(', [');
 
-            $first = true;
-            foreach ($node->getNode('arguments') as $argNode) {
-                if (!$first) {
+            $displayed = false;
+            foreach ($node->getNode('arguments') as $key => $argNode) {
+                if ($key === 0) {
+                  continue;
+                }
+                if ($displayed) {
                     $compiler->raw(', ');
                 }
-                $first = false;
+                $displayed = true;
 
                 $compiler
                     ->subcompile($argNode)

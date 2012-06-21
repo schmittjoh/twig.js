@@ -67,7 +67,11 @@ class NameCompiler implements TypeCompilerInterface
                 ->string('get' . ucfirst($name))
                 ->raw(' in context ? ')
                 ->raw('context.get' . ucfirst($name))
-                ->raw('() : null')
+                ->raw('() : ')
+                ->string($name)
+                ->raw(' in context ? ')
+                ->raw('context.'.$name)
+                ->raw(' : null')
             ;
         }
     }

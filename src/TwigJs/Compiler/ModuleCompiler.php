@@ -120,7 +120,7 @@ class ModuleCompiler implements TypeCompilerInterface
         ;
 
         $compiler
-            ->write("goog.provide('$functionName');\n\n")
+            //->write("goog.provide('$functionName');\n\n")
             ->write(
                 "/**\n",
                 " * @constructor\n",
@@ -128,7 +128,7 @@ class ModuleCompiler implements TypeCompilerInterface
                 " * @extends {twig.Template}\n",
                 " */\n"
             )
-            ->write("$functionName = function(env) {\n")
+            ->write("var $functionName = function(env) {\n")
             ->indent()
             ->write("twig.Template.call(this, env);\n")
         ;

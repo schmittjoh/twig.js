@@ -23,8 +23,9 @@ class CompileRequest
     private $name;
     private $source;
     private $defines;
+    private $server_side_variables;
 
-    public function __construct($name, $source, array $defines = array())
+    public function __construct($name, $source, array $defines = array(), array $server_side_variables = array())
     {
         if (empty($name)) {
             throw new \InvalidArgumentException('$name cannot be empty.');
@@ -33,6 +34,7 @@ class CompileRequest
         $this->name = $name;
         $this->source = $source;
         $this->defines = $defines;
+        $this->server_side_variables = $server_side_variables;
     }
 
     public function getSource()
@@ -48,5 +50,10 @@ class CompileRequest
     public function getDefines()
     {
         return $this->defines;
+    }
+
+    public function getServerSideVariables()
+    {
+      return $this->server_side_variables;
     }
 }

@@ -120,7 +120,7 @@ class ModuleCompiler implements TypeCompilerInterface
         ;
 
         $compiler
-            ->write("goog.provide('$functionName');\n\n")
+            ->write("if (goog) goog.provide('$functionName');\n\n")
             ->write(
                 "/**\n",
                 " * @constructor\n",

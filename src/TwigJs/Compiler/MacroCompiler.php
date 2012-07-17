@@ -37,11 +37,13 @@ class MacroCompiler implements TypeCompilerInterface
         $compiler->enterScope();
 
         $arguments = array();
+        $contextVars = array();
         foreach ($node->getNode('arguments') as $argument) {
             $name = $argument->getAttribute('name');
-
-            $arguments[] = 'opt_'.$name;
-            $compiler->setVar($name, 'opt_'.$name);
+            $opt_name = 'opt_'.$name;
+            $arguments[] = $opt_name;
+            $compiler->setVar($name, $opt_name);
+            $contextVars[] = $name . ":" . $opt_name;
         }
 
         $compiler
@@ -61,7 +63,7 @@ class MacroCompiler implements TypeCompilerInterface
             ->raw($node->getAttribute('name'))
             ->raw(" = function(".implode(', ', $arguments).") {\n")
             ->indent()
-            ->write("var context = twig.extend({}, this.env_.getGlobals());\n\n")
+            ->write("var context = twig.extend({". implode(",",$contextVars)  ."}, this.env_.getGlobals());\n\n")
             ->write("var sb = new twig.StringBuffer;\n")
             ->subcompile($node->getNode('body'))
             ->raw("\n")

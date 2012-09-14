@@ -84,7 +84,7 @@ twig.filter.escape = function(env, value, opt_type, opt_charset, opt_autoescape)
 		return encodeURIComponent(value);
 	} else if (!opt_type || twig.filter.escape.Type.HTML === opt_type) {
 		return goog.string.htmlEscape(value);
-	
+	}
 	
 	throw Error("The type '" + opt_type + "' is not supported.");
 };

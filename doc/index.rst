@@ -4,7 +4,7 @@ twig.js
 The flexible, secure, and high-performance templating engine for Javascript
 using Jinja/Twig style syntax.
 
-It compiles your [Twig templates][1] to raw Javascript allowing you to use the same
+It compiles your Twig templates to raw Javascript allowing you to use the same
 templates for both server-, and client-side.
 
 Documentation

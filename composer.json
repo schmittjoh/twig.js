@@ -16,5 +16,10 @@
     },
     "autoload": {
         "psr-0": { "TwigJs": "src/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
 }

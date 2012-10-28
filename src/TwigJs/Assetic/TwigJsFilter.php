@@ -33,7 +33,7 @@ class TwigJsFilter implements FilterInterface, HashableInterface
         $this->compileRequestHandler = $handler;
     }
 
-    public function filterDump(AssetInterface $asset)
+    public function filterLoad(AssetInterface $asset)
     {
         $values = method_exists($asset, 'getValues') ? $asset->getValues() : array();
         $defines = array();
@@ -46,7 +46,7 @@ class TwigJsFilter implements FilterInterface, HashableInterface
         $asset->setContent($this->compileRequestHandler->process($compileRequest));
     }
 
-    public function filterLoad(AssetInterface $asset)
+    public function filterDump(AssetInterface $asset)
     {
     }
 

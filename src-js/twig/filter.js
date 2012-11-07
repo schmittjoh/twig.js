@@ -107,3 +107,45 @@ twig.filter.length = function(env, value) {
 	return twig.count(value);
 };
 
+/**
+ * 
+ * @param {Array|Object} value
+ * @param {string=} opt_glue
+ * @return {string}
+ */
+twig.filter.join = function(value, opt_glue) {
+	var glue = opt_glue || '';
+	var buffer = new twig.StringBuffer();
+	
+	var first = true;
+	twig.forEach(value, function(v) {
+		if (!first) {
+			buffer.append(glue);
+		}
+		first = false;
+		
+		buffer.append(v);
+	});
+	
+	return buffer.toString();
+};
+
+twig.filter.keys = goog.object.getKeys;
+
+/**
+ * @param {twig.Environment} env
+ * @param {string} value
+ * @return {string}
+ */
+twig.filter.upper = function(env, value) {
+	return value.toUpperCase();
+};
+
+/**
+ * @param {twig.Environment} env
+ * @param {string} value
+ * @return {string}
+ */
+twig.filter.lower = function(env, value) {
+	return value.toLowerCase();
+};

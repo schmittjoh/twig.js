@@ -1,7 +1,7 @@
 <?php
 
 /* counter.twig */
-class __TwigTemplate_2b87a4da1ef5e5a05eaa0a4a8016428c extends Twig_Template
+class __TwigTemplate_deea152cc4c521e29dce06a7c0cc4dc3 extends Twig_Template
 {
     protected function doDisplay(array $context, array $blocks = array())
     {

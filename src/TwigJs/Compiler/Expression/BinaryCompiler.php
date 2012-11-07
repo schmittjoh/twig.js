@@ -30,15 +30,15 @@ abstract class BinaryCompiler implements TypeCompilerInterface
         }
 
         $compiler
-            ->raw('(')
+            ->raw('((')
             ->subcompile($node->getNode('left'))
-            ->raw(' ')
+            ->raw(') ')
         ;
         $this->operator($compiler, $node);
         $compiler
-            ->raw(' ')
+            ->raw(' (')
             ->subcompile($node->getNode('right'))
-            ->raw(')')
+            ->raw('))')
         ;
     }
 

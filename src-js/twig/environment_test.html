@@ -12,20 +12,22 @@
     </script>
     <script language="javascript" type="text/javascript" src="../twig.js"></script>
     <script language="javascript" type="text/javascript" src="markup.js"></script>
+    <script language="javascript" type="text/javascript" src="extension_interface.js"></script>
     <script language="javascript" type="text/javascript" src="template.js"></script>
     <script language="javascript" type="text/javascript" src="filter.js"></script>
     <script language="javascript" type="text/javascript" src="environment.js"></script>
+    <script language="javascript" type="text/javascript" src="extension.js"></script>
     <script language="javascript" type="text/javascript">
         goog.require('goog.testing.asserts');
         goog.require('goog.testing.jsunit');
         goog.require('goog.testing.FunctionMock');
-        
+
         function testFilter() {
         	var env = new twig.Environment();
         	var filter = goog.testing.createFunctionMock();
         	filter('foo', 'bar');
         	filter.$replay();
-        	
+
         	env.setFilter('baz', filter);
         	env.filter('baz', 'foo', 'bar');
         	filter.$verify();
@@ -33,43 +35,43 @@
         
         function testSetGlobal() {
         	var env = new twig.Environment();
-        	
+
         	assertHashEquals({}, env.globals_);
         	env.setGlobal('foo', 'bar');
         	assertHashEquals({foo:'bar'}, env.globals_);
         }
-        
+
         FooTemplate = function(env) {
         	twig.Template.call(this, env);
         }
         twig.inherits(FooTemplate, twig.Template);
-        
+
         FooTemplate.prototype.render_ = function(sb, context, blocks) {
         	sb.append("Foo");
         };
-        
+
         BarTemplate = function(env) {
         	twig.Template.call(this, env);
         }
         twig.inherits(BarTemplate, twig.Template);
-        
+
         BarTemplate.prototype.render_ = function(sb, context, blocks) {
         	sb.append("Bar");
         };
-        
+
         function testCreateTemplate() {
         	var env = new twig.Environment();
-        	
+
         	var template = env.createTemplate(FooTemplate);
         	assertTrue(template instanceof FooTemplate);
         	assertEquals(env, template.env_);
-        	
+
         	var anotherTemplate = env.createTemplate(FooTemplate);
         	assertEquals(template, anotherTemplate);
-        	
+
         	var diffTemplate = env.createTemplate(BarTemplate);
         	assertNotEquals(template, diffTemplate);
-        	
+
         	assertEquals("Foo", template.render());
         	assertEquals("Bar", diffTemplate.render());
         }

@@ -1,7 +1,7 @@
 <?php
 
 /* ajax_layout.twig */
-class __TwigTemplate_96a905a83a4712f4569ce3bec9775310 extends Twig_Template
+class __TwigTemplate_e76282af595ebfb9c21b57364993466b extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {

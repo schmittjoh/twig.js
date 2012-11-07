@@ -133,7 +133,7 @@ twig.Template.prototype.renderBlock = function(name, context, opt_blocks) {
 	
 	if (name in this.blocks_) {
 		var sb = new twig.StringBuffer();
-		this.blocks_[name](sb, context, opt_blocks || {});
+		this.blocks_[name](sb, context, opt_blocks);
 		
 		return sb.toString();
 	}

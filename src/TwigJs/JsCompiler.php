@@ -31,13 +31,14 @@ use TwigJs\Compiler\ImportCompiler;
 use TwigJs\Compiler\AutoEscapeCompiler;
 use TwigJs\Compiler\Expression\TempNameCompiler;
 use TwigJs\Compiler\SetTempCompiler;
+use TwigJs\Compiler\ExtensionReferenceCompiler;
 use TwigJs\Compiler\BlockReferenceCompiler;
 use TwigJs\Compiler\Expression\DefaultFilterCompiler;
 use TwigJs\Compiler\BodyCompiler;
 use TwigJs\Compiler\SetCompiler;
 use TwigJs\Compiler\SpacelessCompiler;
 use TwigJs\Compiler\IncludeCompiler;
-use TwigJs\Compiler\Expression\ExtensionReferenceCompiler;
+use TwigJs\Compiler\Expression\ExtensionReferenceCompiler as ExpressionExtensionReferenceCompiler;
 use TwigJs\Compiler\Expression\ConditionalCompiler;
 use TwigJs\Compiler\Expression\ArrayCompiler;
 use TwigJs\Compiler\Expression\FunctionCompiler;
@@ -126,13 +127,14 @@ class JsCompiler extends \Twig_Compiler
             'Twig_Node_Include' => new IncludeCompiler(),
             'Twig_Node_Spaceless' => new SpacelessCompiler(),
             'Twig_Node_SetTemp' => new SetTempCompiler(),
+            'Twig_Node_ExtensionReference' => new ExtensionReferenceCompiler(),
             'Twig_Node_BlockReference' => new BlockReferenceCompiler(),
             'Twig_Node_AutoEscape' => new AutoEscapeCompiler(),
             'Twig_Node_Import' => new ImportCompiler(),
             'Twig_Node_Macro' => new MacroCompiler(),
             'Twig_Node_Expression_TempName' => new TempNameCompiler(),
             'Twig_Node_Expression_DefaultFilter' => new DefaultFilterCompiler(),
-            'Twig_Node_Expression_ExtensionReference' => new ExtensionReferenceCompiler(),
+            'Twig_Node_Expression_ExtensionReference' => new ExpressionExtensionReferenceCompiler(),
             'Twig_Node_Expression_Conditional' => new ConditionalCompiler(),
             'Twig_Node_Expression_Array' => new ArrayCompiler(),
             'Twig_Node_Expression_Function' => new FunctionCompiler(),
@@ -145,6 +147,7 @@ class JsCompiler extends \Twig_Compiler
             'Twig_Node_Expression_Filter_Default' => new Compiler\Expression\Filter\DefaultCompiler(),
             'Twig_Node_Expression_Constant' => new ConstantCompiler(),
             'Twig_Node_Expression_GetAttr' => new GetAttrCompiler(),
+            'Twig_Node_Expression_MethodCall' => new Compiler\Expression\MethodCallCompiler(),
             'Twig_Node_Expression_Binary_Add' => new AddCompiler(),
             'Twig_Node_Expression_Binary_And' => new AndCompiler(),
             'Twig_Node_Expression_Binary_BitwiseAnd' => new BitwiseAndCompiler(),
@@ -194,14 +197,17 @@ class JsCompiler extends \Twig_Compiler
         $this->filterCompilers = array();
         $this->filterFunctions = array(
             'escape' => 'twig.filter.escape',
+            'e' => 'twig.filter.escape',
             'length' => 'twig.filter.length',
             'capitalize' => 'twig.filter.capitalize',
             'default' => 'twig.filter.def',
             '_default' => 'twig.filter.def',
-            'upper' => 'String.prototype.toUpperCase.call',
-            'lower' => 'String.prototype.toLowerCase.call',
+            'upper' => 'twig.filter.upper',
+            'lower' => 'twig.filter.lower',
             'url_encode' => 'encodeURIComponent',
             'replace' => 'twig.filter.replace',
+            'join' => 'twig.filter.join',
+            'keys' => 'twig.filter.keys',
         );
 
         $this->functionMap = array(
@@ -302,6 +308,8 @@ class JsCompiler extends \Twig_Compiler
     {
         $this->lastLine = null;
         $this->source = '';
+        $this->sourceOffset = 0;
+        $this->sourceLine = 0;
         $this->indentation = $indentation;
 
         $this->subcompile($node);
@@ -351,6 +359,13 @@ class JsCompiler extends \Twig_Compiler
     {
         $this->localVarMap[$var] =
         $this->scopeVariables[$var] = $localName;
+
+        return $this;
+    }
+
+    public function unsetVar($var)
+    {
+        unset($this->localVarMap[$var]);
 
         return $this;
     }

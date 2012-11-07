@@ -94,6 +94,10 @@ twig.attr = function(obj, attr, opt_args, opt_accessType, opt_isTest) {
 	var accessType = opt_accessType || twig.AttrAccess.ANY;
 	var isTest = goog.isDef(opt_isTest) ? opt_isTest : false;
 	
+	if (!goog.isObject(obj) && !goog.isArray(obj)) {
+		return isTest ? false : null;
+	}
+	
 	if (attr in obj) {
 		if (twig.AttrAccess.ARRAY !== accessType 
 				&& goog.isFunction(obj[attr])) {
@@ -240,4 +244,19 @@ twig.forEach = function(v, func, opt_this) {
 	}
 	
 	goog.object.forEach(/** @type {Object} */ (v), func, opt_this);
+};
+
+/**
+ * Creates an object literal if keys can be dynamic.
+ * 
+ * @param {...*} var_args
+ * @return {Object}
+ */
+twig.createObj = function(var_args) {
+	var rs = {};
+	for (var i = 0; i<arguments.length; i += 2) {
+		rs[arguments[i]] = arguments[i+1];
+	}
+	
+	return rs;
 };

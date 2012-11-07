@@ -10,6 +10,7 @@ See the COPYING file for details.
 <title>TwigJs - All JsUnit Tests</title>
 <script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
 <script src="alltests.js"></script>
+<script src="templates/integration/alltests.js"></script>
 <script>
 goog.require('goog.userAgent.product');
 goog.require('goog.testing.MultiTestRunner');
@@ -92,7 +93,8 @@ a:hover {
       .setStatsBucketSizes(5, 500)
       .setHidePasses(hidePassesInput.checked)
       //.setVerbosePasses(true)
-      .addTests(_allTests);
+      .addTests(_allTests)
+      .addTests(_integrationTests);
   testRunner.render(document.getElementById('runner'));
 
   goog.events.listen(hidePassesInput, 'click', function(e) {

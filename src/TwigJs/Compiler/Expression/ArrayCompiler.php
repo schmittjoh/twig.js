@@ -34,7 +34,6 @@ class ArrayCompiler implements TypeCompilerInterface
             throw new \RuntimeException(sprintf('$node must be an instanceof of \Expression_Array, but got "%s".', get_class($node)));
         }
 
-
         $pairs = $this->getKeyValuePairs($node);
 
         if ($isList = $this->isList($pairs)) {

@@ -61,7 +61,7 @@ class GetAttrCompiler implements TypeCompilerInterface
 
             $displayed = false;
             foreach ($node->getNode('arguments') as $key => $argNode) {
-                if ($key === 0) {
+                if (!($key & 1)) {
                   continue;
                 }
                 if ($displayed) {

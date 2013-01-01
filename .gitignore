@@ -1,3 +1,4 @@
 phpunit.xml
 config.php
+vendor/
 

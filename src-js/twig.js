@@ -153,6 +153,11 @@ twig.attr = function(obj, attr, opt_args, opt_accessType, opt_isTest) {
 	return null;
 };
 
+twig.attrsimple = function(obj, attr) {
+	var getter = 'get' + attr.charAt(0).toUpper() + attr.substr(1);
+	return (typeof obj[getter]==="function") ? obj[getter]() : (typeof obj[attr] !== "undefined" :? obj[attr] : null);
+};
+
 /**
  * Removes all non-meaningful spaces from the HTML.
  * 

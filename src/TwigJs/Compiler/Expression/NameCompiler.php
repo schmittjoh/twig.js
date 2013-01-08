@@ -66,7 +66,8 @@ class NameCompiler implements TypeCompilerInterface
 
             // FIXME: Add strict behavior?
             //        see Template::getContext()
-            $compiler
+            $compiler->raw('twig.attrsimple(context, '.json_encode($name).")");
+            /*$compiler
                 ->string('get' . ucfirst($name))
                 ->raw(' in context ? ')
                 ->raw('context.get' . ucfirst($name))
@@ -74,7 +75,7 @@ class NameCompiler implements TypeCompilerInterface
                 ->string($name)
                 ->raw(' in context ? ')
                 ->raw('context.'.$name)
-                ->raw(' : null')
+                ->raw(' : null')*/
             ;
         }
     }

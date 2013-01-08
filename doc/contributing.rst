@@ -1,4 +1,16 @@
-Running The Test Suite
+Contributing
+============
+
+Introduction
+############
+
+If you discover a bug, or maybe a feature is missing that you'd like to add,
+you can simply `fork the repository <http://github.com/schmittjoh/twig.js>`_ 
+on GitHub, and then send a pull request with your proposed patch.
+
+Please make sure to run the test suite, and also to add tests for your changes. 
+
+Running the Test Suite
 ######################
 
 twig.js has a PHP, and a Javascript Test Suite. Depending on which parts of the

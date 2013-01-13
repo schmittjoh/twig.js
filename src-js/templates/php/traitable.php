@@ -1,7 +1,7 @@
 <?php
 
 /* traitable.twig */
-class __TwigTemplate_288581d3f1db09f6288d3661b5a036aa extends Twig_Template
+class __TwigTemplate_5281c639629fb941cf603ad27edadc72 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -32,6 +32,6 @@ class __TwigTemplate_288581d3f1db09f6288d3661b5a036aa extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  20 => 1,  48 => 8,  42 => 5,  36 => 2,  19 => 1,  44 => 4,  38 => 4,  34 => 2,  21 => 1,);
+        return array (  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 10,  34 => 8,  32 => 5,  28 => 4,  23 => 1,);
     }
 }

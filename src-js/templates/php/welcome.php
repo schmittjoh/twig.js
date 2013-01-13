@@ -1,7 +1,7 @@
 <?php
 
 /* welcome.twig */
-class __TwigTemplate_bfd499f9d482b3c6060c91232c6b94b7 extends Twig_Template
+class __TwigTemplate_21daf103ae6ec8620d2ed5f1b0d9d02f extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -33,7 +33,7 @@ class __TwigTemplate_bfd499f9d482b3c6060c91232c6b94b7 extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-        $context["__internal_fa22a5809e41033cc31eb0967cad6eaaacef9fc6"] = $this->env->loadTemplate("macros.twig");
+        $context["__internal_762d8a8b78645f1bac6bb1abcb1ac7c506622137"] = $this->env->loadTemplate("macros.twig");
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -66,7 +66,7 @@ class __TwigTemplate_bfd499f9d482b3c6060c91232c6b94b7 extends Twig_Template
             echo "Some Status.";
         } else {
             // line 19
-            echo $context["__internal_fa22a5809e41033cc31eb0967cad6eaaacef9fc6"]->getlink("/login", "Please login.", "Login");
+            echo $context["__internal_762d8a8b78645f1bac6bb1abcb1ac7c506622137"]->getlink("/login", "Please login.", "Login");
         }
         // line 21
         echo "</p>
@@ -86,6 +86,6 @@ class __TwigTemplate_bfd499f9d482b3c6060c91232c6b94b7 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  72 => 21,  69 => 19,  66 => 17,  64 => 16,  59 => 13,  56 => 12,  53 => 11,  41 => 5,  12 => 2,  20 => 1,  48 => 8,  42 => 5,  36 => 3,  19 => 1,  44 => 6,  38 => 4,  34 => 2,  21 => 1,);
+        return array (  72 => 21,  69 => 19,  66 => 17,  64 => 16,  59 => 13,  56 => 12,  53 => 11,  44 => 6,  41 => 5,  36 => 3,  12 => 2,  19 => 1,  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 10,  34 => 8,  32 => 5,  28 => 4,  23 => 1,);
     }
 }

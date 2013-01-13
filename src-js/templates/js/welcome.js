@@ -50,7 +50,7 @@ welcome.prototype.getParent_ = function(context) {
  */
 welcome.prototype.render_ = function(sb, context, blocks) {
     // line 3
-    context["__internal_c49af384772390b76bf0db6941f7bdbc5ab1729a"] = this.env_.createTemplate(macros);
+    context["__internal_a0b57573de94a15e0148f683483c96b56074deeb"] = this.env_.createTemplate(macros);
     this.getParent(context).render_(sb, context, twig.extend({}, this.getBlocks(), blocks));
 };
 
@@ -85,7 +85,7 @@ welcome.prototype.block_body = function(sb, context, blocks) {
         sb.append("Some Status.");
     } else {
         // line 19
-        sb.append(context["__internal_c49af384772390b76bf0db6941f7bdbc5ab1729a"].getlink("\/login", "Please login.", "Login"));
+        sb.append(context["__internal_a0b57573de94a15e0148f683483c96b56074deeb"].getlink("\/login", "Please login.", "Login"));
     }
     // line 21
     sb.append("<\/p>\n\n");

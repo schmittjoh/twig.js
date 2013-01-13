@@ -116,11 +116,22 @@ class ModuleCompiler implements TypeCompilerInterface
         }
 
         $compiler
-            ->write("/**\n * @fileoverview Compiled template for file\n *\n * ".str_replace('*/', '*\\/', $filename)."\n */\n\n")
+            ->write("/**\n")
+            ->write(" * @fileoverview Compiled template for file\n")
+            ->write(" *\n")
+            ->write(" * ".str_replace('*/', '*\\/', $filename)."\n")
+            ->write(" *\n")
+            ->write(" * @suppress {checkTypes|fileoverviewTags}\n")
+            ->write(" */\n")
+            ->write("\n")
         ;
 
         $compiler
-            ->write("goog.provide('$functionName');\n\n")
+            ->write("goog.provide('$functionName');\n")
+            ->write("\n")
+            ->write("goog.require('twig');\n")
+            ->write("goog.require('twig.filter');\n")
+            ->write("\n")
             ->write(
                 "/**\n",
                 " * @constructor\n",

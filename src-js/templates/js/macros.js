@@ -2,9 +2,14 @@
  * @fileoverview Compiled template for file
  *
  * macros.twig
+ *
+ * @suppress {checkTypes|fileoverviewTags}
  */
 
 goog.provide('macros');
+
+goog.require('twig');
+goog.require('twig.filter');
 
 /**
  * @constructor

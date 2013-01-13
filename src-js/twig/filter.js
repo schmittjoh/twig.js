@@ -65,7 +65,7 @@ twig.filter.capitalize = function(env, str) {
  * @param {twig.Environment} env
  * @param {*} value
  * @param {twig.filter.escape.Type=} opt_type
- * @param {string=} opt_charset
+ * @param {string|null=} opt_charset
  * @param {boolean=} opt_autoescape defaults to false
  * @return {string}
  */

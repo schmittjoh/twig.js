@@ -2,9 +2,14 @@
  * @fileoverview Compiled template for file
  *
  * index.twig
+ *
+ * @suppress {checkTypes|fileoverviewTags}
  */
 
 goog.provide('index');
+
+goog.require('twig');
+goog.require('twig.filter');
 
 /**
  * @constructor
@@ -53,19 +58,16 @@ index.prototype.render_ = function(sb, context, blocks) {
     // line 14
     context["a"] = [1, 2, [1, 2], {"foo": {"foo": "bar"}}];
     // line 15
-    var tmp_a = ("a" in context) ? context["a"] : null;
-    sb.append(twig.filter.escape(this.env_, twig.filter.join(twig.attr(tmp_a, 2, undefined, "array"), ","), "html", null, true));
+    sb.append(twig.filter.escape(this.env_, twig.filter.join(twig.attr("a" in context ? context["a"] : null, 2, undefined, "array"), ","), "html", null, true));
     sb.append("\n");
     // line 16
-    sb.append(twig.filter.escape(this.env_, twig.filter.join(twig.attr(twig.attr(tmp_a, 3, undefined, "array"), "foo", undefined, "array"), ","), "html", null, true));
+    sb.append(twig.filter.escape(this.env_, twig.filter.join(twig.attr(twig.attr("a" in context ? context["a"] : null, 3, undefined, "array"), "foo", undefined, "array"), ","), "html", null, true));
     sb.append("\n\n");
     // line 19
-    var tmp_foo = ("foo" in context) ? context["foo"] : null;
-    var tmp_bar = ("bar" in context) ? context["bar"] : null;
-    sb.append(twig.filter.escape(this.env_, twig.filter.join([twig.attr(tmp_foo, tmp_bar, undefined, "array")], ","), "html", null, true));
+    sb.append(twig.filter.escape(this.env_, twig.filter.join([twig.attr("foo" in context ? context["foo"] : null, "bar" in context ? context["bar"] : null, undefined, "array")], ","), "html", null, true));
     sb.append("\n\n");
     // line 22
-    sb.append(twig.filter.escape(this.env_, twig.filter.join([twig.filter.upper(this.env_, "foo"), twig.filter.upper(this.env_, tmp_bar), (tmp_bar == tmp_foo)], ","), "html", null, true));
+    sb.append(twig.filter.escape(this.env_, twig.filter.join([twig.filter.upper(this.env_, "foo"), twig.filter.upper(this.env_, "bar" in context ? context["bar"] : null), (("bar" in context ? context["bar"] : null) == ("foo" in context ? context["foo"] : null))], ","), "html", null, true));
     sb.append("\n\n");
     // line 25
     sb.append(twig.filter.escape(this.env_, twig.filter.join([1, 2], ","), "html", null, true));
@@ -76,15 +78,12 @@ index.prototype.render_ = function(sb, context, blocks) {
     // line 34
     context["b"] = "foo";
     // line 35
-    var tmp_a = ("a" in context) ? context["a"] : null;
-    var tmp_b = ("b" in context) ? context["b"] : null;
-    context["ary"] = twig.createObj(tmp_a, "a", tmp_b, "b", "c", "c", (tmp_a + tmp_b), "d");
+    context["ary"] = twig.createObj("a" in context ? context["a"] : null, "a", "b" in context ? context["b"] : null, "b", "c", "c", (("a" in context ? context["a"] : null) + ("b" in context ? context["b"] : null)), "d");
     // line 36
-    var tmp_ary = ("ary" in context) ? context["ary"] : null;
-    sb.append(twig.filter.escape(this.env_, twig.filter.join(twig.filter.keys(tmp_ary), ","), "html", null, true));
+    sb.append(twig.filter.escape(this.env_, twig.filter.join(twig.filter.keys("ary" in context ? context["ary"] : null), ","), "html", null, true));
     sb.append("\n");
     // line 37
-    sb.append(twig.filter.escape(this.env_, twig.filter.join(tmp_ary, ","), "html", null, true));
+    sb.append(twig.filter.escape(this.env_, twig.filter.join("ary" in context ? context["ary"] : null, ","), "html", null, true));
 };
 
 /**

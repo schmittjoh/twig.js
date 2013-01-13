@@ -2,9 +2,14 @@
  * @fileoverview Compiled template for file
  *
  * hello_world.twig
+ *
+ * @suppress {checkTypes|fileoverviewTags}
  */
 
 goog.provide('hello_world');
+
+goog.require('twig');
+goog.require('twig.filter');
 
 /**
  * @constructor
@@ -29,8 +34,7 @@ hello_world.prototype.getParent_ = function(context) {
 hello_world.prototype.render_ = function(sb, context, blocks) {
     // line 1
     sb.append("Hello ");
-    var tmp_name = ("name" in context) ? context["name"] : null;
-    sb.append(twig.filter.escape(this.env_, ((("name" in context)) ? (twig.filter.def(tmp_name, "World")) : ("World")), "html", null, true));
+    sb.append(twig.filter.escape(this.env_, ((("name" in context)) ? (twig.filter.def("name" in context ? context["name"] : null, "World")) : ("World")), "html", null, true));
     sb.append("!");
 };
 

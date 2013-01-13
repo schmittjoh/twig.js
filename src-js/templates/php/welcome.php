@@ -1,7 +1,7 @@
 <?php
 
 /* welcome.twig */
-class __TwigTemplate_65e8ded9bc93933b0eac2c74347b26b8 extends Twig_Template
+class __TwigTemplate_bfd499f9d482b3c6060c91232c6b94b7 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -14,9 +14,7 @@ class __TwigTemplate_65e8ded9bc93933b0eac2c74347b26b8 extends Twig_Template
         }
         $_trait_0_blocks = $_trait_0->getBlocks();
 
-        $this->traits = array_merge(
-            $_trait_0_blocks
-        );
+        $this->traits = $_trait_0_blocks;
 
         $this->blocks = array_merge(
             $this->traits,
@@ -35,7 +33,7 @@ class __TwigTemplate_65e8ded9bc93933b0eac2c74347b26b8 extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-        $context["__internal_65e8ded9bc93933b0eac2c74347b26b8_1"] = $this->env->loadTemplate("macros.twig");
+        $context["__internal_fa22a5809e41033cc31eb0967cad6eaaacef9fc6"] = $this->env->loadTemplate("macros.twig");
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -58,19 +56,17 @@ class __TwigTemplate_65e8ded9bc93933b0eac2c74347b26b8 extends Twig_Template
         echo "
     <h1>Welcome ";
         // line 13
-        if (isset($context["name"])) { $_name_ = $context["name"]; } else { $_name_ = null; }
-        echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter($_name_, "World")) : ("World")), "html", null, true);
+        echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter((isset($context["name"]) ? $context["name"] : null), "World")) : ("World")), "html", null, true);
         echo "!</h1>
 
     <p>";
         // line 16
-        if (isset($context["name"])) { $_name_ = $context["name"]; } else { $_name_ = null; }
-        if ((!twig_test_empty($_name_))) {
+        if ((!twig_test_empty((isset($context["name"]) ? $context["name"] : null)))) {
             // line 17
             echo "Some Status.";
         } else {
             // line 19
-            echo $context["__internal_65e8ded9bc93933b0eac2c74347b26b8_1"]->getlink("/login", "Please login.", "Login");
+            echo $context["__internal_fa22a5809e41033cc31eb0967cad6eaaacef9fc6"]->getlink("/login", "Please login.", "Login");
         }
         // line 21
         echo "</p>
@@ -86,5 +82,10 @@ class __TwigTemplate_65e8ded9bc93933b0eac2c74347b26b8 extends Twig_Template
     public function isTraitable()
     {
         return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  72 => 21,  69 => 19,  66 => 17,  64 => 16,  59 => 13,  56 => 12,  53 => 11,  41 => 5,  12 => 2,  20 => 1,  48 => 8,  42 => 5,  36 => 3,  19 => 1,  44 => 6,  38 => 4,  34 => 2,  21 => 1,);
     }
 }

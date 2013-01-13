@@ -1,11 +1,13 @@
 <?php
 
 /* traitable.twig */
-class __TwigTemplate_d05299a0cf0adcc4ef9b6c6b1cc6827c extends Twig_Template
+class __TwigTemplate_288581d3f1db09f6288d3661b5a036aa extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
+
+        $this->parent = false;
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
@@ -28,4 +30,8 @@ class __TwigTemplate_d05299a0cf0adcc4ef9b6c6b1cc6827c extends Twig_Template
         return "traitable.twig";
     }
 
+    public function getDebugInfo()
+    {
+        return array (  20 => 1,  48 => 8,  42 => 5,  36 => 2,  19 => 1,  44 => 4,  38 => 4,  34 => 2,  21 => 1,);
+    }
 }

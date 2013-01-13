@@ -2,9 +2,14 @@
  * @fileoverview Compiled template for file
  *
  * ajax_layout.twig
+ *
+ * @suppress {checkTypes|fileoverviewTags}
  */
 
 goog.provide('ajax_layout');
+
+goog.require('twig');
+goog.require('twig.filter');
 
 /**
  * @constructor

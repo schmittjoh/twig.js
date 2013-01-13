@@ -2,9 +2,14 @@
  * @fileoverview Compiled template for file
  *
  * traitable.twig
+ *
+ * @suppress {checkTypes|fileoverviewTags}
  */
 
 goog.provide('traitable');
+
+goog.require('twig');
+goog.require('twig.filter');
 
 /**
  * @constructor

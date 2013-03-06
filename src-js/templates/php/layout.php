@@ -1,11 +1,13 @@
 <?php
 
 /* layout.twig */
-class __TwigTemplate_6b62a0d6a50f30fc24ba7dca923988e3 extends Twig_Template
+class __TwigTemplate_6c733160076cc3e3475e371f0f2027f4 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
+
+        $this->parent = false;
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
@@ -74,4 +76,8 @@ class __TwigTemplate_6b62a0d6a50f30fc24ba7dca923988e3 extends Twig_Template
         return "layout.twig";
     }
 
+    public function getDebugInfo()
+    {
+        return array (  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 10,  34 => 8,  32 => 5,  28 => 4,  23 => 1,);
+    }
 }

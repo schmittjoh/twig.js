@@ -1,8 +1,18 @@
 <?php
 
 /* counter.twig */
-class __TwigTemplate_deea152cc4c521e29dce06a7c0cc4dc3 extends Twig_Template
+class __TwigTemplate_793d91fc364e0fa6f2d9992735b0188e extends Twig_Template
 {
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->parent = false;
+
+        $this->blocks = array(
+        );
+    }
+
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
@@ -23,23 +33,19 @@ class __TwigTemplate_deea152cc4c521e29dce06a7c0cc4dc3 extends Twig_Template
         }
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
             // line 2
-            if (isset($context["i"])) { $_i_ = $context["i"]; } else { $_i_ = null; }
-            echo twig_escape_filter($this->env, $_i_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["i"]) ? $context["i"] : null), "html", null, true);
             // line 4
-            if (isset($context["i"])) { $_i_ = $context["i"]; } else { $_i_ = null; }
             $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable(range($_i_, $_i_));
+            $context['_seq'] = twig_ensure_traversable(range((isset($context["i"]) ? $context["i"] : null), (isset($context["i"]) ? $context["i"] : null)));
             foreach ($context['_seq'] as $context["_key"] => $context["j"]) {
                 // line 5
-                if (isset($context["j"])) { $_j_ = $context["j"]; } else { $_j_ = null; }
-                echo twig_escape_filter($this->env, (", " . $_j_), "html", null, true);
+                echo twig_escape_filter($this->env, (", " . (isset($context["j"]) ? $context["j"] : null)), "html", null, true);
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['j'], $context['_parent'], $context['loop']);
             $context = array_merge($_parent, array_intersect_key($context, $_parent));
             // line 8
-            if (isset($context["loop"])) { $_loop_ = $context["loop"]; } else { $_loop_ = null; }
-            if ((!$this->getAttribute($_loop_, "last"))) {
+            if ((!$this->getAttribute((isset($context["loop"]) ? $context["loop"] : null), "last"))) {
                 echo ", ";
             }
             ++$context['loop']['index0'];
@@ -64,5 +70,10 @@ class __TwigTemplate_deea152cc4c521e29dce06a7c0cc4dc3 extends Twig_Template
     public function isTraitable()
     {
         return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  42 => 5,  21 => 1,  72 => 21,  69 => 19,  66 => 17,  64 => 16,  59 => 13,  56 => 12,  53 => 11,  44 => 4,  41 => 5,  36 => 2,  12 => 2,  19 => 1,  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 8,  43 => 14,  40 => 11,  38 => 4,  34 => 2,  32 => 5,  28 => 4,  23 => 1,);
     }
 }

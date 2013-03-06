@@ -2,9 +2,14 @@
  * @fileoverview Compiled template for file
  *
  * Tests/Fixture/templates/simple_standalone.twig
+ *
+ * @suppress {checkTypes|fileoverviewTags}
  */
 
 goog.provide('simple_standalone');
+
+goog.require('twig');
+goog.require('twig.filter');
 
 /**
  * @constructor

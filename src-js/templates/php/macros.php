@@ -1,19 +1,29 @@
 <?php
 
 /* macros.twig */
-class __TwigTemplate_2ccab0f85b7bd5a784d846e735cba04f extends Twig_Template
+class __TwigTemplate_ea58ce2cb24dad6f36ff7f8f50cd803d extends Twig_Template
 {
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->parent = false;
+
+        $this->blocks = array(
+        );
+    }
+
     protected function doDisplay(array $context, array $blocks = array())
     {
     }
 
     // line 1
-    public function getlink($link = null, $content = null, $title = null)
+    public function getlink($_link = null, $_content = null, $_title = null)
     {
-        $context = array_merge($this->env->getGlobals(), array(
-            "link" => $link,
-            "content" => $content,
-            "title" => $title,
+        $context = $this->env->mergeGlobals(array(
+            "link" => $_link,
+            "content" => $_content,
+            "title" => $_title,
         ));
 
         $blocks = array();
@@ -22,30 +32,26 @@ class __TwigTemplate_2ccab0f85b7bd5a784d846e735cba04f extends Twig_Template
         try {
             // line 2
             echo "<a href=\"";
-            if (isset($context["link"])) { $_link_ = $context["link"]; } else { $_link_ = null; }
-            echo twig_escape_filter($this->env, $_link_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["link"]) ? $context["link"] : null), "html", null, true);
             echo "\"";
             // line 3
-            if (isset($context["title"])) { $_title_ = $context["title"]; } else { $_title_ = null; }
-            if ((!twig_test_empty($_title_))) {
+            if ((!twig_test_empty((isset($context["title"]) ? $context["title"] : null)))) {
                 echo " title=\"";
-                if (isset($context["title"])) { $_title_ = $context["title"]; } else { $_title_ = null; }
-                echo twig_escape_filter($this->env, $_title_, "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["title"]) ? $context["title"] : null), "html", null, true);
                 echo "\"";
             }
             // line 4
             echo ">";
-            if (isset($context["content"])) { $_content_ = $context["content"]; } else { $_content_ = null; }
-            echo twig_escape_filter($this->env, $_content_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["content"]) ? $context["content"] : null), "html", null, true);
             echo "</a>
 ";
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             ob_end_clean();
 
             throw $e;
         }
 
-        return ob_get_clean();
+        return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
     public function getTemplateName()
@@ -56,5 +62,10 @@ class __TwigTemplate_2ccab0f85b7bd5a784d846e735cba04f extends Twig_Template
     public function isTraitable()
     {
         return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  21 => 1,  72 => 21,  69 => 19,  66 => 17,  64 => 16,  59 => 13,  56 => 12,  53 => 11,  44 => 4,  41 => 5,  36 => 3,  12 => 2,  19 => 1,  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 3,  34 => 2,  32 => 5,  28 => 4,  23 => 1,);
     }
 }

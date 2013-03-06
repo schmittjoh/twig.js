@@ -2,9 +2,14 @@
  * @fileoverview Compiled template for file
  *
  * Tests/Fixture/templates/custom_name.twig
+ *
+ * @suppress {checkTypes|fileoverviewTags}
  */
 
 goog.provide('foo');
+
+goog.require('twig');
+goog.require('twig.filter');
 
 /**
  * @constructor

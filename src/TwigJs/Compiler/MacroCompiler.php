@@ -37,8 +37,10 @@ class MacroCompiler implements TypeCompilerInterface
         $compiler->enterScope();
 
         $arguments = array();
-        foreach ($node->getNode('arguments') as $argument) {
-            $name = $argument->getAttribute('name');
+        foreach ($node->getNode('arguments') as $name => $argument) {
+            if ($argument->hasAttribute('name')) {
+                $name = $argument->getAttribute('name');
+            }
 
             $arguments[] = 'opt_'.$name;
             $compiler->setVar($name, 'opt_'.$name);

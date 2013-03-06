@@ -2,9 +2,14 @@
  * @fileoverview Compiled template for file
  *
  * layout.twig
+ *
+ * @suppress {checkTypes|fileoverviewTags}
  */
 
 goog.provide('layout');
+
+goog.require('twig');
+goog.require('twig.filter');
 
 /**
  * @constructor

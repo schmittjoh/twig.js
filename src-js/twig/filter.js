@@ -80,6 +80,8 @@ twig.filter.escape = function(env, value, opt_type, opt_charset, opt_autoescape)
 		value = goog.string.quote(value);
 		
 		return value.substring(1, value.length - 1);
+	} else if (twig.filter.escape.Type.URL === opt_type) {
+		return encodeURIComponent(value);
 	} else if (!opt_type || twig.filter.escape.Type.HTML === opt_type) {
 		return goog.string.htmlEscape(value);
 	}
@@ -92,7 +94,8 @@ twig.filter.escape = function(env, value, opt_type, opt_charset, opt_autoescape)
  */
 twig.filter.escape.Type = {
 	HTML: "html",
-	JAVASCRIPT: "js"
+	JAVASCRIPT: "js",
+	URL : "url"
 };
 
 /**

@@ -485,6 +485,9 @@ $goog$exportSymbol$$("twig.filter.escape", function($env$$2_s$$inline_21_str$$in
     return $env$$2_s$$inline_21_str$$inline_138$$ = $sb$$inline_22_value$$60$$, $goog$string$allRe_$$.test($env$$2_s$$inline_21_str$$inline_138$$) && (-1 != $env$$2_s$$inline_21_str$$inline_138$$.indexOf("&") && ($env$$2_s$$inline_21_str$$inline_138$$ = $env$$2_s$$inline_21_str$$inline_138$$.replace($goog$string$amperRe_$$, "&amp;")), -1 != $env$$2_s$$inline_21_str$$inline_138$$.indexOf("<") && ($env$$2_s$$inline_21_str$$inline_138$$ = $env$$2_s$$inline_21_str$$inline_138$$.replace($goog$string$ltRe_$$, 
     "&lt;")), -1 != $env$$2_s$$inline_21_str$$inline_138$$.indexOf(">") && ($env$$2_s$$inline_21_str$$inline_138$$ = $env$$2_s$$inline_21_str$$inline_138$$.replace($goog$string$gtRe_$$, "&gt;")), -1 != $env$$2_s$$inline_21_str$$inline_138$$.indexOf('"') && ($env$$2_s$$inline_21_str$$inline_138$$ = $env$$2_s$$inline_21_str$$inline_138$$.replace($goog$string$quotRe_$$, "&quot;"))), $env$$2_s$$inline_21_str$$inline_138$$
   }
+  if("url" === $i$$inline_23_opt_type$$5$$) {
+    return encodeURIComponent($sb$$inline_22_value$$60$$)
+  }
   throw Error("The type '" + $i$$inline_23_opt_type$$5$$ + "' is not supported.");
 });
 $goog$exportSymbol$$("twig.filter.length", function($env$$3$$, $value$$61$$) {

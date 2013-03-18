@@ -29,8 +29,10 @@ goog.require('goog.object');
  * @return {string}
  */
 twig.filter.replace = function(str, map) {
+	var escapedKey;
 	for (var key in map) {
-		str = str.replace(new RegExp(key, 'g'), map[key]);
+		escapedKey = key.replace(/\./g, '\\.');
+		str = str.replace(new RegExp(escapedKey, 'g'), map[key]);
 	}
 	
 	return str;

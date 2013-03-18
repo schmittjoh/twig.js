@@ -29,6 +29,9 @@
 		assertEquals("mydomain-nl", twig.filter.replace(
 			"mydomain.nl", {".": "-"}
 		));
+		assertEquals("xxx---xxx", twig.filter.replace(
+			"...---...", {".": "x"}
+		));
         }
         
         function testDefault() {

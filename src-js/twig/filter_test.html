@@ -26,6 +26,9 @@
         		"greet": "Hello Johannes",
         		"l": "m"
         	}));
+		assertEquals("mydomain-nl", twig.filter.replace(
+			"my-domain.nl", {".": "-"}
+		));
         }
         
         function testDefault() {

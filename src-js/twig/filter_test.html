@@ -32,6 +32,30 @@
 		assertEquals("xxx---xxx", twig.filter.replace(
 			"...---...", {".": "x"}
 		));
+		assertEquals("aaaaaaaaaaaaaaaaaaaa", twig.filter.replace(
+			".\\+*?[^]$(){}=!<>|:-", {
+				".": "a",
+				"\\": "a",
+				"+": "a",
+				"*": "a",
+				"?": "a",
+				"[": "a",
+				"^": "a",
+				"]": "a",
+				"$": "a",
+				"(": "a",
+				")": "a",
+				"{": "a",
+				"}": "a",
+				"=": "a",
+				"!": "a",
+				"<": "a",
+				">": "a",
+				"|": "a",
+				":": "a",
+				"-": "a"
+			}
+		));
         }
         
         function testDefault() {

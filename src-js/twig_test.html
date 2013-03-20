@@ -152,28 +152,28 @@
         	assertFalse(twig.empty(1));
         }
 
-	function testPregQuote() {
-		assertEquals("\\.", twig.pregQuote("."));
-		assertEquals("\\\\", twig.pregQuote("\\"));
-		assertEquals("\\+", twig.pregQuote("+"));
-		assertEquals("\\*", twig.pregQuote("*"));
-		assertEquals("\\?", twig.pregQuote("?"));
-		assertEquals("\\[", twig.pregQuote("["));
-		assertEquals("\\]", twig.pregQuote("]"));
-		assertEquals("\\^", twig.pregQuote("^"));
-		assertEquals("\\$", twig.pregQuote("$"));
-		assertEquals("\\(", twig.pregQuote("("));
-		assertEquals("\\)", twig.pregQuote(")"));
-		assertEquals("\\{", twig.pregQuote("{"));
-		assertEquals("\\}", twig.pregQuote("}"));
-		assertEquals("\\=", twig.pregQuote("="));
-		assertEquals("\\!", twig.pregQuote("!"));
-		assertEquals("\\<", twig.pregQuote("<"));
-		assertEquals("\\>", twig.pregQuote(">"));
-		assertEquals("\\|", twig.pregQuote("|"));
-		assertEquals("\\:", twig.pregQuote(":"));
-		assertEquals("\\-", twig.pregQuote("-"));
-	}
+        function testPregQuote() {
+        	assertEquals("\\.", twig.pregQuote("."));
+        	assertEquals("\\\\", twig.pregQuote("\\"));
+        	assertEquals("\\+", twig.pregQuote("+"));
+        	assertEquals("\\*", twig.pregQuote("*"));
+        	assertEquals("\\?", twig.pregQuote("?"));
+        	assertEquals("\\[", twig.pregQuote("["));
+        	assertEquals("\\]", twig.pregQuote("]"));
+        	assertEquals("\\^", twig.pregQuote("^"));
+        	assertEquals("\\$", twig.pregQuote("$"));
+        	assertEquals("\\(", twig.pregQuote("("));
+        	assertEquals("\\)", twig.pregQuote(")"));
+        	assertEquals("\\{", twig.pregQuote("{"));
+        	assertEquals("\\}", twig.pregQuote("}"));
+        	assertEquals("\\=", twig.pregQuote("="));
+        	assertEquals("\\!", twig.pregQuote("!"));
+        	assertEquals("\\<", twig.pregQuote("<"));
+        	assertEquals("\\>", twig.pregQuote(">"));
+        	assertEquals("\\|", twig.pregQuote("|"));
+        	assertEquals("\\:", twig.pregQuote(":"));
+        	assertEquals("\\-", twig.pregQuote("-"));
+        }
     </script>
 </body>
 </html>

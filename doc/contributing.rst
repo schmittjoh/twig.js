@@ -39,4 +39,5 @@ test templates by running (from the root folder)::
 If you also made changes to the Javascript, you need to re-compile the minified
 versions of twig.js::
 
-    $ php bin/compile.php
+    $ make build
+

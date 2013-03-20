@@ -26,36 +26,36 @@
         		"greet": "Hello Johannes",
         		"l": "m"
         	}));
-		assertEquals("mydomain-nl", twig.filter.replace(
-			"mydomain.nl", {".": "-"}
-		));
-		assertEquals("xxx---xxx", twig.filter.replace(
-			"...---...", {".": "x"}
-		));
-		assertEquals("aaaaaaaaaaaaaaaaaaaa", twig.filter.replace(
-			".\\+*?[^]$(){}=!<>|:-", {
-				".": "a",
-				"\\": "a",
-				"+": "a",
-				"*": "a",
-				"?": "a",
-				"[": "a",
-				"^": "a",
-				"]": "a",
-				"$": "a",
-				"(": "a",
-				")": "a",
-				"{": "a",
-				"}": "a",
-				"=": "a",
-				"!": "a",
-				"<": "a",
-				">": "a",
-				"|": "a",
-				":": "a",
-				"-": "a"
-			}
-		));
+        	assertEquals("mydomain-nl", twig.filter.replace(
+        		"mydomain.nl", {".": "-"}
+        	));
+        	assertEquals("xxx---xxx", twig.filter.replace(
+        		"...---...", {".": "x"}
+        	));
+        	assertEquals("aaaaaaaaaaaaaaaaaaaa", twig.filter.replace(
+        		".\\+*?[^]$(){}=!<>|:-", {
+        			".": "a",
+        			"\\": "a",
+        			"+": "a",
+        			"*": "a",
+        			"?": "a",
+        			"[": "a",
+        			"^": "a",
+        			"]": "a",
+        			"$": "a",
+        			"(": "a",
+        			")": "a",
+        			"{": "a",
+        			"}": "a",
+        			"=": "a",
+        			"!": "a",
+        			"<": "a",
+        			">": "a",
+        			"|": "a",
+        			":": "a",
+        			"-": "a"
+        		}
+        	));
         }
         
         function testDefault() {

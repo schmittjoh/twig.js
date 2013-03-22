@@ -109,6 +109,13 @@ class JsCompiler extends \Twig_Compiler
     private $filterFunctions;
     private $functionMap;
 
+    /**
+     * Maps a set of twig function names to compilers
+     *
+     * @var array
+     */
+    private $functionCompilerMap = array();
+
     public function __construct(\Twig_Environment $env)
     {
         parent::__construct($env);
@@ -302,6 +309,45 @@ class JsCompiler extends \Twig_Compiler
     {
         return isset($this->functionMap[$twigFunctionName]) ?
             $this->functionMap[$twigFunctionName] : null;
+    }
+
+    /**
+     * Sets a function compiler
+     * 
+     * @param string                    $function Twig function
+     * @param FunctionCompilerInterface $compiler Function compiler
+     */
+    public function setFunctionCompiler($function, FunctionCompilerInterface $compiler)
+    {
+        $this->functionCompilerMap[$function] = $compiler;
+    }
+
+    /**
+     * Indicates whether a compiler exists for the specified function
+     * 
+     * @param string $function Twig function
+     * @return boolean TRUE if a compiler exists; FALSE otherwise.
+     */
+    public function hasFunctionCompiler($function)
+    {
+        return array_key_exists($function, $this->functionCompilerMap);
+    }
+
+    /**
+     * Gets a function compiler
+     * 
+     * @param string $function Twig function
+     * @return FunctionCompilerInterface
+     *
+     * @throws RuntimeException If no compiler exists for the specified function
+     */
+    public function getFunctionCompiler($function)
+    {
+        if (!$this->hasFunctionCompiler($function)) {
+            throw new \RuntimeException(sprintf("There is no function compiler for '%s'.", $function));
+        }
+        
+        return $this->functionCompilerMap[$function];
     }
 
     public function compile(\Twig_NodeInterface $node, $indentation = 0)

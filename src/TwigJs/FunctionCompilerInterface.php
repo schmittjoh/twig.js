@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright 2013 Josiah <josiah@jjs.id.au>
+ * Copyright 2011 Johannes M. Schmitt <schmittjoh@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,19 @@ use Twig_Node_Expression_Function;
  */
 interface FunctionCompilerInterface
 {
+    /**
+     * Indicates whether this function compiler is able to compile the specified
+     * function node.
+     *
+     * This allows function compilers to 'opt-out' of node compilation if
+     * they're not able to satisfy something which has been defined in the
+     * function node.
+     * 
+     * @param Twig_Node_Expression_Function $node Node for compilation
+     * @return boolean TRUE if the node can be compiled; FALSE otherwise.
+     */
+    function canCompile(Twig_Node_Expression_Function $node);
+
     /**
      * Compiles a twig function for use in javascript and compiles a method call
      * appropriate for the specified node.

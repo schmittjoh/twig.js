@@ -39,12 +39,13 @@ class FunctionCompiler implements TypeCompilerInterface
             throw new \Twig_Error_Syntax(sprintf('The function "%s" does not exist', $node->getAttribute('name')), $node->getLine());
         }
 
-        if ($compiler->hasFunctionCompiler($node->getAttribute('name'))) {
+        if ($functionCompiler = $compiler->getFunctionCompiler($node)) {
+
             // Let the function compiler completely handle compilation and alter
             // the method signature as it requires.
-            $functionCompiler = $compiler->getFunctionCompiler($node->getAttribute('name'));
             $functionCompiler->compile($compiler, $node);
             return;
+
         } elseif ($jsFunction = $compiler->getJsFunction($node->getAttribute('name'))) {
             $compiler->raw($jsFunction.'(');
         } else {

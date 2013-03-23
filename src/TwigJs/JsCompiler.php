@@ -317,20 +317,13 @@ class JsCompiler extends \Twig_Compiler
      * @param string                    $function Twig function
      * @param FunctionCompilerInterface $compiler Function compiler
      */
-    public function setFunctionCompiler($function, FunctionCompilerInterface $compiler)
+    public function addFunctionCompiler($function, FunctionCompilerInterface $compiler, $priority = 0)
     {
-        $this->functionCompilerMap[$function] = $compiler;
-    }
+        if (!array_key_exists($function, ($this->functionCompilerMap))) {
+            $this->functionCompilerMap[$function] = new \SplPriorityQueue();
+        }
 
-    /**
-     * Indicates whether a compiler exists for the specified function
-     * 
-     * @param string $function Twig function
-     * @return boolean TRUE if a compiler exists; FALSE otherwise.
-     */
-    public function hasFunctionCompiler($function)
-    {
-        return array_key_exists($function, $this->functionCompilerMap);
+        $this->functionCompilerMap[$function]->insert($compiler, $priority);
     }
 
     /**
@@ -341,13 +334,19 @@ class JsCompiler extends \Twig_Compiler
      *
      * @throws RuntimeException If no compiler exists for the specified function
      */
-    public function getFunctionCompiler($function)
+    public function getFunctionCompiler(\Twig_Node_Expression_Function $node)
     {
-        if (!$this->hasFunctionCompiler($function)) {
-            throw new \RuntimeException(sprintf("There is no function compiler for '%s'.", $function));
+        $functionName = $node->getAttribute('name');
+
+        if (array_key_exists($functionName, $this->functionCompilerMap)) {
+            foreach ($this->functionCompilerMap[$functionName] as $functionCompiler) {
+                if ($functionCompiler->canCompile($node)) {
+                    return $functionCompiler;
+                }
+            }
         }
-        
-        return $this->functionCompilerMap[$function];
+
+        return null;
     }
 
     public function compile(\Twig_NodeInterface $node, $indentation = 0)

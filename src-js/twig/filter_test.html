@@ -53,10 +53,10 @@
         }
 
         function testNl2br() {
-		assertEquals("one-two", twig.filter.nl2br("one-two"));
-		assertEquals("one<br />two", twig.filter.nl2br("one\ntwo"));
-		assertEquals("one<br /><br />two", twig.filter.nl2br("one\n\ntwo"));
-	}
+                assertEquals("one-two", twig.filter.nl2br("one-two"));
+                assertEquals("one<br />two", twig.filter.nl2br("one\ntwo"));
+                assertEquals("one<br /><br />two", twig.filter.nl2br("one\n\ntwo"));
+        }
     </script>
 </body>
 </html>

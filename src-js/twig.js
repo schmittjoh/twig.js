@@ -231,6 +231,19 @@ twig.count = function(v) {
 };
 
 /**
+ * Returns the given value as a string
+ *
+ * @param {*} value
+ * @return {string}
+ */
+twig.castToString = function(value) {
+	if (typeof value === "number") {
+		return value.toString();
+	}
+	return "";
+};
+
+/**
  * 
  * @param {Array|Object} v
  * @param {Function} func

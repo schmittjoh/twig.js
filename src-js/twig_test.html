@@ -151,6 +151,14 @@
         	assertFalse(twig.empty({foo:"bar"}));
         	assertFalse(twig.empty(1));
         }
+
+        function testCastToString() {
+        	assertEquals("1", twig.castToString(1));
+        	assertEquals("0", twig.castToString(0));
+        	assertEquals("1.2", twig.castToString(1.2));
+        	assertEquals("", twig.castToString(null));
+        	assertEquals("", twig.castToString(false));
+	}
     </script>
 </body>
 </html>

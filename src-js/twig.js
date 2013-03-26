@@ -227,7 +227,7 @@ twig.count = function(v) {
 		return goog.object.getCount(v);
 	}
 	
-	throw Error((typeof v) + " is not countable.");
+	return twig.castToString(v).length;
 };
 
 /**

@@ -71,15 +71,8 @@
         	assertEquals(0, twig.count({}));
         	assertEquals(2, twig.count({foo:"bar",bar:"baz"}));
         	assertEquals(1, twig.count({length:3}));
-        }
-        
-        function testCountWithInvalid() {
-        	try {
-        		twig.count(3);
-        		fail("twig.count() was expected to throw an error");
-        	} catch (e) {
-        		assertContains("is not countable.", e.message);
-        	}
+
+		assertEquals(2, twig.count(99));
         }
         
         function testContains() {

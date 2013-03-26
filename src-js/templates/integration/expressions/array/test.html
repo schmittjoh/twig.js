@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Integration Test &quot;expressions/array&quot;</title>
-</head>
-<body>
-    <script language="javascript" type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
-    <script language="javascript" type="text/javascript" src="./../../../../../twig.dev.js"></script>
-    <script language="javascript" type="text/javascript" src="./index.twig.js"></script>
-    <script language="javascript" type="text/javascript">
-        goog.require('goog.testing.asserts');
-        goog.require('goog.testing.jsunit');
-        goog.require('goog.string');
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Integration Test &quot;expressions/array&quot;</title>
+	</head>
+	<body>
+		<script language="javascript" type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+		<script language="javascript" type="text/javascript" src="./../../../../../twig.dev.js"></script>
+		<script language="javascript" type="text/javascript" src="./index.twig.js"></script>
+		<script language="javascript" type="text/javascript">
+			goog.require('goog.testing.asserts');
+			goog.require('goog.testing.jsunit');
+			goog.require('goog.string');
 
 
-        function testOutput0() {
-            assertEquals(goog.string.trim("1,2\nfoo,bar\n1,bar\n0,foo\n\n1,bar\n0,foo\n\n1,2\nbar\n\nbar\n\nFOO,BAR,false\n\n1,2\n\n1,foo,c,1foo\na,b,c,d"), goog.string.trim(Twig.render(index, {"bar":"bar","foo":{"bar":"bar"}})));
-        }
-    </script>
-</body>
+			function testOutput0() {
+				assertEquals(goog.string.trim("1,2\nfoo,bar\n1,bar\n0,foo\n\n1,bar\n0,foo\n\n1,2\nbar\n\nbar\n\nFOO,BAR,false\n\n1,2\n\n1,foo,c,1foo\na,b,c,d"), goog.string.trim(Twig.render(index, {"bar":"bar","foo":{"bar":"bar"}})));
+			}
+		</script>
+	</body>
 </html>

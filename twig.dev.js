@@ -524,6 +524,9 @@ $goog$exportSymbol$$("twig.filter.upper", function($env$$4$$, $value$$63$$) {
 $goog$exportSymbol$$("twig.filter.lower", function($env$$5$$, $value$$64$$) {
   return $value$$64$$.toLowerCase()
 });
+$goog$exportSymbol$$("twig.filter.nl2br", function($str$$47$$) {
+  return $str$$47$$.replace(/\n/g, "<br />")
+});
 $goog$exportSymbol$$("twig.StringBuffer", $goog$string$StringBuffer$$);
 $goog$string$StringBuffer$$.prototype.append = $goog$string$StringBuffer$$.prototype.append;
 $goog$string$StringBuffer$$.prototype.toString = $goog$string$StringBuffer$$.prototype.toString;

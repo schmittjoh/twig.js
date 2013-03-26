@@ -105,13 +105,10 @@ twig.filter.escape.Type = {
  * @return {number}
  */
 twig.filter.length = function(env, value) {
-	if (twig.countable(value)) {
-		return twig.count(value);
-	} else if (value) {
-		return 1;
-	} else {
-		return 0;
+	if (!twig.countable(value)) {
+		value = twig.castToString(value);
 	}
+	return twig.count(value);
 };
 
 /**

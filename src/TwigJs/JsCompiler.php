@@ -208,6 +208,7 @@ class JsCompiler extends \Twig_Compiler
             'replace' => 'twig.filter.replace',
             'join' => 'twig.filter.join',
             'keys' => 'twig.filter.keys',
+            'nl2br' => 'twig.filter.nl2br',
         );
 
         $this->functionMap = array(

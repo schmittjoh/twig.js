@@ -152,3 +152,12 @@ twig.filter.upper = function(env, value) {
 twig.filter.lower = function(env, value) {
 	return value.toLowerCase();
 };
+
+/**
+ * @export
+ * @param {string} str
+ * @return {string}
+ */
+twig.filter.nl2br = function(str) {
+	return str.replace(/\n/g, "<br />");
+};

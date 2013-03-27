@@ -498,7 +498,9 @@ $goog$exportSymbol$$("twig.filter.def", function($value$$59$$, $opt_default$$) {
 });
 $goog$exportSymbol$$("twig.filter.replace", function($str$$45$$, $map$$) {
   for(var $key$$43$$ in $map$$) {
-    $str$$45$$ = $str$$45$$.replace(RegExp($key$$43$$, "g"), $map$$[$key$$43$$])
+    var $escapedKey$$;
+    $escapedKey$$ = $key$$43$$.replace(/[\.\\+*?\[\]<>(){}^$=!|:-]/g, "\\$&");
+    $str$$45$$ = $str$$45$$.replace(RegExp($escapedKey$$, "g"), $map$$[$key$$43$$])
   }
   return $str$$45$$
 });

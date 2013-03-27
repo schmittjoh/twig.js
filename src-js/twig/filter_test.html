@@ -1,62 +1,62 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>filter.js test</title>
-</head>
-<body>
-    <script language="javascript" type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
-    <script language="javascript" type="text/javascript">
-        goog.require('goog.object');
-        goog.require('goog.string');
-        goog.require('goog.array');
-    </script>
-    <script language="javascript" type="text/javascript" src="./../twig.js"></script>
-    <script language="javascript" type="text/javascript" src="markup.js"></script>
-    <script language="javascript" type="text/javascript" src="filter.js"></script>
-    <script language="javascript" type="text/javascript">
-        goog.require('goog.testing.asserts');
-        goog.require('goog.testing.jsunit');
-        goog.require('goog.testing.FunctionMock');
-        
-        function testReplace() {
-        	assertEquals("I love foo, and bar.", twig.filter.replace(
-        		"I love %this%, and %that%.", {"%this%": "foo", "%that%": "bar"}));
-        	assertEquals("Hemmo Johannes", twig.filter.replace("greet", {
-        		"greet": "Hello Johannes",
-        		"l": "m"
-        	}));
-        }
-        
-        function testDefault() {
-        	assertEquals("foo", twig.filter.def("", "foo"));
-        	assertEquals("bar", twig.filter.def("bar", "foo"));
-        	assertEquals("", twig.filter.def(false));
-        }
-        
-        function testCapitalize() {
-        	assertEquals("Foo", twig.filter.capitalize(null, "foo"));
-        	assertEquals("", twig.filter.capitalize(null, ""));
-        }
-        
-        function testEscape() {
-        	assertEquals("&lt;", twig.filter.escape(null, "<"));
-        	assertEquals("&lt;", twig.filter.escape(null, "<", twig.filter.escape.Type.HTML));
-        	assertEquals("\\xDCberpr\\xFCfung", twig.filter.escape(null, "\u00dcberpr\u00fcfung", twig.filter.escape.Type.JAVASCRIPT));
-        	assertEquals("~!%40%23%24%25%5E%26*()%3D%2B%5B%5D%7B%7D%5C%3B%3A'%22%2C%2F%3F", twig.filter.escape(null, "~!@#$%^&*()=+[]{}\\;:\'\",/?", twig.filter.escape.Type.URL));
-        }
-        
-        function testLength() {
-        	assertEquals(3, twig.filter.length(null, "foo"));
-        	assertEquals(0, twig.filter.length(null, []));
-        	assertEquals(1, twig.filter.length(null, {foo:"bar"}));
-        }
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>filter.js test</title>
+	</head>
+	<body>
+		<script language="javascript" type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+		<script language="javascript" type="text/javascript">
+			goog.require('goog.object');
+			goog.require('goog.string');
+			goog.require('goog.array');
+		</script>
+		<script language="javascript" type="text/javascript" src="./../twig.js"></script>
+		<script language="javascript" type="text/javascript" src="markup.js"></script>
+		<script language="javascript" type="text/javascript" src="filter.js"></script>
+		<script language="javascript" type="text/javascript">
+			goog.require('goog.testing.asserts');
+			goog.require('goog.testing.jsunit');
+			goog.require('goog.testing.FunctionMock');
 
-        function testNl2br() {
-        	assertEquals("one-two", twig.filter.nl2br("one-two"));
-        	assertEquals("one<br />two", twig.filter.nl2br("one\ntwo"));
-        	assertEquals("one<br /><br />two", twig.filter.nl2br("one\n\ntwo"));
-        }
-    </script>
-</body>
+			function testReplace() {
+				assertEquals("I love foo, and bar.", twig.filter.replace(
+					"I love %this%, and %that%.", {"%this%": "foo", "%that%": "bar"}));
+				assertEquals("Hemmo Johannes", twig.filter.replace("greet", {
+					"greet": "Hello Johannes",
+					"l": "m"
+				}));
+			}
+
+			function testDefault() {
+				assertEquals("foo", twig.filter.def("", "foo"));
+				assertEquals("bar", twig.filter.def("bar", "foo"));
+				assertEquals("", twig.filter.def(false));
+			}
+
+			function testCapitalize() {
+				assertEquals("Foo", twig.filter.capitalize(null, "foo"));
+				assertEquals("", twig.filter.capitalize(null, ""));
+			}
+
+			function testEscape() {
+				assertEquals("&lt;", twig.filter.escape(null, "<"));
+				assertEquals("&lt;", twig.filter.escape(null, "<", twig.filter.escape.Type.HTML));
+				assertEquals("\\xDCberpr\\xFCfung", twig.filter.escape(null, "\u00dcberpr\u00fcfung", twig.filter.escape.Type.JAVASCRIPT));
+				assertEquals("~!%40%23%24%25%5E%26*()%3D%2B%5B%5D%7B%7D%5C%3B%3A'%22%2C%2F%3F", twig.filter.escape(null, "~!@#$%^&*()=+[]{}\\;:\'\",/?", twig.filter.escape.Type.URL));
+			}
+
+			function testLength() {
+				assertEquals(3, twig.filter.length(null, "foo"));
+				assertEquals(0, twig.filter.length(null, []));
+				assertEquals(1, twig.filter.length(null, {foo:"bar"}));
+			}
+
+			function testNl2br() {
+				assertEquals("one-two", twig.filter.nl2br("one-two"));
+				assertEquals("one<br />two", twig.filter.nl2br("one\ntwo"));
+				assertEquals("one<br /><br />two", twig.filter.nl2br("one\n\ntwo"));
+			}
+		</script>
+	</body>
 </html>

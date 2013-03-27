@@ -1,80 +1,80 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>environment.js test</title>
-</head>
-<body>
-    <script language="javascript" type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
-    <script language="javascript" type="text/javascript">
-        goog.require('goog.string');
-        goog.require('goog.string.StringBuffer');
-    </script>
-    <script language="javascript" type="text/javascript" src="../twig.js"></script>
-    <script language="javascript" type="text/javascript" src="markup.js"></script>
-    <script language="javascript" type="text/javascript" src="extension_interface.js"></script>
-    <script language="javascript" type="text/javascript" src="template.js"></script>
-    <script language="javascript" type="text/javascript" src="filter.js"></script>
-    <script language="javascript" type="text/javascript" src="environment.js"></script>
-    <script language="javascript" type="text/javascript" src="extension.js"></script>
-    <script language="javascript" type="text/javascript">
-        goog.require('goog.testing.asserts');
-        goog.require('goog.testing.jsunit');
-        goog.require('goog.testing.FunctionMock');
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>environment.js test</title>
+	</head>
+	<body>
+		<script language="javascript" type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+		<script language="javascript" type="text/javascript">
+			goog.require('goog.string');
+			goog.require('goog.string.StringBuffer');
+		</script>
+		<script language="javascript" type="text/javascript" src="../twig.js"></script>
+		<script language="javascript" type="text/javascript" src="markup.js"></script>
+		<script language="javascript" type="text/javascript" src="extension_interface.js"></script>
+		<script language="javascript" type="text/javascript" src="template.js"></script>
+		<script language="javascript" type="text/javascript" src="filter.js"></script>
+		<script language="javascript" type="text/javascript" src="environment.js"></script>
+		<script language="javascript" type="text/javascript" src="extension.js"></script>
+		<script language="javascript" type="text/javascript">
+			goog.require('goog.testing.asserts');
+			goog.require('goog.testing.jsunit');
+			goog.require('goog.testing.FunctionMock');
 
-        function testFilter() {
-        	var env = new twig.Environment();
-        	var filter = goog.testing.createFunctionMock();
-        	filter('foo', 'bar');
-        	filter.$replay();
+			function testFilter() {
+				var env = new twig.Environment();
+				var filter = goog.testing.createFunctionMock();
+				filter('foo', 'bar');
+				filter.$replay();
 
-        	env.setFilter('baz', filter);
-        	env.filter('baz', 'foo', 'bar');
-        	filter.$verify();
-        }
-        
-        function testSetGlobal() {
-        	var env = new twig.Environment();
+				env.setFilter('baz', filter);
+				env.filter('baz', 'foo', 'bar');
+				filter.$verify();
+			}
 
-        	assertHashEquals({}, env.globals_);
-        	env.setGlobal('foo', 'bar');
-        	assertHashEquals({foo:'bar'}, env.globals_);
-        }
+			function testSetGlobal() {
+				var env = new twig.Environment();
 
-        FooTemplate = function(env) {
-        	twig.Template.call(this, env);
-        }
-        twig.inherits(FooTemplate, twig.Template);
+				assertHashEquals({}, env.globals_);
+				env.setGlobal('foo', 'bar');
+				assertHashEquals({foo:'bar'}, env.globals_);
+			}
 
-        FooTemplate.prototype.render_ = function(sb, context, blocks) {
-        	sb.append("Foo");
-        };
+			FooTemplate = function(env) {
+				twig.Template.call(this, env);
+			}
+			twig.inherits(FooTemplate, twig.Template);
 
-        BarTemplate = function(env) {
-        	twig.Template.call(this, env);
-        }
-        twig.inherits(BarTemplate, twig.Template);
+			FooTemplate.prototype.render_ = function(sb, context, blocks) {
+				sb.append("Foo");
+			};
 
-        BarTemplate.prototype.render_ = function(sb, context, blocks) {
-        	sb.append("Bar");
-        };
+			BarTemplate = function(env) {
+				twig.Template.call(this, env);
+			}
+			twig.inherits(BarTemplate, twig.Template);
 
-        function testCreateTemplate() {
-        	var env = new twig.Environment();
+			BarTemplate.prototype.render_ = function(sb, context, blocks) {
+				sb.append("Bar");
+			};
 
-        	var template = env.createTemplate(FooTemplate);
-        	assertTrue(template instanceof FooTemplate);
-        	assertEquals(env, template.env_);
+			function testCreateTemplate() {
+				var env = new twig.Environment();
 
-        	var anotherTemplate = env.createTemplate(FooTemplate);
-        	assertEquals(template, anotherTemplate);
+				var template = env.createTemplate(FooTemplate);
+				assertTrue(template instanceof FooTemplate);
+				assertEquals(env, template.env_);
 
-        	var diffTemplate = env.createTemplate(BarTemplate);
-        	assertNotEquals(template, diffTemplate);
+				var anotherTemplate = env.createTemplate(FooTemplate);
+				assertEquals(template, anotherTemplate);
 
-        	assertEquals("Foo", template.render());
-        	assertEquals("Bar", diffTemplate.render());
-        }
-    </script>
-</body>
+				var diffTemplate = env.createTemplate(BarTemplate);
+				assertNotEquals(template, diffTemplate);
+
+				assertEquals("Foo", template.render());
+				assertEquals("Bar", diffTemplate.render());
+			}
+		</script>
+	</body>
 </html>

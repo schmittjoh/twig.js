@@ -387,6 +387,10 @@ $goog$exportSymbol$$("twig.attr", function($obj$$58$$, $attr_f$$inline_15$$, $op
   }
   return $functionName_key$$inline_17$$ && "function" == $goog$typeOf$$($obj$$58$$[$functionName_key$$inline_17$$]) ? $isTest_opt_isTest$$ ? $JSCompiler_alias_TRUE$$ : $obj$$58$$[$functionName_key$$inline_17$$].apply($obj$$58$$, $opt_args$$1$$ || []) : $isTest_opt_isTest$$ ? $JSCompiler_alias_FALSE$$ : $JSCompiler_alias_NULL$$
 });
+$goog$exportSymbol$$("twig.attrsimple", function($obj$$59$$, $attr$$1$$) {
+  var $getter$$1$$ = "get" + $attr$$1$$.charAt(0).toUpperCase() + $attr$$1$$.substr(1);
+  return"function" === typeof $obj$$59$$[$getter$$1$$] ? $obj$$59$$[$getter$$1$$]() : "undefined" !== typeof $obj$$59$$[$attr$$1$$] ? $obj$$59$$[$attr$$1$$] : $JSCompiler_alias_NULL$$
+});
 $goog$exportSymbol$$("twig.bind", $twig$bind$$);
 $goog$exportSymbol$$("twig.inherits", $goog$inherits$$);
 $goog$exportSymbol$$("twig.extend", $twig$extend$$);
@@ -429,10 +433,6 @@ $goog$exportSymbol$$("twig.createObj", function($var_args$$52$$) {
     $rs$$1$$[arguments[$i$$48$$]] = arguments[$i$$48$$ + 1]
   }
   return $rs$$1$$
-});
-$goog$exportSymbol$$("twig.attrsimple", function(obj, attr) {
-	var getter = 'get' + attr.charAt(0).toUpperCase() + attr.substr(1);
-	return (typeof obj[getter]==="function") ? obj[getter]() : (typeof obj[attr] !== "undefined" ? obj[attr] : null);
 });
 $goog$exportSymbol$$("twig.filter.capitalize", function($env$$1$$, $str$$46$$) {
   return $str$$46$$.charAt(0).toUpperCase() + $str$$46$$.substring(1)
@@ -489,6 +489,9 @@ $goog$exportSymbol$$("twig.filter.escape", function($env$$2_s$$inline_21_str$$in
     return $env$$2_s$$inline_21_str$$inline_138$$ = $sb$$inline_22_value$$60$$, $goog$string$allRe_$$.test($env$$2_s$$inline_21_str$$inline_138$$) && (-1 != $env$$2_s$$inline_21_str$$inline_138$$.indexOf("&") && ($env$$2_s$$inline_21_str$$inline_138$$ = $env$$2_s$$inline_21_str$$inline_138$$.replace($goog$string$amperRe_$$, "&amp;")), -1 != $env$$2_s$$inline_21_str$$inline_138$$.indexOf("<") && ($env$$2_s$$inline_21_str$$inline_138$$ = $env$$2_s$$inline_21_str$$inline_138$$.replace($goog$string$ltRe_$$, 
     "&lt;")), -1 != $env$$2_s$$inline_21_str$$inline_138$$.indexOf(">") && ($env$$2_s$$inline_21_str$$inline_138$$ = $env$$2_s$$inline_21_str$$inline_138$$.replace($goog$string$gtRe_$$, "&gt;")), -1 != $env$$2_s$$inline_21_str$$inline_138$$.indexOf('"') && ($env$$2_s$$inline_21_str$$inline_138$$ = $env$$2_s$$inline_21_str$$inline_138$$.replace($goog$string$quotRe_$$, "&quot;"))), $env$$2_s$$inline_21_str$$inline_138$$
   }
+  if("url" === $i$$inline_23_opt_type$$5$$) {
+    return encodeURIComponent($sb$$inline_22_value$$60$$)
+  }
   throw Error("The type '" + $i$$inline_23_opt_type$$5$$ + "' is not supported.");
 });
 $goog$exportSymbol$$("twig.filter.length", function($env$$3$$, $value$$61$$) {
@@ -524,6 +527,9 @@ $goog$exportSymbol$$("twig.filter.upper", function($env$$4$$, $value$$63$$) {
 });
 $goog$exportSymbol$$("twig.filter.lower", function($env$$5$$, $value$$64$$) {
   return $value$$64$$.toLowerCase()
+});
+$goog$exportSymbol$$("twig.filter.nl2br", function($str$$47$$) {
+  return $str$$47$$.replace(/\n/g, "<br />")
 });
 $goog$exportSymbol$$("twig.StringBuffer", $goog$string$StringBuffer$$);
 $goog$string$StringBuffer$$.prototype.append = $goog$string$StringBuffer$$.prototype.append;

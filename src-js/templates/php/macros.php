@@ -1,7 +1,7 @@
 <?php
 
 /* macros.twig */
-class __TwigTemplate_ea58ce2cb24dad6f36ff7f8f50cd803d extends Twig_Template
+class __TwigTemplate_a196fe400f6588a5b4d80c882c4411e8 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -32,17 +32,21 @@ class __TwigTemplate_ea58ce2cb24dad6f36ff7f8f50cd803d extends Twig_Template
         try {
             // line 2
             echo "<a href=\"";
-            echo twig_escape_filter($this->env, (isset($context["link"]) ? $context["link"] : null), "html", null, true);
+            if (isset($context["link"])) { $_link_ = $context["link"]; } else { $_link_ = null; }
+            echo twig_escape_filter($this->env, $_link_, "html", null, true);
             echo "\"";
             // line 3
-            if ((!twig_test_empty((isset($context["title"]) ? $context["title"] : null)))) {
+            if (isset($context["title"])) { $_title_ = $context["title"]; } else { $_title_ = null; }
+            if ((!twig_test_empty($_title_))) {
                 echo " title=\"";
-                echo twig_escape_filter($this->env, (isset($context["title"]) ? $context["title"] : null), "html", null, true);
+                if (isset($context["title"])) { $_title_ = $context["title"]; } else { $_title_ = null; }
+                echo twig_escape_filter($this->env, $_title_, "html", null, true);
                 echo "\"";
             }
             // line 4
             echo ">";
-            echo twig_escape_filter($this->env, (isset($context["content"]) ? $context["content"] : null), "html", null, true);
+            if (isset($context["content"])) { $_content_ = $context["content"]; } else { $_content_ = null; }
+            echo twig_escape_filter($this->env, $_content_, "html", null, true);
             echo "</a>
 ";
         } catch (Exception $e) {
@@ -66,6 +70,6 @@ class __TwigTemplate_ea58ce2cb24dad6f36ff7f8f50cd803d extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  21 => 1,  72 => 21,  69 => 19,  66 => 17,  64 => 16,  59 => 13,  56 => 12,  53 => 11,  44 => 4,  41 => 5,  36 => 3,  12 => 2,  19 => 1,  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 3,  34 => 2,  32 => 5,  28 => 4,  23 => 1,);
+        return array (  47 => 4,  34 => 2,  21 => 1,  74 => 21,  71 => 19,  68 => 17,  65 => 16,  59 => 13,  56 => 12,  53 => 11,  41 => 5,  12 => 2,  51 => 8,  44 => 6,  39 => 3,  36 => 3,  19 => 1,  20 => 1,);
     }
 }

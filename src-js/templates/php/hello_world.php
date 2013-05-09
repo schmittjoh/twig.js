@@ -1,7 +1,7 @@
 <?php
 
 /* hello_world.twig */
-class __TwigTemplate_06f8cf60785a498d013393aa90481f45 extends Twig_Template
+class __TwigTemplate_69fb918f83199f9cff7a2414d0c7fd3c extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -17,7 +17,8 @@ class __TwigTemplate_06f8cf60785a498d013393aa90481f45 extends Twig_Template
     {
         // line 1
         echo "Hello ";
-        echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter((isset($context["name"]) ? $context["name"] : null), "World")) : ("World")), "html", null, true);
+        if (isset($context["name"])) { $_name_ = $context["name"]; } else { $_name_ = null; }
+        echo twig_escape_filter($this->env, ((array_key_exists("name", $context)) ? (_twig_default_filter($_name_, "World")) : ("World")), "html", null, true);
         echo "!";
     }
 
@@ -33,6 +34,6 @@ class __TwigTemplate_06f8cf60785a498d013393aa90481f45 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  19 => 1,  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 10,  34 => 8,  32 => 5,  28 => 4,  23 => 1,);
+        return array (  19 => 1,  20 => 1,);
     }
 }

@@ -58,15 +58,12 @@ index.prototype.render_ = function(sb, context, blocks) {
     // line 14
     context["a"] = [1, 2, [1, 2], {"foo": {"foo": "bar"}}];
     // line 15
-    var tmp_a = ("a" in context) ? context["a"] : null;
     sb.append(twig.filter.escape(this.env_, twig.filter.join(twig.attr(tmp_a, 2, undefined, "array"), ","), "html", null, true));
     sb.append("\n");
     // line 16
     sb.append(twig.filter.escape(this.env_, twig.filter.join(twig.attr(twig.attr(tmp_a, 3, undefined, "array"), "foo", undefined, "array"), ","), "html", null, true));
     sb.append("\n\n");
     // line 19
-    var tmp_foo = ("foo" in context) ? context["foo"] : null;
-    var tmp_bar = ("bar" in context) ? context["bar"] : null;
     sb.append(twig.filter.escape(this.env_, twig.filter.join([twig.attr(tmp_foo, tmp_bar, undefined, "array")], ","), "html", null, true));
     sb.append("\n\n");
     // line 22
@@ -81,11 +78,8 @@ index.prototype.render_ = function(sb, context, blocks) {
     // line 34
     context["b"] = "foo";
     // line 35
-    var tmp_a = ("a" in context) ? context["a"] : null;
-    var tmp_b = ("b" in context) ? context["b"] : null;
     context["ary"] = twig.createObj(tmp_a, "a", tmp_b, "b", "c", "c", ((tmp_a) + (tmp_b)), "d");
     // line 36
-    var tmp_ary = ("ary" in context) ? context["ary"] : null;
     sb.append(twig.filter.escape(this.env_, twig.filter.join(twig.filter.keys(tmp_ary), ","), "html", null, true));
     sb.append("\n");
     // line 37

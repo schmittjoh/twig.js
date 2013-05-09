@@ -35,7 +35,6 @@ scope.prototype.render_ = function(sb, context, blocks) {
     // line 1
     context["example"] = 12345;
     if (false) {
-        var tmp_example = ("example" in context) ? context["example"] : null;
         sb.append(twig.filter.escape(this.env_, tmp_example, "html", null, true));
     }
     sb.append(twig.filter.escape(this.env_, tmp_example, "html", null, true));

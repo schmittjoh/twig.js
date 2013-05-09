@@ -51,14 +51,16 @@ counter.prototype.render_ = function(sb, context, blocks) {
         context["_key"] = k;
         context["i"] = v;
         // line 2
-        sb.append(twig.filter.escape(this.env_, "i" in context ? context["i"] : null, "html", null, true));
+        var tmp_i = ("i" in context) ? context["i"] : null;
+        sb.append(twig.filter.escape(this.env_, tmp_i, "html", null, true));
         // line 4
-        var seq1 = twig.range("i" in context ? context["i"] : null, "i" in context ? context["i"] : null);
+        var seq1 = twig.range(tmp_i, tmp_i);
         twig.forEach(seq1, function(v1, k1) {
             context["_key"] = k1;
             context["j"] = v1;
             // line 5
-            sb.append(twig.filter.escape(this.env_, ((", ") + ("j" in context ? context["j"] : null)), "html", null, true));
+            var tmp_j = ("j" in context) ? context["j"] : null;
+            sb.append(twig.filter.escape(this.env_, ((", ") + (tmp_j)), "html", null, true));
         }, this);
         // line 8
         if ((!twig.attr(loop, "last"))) {

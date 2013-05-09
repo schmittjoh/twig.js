@@ -33,7 +33,7 @@ class __TwigTemplate_6cf61ba9fedc78b0eba1f7343ec77c24 extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-        $context["__internal_f0d0b960844de6ca61fe1e13e1f7d05bd793eb69"] = $this->env->loadTemplate("macros.twig");
+        $context["__internal_53ed80cb66f95fb85e2b1885d8c8fa8ca7e9a0b5"] = $this->env->loadTemplate("macros.twig");
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -68,7 +68,7 @@ class __TwigTemplate_6cf61ba9fedc78b0eba1f7343ec77c24 extends Twig_Template
             echo "Some Status.";
         } else {
             // line 19
-            echo $context["__internal_f0d0b960844de6ca61fe1e13e1f7d05bd793eb69"]->getlink("/login", "Please login.", "Login");
+            echo $context["__internal_53ed80cb66f95fb85e2b1885d8c8fa8ca7e9a0b5"]->getlink("/login", "Please login.", "Login");
         }
         // line 21
         echo "</p>

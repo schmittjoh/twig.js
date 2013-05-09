@@ -50,7 +50,7 @@ welcome.prototype.getParent_ = function(context) {
  */
 welcome.prototype.render_ = function(sb, context, blocks) {
     // line 3
-    context["__internal_25276bdc00358a38dd28241feb122161092f05ca"] = this.env_.createTemplate(macros);
+    context["__internal_bc7fb102d3ad364fa9fd96fcfe64299cf64f74fe"] = this.env_.createTemplate(macros);
     this.getParent(context).render_(sb, context, twig.extend({}, this.getBlocks(), blocks));
 };
 
@@ -77,15 +77,15 @@ welcome.prototype.block_body = function(sb, context, blocks) {
     // line 12
     sb.append("\n    <h1>Welcome ");
     // line 13
-    sb.append(twig.filter.escape(this.env_, ((("name" in context)) ? (twig.filter.def(tmp_name, "World")) : ("World")), "html", null, true));
+    sb.append(twig.filter.escape(this.env_, ((("name" in context)) ? (twig.filter.def("name" in context ? context["name"] : null, "World")) : ("World")), "html", null, true));
     sb.append("!<\/h1>\n\n    <p>");
     // line 16
-    if ((!twig.empty(tmp_name))) {
+    if ((!twig.empty("name" in context ? context["name"] : null))) {
         // line 17
         sb.append("Some Status.");
     } else {
         // line 19
-        sb.append(context["__internal_25276bdc00358a38dd28241feb122161092f05ca"].getlink("\/login", "Please login.", "Login"));
+        sb.append(context["__internal_bc7fb102d3ad364fa9fd96fcfe64299cf64f74fe"].getlink("\/login", "Please login.", "Login"));
     }
     // line 21
     sb.append("<\/p>\n\n");

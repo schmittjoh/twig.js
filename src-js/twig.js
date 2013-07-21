@@ -227,7 +227,20 @@ twig.count = function(v) {
 		return goog.object.getCount(v);
 	}
 	
-	throw Error((typeof v) + " is not countable.");
+	return twig.castToString(v).length;
+};
+
+/**
+ * Returns the given value as a string
+ *
+ * @param {*} value
+ * @return {string}
+ */
+twig.castToString = function(value) {
+	if (typeof value === "number") {
+		return value.toString();
+	}
+	return "";
 };
 
 /**

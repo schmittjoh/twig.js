@@ -64,10 +64,11 @@ class NameCompiler implements TypeCompilerInterface
             // FIXME: Add strict behavior?
             //        see Template::getContext()
             $compiler
+                ->raw('(')
                 ->string($name)
                 ->raw(' in context ? context[')
                 ->string($name)
-                ->raw('] : null')
+                ->raw('] : null)')
             ;
         }
     }

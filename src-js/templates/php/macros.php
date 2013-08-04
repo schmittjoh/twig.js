@@ -1,7 +1,7 @@
 <?php
 
 /* macros.twig */
-class __TwigTemplate_ea58ce2cb24dad6f36ff7f8f50cd803d extends Twig_Template
+class __TwigTemplate_46b00b74f2e8d8d93b97e0c7d1c90047dd5621efe0a2a005eebccd51dc7fe233 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -11,6 +11,17 @@ class __TwigTemplate_ea58ce2cb24dad6f36ff7f8f50cd803d extends Twig_Template
 
         $this->blocks = array(
         );
+
+        $this->macros = array(
+            "link" => array(
+                'method' => "getLink",
+                'arguments' => array(
+                    "link" => null,
+                    "content" => null,
+                    "title" => null,
+                ),
+            ),
+        );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -18,7 +29,7 @@ class __TwigTemplate_ea58ce2cb24dad6f36ff7f8f50cd803d extends Twig_Template
     }
 
     // line 1
-    public function getlink($_link = null, $_content = null, $_title = null)
+    public function getLink($_link = null, $_content = null, $_title = null)
     {
         $context = $this->env->mergeGlobals(array(
             "link" => $_link,
@@ -66,6 +77,6 @@ class __TwigTemplate_ea58ce2cb24dad6f36ff7f8f50cd803d extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  21 => 1,  72 => 21,  69 => 19,  66 => 17,  64 => 16,  59 => 13,  56 => 12,  53 => 11,  44 => 4,  41 => 5,  36 => 3,  12 => 2,  19 => 1,  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 3,  34 => 2,  32 => 5,  28 => 4,  23 => 1,);
+        return array (  55 => 4,  49 => 3,  45 => 2,  32 => 1,  75 => 21,  72 => 19,  69 => 17,  67 => 16,  62 => 13,  59 => 12,  56 => 11,  47 => 6,  44 => 5,  39 => 3,  12 => 2,  22 => 1,  23 => 1,  73 => 12,  70 => 11,  65 => 10,  60 => 6,  57 => 5,  51 => 4,  46 => 14,  43 => 11,  41 => 10,  37 => 8,  35 => 5,  31 => 4,  26 => 1,);
     }
 }

@@ -158,5 +158,26 @@ twig.Template.prototype.render = function(opt_context, opt_blocks) {
 	return sb.toString();
 };
 
+/**
+ * @param {twig.Template} template
+ * @param {string} macro
+ * @param {Array.<*>} args
+ * @param {Array.<string>=} opt_namedNames
+ * @param {number=} opt_namedCount
+ * @param {number=} opt_positionalCount
+ *
+ * @return {string}
+ */
+twig.Template.prototype.callMacro = function(template, macro, args, opt_namedNames, opt_namedCount, opt_positionalCount) {
+    if ( ! template['get' + macro]) {
+        throw Error("The macro " + macro + " is not defined in " + template.getTemplateName() + ".");
+    }
+
+    if (opt_namedNames === undefined) {
+        return template['get' + macro].apply(template, args);
+    }
+
+    throw Error("Positional arguments, or default values in macro arguments are not supported, yet.");
+};
 
 twig.Template.prototype.render_ = goog.abstractMethod;

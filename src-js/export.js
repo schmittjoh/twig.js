@@ -83,5 +83,6 @@ goog.exportProperty(twig.Template.prototype, 'getBlocks', twig.Template.prototyp
 //goog.exportProperty(twig.Template.prototype, 'getParent', twig.Template.prototype.getParent);
 goog.exportProperty(twig.Template.prototype, 'renderParentBlock', twig.Template.prototype.renderParentBlock);
 goog.exportProperty(twig.Template.prototype, 'renderBlock', twig.Template.prototype.renderBlock);
+goog.exportProperty(twig.Template.prototype, 'callMacro', twig.Template.prototype.callMacro);
 
 goog.exportSymbol('twig.Markup', twig.Markup);

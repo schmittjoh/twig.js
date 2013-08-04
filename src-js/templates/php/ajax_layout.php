@@ -1,7 +1,7 @@
 <?php
 
 /* ajax_layout.twig */
-class __TwigTemplate_c2b74cee3b8f714a0591d8ac33757479 extends Twig_Template
+class __TwigTemplate_3505873dec53fd303f4d4f58d431be039042116fbc0cd08f14bbdfe9db8e92d7 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -11,6 +11,9 @@ class __TwigTemplate_c2b74cee3b8f714a0591d8ac33757479 extends Twig_Template
 
         $this->blocks = array(
             'body' => array($this, 'block_body'),
+        );
+
+        $this->macros = array(
         );
     }
 
@@ -31,6 +34,6 @@ class __TwigTemplate_c2b74cee3b8f714a0591d8ac33757479 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 10,  34 => 8,  32 => 5,  28 => 4,  23 => 1,);
+        return array (  23 => 1,  73 => 12,  70 => 11,  65 => 10,  60 => 6,  57 => 5,  51 => 4,  46 => 14,  43 => 11,  41 => 10,  37 => 8,  35 => 5,  31 => 4,  26 => 1,);
     }
 }

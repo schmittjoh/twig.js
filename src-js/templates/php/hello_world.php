@@ -1,7 +1,7 @@
 <?php
 
 /* hello_world.twig */
-class __TwigTemplate_06f8cf60785a498d013393aa90481f45 extends Twig_Template
+class __TwigTemplate_2e2dc4863a0f81d6834be9b5418092566e877cdcf1d9713034648c7ad19e02cb extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -10,6 +10,9 @@ class __TwigTemplate_06f8cf60785a498d013393aa90481f45 extends Twig_Template
         $this->parent = false;
 
         $this->blocks = array(
+        );
+
+        $this->macros = array(
         );
     }
 
@@ -33,6 +36,6 @@ class __TwigTemplate_06f8cf60785a498d013393aa90481f45 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  19 => 1,  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 10,  34 => 8,  32 => 5,  28 => 4,  23 => 1,);
+        return array (  22 => 1,  23 => 1,  73 => 12,  70 => 11,  65 => 10,  60 => 6,  57 => 5,  51 => 4,  46 => 14,  43 => 11,  41 => 10,  37 => 8,  35 => 5,  31 => 4,  26 => 1,);
     }
 }

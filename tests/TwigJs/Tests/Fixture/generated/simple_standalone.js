@@ -38,8 +38,7 @@ simple_standalone.prototype.render_ = function(sb, context, blocks) {
     if (("name" in context)) {
         // line 4
         sb.append("Hello ");
-        var tmp_name = ("name" in context) ? context["name"] : null;
-        sb.append(twig.filter.escape(this.env_, twig.filter.capitalize(this.env_, tmp_name), "html", null, true));
+        sb.append(twig.filter.escape(this.env_, twig.filter.capitalize(this.env_, ("name" in context ? context["name"] : null)), "html", null, true));
         sb.append("!\n");
     } else {
         // line 6

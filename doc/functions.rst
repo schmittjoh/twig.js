@@ -1,7 +1,7 @@
 Functions
 #########
 
-twig.js has support for the following filters built-in: 
+twig.js has support for the following functions built-in:
 range
 
 Adding A Compile-Time Function
@@ -17,8 +17,8 @@ Also make sure that the "js-function-name" is available wherever you have includ
 twig.js.
 
 
-Adding A Runtime Filter
------------------------
+Adding A Runtime Function
+-------------------------
 You can register a runtime function at anytime. The difference to compile time functions is that
 they are resolved at runtime, and thus a bit less performant than compile-time functions.
 
@@ -30,8 +30,8 @@ A filter can be any JS function, that you hook up with your twig.js environment:
         });
     </script>
 
-Note that you will receive the same arguments like in the PHP equivalent. For example, if the 
-PHP equivalent is environment aware, then you also receive the environment in the JS version 
+Note that you will receive the same arguments like in the PHP equivalent. For example, if the
+PHP equivalent is environment aware, then you also receive the environment in the JS version
 of your function. The same applies to the other arguments.
 
 Also note that a runtime function cannot override a compile-time function, as these function calls

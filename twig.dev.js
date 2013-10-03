@@ -238,8 +238,8 @@ $JSCompiler_prototypeAlias$$.$renderParentBlock$ = function $$JSCompiler_prototy
 $JSCompiler_prototypeAlias$$.$renderBlock$ = function $$JSCompiler_prototypeAlias$$$$renderBlock$$($block_name$$61$$, $context$$2$$, $opt_blocks$$1$$) {
   if($opt_blocks$$1$$ && $block_name$$61$$ in $opt_blocks$$1$$) {
     var $key$$42_parent$$4$$, $sb$$3$$ = new $goog$string$StringBuffer$$, $block_name$$61$$ = $opt_blocks$$1$$[$block_name$$61$$], $blocks$$1$$ = {};
-    for($key$$42_parent$$4$$ in $block_name$$61$$) {
-      $block_name$$61$$.hasOwnProperty($key$$42_parent$$4$$) && ($blocks$$1$$[$key$$42_parent$$4$$] = $opt_blocks$$1$$[$key$$42_parent$$4$$])
+    for($key$$42_parent$$4$$ in $opt_blocks$$1$$) {
+      $opt_blocks$$1$$.hasOwnProperty($key$$42_parent$$4$$) && ($blocks$$1$$[$key$$42_parent$$4$$] = $opt_blocks$$1$$[$key$$42_parent$$4$$])
     }
     $block_name$$61$$($sb$$3$$, $context$$2$$, $blocks$$1$$);
     return $sb$$3$$.toString()

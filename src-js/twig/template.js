@@ -124,8 +124,8 @@ twig.Template.prototype.renderBlock = function(name, context, opt_blocks) {
 		var key, sb = new twig.StringBuffer();
 		var block = opt_blocks[name],
 		  blocks = {};
-		for (key in block) {
-			if (block.hasOwnProperty(key)) {
+		for (key in opt_blocks) {
+			if (opt_blocks.hasOwnProperty(key)) {
 				blocks[key] = opt_blocks[key];
 			}
 		}

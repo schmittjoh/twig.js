@@ -235,18 +235,20 @@ $JSCompiler_prototypeAlias$$.$renderParentBlock$ = function $$JSCompiler_prototy
   }
   throw Error("The template '" + this.$getTemplateName$() + "' has no parent, and no trait defining the block '" + $name$$60$$ + "'.");
 };
-$JSCompiler_prototypeAlias$$.$renderBlock$ = function $$JSCompiler_prototypeAlias$$$$renderBlock$$($name$$61$$, $context$$2$$, $opt_blocks$$1$$) {
-  if($opt_blocks$$1$$ && $name$$61$$ in $opt_blocks$$1$$) {
-    var $parent$$4_sb$$3$$ = new $goog$string$StringBuffer$$, $block$$ = $opt_blocks$$1$$[$name$$61$$];
-    delete $opt_blocks$$1$$[$name$$61$$];
-    $block$$($parent$$4_sb$$3$$, $context$$2$$, $opt_blocks$$1$$);
-    return $parent$$4_sb$$3$$.toString()
+$JSCompiler_prototypeAlias$$.$renderBlock$ = function $$JSCompiler_prototypeAlias$$$$renderBlock$$($block_name$$61$$, $context$$2$$, $opt_blocks$$1$$) {
+  if($opt_blocks$$1$$ && $block_name$$61$$ in $opt_blocks$$1$$) {
+    var $key$$42_parent$$4$$, $sb$$3$$ = new $goog$string$StringBuffer$$, $block_name$$61$$ = $opt_blocks$$1$$[$block_name$$61$$], $blocks$$1$$ = {};
+    for($key$$42_parent$$4$$ in $block_name$$61$$) {
+      $block_name$$61$$.hasOwnProperty($key$$42_parent$$4$$) && ($blocks$$1$$[$key$$42_parent$$4$$] = $opt_blocks$$1$$[$key$$42_parent$$4$$])
+    }
+    $block_name$$61$$($sb$$3$$, $context$$2$$, $blocks$$1$$);
+    return $sb$$3$$.toString()
   }
-  if($name$$61$$ in this.$blocks_$) {
-    return $parent$$4_sb$$3$$ = new $goog$string$StringBuffer$$, this.$blocks_$[$name$$61$$]($parent$$4_sb$$3$$, $context$$2$$, $opt_blocks$$1$$ || $JSCompiler_alias_NULL$$), $parent$$4_sb$$3$$.toString()
+  if($block_name$$61$$ in this.$blocks_$) {
+    return $sb$$3$$ = new $goog$string$StringBuffer$$, this.$blocks_$[$block_name$$61$$]($sb$$3$$, $context$$2$$, $opt_blocks$$1$$ || $JSCompiler_alias_NULL$$), $sb$$3$$.toString()
   }
-  $parent$$4_sb$$3$$ = this.getParent($context$$2$$);
-  return $JSCompiler_alias_FALSE$$ !== $parent$$4_sb$$3$$ ? $parent$$4_sb$$3$$.$renderBlock$($name$$61$$, $context$$2$$, $opt_blocks$$1$$) : ""
+  $key$$42_parent$$4$$ = this.getParent($context$$2$$);
+  return $JSCompiler_alias_FALSE$$ !== $key$$42_parent$$4$$ ? $key$$42_parent$$4$$.$renderBlock$($block_name$$61$$, $context$$2$$, $opt_blocks$$1$$) : ""
 };
 $JSCompiler_prototypeAlias$$.$render$ = function $$JSCompiler_prototypeAlias$$$$render$$($opt_context$$5$$, $opt_blocks$$2$$) {
   var $sb$$4$$ = new $goog$string$StringBuffer$$;
@@ -501,8 +503,8 @@ $goog$exportSymbol$$("twig.filter.def", function($value$$59$$, $opt_default$$) {
   return $twig$empty$$($value$$59$$) ? $opt_default$$ || "" : $value$$59$$
 });
 $goog$exportSymbol$$("twig.filter.replace", function($str$$45$$, $map$$) {
-  for(var $key$$43$$ in $map$$) {
-    $str$$45$$ = $str$$45$$.replace(RegExp($key$$43$$, "g"), $map$$[$key$$43$$])
+  for(var $key$$44$$ in $map$$) {
+    $str$$45$$ = $str$$45$$.replace(RegExp($key$$44$$, "g"), $map$$[$key$$44$$])
   }
   return $str$$45$$
 });

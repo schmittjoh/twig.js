@@ -19,6 +19,7 @@ goog.provide('twig.Environment');
 goog.require('twig');
 goog.require('twig.ExtensionInterface');
 goog.require('twig.Template');
+goog.require('twig.filter');
 
 goog.require('goog.object');
 
@@ -136,6 +137,19 @@ twig.Environment.prototype.test = function(name, arg1, var_args) {
 
     return /** @type {boolean} */ (
         this.tests_[name].apply(null, Array.prototype.slice.call(arguments, 1)));
+};
+
+/**
+ * Escapes the given value for the given context.
+ *
+ * @param {string} value
+ * @param {twig.filter.escape.Type=} opt_type
+ * @param {string=} opt_charset
+ * @param {boolean=} opt_autoescape
+ * @return {string}
+ */
+twig.Environment.prototype.escape = function(value, opt_type, opt_charset, opt_autoescape) {
+    return twig.filter.escape(this, value, opt_type, opt_charset, opt_autoescape);
 };
 
 /**

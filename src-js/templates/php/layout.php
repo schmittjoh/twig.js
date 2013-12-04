@@ -1,7 +1,7 @@
 <?php
 
 /* layout.twig */
-class __TwigTemplate_6c733160076cc3e3475e371f0f2027f4 extends Twig_Template
+class __TwigTemplate_9aaa986cffef21138e1fce33237ac67366b91ca80b38d7de01ca7f0ccbbf1ebc extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -14,6 +14,9 @@ class __TwigTemplate_6c733160076cc3e3475e371f0f2027f4 extends Twig_Template
             'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
             'javascripts' => array($this, 'block_javascripts'),
+        );
+
+        $this->macros = array(
         );
     }
 
@@ -78,6 +81,6 @@ class __TwigTemplate_6c733160076cc3e3475e371f0f2027f4 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 10,  34 => 8,  32 => 5,  28 => 4,  23 => 1,);
+        return array (  73 => 12,  70 => 11,  65 => 10,  60 => 6,  57 => 5,  51 => 4,  46 => 14,  43 => 11,  41 => 10,  37 => 8,  35 => 5,  31 => 4,  26 => 1,);
     }
 }

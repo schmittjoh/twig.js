@@ -1,7 +1,7 @@
 <?php
 
 /* traitable.twig */
-class __TwigTemplate_5281c639629fb941cf603ad27edadc72 extends Twig_Template
+class __TwigTemplate_8eccb8b18c8f1c60507303b1226eb981e38ebc1bc4aab0c165f8478d6586965a extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -11,6 +11,9 @@ class __TwigTemplate_5281c639629fb941cf603ad27edadc72 extends Twig_Template
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
+        );
+
+        $this->macros = array(
         );
     }
 
@@ -32,6 +35,6 @@ class __TwigTemplate_5281c639629fb941cf603ad27edadc72 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  20 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  48 => 4,  43 => 14,  40 => 11,  38 => 10,  34 => 8,  32 => 5,  28 => 4,  23 => 1,);
+        return array (  23 => 1,  73 => 12,  70 => 11,  65 => 10,  60 => 6,  57 => 5,  51 => 4,  46 => 14,  43 => 11,  41 => 10,  37 => 8,  35 => 5,  31 => 4,  26 => 1,);
     }
 }

@@ -153,6 +153,7 @@ class JsCompiler extends \Twig_Compiler
             'Twig_Node_Expression_Filter_Default' => new Compiler\Expression\Filter\DefaultCompiler(),
             'Twig_Node_Expression_Constant' => new ConstantCompiler(),
             'Twig_Node_Expression_GetAttr' => new GetAttrCompiler(),
+            'Twig_Node_Expression_MacroCall' => new Compiler\Expression\MacroCallCompiler(),
             'Twig_Node_Expression_MethodCall' => new Compiler\Expression\MethodCallCompiler(),
             'Twig_Node_Expression_Binary_Add' => new AddCompiler(),
             'Twig_Node_Expression_Binary_And' => new AndCompiler(),

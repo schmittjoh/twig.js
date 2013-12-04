@@ -118,6 +118,7 @@ class ForCompiler implements TypeCompilerInterface
 
         $compiler
             ->write("twig.forEach($seqName, function($valueName, $keyName) {\n")
+            ->enterScope()
             ->indent()
             ->write("")
             ->subcompile($node->getNode('key_target'))
@@ -127,6 +128,7 @@ class ForCompiler implements TypeCompilerInterface
             ->raw(" = $valueName;\n")
             ->subcompile($node->getNode('body'))
             ->outdent()
+            ->leaveScope()
             ->write("}, this);\n")
         ;
 
@@ -134,8 +136,10 @@ class ForCompiler implements TypeCompilerInterface
             $compiler
                 ->write("if (!$iteratedName) {\n")
                 ->indent()
+                ->enterScope()
                 ->subcompile($node->getNode('else'))
                 ->outdent()
+                ->leaveScope()
                 ->write("}\n")
             ;
         }

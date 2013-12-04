@@ -45,6 +45,7 @@ class ForLoopCompiler implements TypeCompilerInterface
                     ->subcompile(new \Twig_Node_Expression_Name('loop', $node->getLine()))
                     ->raw("['length']) {\n")
                     ->indent()
+                    ->enterScope()
                     ->write("--")
                     ->subcompile(new \Twig_Node_Expression_Name('loop', $node->getLine()))
                     ->raw("['revindex0'];\n")
@@ -57,6 +58,7 @@ class ForLoopCompiler implements TypeCompilerInterface
                     ->subcompile(new \Twig_Node_Expression_Name('loop', $node->getLine()))
                     ->raw("['revindex0'];\n")
                     ->outdent()
+                    ->leaveScope()
                     ->write("}\n")
                 ;
             }

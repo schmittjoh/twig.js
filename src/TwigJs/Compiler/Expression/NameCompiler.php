@@ -40,7 +40,7 @@ class NameCompiler implements TypeCompilerInterface
             if ($node->isSpecial()) {
                 $compiler->repr(true);
             } else {
-                $compiler->raw('(')->repr($name)->raw(' in context)');
+                $compiler->raw('((')->repr('get'.ucfirst($name))->raw(' in context) || (')->repr($name)->raw(' in context))');
             }
         } elseif ($node->isSpecial()) {
             static $specialVars = array(
@@ -59,17 +59,14 @@ class NameCompiler implements TypeCompilerInterface
                 $compiler->raw($compiler->localVarMap[$name]);
 
                 return;
+            } else if ($compiler->hasServerSideVariable($name)) {
+              $compiler->string($compiler->getServerSideVariable($name));
+              return;
             }
 
             // FIXME: Add strict behavior?
             //        see Template::getContext()
-            $compiler
-                ->raw('(')
-                ->string($name)
-                ->raw(' in context ? context[')
-                ->string($name)
-                ->raw('] : null)')
-            ;
+            $compiler->raw('twig.attrsimple(context, '.json_encode($name).")");
         }
     }
 }

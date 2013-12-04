@@ -50,8 +50,10 @@ class IfCompiler implements TypeCompilerInterface
             $compiler
                 ->subcompile($node->getNode('tests')->getNode($i))
                 ->raw(") {\n")
+                ->enterScope()
                 ->indent()
                 ->subcompile($node->getNode('tests')->getNode($i + 1))
+                ->leaveScope()
             ;
         }
 
@@ -59,8 +61,10 @@ class IfCompiler implements TypeCompilerInterface
             $compiler
                 ->outdent()
                 ->write("} else {\n")
+                ->enterScope()
                 ->indent()
                 ->subcompile($node->getNode('else'))
+                ->leaveScope()
             ;
         }
 

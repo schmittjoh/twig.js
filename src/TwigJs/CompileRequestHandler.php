@@ -34,6 +34,7 @@ class CompileRequestHandler
         $curCompiler = $this->env->getCompiler();
         $this->env->setCompiler($this->compiler);
         $this->compiler->setDefines($request->getDefines());
+        $this->compiler->setServerSideVariables($request->getServerSideVariables());
 
         try {
             if (!$source = $request->getSource()) {

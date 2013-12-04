@@ -42,14 +42,21 @@ class SetTempCompiler implements TypeCompilerInterface
         $compiler->setVar($name, 'tmp_'.$name);
 
         $compiler
+          ->addDebugInfo($node)
+          ->write('var tmp_'.$name.' = twig.attrsimple(context, '.json_encode($name).");\n");
+        /*$compiler
             ->addDebugInfo($node)
             ->write('var tmp_')
             ->raw($name)
             ->raw(' = (')
+            ->string('get' . ucfirst($name))
+            ->raw(' in context ? ')
+            ->raw('context.get' . ucfirst($name))
+            ->raw('() : (')
             ->string($name)
             ->raw(' in context) ? context[')
             ->string($name)
-            ->raw("] : null;\n")
-        ;
+            ->raw("] : null);\n")
+        ;*/
     }
 }

@@ -40,6 +40,9 @@ class TempNameCompiler implements TypeCompilerInterface
             $compiler->raw($compiler->localVarMap[$name]);
 
             return;
+        } else if ($compiler->hasServerSideVariable($name)) {
+            $compiler->string($compiler->getServerSideVariable($name));
+            return;
         }
 
         $compiler->raw('tmp_')->raw($name);

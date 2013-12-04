@@ -109,6 +109,12 @@ class JsCompiler extends \Twig_Compiler
     private $filterFunctions;
     private $functionMap;
 
+    /**
+     * Key-value pair of variables that will be filled in server-side
+     * @var array
+     */
+    private $server_side_variables = array();
+
     public function __construct(\Twig_Environment $env)
     {
         parent::__construct($env);
@@ -230,6 +236,26 @@ class JsCompiler extends \Twig_Compiler
     public function getDefine($key)
     {
         return isset($this->defines[$key]) ? $this->defines[$key] : null;
+    }
+
+    public function setServerSideVariables(array $vars)
+    {
+      $this->server_side_variables = $vars;
+    }
+
+    public function hasServerSideVariable($var)
+    {
+      return isset($this->server_side_variables[$var]);
+    }
+
+    /**
+     * @author nicoschoenmaker Hostnet B.V.
+     * @param String $var
+     * @return Ambigous <NULL, String> The value if found, null otherwise
+     */
+    public function getServerSideVariable($var)
+    {
+      return $this->hasServerSideVariable($var) ? $this->server_side_variables[$var] : null;
     }
 
     public function setFunctionNamingStrategy(FunctionNamingStrategyInterface $strategy)

@@ -121,12 +121,15 @@ twig.Template.prototype.renderParentBlock = function(name, context, opt_blocks) 
  */
 twig.Template.prototype.renderBlock = function(name, context, opt_blocks) {
 	if (opt_blocks && name in opt_blocks) {
-		var sb = new twig.StringBuffer();
-		
-		// FIXME: Do we need to make a copy of the available blocks?
-		var block = opt_blocks[name];
-		delete opt_blocks[name];
-		block(sb, context, opt_blocks);
+		var key, sb = new twig.StringBuffer();
+		var block = opt_blocks[name],
+		  blocks = {};
+		for (key in opt_blocks) {
+			if (opt_blocks.hasOwnProperty(key)) {
+				blocks[key] = opt_blocks[key];
+			}
+		}
+		block(sb, context, blocks);
 		
 		return sb.toString();
 	}

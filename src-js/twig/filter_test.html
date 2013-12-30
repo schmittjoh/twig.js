@@ -80,6 +80,8 @@
         	assertEquals(3, twig.filter.length(null, "foo"));
         	assertEquals(0, twig.filter.length(null, []));
         	assertEquals(1, twig.filter.length(null, {foo:"bar"}));
+        	assertEquals(0, twig.filter.length(null, null));
+        	assertEquals(4, twig.filter.length(null, 1234));
         }
 
         function testNl2br() {

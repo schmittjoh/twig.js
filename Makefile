@@ -16,5 +16,11 @@ twig.dev.js: bin/plovr
 bin/plovr:
 	wget $(PLOVR_URL) -O bin/plovr
 
-.PHONY: build clean
+test: vendor
+	./vendor/bin/phpunit
+
+vendor:
+	composer install
+
+.PHONY: build clean test
 

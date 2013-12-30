@@ -50,10 +50,11 @@ class TempNameCompiler implements TypeCompilerInterface
         NameCompiler output which reads the variable directly from the context.
         */
         $compiler
+            ->raw('(')
             ->string($name)
             ->raw(' in context ? context[')
             ->string($name)
-            ->raw('] : null')
+            ->raw('] : null)')
         ;
     }
 }

@@ -18,6 +18,7 @@
 
 require_once __DIR__.'/../tests/bootstrap.php';
 
+$_SERVER['TWIG_LIB'] = __DIR__ . '/../vendor/twig/twig/lib';
 if (!isset($_SERVER['TWIG_LIB'])) {
     throw new \RuntimeException('$_SERVER["TWIG_LIB"] must be set.');
 }

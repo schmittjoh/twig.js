@@ -34,22 +34,13 @@ class SetTempCompiler implements TypeCompilerInterface
             throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_SetTemp, but got "%s".', get_class($node)));
         }
 
-        $name = $node->getAttribute('name');
-        if (isset($compiler->localVarMap[$name])) {
-            return;
-        }
+        /*
+        This method has been gutted as part of schmittjoh/twig.js#12
 
-        $compiler->setVar($name, 'tmp_'.$name);
-
-        $compiler
-            ->addDebugInfo($node)
-            ->write('var tmp_')
-            ->raw($name)
-            ->raw(' = (')
-            ->string($name)
-            ->raw(' in context) ? context[')
-            ->string($name)
-            ->raw("] : null;\n")
-        ;
+        Assigning context variables to temporary "tmp_" variables is a
+        performance optimization that was misbehaving and causing trouble with
+        variables in different scopes, so it has been removed until it can be
+        implemented reliably.
+        */
     }
 }

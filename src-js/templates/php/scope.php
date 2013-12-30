@@ -1,7 +1,7 @@
 <?php
 
-/* traitable.twig */
-class __TwigTemplate_121df410c96ee16ccddd9c869f4f71e1 extends Twig_Template
+/* scope.twig */
+class __TwigTemplate_6c16a53e9ecd87c1c4276ac1be26ad50 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -10,24 +10,29 @@ class __TwigTemplate_121df410c96ee16ccddd9c869f4f71e1 extends Twig_Template
         $this->parent = false;
 
         $this->blocks = array(
-            'title' => array($this, 'block_title'),
         );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        $this->displayBlock('title', $context, $blocks);
-    }
-
-    public function block_title($context, array $blocks = array())
-    {
-        echo "foo";
+        $context["example"] = 12345;
+        if (false) {
+            echo twig_escape_filter($this->env, (isset($context["example"]) ? $context["example"] : null), "html", null, true);
+        }
+        echo 3;
+        echo "
+";
     }
 
     public function getTemplateName()
     {
-        return "traitable.twig";
+        return "scope.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
     }
 
     public function getDebugInfo()

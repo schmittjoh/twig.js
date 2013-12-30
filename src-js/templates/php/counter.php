@@ -1,7 +1,7 @@
 <?php
 
 /* counter.twig */
-class __TwigTemplate_93979ac3b3749ca27d0a5899f5a762b994df1827cd11a59c71d5f537341bac40 extends Twig_Template
+class __TwigTemplate_743499044622a97adcf22fa3019d9633 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -10,9 +10,6 @@ class __TwigTemplate_93979ac3b3749ca27d0a5899f5a762b994df1827cd11a59c71d5f537341
         $this->parent = false;
 
         $this->blocks = array(
-        );
-
-        $this->macros = array(
         );
     }
 
@@ -46,9 +43,9 @@ class __TwigTemplate_93979ac3b3749ca27d0a5899f5a762b994df1827cd11a59c71d5f537341
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['j'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
+            $context = array_merge($_parent, array_intersect_key($context, $_parent));
             // line 8
-            if ((!twig_template_get_attributes($this, (isset($context["loop"]) ? $context["loop"] : null), "last"))) {
+            if ((!$this->getAttribute((isset($context["loop"]) ? $context["loop"] : null), "last"))) {
                 echo ", ";
             }
             ++$context['loop']['index0'];
@@ -62,7 +59,7 @@ class __TwigTemplate_93979ac3b3749ca27d0a5899f5a762b994df1827cd11a59c71d5f537341
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+        $context = array_merge($_parent, array_intersect_key($context, $_parent));
     }
 
     public function getTemplateName()
@@ -77,6 +74,6 @@ class __TwigTemplate_93979ac3b3749ca27d0a5899f5a762b994df1827cd11a59c71d5f537341
 
     public function getDebugInfo()
     {
-        return array (  55 => 4,  49 => 3,  45 => 5,  32 => 1,  75 => 21,  72 => 19,  69 => 17,  67 => 16,  62 => 13,  59 => 12,  56 => 11,  47 => 6,  44 => 5,  39 => 2,  12 => 2,  22 => 1,  23 => 1,  73 => 12,  70 => 11,  65 => 10,  60 => 6,  57 => 5,  51 => 8,  46 => 14,  43 => 11,  41 => 4,  37 => 8,  35 => 5,  31 => 4,  26 => 1,);
+        return array (  48 => 8,  42 => 5,  38 => 4,  36 => 2,  19 => 1,  20 => 1,);
     }
 }

@@ -42,6 +42,18 @@ class TempNameCompiler implements TypeCompilerInterface
             return;
         }
 
-        $compiler->raw('tmp_')->raw($name);
+        /*
+        Contrary to the name of this class, this code no longer compiles the
+        name of the node to a temporary variable name. Because of the troubles
+        resulting from this optimization reported in schmittjoh/twig.js#12, this
+        has been replaced with the slightly less performant but more reliable
+        NameCompiler output which reads the variable directly from the context.
+        */
+        $compiler
+            ->string($name)
+            ->raw(' in context ? context[')
+            ->string($name)
+            ->raw('] : null')
+        ;
     }
 }

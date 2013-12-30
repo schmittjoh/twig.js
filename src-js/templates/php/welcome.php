@@ -1,7 +1,7 @@
 <?php
 
 /* welcome.twig */
-class __TwigTemplate_a8c7a5e9a8e2922fac4a1c87b11dcb2b5b6d4824e43c915c29add216509528d0 extends Twig_Template
+class __TwigTemplate_0d01cbbae4db7bbbe92b7eea47d5b5ff extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -23,9 +23,6 @@ class __TwigTemplate_a8c7a5e9a8e2922fac4a1c87b11dcb2b5b6d4824e43c915c29add216509
                 'body' => array($this, 'block_body'),
             )
         );
-
-        $this->macros = array(
-        );
     }
 
     protected function doGetParent(array $context)
@@ -36,7 +33,7 @@ class __TwigTemplate_a8c7a5e9a8e2922fac4a1c87b11dcb2b5b6d4824e43c915c29add216509
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-        $context["__internal_4959edb76f68f86a4f4dad86d32f84c5a2e579fdd62090890e3ccbc17254c81e"] = $this->env->loadTemplate("macros.twig");
+        $context["__internal_5eb248d32c980bfa7dcb3a198af790d6606f7848"] = $this->env->loadTemplate("macros.twig");
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -69,7 +66,7 @@ class __TwigTemplate_a8c7a5e9a8e2922fac4a1c87b11dcb2b5b6d4824e43c915c29add216509
             echo "Some Status.";
         } else {
             // line 19
-            echo $this->callMacro($context["__internal_4959edb76f68f86a4f4dad86d32f84c5a2e579fdd62090890e3ccbc17254c81e"], "link", array(0 => "/login", 1 => "Please login.", 2 => "Login"));
+            echo $context["__internal_5eb248d32c980bfa7dcb3a198af790d6606f7848"]->getlink("/login", "Please login.", "Login");
         }
         // line 21
         echo "</p>
@@ -89,6 +86,6 @@ class __TwigTemplate_a8c7a5e9a8e2922fac4a1c87b11dcb2b5b6d4824e43c915c29add216509
 
     public function getDebugInfo()
     {
-        return array (  75 => 21,  72 => 19,  69 => 17,  67 => 16,  62 => 13,  59 => 12,  56 => 11,  47 => 6,  44 => 5,  39 => 3,  12 => 2,  22 => 1,  23 => 1,  73 => 12,  70 => 11,  65 => 10,  60 => 6,  57 => 5,  51 => 4,  46 => 14,  43 => 11,  41 => 10,  37 => 8,  35 => 5,  31 => 4,  26 => 1,);
+        return array (  72 => 21,  69 => 19,  66 => 17,  64 => 16,  59 => 13,  56 => 12,  53 => 11,  41 => 5,  12 => 2,  44 => 6,  21 => 1,  70 => 12,  67 => 11,  62 => 10,  57 => 6,  54 => 5,  43 => 14,  40 => 11,  34 => 2,  32 => 5,  28 => 4,  23 => 1,  48 => 4,  42 => 5,  38 => 3,  36 => 3,  19 => 1,  20 => 1,);
     }
 }

@@ -26,6 +26,36 @@
         		"greet": "Hello Johannes",
         		"l": "m"
         	}));
+        	assertEquals("mydomain-nl", twig.filter.replace(
+        		"mydomain.nl", {".": "-"}
+        	));
+        	assertEquals("xxx---xxx", twig.filter.replace(
+        		"...---...", {".": "x"}
+        	));
+        	assertEquals("abcdefghijklmnopqrst", twig.filter.replace(
+        		".\\+*?[^]$(){}=!<>|:-", {
+        			".": "a",
+        			"\\": "b",
+        			"+": "c",
+        			"*": "d",
+        			"?": "e",
+        			"[": "f",
+        			"^": "g",
+        			"]": "h",
+        			"$": "i",
+        			"(": "j",
+        			")": "k",
+        			"{": "l",
+        			"}": "m",
+        			"=": "n",
+        			"!": "o",
+        			"<": "p",
+        			">": "q",
+        			"|": "r",
+        			":": "s",
+        			"-": "t"
+        		}
+        	));
         }
         
         function testDefault() {

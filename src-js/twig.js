@@ -260,3 +260,13 @@ twig.createObj = function(var_args) {
 	
 	return rs;
 };
+
+/**
+ * Escapes any special characters in a string for use in a regular expression
+ *
+ * @param {string} string
+ * @return {string}
+ */
+twig.pregQuote = function(string) {
+	return string.replace(/[\.\\+*?\[\]<>(){}^$=!|:-]/g, '\\$&');
+};

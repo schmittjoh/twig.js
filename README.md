@@ -1,4 +1,4 @@
-twig.js
+Twig.js
 =======
 
 [Twig.js](http://jmsyst.com/libs/twig.js) is a PHP project that compiles Twig

@@ -23,7 +23,7 @@ use TwigJs\TypeCompilerInterface;
 
 class ModuleCompiler implements TypeCompilerInterface
 {
-    private $functionName;
+    protected $functionName;
     private $constantParent;
 
     public function getType()

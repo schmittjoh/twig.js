@@ -363,8 +363,8 @@ $JSCompiler_prototypeAlias$$.test = function $$JSCompiler_prototypeAlias$$$test$
   }
   return this.$tests_$[$name$$64$$].apply($JSCompiler_alias_NULL$$, Array.prototype.slice.call(arguments, 1))
 };
-$JSCompiler_prototypeAlias$$.escape = function $$JSCompiler_prototypeAlias$$$escape$($value$$65$$, $opt_type$$6$$, $opt_charset$$1$$, $opt_autoescape$$1$$) {
-  return $twig$filter$escape$$(0, $value$$65$$, $opt_type$$6$$, 0, $opt_autoescape$$1$$)
+$JSCompiler_prototypeAlias$$.escape = function $$JSCompiler_prototypeAlias$$$escape$($value$$66$$, $opt_type$$6$$, $opt_charset$$1$$, $opt_autoescape$$1$$) {
+  return $twig$filter$escape$$(0, $value$$66$$, $opt_type$$6$$, 0, $opt_autoescape$$1$$)
 };
 $JSCompiler_prototypeAlias$$.$macro$ = function $$JSCompiler_prototypeAlias$$$$macro$$($templateCtor$$, $macroName$$, $var_args$$56$$) {
   var $template$$2$$ = this.$createTemplate$($templateCtor$$), $macro$$1$$ = $template$$2$$["get" + $macroName$$];
@@ -508,6 +508,9 @@ $goog$exportSymbol$$("twig.filter.capitalize", function($env$$1$$, $str$$46$$) {
   return $str$$46$$.charAt(0).toUpperCase() + $str$$46$$.substring(1)
 });
 $goog$exportSymbol$$("twig.filter.escape", $twig$filter$escape$$);
+$goog$exportSymbol$$("twig.filter.first", function($env$$6$$, $value$$65$$) {
+  return $goog$isArray$$($value$$65$$) ? $value$$65$$[0] : $goog$isObject$$($value$$65$$) ? $value$$65$$[Object.keys($value$$65$$)[0]] : $goog$isString$$($value$$65$$) ? $value$$65$$.charAt(0) : ""
+});
 $goog$exportSymbol$$("twig.filter.length", function($env$$3$$, $value$$61$$) {
   return $twig$count$$($value$$61$$)
 });

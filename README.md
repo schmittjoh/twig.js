@@ -19,6 +19,7 @@ and functions described below.
 * `default`
 * `e`
 * `escape`
+* `first`
 * `join`
 * `keys`
 * `length`
@@ -48,7 +49,6 @@ anybody hoping to make a contribution to the project.
 * `convert_encoding`
 * `date`
 * `date_modify`
-* `first`
 * `format`
 * `json_encode`
 * `last`

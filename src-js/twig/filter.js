@@ -161,3 +161,19 @@ twig.filter.lower = function(env, value) {
 twig.filter.nl2br = function(str) {
 	return str.replace(/\n/g, "<br />");
 };
+
+/**
+ * @param {twig.Environment} env
+ * @param {string} value
+ * @return {string}
+ */
+twig.filter.first = function(env, value) {
+	if (goog.isArray(value)) {
+		return value[0];
+	} else if (goog.isObject(value)) {
+		return value[Object.keys(value)[0]];
+	} else if (goog.isString(value)) {
+		return value.charAt(0);
+	}
+	return '';
+};

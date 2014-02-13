@@ -44,6 +44,7 @@ goog.exportSymbol('twig.empty', twig.empty);
 goog.exportSymbol('twig.createObj', twig.createObj);
 goog.exportSymbol('twig.filter.capitalize', twig.filter.capitalize);
 goog.exportSymbol('twig.filter.escape', twig.filter.escape);
+goog.exportSymbol('twig.filter.first', twig.filter.first);
 goog.exportSymbol('twig.filter.length', twig.filter.length);
 goog.exportSymbol('twig.filter.def', twig.filter.def);
 goog.exportSymbol('twig.filter.replace', twig.filter.replace);

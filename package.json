@@ -5,6 +5,6 @@
     "sinon": "1.7.3"
   },
   "scripts": {
-    "test": "mocha --require test/bootstrap.js test/*.js"
+    "test": "mocha --require test/bootstrap.js test/*.js test/*/*.js test/*/*/*.js"
   }
 }

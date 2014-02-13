@@ -31,12 +31,16 @@ class BlockReferenceCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_BlockReference) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_BlockReference, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf('$node must be an instanceof of \Twig_Node_BlockReference, but got "%s".', get_class($node))
+            );
         }
 
         $compiler
             ->addDebugInfo($node)
-            ->write(sprintf("sb.append(this.renderBlock(%s, context, blocks));\n", json_encode($node->getAttribute('name'))))
+            ->write(
+                sprintf("sb.append(this.renderBlock(%s, context, blocks));\n", json_encode($node->getAttribute('name')))
+            )
         ;
     }
 }

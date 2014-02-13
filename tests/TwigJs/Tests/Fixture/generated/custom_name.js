@@ -33,7 +33,7 @@ foo.prototype.getParent_ = function(context) {
  */
 foo.prototype.render_ = function(sb, context, blocks) {
     // line 2
-    sb.append("Hello!");
+    sb.append("Hello!\n");
 };
 
 /**

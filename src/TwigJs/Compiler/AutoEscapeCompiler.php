@@ -31,7 +31,9 @@ class AutoEscapeCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_AutoEscape) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \AutoEscape, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf('$node must be an instanceof of \AutoEscape, but got "%s".', get_class($node))
+            );
         }
 
         $compiler->subcompile($node->getNode('body'));

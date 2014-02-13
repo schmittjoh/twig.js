@@ -33,7 +33,12 @@ class ForCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_For) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \For, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \For, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         $count = $this->count++;

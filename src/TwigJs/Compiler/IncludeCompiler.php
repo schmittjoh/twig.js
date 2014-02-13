@@ -31,7 +31,12 @@ class IncludeCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Include) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Include, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Include, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         $compiler->addDebugInfo($node);

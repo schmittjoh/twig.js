@@ -29,8 +29,11 @@ class TemplateGenerationTest extends \PHPUnit_Framework_TestCase
     public function getGenerationTests()
     {
         $tests = array();
-        foreach (new \RecursiveDirectoryIterator(__DIR__.'/Fixture/templates',
-                    \RecursiveDirectoryIterator::SKIP_DOTS) as $file) {
+        $files = new \RecursiveDirectoryIterator(
+            __DIR__ . '/Fixture/templates',
+            \RecursiveDirectoryIterator::SKIP_DOTS
+        );
+        foreach ($files as $file) {
             /** @var $file \SplFileInfo */
             if (!$file->isFile()) {
                 continue;

@@ -75,7 +75,6 @@ use TwigJs\Compiler\Expression\ConstantCompiler;
 use TwigJs\Compiler\Expression\AssignNameCompiler;
 use TwigJs\Compiler\ForCompiler;
 use TwigJs\Compiler\ForLoopCompiler;
-use TwigJs\Compiler\Filter\EscapeCompiler;
 use TwigJs\Compiler\Expression\FilterCompiler;
 use TwigJs\Compiler\PrintCompiler;
 use TwigJs\Compiler\Expression\NameCompiler;
@@ -240,10 +239,10 @@ class JsCompiler extends \Twig_Compiler
     /**
      * Returns the function name for the given template name.
      *
-     * @param \Twig_Node_Module $templateName
+     * @param  \Twig_Node_Module $templateName
      * @return string
      */
-    public final function getFunctionName(\Twig_Node_Module $module)
+    final public function getFunctionName(\Twig_Node_Module $module)
     {
         if (null === $this->functionNamingStrategy) {
             $this->functionNamingStrategy = new DefaultFunctionNamingStrategy();

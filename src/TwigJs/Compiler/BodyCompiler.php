@@ -19,7 +19,6 @@
 namespace TwigJs\Compiler;
 
 use TwigJs\JsCompiler;
-use TwigJs\TypeCompilerInterface;
 
 class BodyCompiler extends NodeCompiler
 {
@@ -31,7 +30,9 @@ class BodyCompiler extends NodeCompiler
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Body) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_Body, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf('$node must be an instanceof of \Twig_Node_Body, but got "%s".', get_class($node))
+            );
         }
 
         return parent::compile($compiler, $node);

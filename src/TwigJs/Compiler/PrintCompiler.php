@@ -31,7 +31,12 @@ class PrintCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Print) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Print, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Print, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         $compiler

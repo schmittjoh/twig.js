@@ -19,7 +19,6 @@
 namespace TwigJs\Compiler\ModuleCompiler;
 
 use TwigJs\JsCompiler;
-use TwigJs\TypeCompilerInterface;
 
 class SandboxedGoogleCompiler extends GoogleCompiler
 {
@@ -31,7 +30,12 @@ class SandboxedGoogleCompiler extends GoogleCompiler
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_SandboxedModule) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_SandboxedModule, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Twig_Node_SandboxedModule, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         parent::compile($compiler, $node);

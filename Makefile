@@ -22,5 +22,9 @@ test: vendor
 vendor:
 	composer install
 
-.PHONY: build clean test
+phpcs: vendor
+	./vendor/bin/phpcs --standard=PSR2 --error-severity=1 src
+	./vendor/bin/phpcs --standard=PSR2 --error-severity=1 tests
+
+.PHONY: build clean test phpcs
 

@@ -31,7 +31,12 @@ class GetAttrCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_GetAttr) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Expression_GetAttr, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Expression_GetAttr, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         $compiler->raw('twig.attr(');
@@ -72,13 +77,13 @@ class GetAttrCompiler implements TypeCompilerInterface
             }
 
             $compiler->raw(']');
-        } else if (!$defaultAccess || !$defaultTest) {
+        } elseif (!$defaultAccess || !$defaultTest) {
             $compiler->raw(', undefined');
         }
 
         if (!$defaultAccess) {
             $compiler->raw(', ')->repr($node->getAttribute('type'));
-        } else if (!$defaultTest) {
+        } elseif (!$defaultTest) {
             $compiler->raw(', undefined');
         }
 

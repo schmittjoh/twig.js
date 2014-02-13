@@ -20,6 +20,6 @@ namespace TwigJs;
 
 interface TypeCompilerInterface
 {
-    function getType();
-    function compile(JsCompiler $compiler, \Twig_NodeInterface $node);
+    public function getType();
+    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node);
 }

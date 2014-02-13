@@ -31,7 +31,12 @@ class ConstantCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Constant) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Expression_Constant, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Expression_Constant, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         if ($compiler->isTemplateName) {

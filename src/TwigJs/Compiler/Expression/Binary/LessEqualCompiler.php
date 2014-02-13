@@ -20,7 +20,6 @@ namespace TwigJs\Compiler\Expression\Binary;
 
 use TwigJs\Compiler\Expression\BinaryCompiler;
 use TwigJs\JsCompiler;
-use TwigJs\TypeCompilerInterface;
 
 class LessEqualCompiler extends BinaryCompiler
 {
@@ -32,7 +31,12 @@ class LessEqualCompiler extends BinaryCompiler
     protected function operator(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Binary_LessEqual) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_Expression_Binary_LessEqual, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Twig_Node_Expression_Binary_LessEqual, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         return $compiler->raw('<=');

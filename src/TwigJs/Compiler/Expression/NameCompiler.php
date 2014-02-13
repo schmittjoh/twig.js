@@ -31,7 +31,12 @@ class NameCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Name) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Expression_Name, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Expression_Name, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         $name = $node->getAttribute('name');
@@ -50,7 +55,12 @@ class NameCompiler implements TypeCompilerInterface
             );
 
             if (!isset($specialVars[$name])) {
-                throw new \RuntimeException(sprintf('The special var "%s" is not supported by the NameCompiler.', $name));
+                throw new \RuntimeException(
+                    sprintf(
+                        'The special var "%s" is not supported by the NameCompiler.',
+                        $name
+                    )
+                );
             }
 
             $compiler->raw($specialVars[$name]);

@@ -19,8 +19,10 @@ class TwigJsNodeVisitor implements \Twig_NodeVisitorInterface
     {
         if ($node instanceof TwigJsNode) {
             if ($node->hasAttribute('name')) {
-                $this->moduleNode->setAttribute('twig_js_name',
-                    $node->getAttribute('name'));
+                $this->moduleNode->setAttribute(
+                    'twig_js_name',
+                    $node->getAttribute('name')
+                );
             }
 
             return false;

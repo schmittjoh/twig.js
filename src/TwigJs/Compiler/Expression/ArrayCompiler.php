@@ -31,7 +31,9 @@ class ArrayCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Array) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Expression_Array, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf('$node must be an instanceof of \Expression_Array, but got "%s".', get_class($node))
+            );
         }
 
 
@@ -39,7 +41,7 @@ class ArrayCompiler implements TypeCompilerInterface
 
         if ($isList = $this->isList($pairs)) {
             $compiler->raw('[');
-        } else if ($hasDynamicKeys = $this->hasDynamicKeys($pairs)) {
+        } elseif ($hasDynamicKeys = $this->hasDynamicKeys($pairs)) {
             $compiler->raw('twig.createObj(');
         } else {
             $compiler->raw('{');
@@ -54,7 +56,7 @@ class ArrayCompiler implements TypeCompilerInterface
 
             if ($isList) {
                 $compiler->subcompile($pair['value']);
-            } else if ($hasDynamicKeys) {
+            } elseif ($hasDynamicKeys) {
                 $compiler
                     ->subcompile($pair['key'])
                     ->raw(', ')
@@ -71,7 +73,7 @@ class ArrayCompiler implements TypeCompilerInterface
 
         if ($isList) {
             $compiler->raw(']');
-        } else if ($hasDynamicKeys) {
+        } elseif ($hasDynamicKeys) {
             $compiler->raw(')');
         } else {
             $compiler->raw('}');

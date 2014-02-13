@@ -31,12 +31,23 @@ class FunctionCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Function) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Expression_Function, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Expression_Function, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         $function = $compiler->getEnvironment()->getFunction($node->getAttribute('name'));
         if (false === $function) {
-            throw new \Twig_Error_Syntax(sprintf('The function "%s" does not exist', $node->getAttribute('name')), $node->getLine());
+            throw new \Twig_Error_Syntax(
+                sprintf(
+                    'The function "%s" does not exist',
+                    $node->getAttribute('name')
+                ),
+                $node->getLine()
+            );
         }
 
         if ($jsFunction = $compiler->getJsFunction($node->getAttribute('name'))) {

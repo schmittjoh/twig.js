@@ -31,7 +31,12 @@ class FilterCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Filter) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_Expression_Filter, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Twig_Node_Expression_Filter, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         $name = $node->getNode('filter')->getAttribute('value');
@@ -42,7 +47,7 @@ class FilterCompiler implements TypeCompilerInterface
         if (($filterCompiler = $compiler->getFilterCompiler($name))
                 && false !== $filterCompiler->compile($compiler, $node)) {
             return;
-        } else if ($functionName = $compiler->getFilterFunction($name)) {
+        } elseif ($functionName = $compiler->getFilterFunction($name)) {
             $compiler->raw($functionName.'(');
         } else {
             $compiler

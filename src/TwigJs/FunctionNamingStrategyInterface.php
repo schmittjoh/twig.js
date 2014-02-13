@@ -25,8 +25,8 @@ interface FunctionNamingStrategyInterface
      *
      * The returned string may contain dots, e.g. "foo.bar.baz".
      *
-     * @param \Twig_Node_Module $module
+     * @param  \Twig_Node_Module $module
      * @return string
      */
-    function getFunctionName(\Twig_Node_Module $module);
+    public function getFunctionName(\Twig_Node_Module $module);
 }

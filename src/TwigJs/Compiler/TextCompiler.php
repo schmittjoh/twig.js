@@ -31,7 +31,12 @@ class TextCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Text) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Text, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Text, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         $compiler

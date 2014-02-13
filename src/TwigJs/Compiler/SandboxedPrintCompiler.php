@@ -19,7 +19,6 @@
 namespace TwigJs\Compiler;
 
 use TwigJs\JsCompiler;
-use TwigJs\TypeCompilerInterface;
 
 class SandboxedPrintCompiler extends PrintCompiler
 {
@@ -31,7 +30,12 @@ class SandboxedPrintCompiler extends PrintCompiler
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_SandboxedPrint) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \SandboxedPrint, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \SandboxedPrint, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
 //         $compiler

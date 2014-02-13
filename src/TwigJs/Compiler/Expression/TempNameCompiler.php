@@ -31,7 +31,12 @@ class TempNameCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_TempName) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_Expression_TempName, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Twig_Node_Expression_TempName, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
 

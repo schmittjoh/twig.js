@@ -15,7 +15,12 @@ class ForLoopCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_ForLoop) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_ForLoop, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Twig_Node_ForLoop, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         if ($node->getAttribute('else')) {

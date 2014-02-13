@@ -20,7 +20,6 @@ namespace TwigJs\Compiler\Expression\Unary;
 
 use TwigJs\Compiler\Expression\UnaryCompiler;
 use TwigJs\JsCompiler;
-use TwigJs\TypeCompilerInterface;
 
 class NotCompiler extends UnaryCompiler
 {
@@ -32,7 +31,12 @@ class NotCompiler extends UnaryCompiler
     protected function operator(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Unary_Not) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_Expression_Unary_Not, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Twig_Node_Expression_Unary_Not, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         $compiler->raw('!');

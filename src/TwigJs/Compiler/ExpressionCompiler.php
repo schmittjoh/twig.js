@@ -18,7 +18,6 @@
 
 namespace TwigJs\Compiler;
 
-use TwigJs\JsCompiler;
 use TwigJs\TypeCompilerInterface;
 
 abstract class ExpressionCompiler implements TypeCompilerInterface

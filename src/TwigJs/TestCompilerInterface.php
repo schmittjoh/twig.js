@@ -20,6 +20,6 @@ namespace TwigJs;
 
 interface TestCompilerInterface
 {
-    function getName();
-    function compile(JsCompiler $compiler, \Twig_Node_Expression_Test $node);
+    public function getName();
+    public function compile(JsCompiler $compiler, \Twig_Node_Expression_Test $node);
 }

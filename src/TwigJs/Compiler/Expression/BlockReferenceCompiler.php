@@ -31,7 +31,12 @@ class BlockReferenceCompiler implements TypeCompilerInterface
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Expression_BlockReference) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Twig_Node_Expression_BlockReference, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Twig_Node_Expression_BlockReference, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
 
         if ($node->getAttribute('as_string')) {

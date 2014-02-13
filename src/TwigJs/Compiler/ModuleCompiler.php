@@ -19,7 +19,12 @@ abstract class ModuleCompiler
     public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
         if (!$node instanceof \Twig_Node_Module) {
-            throw new \RuntimeException(sprintf('$node must be an instanceof of \Module, but got "%s".', get_class($node)));
+            throw new \RuntimeException(
+                sprintf(
+                    '$node must be an instanceof of \Module, but got "%s".',
+                    get_class($node)
+                )
+            );
         }
         $this->compileTemplate($compiler, $node);
     }
@@ -98,8 +103,10 @@ abstract class ModuleCompiler
                     ->addDebugInfo($trait->getNode('template'))
                     ->write(sprintf("if (!trait_%s.isTraitable()) {\n", $i))
                     ->indent()
-                    ->write("throw Error('Template \"' + trait_".$i.".getTemplateName() + '\" cannot be used as a trait.');\n")
-                    ->outdent()
+                    ->write(
+                        "throw Error('Template \"' + trait_".$i.".getTemplateName() + " .
+                        "'\" cannot be used as a trait.');\n"
+                    )->outdent()
                     ->write("}\n")
                     ->write(sprintf("var trait_%s_blocks = trait_%s.getBlocks();\n\n", $i, $i))
                 ;
@@ -245,8 +252,13 @@ abstract class ModuleCompiler
         }
 
         $compiler
-            ->write("/**\n", " * Returns whether this template can be used as trait.\n", " *\n", " * @return {boolean}\n", " */\n")
-            ->write($this->functionName.".prototype.isTraitable = function() {\n")
+            ->write(
+                "/**\n",
+                " * Returns whether this template can be used as trait.\n",
+                " *\n",
+                " * @return {boolean}\n",
+                " */\n"
+            )->write($this->functionName.".prototype.isTraitable = function() {\n")
             ->indent()
             ->write(sprintf("return %s;\n", $traitable ? 'true' : 'false'))
             ->outdent()

@@ -19,53 +19,6 @@
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
 
-            function testReplace() {
-                assertEquals(
-                    "I love foo, and bar.",
-                    twig.filter.replace("I love %this%, and %that%.", {"%this%": "foo", "%that%": "bar"})
-                );
-                assertEquals(
-                    "Hemmo Johannes",
-                    twig.filter.replace("greet", {
-                        "greet": "Hello Johannes",
-                        "l": "m"
-                    })
-                  );
-                assertEquals(
-                    "mydomain-nl",
-                    twig.filter.replace("mydomain.nl", {".": "-"})
-                );
-                assertEquals(
-                    "xxx---xxx",
-                    twig.filter.replace("...---...", {".": "x"})
-                );
-                assertEquals(
-                    "abcdefghijklmnopqrst",
-                    twig.filter.replace(".\\+*?[^]$(){}=!<>|:-", {
-                        ".": "a",
-                        "\\": "b",
-                        "+": "c",
-                        "*": "d",
-                        "?": "e",
-                        "[": "f",
-                        "^": "g",
-                        "]": "h",
-                        "$": "i",
-                        "(": "j",
-                        ")": "k",
-                        "{": "l",
-                        "}": "m",
-                        "=": "n",
-                        "!": "o",
-                        "<": "p",
-                        ">": "q",
-                        "|": "r",
-                        ":": "s",
-                        "-": "t"
-                    })
-                );
-            }
-
             function testEscape() {
                 assertEquals("&lt;", twig.filter.escape(null, "<", twig.filter.escape.Type.HTML));
                 assertEquals("\\xDCberpr\\xFCfung", twig.filter.escape(null, "\u00dcberpr\u00fcfung", twig.filter.escape.Type.JAVASCRIPT));

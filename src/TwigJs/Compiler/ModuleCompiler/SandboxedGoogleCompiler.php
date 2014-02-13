@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-namespace TwigJs\Compiler;
+namespace TwigJs\Compiler\ModuleCompiler;
 
 use TwigJs\JsCompiler;
 use TwigJs\TypeCompilerInterface;
 
-class SandboxedModuleCompiler extends ModuleCompiler
+class SandboxedGoogleCompiler extends GoogleCompiler
 {
     public function getType()
     {

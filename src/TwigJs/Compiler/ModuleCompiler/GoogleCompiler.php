@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-namespace TwigJs\Compiler;
+namespace TwigJs\Compiler\ModuleCompiler;
 
 use TwigJs\JsCompiler;
 use TwigJs\TypeCompilerInterface;
 
-class ModuleCompiler implements TypeCompilerInterface
+class GoogleCompiler implements TypeCompilerInterface
 {
     protected $functionName;
     private $constantParent;

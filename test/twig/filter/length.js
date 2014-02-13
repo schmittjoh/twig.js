@@ -1,4 +1,4 @@
-describe("TwigJs.Filter.Length", function () {
+describe("twig.filter.length", function () {
 
   it("returns the number of characters in a string", function () {
     twig.filter.length(null, "foo").should.equal(3);

@@ -78,14 +78,6 @@
                 assertEquals("~!%40%23%24%25%5E%26*()%3D%2B%5B%5D%7B%7D%5C%3B%3A'%22%2C%2F%3F", twig.filter.escape(null, "~!@#$%^&*()=+[]{}\\;:\'\",/?", twig.filter.escape.Type.URL));
             }
 
-            function testLength() {
-                assertEquals(3, twig.filter.length(null, "foo"));
-                assertEquals(0, twig.filter.length(null, []));
-                assertEquals(1, twig.filter.length(null, {foo:"bar"}));
-                assertEquals(0, twig.filter.length(null, null));
-                assertEquals(4, twig.filter.length(null, 1234));
-            }
-
             function testNl2br() {
                 assertEquals("one-two", twig.filter.nl2br("one-two"));
                 assertEquals("one<br />two", twig.filter.nl2br("one\ntwo"));

@@ -17,7 +17,6 @@
 var _allTests = [
     "twig_test.html",
     "twig/environment_test.html",
-    "twig/filter_test.html",
     "twig/markup_test.html",
     "templates/template_tests.html"
 ];

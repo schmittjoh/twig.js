@@ -72,11 +72,6 @@
                 assertEquals("", twig.filter.def(false));
             }
 
-            function testCapitalize() {
-                assertEquals("Foo", twig.filter.capitalize(null, "foo"));
-                assertEquals("", twig.filter.capitalize(null, ""));
-            }
-
             function testEscape() {
                 assertEquals("&lt;", twig.filter.escape(null, "<"));
                 assertEquals("&lt;", twig.filter.escape(null, "<", twig.filter.escape.Type.HTML));

@@ -116,7 +116,7 @@ class JsCompiler extends \Twig_Compiler
         $this->typeCompilers = array(
             'Twig_Node' => new NodeCompiler(),
             'Twig_Node_Body' => new BodyCompiler(),
-            'Twig_Node_Module' => new ModuleCompiler\GoogleCompiler(),
+            'Twig_Node_Module' => new ModuleCompiler\AmdCompiler(),
             'Twig_Node_Block' => new BlockCompiler(),
             'Twig_Node_Text' => new TextCompiler(),
             'Twig_Node_If' => new IfCompiler(),

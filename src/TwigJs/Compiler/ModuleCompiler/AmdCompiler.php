@@ -36,7 +36,7 @@ class AmdCompiler extends ModuleCompiler implements TypeCompilerInterface
 
         /* Produce a require-js compatible module instead of a google closure global variable */
         $compiler
-            ->write("define(['twig'], function (Twig) {\n")
+            ->write("define('$functionName.twig', ['twig'], function (Twig) {\n")
             ->indent()
             ->write("\n")
             ->write(

@@ -16,6 +16,7 @@
     },
 
     "require-dev": {
+        "dnode/dnode": "dev-master",
         "phpunit/phpunit": "3.7.*@dev",
         "squizlabs/php_codesniffer": "1.*"
     },

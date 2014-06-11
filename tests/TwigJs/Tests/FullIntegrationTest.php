@@ -114,14 +114,10 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
         $output = '';
         $loop = new React\EventLoop\StreamSelectLoop();
 
-        shell_exec('node test/dnode.js > /dev/null 2>&1 &');
-
         $this->dnode = new DNode\DNode($loop);
         $this->dnode->connect(7070, function($remote, $connection) use ($javascript, $parameters, &$output) {
             $remote->render($javascript, $parameters, function($rendered) use ($connection, &$output) {
                 $output = trim($rendered, "\n");
-            });
-            $remote->exit(function() use ($connection) {
                 $connection->end();
             });
         });

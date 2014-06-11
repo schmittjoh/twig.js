@@ -7,8 +7,5 @@ var server = dnode(function (remote, conn) {
       eval(twigSource + source);
       cb(window.Twig.render(test, parameters));
     };
-    this.exit = function (source, parameters, cb) {
-      process.exit(0);
-    };
 });
 server.listen(7070);

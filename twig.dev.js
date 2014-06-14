@@ -550,6 +550,9 @@ $goog$exportSymbol$$("twig.filter.lower", function($env$$5$$, $value$$64$$) {
 $goog$exportSymbol$$("twig.filter.nl2br", function($str$$47$$) {
   return $str$$47$$.replace(/\n/g, "<br />")
 });
+$goog$exportSymbol$$("twig.filter.abs", function($n$$5$$) {
+  return Math.abs($n$$5$$)
+});
 $goog$exportSymbol$$("twig.StringBuffer", $goog$string$StringBuffer$$);
 $goog$string$StringBuffer$$.prototype.append = $goog$string$StringBuffer$$.prototype.append;
 $goog$string$StringBuffer$$.prototype.toString = $goog$string$StringBuffer$$.prototype.toString;

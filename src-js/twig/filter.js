@@ -177,3 +177,12 @@ twig.filter.first = function(env, value) {
 	}
 	return '';
 };
+
+/**
+ * @export
+ * @param {number} n
+ * @return {number}
+ */
+twig.filter.abs = function(n) {
+	return Math.abs(n);
+};

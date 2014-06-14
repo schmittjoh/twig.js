@@ -1,0 +1,9 @@
+--TEST--
+"abs" filter
+--TEMPLATE--
+{% set number = -5 %}
+{{ number | abs }}
+--DATA--
+return array()
+--EXPECT--
+5

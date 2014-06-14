@@ -15,6 +15,7 @@ and functions described below.
 
 #### Supported Filters
 
+* `abs`
 * `capitalize`
 * `default`
 * `e`
@@ -44,7 +45,6 @@ anybody hoping to make a contribution to the project.
 
 #### Unsupported Filters
 
-* `abs`
 * `batch`
 * `convert_encoding`
 * `date`

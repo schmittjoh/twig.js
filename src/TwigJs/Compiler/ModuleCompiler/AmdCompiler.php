@@ -8,6 +8,16 @@ use TwigJs\TypeCompilerInterface;
 
 class AmdCompiler extends ModuleCompiler implements TypeCompilerInterface
 {
+    /**
+     * @var boolean
+     */
+    private $explicitName;
+
+    public function __construct($explicitName = true)
+    {
+        $this->explicitName = $explicitName;
+    }
+
     protected function compileClassHeader(JsCompiler $compiler, Twig_NodeInterface $node)
     {
         $this->functionName = $functionName = $compiler->templateFunctionName
@@ -34,9 +44,12 @@ class AmdCompiler extends ModuleCompiler implements TypeCompilerInterface
             ->write("\n")
         ;
 
-        /* Produce a require-js compatible module instead of a google closure global variable */
+        if ($this->explicitName) {
+            $compiler->write("define('$functionName.twig', ['twig'], function (Twig) {\n");
+        } else {
+            $compiler->write("define(['twig'], function (Twig) {\n");
+        }
         $compiler
-            ->write("define('$functionName.twig', ['twig'], function (Twig) {\n")
             ->indent()
             ->write("\n")
             ->write(

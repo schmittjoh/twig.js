@@ -81,9 +81,21 @@ anybody hoping to make a contribution to the project.
 * `source`
 * `template_from_string`
 
+Testing
+-------
+
+To run the tests, you'll need [Composer], [Node] and [NPM] on your system.
+
+```bash
+$ make test
+```
+
 License
 -------
 
 Twig.js is released under the [Apache License], Version 2.0.
 
 [Apache License]: http://www.apache.org/licenses/LICENSE-2.0
+[Composer]: https://getcomposer.org/
+[Node]: http://nodejs.org/
+[NPM]: https://www.npmjs.org/

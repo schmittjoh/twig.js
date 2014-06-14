@@ -8,5 +8,11 @@ var server = dnode(function (remote, conn) {
       eval(source);
       cb(window.Twig.render(test, parameters));
     };
+    this.exit = function (cb) {
+      cb();
+      setTimeout(function() {
+        process.exit(0);
+      }, 100);
+    };
 });
 server.listen(7070);

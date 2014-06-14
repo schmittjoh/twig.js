@@ -18,10 +18,10 @@ use Twig_Loader_Filesystem;
 
 class FullIntegrationTest extends PHPUnit_Framework_TestCase
 {
-    public function setUp()
+    public function setDnode($dnode, $loop)
     {
-        $this->loop = new React\EventLoop\StreamSelectLoop();
-        $this->dnode = new DNode\DNode($this->loop);
+        $this->dnode = $dnode;
+        $this->loop = $loop;
     }
 
     /**

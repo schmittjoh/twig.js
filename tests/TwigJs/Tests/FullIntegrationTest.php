@@ -76,9 +76,10 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
         $directory = new RecursiveDirectoryIterator(__DIR__ . '/Fixture/integration');
         $iterator = new RecursiveIteratorIterator($directory);
         $regex = new RegexIterator($iterator, '/\.test/', RecursiveRegexIterator::GET_MATCH);
+        $test = $this;
         $tests = array_map(
-            function ($file) {
-                return $this->loadTest($file);
+            function ($file) use ($test) {
+                return $test->loadTest($file);
             },
             array_keys(iterator_to_array($regex))
         );

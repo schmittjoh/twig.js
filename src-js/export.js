@@ -70,6 +70,8 @@ goog.exportProperty(twig.Environment.prototype, 'setFunction', twig.Environment.
 goog.exportProperty(twig.Environment.prototype, 'setTest', twig.Environment.prototype.setTest);
 goog.exportProperty(twig.Environment.prototype, 'render', twig.Environment.prototype.render);
 goog.exportProperty(twig.Environment.prototype, 'getGlobals', twig.Environment.prototype.getGlobals);
+goog.exportProperty(twig.Environment.prototype, 'setGlobals', twig.Environment.prototype.setGlobals);
+goog.exportProperty(twig.Environment.prototype, 'setGlobal', twig.Environment.prototype.setGlobal);
 goog.exportProperty(twig.Environment.prototype, 'initRuntime', twig.Environment.prototype.initRuntime);
 goog.exportProperty(twig.Environment.prototype, 'hasExtension', twig.Environment.prototype.hasExtension);
 goog.exportProperty(twig.Environment.prototype, 'getExtension', twig.Environment.prototype.getExtension);

@@ -2,6 +2,7 @@ Twig.js
 =======
 
 [![Build Badge]] [Build Status]
+[![Scrutinizer Badge]] [Scrutinizer Code Quality]
 
 [Twig.js](http://jmsyst.com/libs/twig.js) is a PHP project that compiles Twig
 templates into executable Javascript for client-side execution. It is not to be
@@ -103,3 +104,5 @@ Twig.js is released under the [Apache License], Version 2.0.
 [NPM]: https://www.npmjs.org/
 [Build Badge]: https://secure.travis-ci.org/schmittjoh/twig.js.png
 [Build Status]: http://travis-ci.org/schmittjoh/twig.js
+[Scrutinizer Badge]: https://scrutinizer-ci.com/g/h2s/twig.js/badges/quality-score.png?b=master
+[Scrutinizer Code Quality]: https://scrutinizer-ci.com/g/h2s/twig.js/?branch=master

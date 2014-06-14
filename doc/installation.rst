@@ -9,7 +9,7 @@ You can easily install twig.js using Composer. Just add the following to your
     // composer.json
     {
         // ...
-        require: {
+        "require": {
             // ...
             "jms/twig-js": "dev-master"
         }

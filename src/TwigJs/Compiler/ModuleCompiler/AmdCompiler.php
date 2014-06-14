@@ -46,8 +46,7 @@ class AmdCompiler extends ModuleCompiler implements TypeCompilerInterface
 
         if ($this->explicitName) {
             $compiler->write("define('$functionName.twig', ['twig'], function (Twig) {\n");
-        }
-        else {
+        } else {
             $compiler->write("define(['twig'], function (Twig) {\n");
         }
         $compiler

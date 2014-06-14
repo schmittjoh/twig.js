@@ -196,20 +196,20 @@ class JsCompiler extends \Twig_Compiler
 
         $this->filterCompilers = array();
         $this->filterFunctions = array(
-            'escape' => 'twig.filter.escape',
-            'e' => 'twig.filter.escape',
-            'length' => 'twig.filter.length',
+            '_default'   => 'twig.filter.def',
             'capitalize' => 'twig.filter.capitalize',
-            'default' => 'twig.filter.def',
-            '_default' => 'twig.filter.def',
-            'upper' => 'twig.filter.upper',
-            'lower' => 'twig.filter.lower',
+            'default'    => 'twig.filter.def',
+            'e'          => 'twig.filter.escape',
+            'escape'     => 'twig.filter.escape',
+            'first'      => 'twig.filter.first',
+            'join'       => 'twig.filter.join',
+            'keys'       => 'twig.filter.keys',
+            'length'     => 'twig.filter.length',
+            'lower'      => 'twig.filter.lower',
+            'nl2br'      => 'twig.filter.nl2br',
+            'replace'    => 'twig.filter.replace',
+            'upper'      => 'twig.filter.upper',
             'url_encode' => 'encodeURIComponent',
-            'replace' => 'twig.filter.replace',
-            'join' => 'twig.filter.join',
-            'keys' => 'twig.filter.keys',
-            'nl2br' => 'twig.filter.nl2br',
-            'first' => 'twig.filter.first',
         );
 
         $this->functionMap = array(

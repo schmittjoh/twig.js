@@ -1,0 +1,48 @@
+--TEST--
+Twig supports the in operator
+--TEMPLATE--
+{% if bar in foo %}
+1 TRUE
+{% endif %}
+{% if not (bar in foo) %}
+{% else %}
+2 TRUE
+{% endif %}
+{% if bar not in foo %}
+{% else %}
+3 TRUE
+{% endif %}
+{% if 'a' in bar %}
+4 TRUE
+{% endif %}
+{% if 'c' not in bar %}
+5 TRUE
+{% endif %}
+{% if '' not in bar %}
+6 TRUE
+{% endif %}
+{% if '' in '' %}
+7 TRUE
+{% endif %}
+{% if '0' not in '' %}
+8 TRUE
+{% endif %}
+{% if 'a' not in '0' %}
+9 TRUE
+{% endif %}
+{% if '0' in '0' %}
+0 TRUE
+{% endif %}
+--DATA--
+return array('bar' => 'bar', 'foo' => array('bar' => 'bar'))
+--EXPECT--
+1 TRUE
+2 TRUE
+3 TRUE
+4 TRUE
+5 TRUE
+6 TRUE
+7 TRUE
+8 TRUE
+9 TRUE
+0 TRUE

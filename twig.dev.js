@@ -479,7 +479,7 @@ $goog$exportSymbol$$("twig.contains", function($haystack$$, $needle$$) {
     $JSCompiler_temp$$138_JSCompiler_temp$$139_key$$inline_148$$ = 0 <= $goog$array$indexOf$$($haystack$$, $needle$$)
   }else {
     if($goog$isString$$($haystack$$)) {
-      $JSCompiler_temp$$138_JSCompiler_temp$$139_key$$inline_148$$ = -1 != $haystack$$.indexOf($needle$$)
+      $JSCompiler_temp$$138_JSCompiler_temp$$139_key$$inline_148$$ = -1 != $haystack$$.indexOf($needle$$) && ("" !== $needle$$ || "" === $haystack$$)
     }else {
       a: {
         for($JSCompiler_temp$$138_JSCompiler_temp$$139_key$$inline_148$$ in $haystack$$) {

@@ -192,7 +192,10 @@ twig.contains = function(haystack, needle) {
 		return goog.array.contains(/** @type {Array} */ (haystack), needle);
 	}
 	if (goog.isString(haystack)) {
-		return goog.string.contains(haystack, /** @type {string} */ (needle));
+		return (
+			goog.string.contains(haystack, /** @type {string} */ (needle))
+			&& (needle !== "" || haystack === "")
+		);
 	}
 	
 	return goog.object.contains(/** @type {Object} */ (haystack), needle);

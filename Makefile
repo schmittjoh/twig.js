@@ -19,7 +19,7 @@ bin/plovr:
 test: vendor node_modules
 	node test/dnode.js &
 	./vendor/bin/phpunit
-	./node_modules/.bin/mocha --require test/bootstrap.js test/twig/filter/*
+	./node_modules/.bin/mocha --require test/bootstrap.js test/twig/* test/twig/*/*
 
 node_modules:
 	npm install

@@ -179,6 +179,23 @@ twig.filter.first = function(env, value) {
 };
 
 /**
+ * @param {twig.Environment} env
+ * @param {goog.array.ArrayLike|Object|string} value
+ * @return {string}
+ */
+twig.filter.last = function(env, value) {
+	if (goog.isArray(value)) {
+		return value[(value.length - 1)];
+	} else if (goog.isObject(value)) {
+		var keys = Object.keys(value);
+		return value[keys[(keys.length - 1)]];
+	} else if (goog.isString(value)) {
+		return value.charAt(value.length - 1);
+	}
+	return '';
+};
+
+/**
  * @export
  * @param {number} n
  * @return {number}

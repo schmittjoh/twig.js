@@ -59,6 +59,7 @@ goog.exportSymbol('twig.filter.abs', twig.filter.abs);
 goog.exportSymbol('twig.filter.title', twig.filter.title);
 goog.exportSymbol('twig.filter.trim', twig.filter.trim);
 goog.exportSymbol('twig.filter.json_encode', twig.filter.json_encode);
+goog.exportSymbol('twig.filter.last', twig.filter.last);
 
 goog.exportSymbol('twig.functions.max', twig.functions.max);
 goog.exportSymbol('twig.functions.min', twig.functions.min);

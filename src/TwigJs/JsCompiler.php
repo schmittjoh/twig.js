@@ -206,6 +206,7 @@ class JsCompiler extends \Twig_Compiler
             'join'        => 'twig.filter.join',
             'json_encode' => 'twig.filter.json_encode',
             'keys'        => 'twig.filter.keys',
+            'last'        => 'twig.filter.last',
             'length'      => 'twig.filter.length',
             'lower'       => 'twig.filter.lower',
             'nl2br'       => 'twig.filter.nl2br',

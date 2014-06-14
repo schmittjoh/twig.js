@@ -1,0 +1,11 @@
+--TEST--
+Macro bug from schmittjoh/twig.js#67
+--TEMPLATE--
+{% macro show(value) %}
+The value is {{ value }}
+{% endmacro %}
+{{ _self.show("Hello World!") }}
+--DATA--
+return array()
+--EXPECT--
+The value is Hello World!

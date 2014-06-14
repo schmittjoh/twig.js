@@ -52,7 +52,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
         $iterator = new RecursiveIteratorIterator($directory);
         $regex = new RegexIterator($iterator, '/\.test/', RecursiveRegexIterator::GET_MATCH);
         $tests = array_map(
-            function($file) {
+            function ($file) {
                 return $this->loadTest($file);
             },
             array_keys(iterator_to_array($regex))
@@ -64,8 +64,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
     {
         $test = file_get_contents($file);
 
-        if (preg_match('/
-                --TEST--\s*(.*?)\s*(?:--CONDITION--\s*(.*))?\s*((?:--TEMPLATE(?:\(.*?\))?--(?:.*?))+)\s*(?:--DATA--\s*(.*))?\s*--EXCEPTION--\s*(.*)/sx', $test, $match)) {
+        if (preg_match('/--TEST--\s*(.*?)\s*(?:--CONDITION--\s*(.*))?\s*((?:--TEMPLATE(?:\(.*?\))?--(?:.*?))+)\s*(?:--DATA--\s*(.*))?\s*--EXCEPTION--\s*(.*)/sx', $test, $match)) {
             $message = $match[1];
             $condition = $match[2];
             $templates = $this->parseTemplates($match[3]);
@@ -116,8 +115,8 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
     private function renderTemplate($javascript, $parameters)
     {
         $output = '';
-        $this->dnode->connect(7070, function($remote, $connection) use ($javascript, $parameters, &$output) {
-            $remote->render($javascript, $parameters, function($rendered) use ($connection, &$output) {
+        $this->dnode->connect(7070, function ($remote, $connection) use ($javascript, $parameters, &$output) {
+            $remote->render($javascript, $parameters, function ($rendered) use ($connection, &$output) {
                 $output = trim($rendered, "\n");
                 $connection->end();
             });

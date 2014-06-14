@@ -63,7 +63,7 @@ class GetAttrCompiler implements TypeCompilerInterface
 
         if (!$defaultArguments) {
             $compiler->raw(', ')->subcompile($node->getNode('arguments'));
-        } else if (!$defaultAccess || !$defaultTest) {
+        } elseif (!$defaultAccess || !$defaultTest) {
             $compiler->raw(', undefined');
         }
 

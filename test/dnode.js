@@ -4,9 +4,9 @@ var fs = require('fs')
   , window = {};
 eval(twigSource);
 var server = dnode(function (remote, conn) {
-    this.render = function (source, parameters, cb) {
+    this.render = function (name, source, parameters, cb) {
       eval(source);
-      cb(window.Twig.render(test, parameters));
+      cb(window.Twig.render(eval(name), parameters));
     };
     this.exit = function (cb) {
       cb();

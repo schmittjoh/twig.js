@@ -62,22 +62,8 @@ class GetAttrCompiler implements TypeCompilerInterface
         $defaultTest = false == $node->getAttribute('is_defined_test');
 
         if (!$defaultArguments) {
-            $compiler->raw(', [');
-
-            $first = true;
-            foreach ($node->getNode('arguments') as $argNode) {
-                if (!$first) {
-                    $compiler->raw(', ');
-                }
-                $first = false;
-
-                $compiler
-                    ->subcompile($argNode)
-                ;
-            }
-
-            $compiler->raw(']');
-        } elseif (!$defaultAccess || !$defaultTest) {
+            $compiler->raw(', ')->subcompile($node->getNode('arguments'));
+        } else if (!$defaultAccess || !$defaultTest) {
             $compiler->raw(', undefined');
         }
 

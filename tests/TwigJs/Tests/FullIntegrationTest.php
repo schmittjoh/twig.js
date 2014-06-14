@@ -86,7 +86,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
         return $tests;
     }
 
-    private function loadTest($file)
+    public function loadTest($file)
     {
         $test = file_get_contents($file);
 

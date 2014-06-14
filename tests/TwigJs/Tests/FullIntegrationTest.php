@@ -7,6 +7,9 @@ use Exception;
 use PHPUnit_Framework_TestCase;
 use React;
 use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use RecursiveRegexIterator;
+use RegexIterator;
 use TwigJs\Twig\TwigJsExtension;
 use TwigJs\JsCompiler;
 use Twig_Environment;
@@ -45,23 +48,21 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
     public function getIntegrationTests()
     {
         $tests = array();
-        $files = new RecursiveDirectoryIterator(
-            __DIR__ . '/Fixture/integration',
-            RecursiveDirectoryIterator::SKIP_DOTS
+        $directory = new RecursiveDirectoryIterator(__DIR__ . '/Fixture/integration');
+        $iterator = new RecursiveIteratorIterator($directory);
+        $regex = new RegexIterator($iterator, '/\.test/', RecursiveRegexIterator::GET_MATCH);
+        $tests = array_map(
+            function($file) {
+                return $this->loadTest($file);
+            },
+            array_keys(iterator_to_array($regex))
         );
-        foreach ($files as $file) {
-            foreach ($files as $file) {
-                if ($file->isFile()) {
-                    $tests[] = $this->loadTest($file);
-                }
-            }
-        }
         return $tests;
     }
 
     private function loadTest($file)
     {
-        $test = file_get_contents($file->getRealpath());
+        $test = file_get_contents($file);
 
         if (preg_match('/
                 --TEST--\s*(.*?)\s*(?:--CONDITION--\s*(.*))?\s*((?:--TEMPLATE(?:\(.*?\))?--(?:.*?))+)\s*(?:--DATA--\s*(.*))?\s*--EXCEPTION--\s*(.*)/sx', $test, $match)) {

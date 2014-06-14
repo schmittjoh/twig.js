@@ -1,0 +1,11 @@
+--TEST--
+"include" function with "only" parameter
+--TEMPLATE--
+{% set multiplier = 10 %}
+{% include "multiply.twig" with { number: 1234 } only  %}
+--TEMPLATE(multiply.twig)--
+{{ number * multiplier }}
+--DATA--
+return array()
+--EXPECT--
+0

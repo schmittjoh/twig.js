@@ -32,6 +32,7 @@ and functions described below.
 * `lower`
 * `nl2br`
 * `replace`
+* `reverse`
 * `title`
 * `trim`
 * `upper`
@@ -62,7 +63,6 @@ anybody hoping to make a contribution to the project.
 * `number_format`
 * `merge`
 * `raw`
-* `reverse`
 * `round`
 * `slice`
 * `sort`

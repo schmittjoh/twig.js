@@ -126,6 +126,13 @@ function $goog$object$getValues$$($obj$$30$$) {
   }
   return $res$$2$$
 }
+function $goog$object$getKeys$$($obj$$31$$) {
+  var $res$$3$$ = [], $i$$14$$ = 0, $key$$24$$;
+  for($key$$24$$ in $obj$$31$$) {
+    $res$$3$$[$i$$14$$++] = $key$$24$$
+  }
+  return $res$$3$$
+}
 var $goog$object$PROTOTYPE_FIELDS_$$ = "constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf".split(" ");
 function $goog$object$extend$$($target$$39$$, $var_args$$34$$) {
   for(var $key$$38$$, $source$$2$$, $i$$17$$ = 1;$i$$17$$ < arguments.length;$i$$17$$++) {
@@ -373,8 +380,8 @@ $JSCompiler_prototypeAlias$$.test = function $$JSCompiler_prototypeAlias$$$test$
   }
   return this.$tests_$[$name$$64$$].apply($JSCompiler_alias_NULL$$, Array.prototype.slice.call(arguments, 1))
 };
-$JSCompiler_prototypeAlias$$.escape = function $$JSCompiler_prototypeAlias$$$escape$($value$$70$$, $opt_type$$6$$, $opt_charset$$1$$, $opt_autoescape$$1$$) {
-  return $twig$filter$escape$$(0, $value$$70$$, $opt_type$$6$$, 0, $opt_autoescape$$1$$)
+$JSCompiler_prototypeAlias$$.escape = function $$JSCompiler_prototypeAlias$$$escape$($value$$71$$, $opt_type$$6$$, $opt_charset$$1$$, $opt_autoescape$$1$$) {
+  return $twig$filter$escape$$(0, $value$$71$$, $opt_type$$6$$, 0, $opt_autoescape$$1$$)
 };
 $JSCompiler_prototypeAlias$$.$macro$ = function $$JSCompiler_prototypeAlias$$$$macro$$($templateCtor$$, $macroName$$, $var_args$$56$$) {
   var $template$$2$$ = this.$createTemplate$($templateCtor$$), $macro$$1$$ = $template$$2$$["get" + $macroName$$];
@@ -395,8 +402,8 @@ $JSCompiler_prototypeAlias$$.$setTest$ = function $$JSCompiler_prototypeAlias$$$
 $JSCompiler_prototypeAlias$$.$setGlobals$ = function $$JSCompiler_prototypeAlias$$$$setGlobals$$($globals$$) {
   this.$globals_$ = $globals$$
 };
-$JSCompiler_prototypeAlias$$.$setGlobal$ = function $$JSCompiler_prototypeAlias$$$$setGlobal$$($key$$43$$, $value$$71$$) {
-  this.$globals_$[$key$$43$$] = $value$$71$$
+$JSCompiler_prototypeAlias$$.$setGlobal$ = function $$JSCompiler_prototypeAlias$$$$setGlobal$$($key$$43$$, $value$$72$$) {
+  this.$globals_$[$key$$43$$] = $value$$72$$
 };
 $JSCompiler_prototypeAlias$$.$getGlobals$ = function $$JSCompiler_prototypeAlias$$$$getGlobals$$() {
   return this.$globals_$
@@ -550,13 +557,7 @@ $goog$exportSymbol$$("twig.filter.join", function($value$$62$$, $opt_glue$$) {
   });
   return $buffer$$8$$.toString()
 });
-$goog$exportSymbol$$("twig.filter.keys", function($obj$$31$$) {
-  var $res$$3$$ = [], $i$$14$$ = 0, $key$$24$$;
-  for($key$$24$$ in $obj$$31$$) {
-    $res$$3$$[$i$$14$$++] = $key$$24$$
-  }
-  return $res$$3$$
-});
+$goog$exportSymbol$$("twig.filter.keys", $goog$object$getKeys$$);
 $goog$exportSymbol$$("twig.filter.upper", function($env$$4$$, $value$$63$$) {
   return $value$$63$$.toUpperCase()
 });
@@ -593,11 +594,23 @@ $goog$exportSymbol$$("twig.filter.last", function($env$$7$$, $value$$66$$) {
   }
   return $goog$isString$$($value$$66$$) ? $value$$66$$.charAt($value$$66$$.length - 1) : ""
 });
-$goog$exportSymbol$$("twig.functions.max", function($value$$72$$) {
-  return $goog$isArray$$($value$$72$$) ? Math.max.apply($JSCompiler_alias_NULL$$, $value$$72$$) : $goog$isObject$$($value$$72$$) ? Math.max.apply($JSCompiler_alias_NULL$$, $goog$object$getValues$$($value$$72$$)) : Math.max.apply($JSCompiler_alias_NULL$$, arguments)
+$goog$exportSymbol$$("twig.filter.reverse", function($env$$9$$, $value$$70$$) {
+  if($goog$isArray$$($value$$70$$)) {
+    return $value$$70$$.reverse()
+  }
+  if($goog$isObject$$($value$$70$$)) {
+    for(var $reverse$$ = {}, $reverseKeys$$ = $goog$object$getKeys$$($value$$70$$).reverse(), $i$$49$$ = 0;$i$$49$$ < $reverseKeys$$.length;$i$$49$$++) {
+      $reverse$$[$reverseKeys$$[$i$$49$$]] = $value$$70$$[$reverseKeys$$[$i$$49$$]]
+    }
+    return $reverse$$
+  }
+  return $goog$isString$$($value$$70$$) ? $value$$70$$.split("").reverse().join("") : $value$$70$$
 });
-$goog$exportSymbol$$("twig.functions.min", function($value$$73$$) {
-  return $goog$isArray$$($value$$73$$) ? Math.min.apply($JSCompiler_alias_NULL$$, $value$$73$$) : $goog$isObject$$($value$$73$$) ? Math.min.apply($JSCompiler_alias_NULL$$, $goog$object$getValues$$($value$$73$$)) : Math.min.apply($JSCompiler_alias_NULL$$, arguments)
+$goog$exportSymbol$$("twig.functions.max", function($value$$73$$) {
+  return $goog$isArray$$($value$$73$$) ? Math.max.apply($JSCompiler_alias_NULL$$, $value$$73$$) : $goog$isObject$$($value$$73$$) ? Math.max.apply($JSCompiler_alias_NULL$$, $goog$object$getValues$$($value$$73$$)) : Math.max.apply($JSCompiler_alias_NULL$$, arguments)
+});
+$goog$exportSymbol$$("twig.functions.min", function($value$$74$$) {
+  return $goog$isArray$$($value$$74$$) ? Math.min.apply($JSCompiler_alias_NULL$$, $value$$74$$) : $goog$isObject$$($value$$74$$) ? Math.min.apply($JSCompiler_alias_NULL$$, $goog$object$getValues$$($value$$74$$)) : Math.min.apply($JSCompiler_alias_NULL$$, arguments)
 });
 $goog$exportSymbol$$("twig.StringBuffer", $goog$string$StringBuffer$$);
 $goog$string$StringBuffer$$.prototype.append = $goog$string$StringBuffer$$.prototype.append;

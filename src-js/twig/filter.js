@@ -237,3 +237,24 @@ twig.filter.trim = function(value, opt_charactermask) {
 twig.filter.json_encode = function(value) {
 	return JSON.stringify(value);
 };
+
+/**
+ * @param {twig.Environment} env
+ * @param {goog.array.ArrayLike|Object|string} value
+ * @return {goog.array.ArrayLike|Object|string}
+ */
+twig.filter.reverse = function(env, value) {
+	if (goog.isArray(value)) {
+		return value.reverse();
+	} else if (goog.isObject(value)) {
+		var reverse = {};
+		var reverseKeys = goog.object.getKeys(value).reverse();
+		for (var i = 0; i < reverseKeys.length; i++) {
+			reverse[reverseKeys[i]] = value[reverseKeys[i]];
+		}
+		return reverse;
+	} else if (goog.isString(value)) {
+		return value.split("").reverse().join("");
+	}
+	return value;
+};

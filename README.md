@@ -61,7 +61,6 @@ anybody hoping to make a contribution to the project.
 * `last`
 * `number_format`
 * `merge`
-* `upper`
 * `raw`
 * `reverse`
 * `round`

@@ -219,6 +219,7 @@ class JsCompiler extends \Twig_Compiler
         $this->functionMap = array(
             'range' => 'twig.range',
             'max'   => 'twig.functions.max',
+            'min'   => 'twig.functions.min',
         );
     }
 

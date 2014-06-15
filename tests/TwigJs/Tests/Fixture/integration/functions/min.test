@@ -1,0 +1,12 @@
+--TEST--
+"min" function
+--TEMPLATE--
+{{ min(1, 2, 3) }}
+{{ min([1, 2, 3]) }}
+{{ min({ a:1, b:2, c:3 }) }}
+--DATA--
+return array()
+--EXPECT--
+1
+1
+1

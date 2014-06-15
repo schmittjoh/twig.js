@@ -35,3 +35,17 @@ twig.functions.max = function(value) {
 		return Math.max.apply(null, arguments);
 	}
 };
+
+/**
+ * @param {goog.array.ArrayLike|Object} value
+ * @return {goog.array.ArrayLike|Object|string|number}
+ */
+twig.functions.min = function(value) {
+	if (goog.isArray(value)) {
+		return Math.min.apply(null, value);
+	} else if (goog.isObject(value)) {
+		return Math.min.apply(null, goog.object.getValues(value));
+	} else {
+		return Math.min.apply(null, arguments);
+	}
+};

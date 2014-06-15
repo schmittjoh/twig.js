@@ -61,6 +61,7 @@ goog.exportSymbol('twig.filter.trim', twig.filter.trim);
 goog.exportSymbol('twig.filter.json_encode', twig.filter.json_encode);
 
 goog.exportSymbol('twig.functions.max', twig.functions.max);
+goog.exportSymbol('twig.functions.min', twig.functions.min);
 
 goog.exportSymbol('twig.StringBuffer', twig.StringBuffer);
 goog.exportProperty(twig.StringBuffer.prototype, 'append', twig.StringBuffer.prototype.append);

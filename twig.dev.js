@@ -208,6 +208,9 @@ function $twig$count$$($JSCompiler_temp$$2_JSCompiler_temp$$3_JSCompiler_temp$$4
 function $twig$forEach$$($v$$3$$, $func$$3$$, $opt_this$$2$$) {
   $goog$isArray$$($v$$3$$) ? $goog$array$forEach$$($v$$3$$, $func$$3$$, $opt_this$$2$$) : $goog$object$forEach$$($v$$3$$, $func$$3$$, $opt_this$$2$$)
 }
+function $twig$pregQuote$$($string$$2$$) {
+  return $string$$2$$.replace(/[\.\\+*?\[\]<>(){}^$=!|:-]/g, "\\$&")
+}
 ;function $twig$Template$$($env$$) {
   this.env_ = $env$$;
   this.$blocks_$ = [];
@@ -363,8 +366,8 @@ $JSCompiler_prototypeAlias$$.test = function $$JSCompiler_prototypeAlias$$$test$
   }
   return this.$tests_$[$name$$64$$].apply($JSCompiler_alias_NULL$$, Array.prototype.slice.call(arguments, 1))
 };
-$JSCompiler_prototypeAlias$$.escape = function $$JSCompiler_prototypeAlias$$$escape$($value$$67$$, $opt_type$$6$$, $opt_charset$$1$$, $opt_autoescape$$1$$) {
-  return $twig$filter$escape$$(0, $value$$67$$, $opt_type$$6$$, 0, $opt_autoescape$$1$$)
+$JSCompiler_prototypeAlias$$.escape = function $$JSCompiler_prototypeAlias$$$escape$($value$$68$$, $opt_type$$6$$, $opt_charset$$1$$, $opt_autoescape$$1$$) {
+  return $twig$filter$escape$$(0, $value$$68$$, $opt_type$$6$$, 0, $opt_autoescape$$1$$)
 };
 $JSCompiler_prototypeAlias$$.$macro$ = function $$JSCompiler_prototypeAlias$$$$macro$$($templateCtor$$, $macroName$$, $var_args$$56$$) {
   var $template$$2$$ = this.$createTemplate$($templateCtor$$), $macro$$1$$ = $template$$2$$["get" + $macroName$$];
@@ -385,8 +388,8 @@ $JSCompiler_prototypeAlias$$.$setTest$ = function $$JSCompiler_prototypeAlias$$$
 $JSCompiler_prototypeAlias$$.$setGlobals$ = function $$JSCompiler_prototypeAlias$$$$setGlobals$$($globals$$) {
   this.$globals_$ = $globals$$
 };
-$JSCompiler_prototypeAlias$$.$setGlobal$ = function $$JSCompiler_prototypeAlias$$$$setGlobal$$($key$$43$$, $value$$68$$) {
-  this.$globals_$[$key$$43$$] = $value$$68$$
+$JSCompiler_prototypeAlias$$.$setGlobal$ = function $$JSCompiler_prototypeAlias$$$$setGlobal$$($key$$43$$, $value$$69$$) {
+  this.$globals_$[$key$$43$$] = $value$$69$$
 };
 $JSCompiler_prototypeAlias$$.$getGlobals$ = function $$JSCompiler_prototypeAlias$$$$getGlobals$$() {
   return this.$globals_$
@@ -526,7 +529,7 @@ $goog$exportSymbol$$("twig.filter.def", function($value$$59$$, $opt_default$$) {
 $goog$exportSymbol$$("twig.filter.replace", function($str$$45$$, $map$$) {
   for(var $key$$42$$ in $map$$) {
     var $escapedKey$$;
-    $escapedKey$$ = $key$$42$$.replace(/[\.\\+*?\[\]<>(){}^$=!|:-]/g, "\\$&");
+    $escapedKey$$ = $twig$pregQuote$$($key$$42$$);
     $str$$45$$ = $str$$45$$.replace(RegExp($escapedKey$$, "g"), $map$$[$key$$42$$])
   }
   return $str$$45$$
@@ -563,6 +566,12 @@ $goog$exportSymbol$$("twig.filter.title", function($env$$7$$, $value$$66$$) {
   return $value$$66$$.split(" ").map(function($word$$) {
     return $word$$.charAt(0).toUpperCase() + $word$$.substr(1).toLowerCase()
   }).join(" ")
+});
+$goog$exportSymbol$$("twig.filter.trim", function($value$$67$$, $opt_charactermask$$) {
+  var $mask$$5$$ = "\n ";
+  $opt_charactermask$$ && ($mask$$5$$ = $twig$pregQuote$$($opt_charactermask$$));
+  $value$$67$$ = $value$$67$$.replace(RegExp("^[" + $mask$$5$$ + "]+"), "");
+  return $value$$67$$ = $value$$67$$.replace(RegExp("[" + $mask$$5$$ + "]+$"), "")
 });
 $goog$exportSymbol$$("twig.StringBuffer", $goog$string$StringBuffer$$);
 $goog$string$StringBuffer$$.prototype.append = $goog$string$StringBuffer$$.prototype.append;

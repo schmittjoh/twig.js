@@ -1,0 +1,10 @@
+--TEST--
+"trim" filter
+--TEMPLATE--
+{{ "hello       " | trim }} world
+{{ "testing!!!!!" | trim("!") }}
+--DATA--
+return array()
+--EXPECT--
+hello world
+testing

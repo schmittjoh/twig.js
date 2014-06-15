@@ -31,6 +31,7 @@ and functions described below.
 * `nl2br`
 * `replace`
 * `title`
+* `trim`
 * `upper`
 * `url_encode`
 
@@ -66,7 +67,6 @@ anybody hoping to make a contribution to the project.
 * `sort`
 * `split`
 * `striptags`
-* `trim`
 * `url_encode`
 
 #### Unsupported Functions

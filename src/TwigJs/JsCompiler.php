@@ -210,6 +210,7 @@ class JsCompiler extends \Twig_Compiler
             'nl2br'      => 'twig.filter.nl2br',
             'replace'    => 'twig.filter.replace',
             'title'      => 'twig.filter.title',
+            'trim'       => 'twig.filter.trim',
             'upper'      => 'twig.filter.upper',
             'url_encode' => 'encodeURIComponent',
         );

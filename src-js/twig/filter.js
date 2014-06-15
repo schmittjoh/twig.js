@@ -197,3 +197,18 @@ twig.filter.title = function(env, value) {
 		return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
 	}).join(" ");
 };
+
+/**
+ * @param {string} value
+ * @param {string=} opt_charactermask
+ * @return {string}
+ */
+twig.filter.trim = function(value, opt_charactermask) {
+	var mask = "\n ";
+	if (opt_charactermask) {
+		mask = twig.pregQuote(opt_charactermask);
+	}
+	value = value.replace(new RegExp("^[" + mask + "]+"), "");
+	value = value.replace(new RegExp("[" + mask + "]+$"), "");
+	return value;
+};

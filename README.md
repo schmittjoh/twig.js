@@ -25,6 +25,7 @@ and functions described below.
 * `escape`
 * `first`
 * `join`
+* `json_encode`
 * `keys`
 * `length`
 * `lower`
@@ -55,7 +56,6 @@ anybody hoping to make a contribution to the project.
 * `date`
 * `date_modify`
 * `format`
-* `json_encode`
 * `last`
 * `number_format`
 * `merge`

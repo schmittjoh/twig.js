@@ -212,3 +212,11 @@ twig.filter.trim = function(value, opt_charactermask) {
 	value = value.replace(new RegExp("[" + mask + "]+$"), "");
 	return value;
 };
+
+/**
+ * @param {string} value
+ * @return {string}
+ */
+twig.filter.json_encode = function(value) {
+	return JSON.stringify(value);
+};

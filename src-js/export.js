@@ -56,6 +56,7 @@ goog.exportSymbol('twig.filter.nl2br', twig.filter.nl2br);
 goog.exportSymbol('twig.filter.abs', twig.filter.abs);
 goog.exportSymbol('twig.filter.title', twig.filter.title);
 goog.exportSymbol('twig.filter.trim', twig.filter.trim);
+goog.exportSymbol('twig.filter.json_encode', twig.filter.json_encode);
 
 goog.exportSymbol('twig.StringBuffer', twig.StringBuffer);
 goog.exportProperty(twig.StringBuffer.prototype, 'append', twig.StringBuffer.prototype.append);

@@ -1,0 +1,8 @@
+--TEST--
+"json_encode" filter
+--TEMPLATE--
+{{ [1, 2, 3] | json_encode }}
+--DATA--
+return array()
+--EXPECT--
+[1,2,3]

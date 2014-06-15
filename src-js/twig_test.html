@@ -17,15 +17,6 @@
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
 
-            function testCountable() {
-                assertTrue(twig.countable(""));
-                assertTrue(twig.countable([]));
-                assertTrue(twig.countable({}));
-                assertFalse(twig.countable(true));
-                assertFalse(twig.countable(false));
-                assertFalse(twig.countable(4));
-            }
-        
             function testCount() {
                 assertEquals(0, twig.count(""));
                 assertEquals(3, twig.count("foo"));

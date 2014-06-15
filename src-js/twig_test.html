@@ -16,45 +16,7 @@
             goog.require('goog.testing.asserts');
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
-    
-            SimpleObject = function(foo, bar) {
-                this.foo_ = foo;
-                this.bar = bar;
-                this.baz_ = true;
-            };
 
-            SimpleObject.prototype.getFoo = function() {
-                return this.foo_;
-            };
-
-            SimpleObject.prototype.getBar = function() {
-                return 'foo' + this.bar;
-            };
-
-            SimpleObject.prototype.isBaz = function() {
-                return this.baz_;
-            };
-        
-            function testAttr() {
-                assertEquals("foo", twig.attr(["foo","bar"], 0));
-                assertTrue(twig.attr(["foo","bar"], 0, undefined, undefined, true));
-                assertFalse(twig.attr(["foo","bar"], 5, undefined, undefined, true));
-                assertEquals("bar", twig.attr({"foo":"bar"}, "foo"));
-                assertTrue(twig.attr({"foo":"bar"}, "foo", undefined, undefined, true));
-                assertFalse(twig.attr({"foo":"bar"}, "bar", undefined, undefined, true));
-
-                assertEquals("foo", twig.attr(new SimpleObject("foo"), "foo"));
-                assertTrue(twig.attr(new SimpleObject("foo"), "foo", undefined, undefined, true));
-                assertFalse(twig.attr(new SimpleObject("foo"), "foobar", undefined, undefined, true));
-
-                assertNull(twig.attr(new SimpleObject(), "foo", undefined, twig.AttrAccess.ARRAY));
-                assertFalse(twig.attr(new SimpleObject(), "foo", undefined, twig.AttrAccess.ARRAY, true));
-
-                assertEquals("bar", twig.attr(new SimpleObject("foo", "bar"), "bar"));
-                assertEquals("foobar", twig.attr(new SimpleObject("foo", "bar"), "bar", undefined, twig.AttrAccess.METHOD));
-                assertTrue(twig.attr(new SimpleObject(), "baz"));
-            }
-        
             function testCountable() {
                 assertTrue(twig.countable(""));
                 assertTrue(twig.countable([]));

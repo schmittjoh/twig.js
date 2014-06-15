@@ -27,6 +27,7 @@ and functions described below.
 * `join`
 * `json_encode`
 * `keys`
+* `last`
 * `length`
 * `lower`
 * `nl2br`
@@ -58,7 +59,6 @@ anybody hoping to make a contribution to the project.
 * `date`
 * `date_modify`
 * `format`
-* `last`
 * `number_format`
 * `merge`
 * `raw`

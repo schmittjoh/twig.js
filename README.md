@@ -67,7 +67,6 @@ anybody hoping to make a contribution to the project.
 * `sort`
 * `split`
 * `striptags`
-* `url_encode`
 
 #### Unsupported Functions
 

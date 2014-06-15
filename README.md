@@ -40,6 +40,7 @@ and functions described below.
 
 * `block`
 * `include`
+* `max`
 * `range`
 
 Incompatibilities
@@ -75,7 +76,6 @@ anybody hoping to make a contribution to the project.
 * `cycle`
 * `date`
 * `dump`
-* `max`
 * `min`
 * `parent`
 * `random`

@@ -25,6 +25,7 @@ goog.require('twig');
 goog.require('twig.Environment');
 goog.require('twig.Markup');
 goog.require('twig.filter');
+goog.require('twig.functions');
 
 window['Twig'] = new twig.Environment();
 
@@ -42,6 +43,7 @@ goog.exportSymbol('twig.count', twig.count);
 goog.exportSymbol('twig.forEach', twig.forEach);
 goog.exportSymbol('twig.empty', twig.empty);
 goog.exportSymbol('twig.createObj', twig.createObj);
+
 goog.exportSymbol('twig.filter.capitalize', twig.filter.capitalize);
 goog.exportSymbol('twig.filter.escape', twig.filter.escape);
 goog.exportSymbol('twig.filter.first', twig.filter.first);
@@ -57,6 +59,8 @@ goog.exportSymbol('twig.filter.abs', twig.filter.abs);
 goog.exportSymbol('twig.filter.title', twig.filter.title);
 goog.exportSymbol('twig.filter.trim', twig.filter.trim);
 goog.exportSymbol('twig.filter.json_encode', twig.filter.json_encode);
+
+goog.exportSymbol('twig.functions.max', twig.functions.max);
 
 goog.exportSymbol('twig.StringBuffer', twig.StringBuffer);
 goog.exportProperty(twig.StringBuffer.prototype, 'append', twig.StringBuffer.prototype.append);

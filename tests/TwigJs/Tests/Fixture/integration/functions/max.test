@@ -1,0 +1,12 @@
+--TEST--
+"max" function
+--TEMPLATE--
+{{ max(1, 2, 3) }}
+{{ max([1, 2, 3]) }}
+{{ max({ a:1, b:2, c:3 }) }}
+--DATA--
+return array()
+--EXPECT--
+3
+3
+3

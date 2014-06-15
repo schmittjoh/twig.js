@@ -30,6 +30,7 @@ and functions described below.
 * `lower`
 * `nl2br`
 * `replace`
+* `title`
 * `upper`
 * `url_encode`
 
@@ -65,7 +66,6 @@ anybody hoping to make a contribution to the project.
 * `sort`
 * `split`
 * `striptags`
-* `title`
 * `trim`
 * `url_encode`
 

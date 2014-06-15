@@ -363,8 +363,8 @@ $JSCompiler_prototypeAlias$$.test = function $$JSCompiler_prototypeAlias$$$test$
   }
   return this.$tests_$[$name$$64$$].apply($JSCompiler_alias_NULL$$, Array.prototype.slice.call(arguments, 1))
 };
-$JSCompiler_prototypeAlias$$.escape = function $$JSCompiler_prototypeAlias$$$escape$($value$$66$$, $opt_type$$6$$, $opt_charset$$1$$, $opt_autoescape$$1$$) {
-  return $twig$filter$escape$$(0, $value$$66$$, $opt_type$$6$$, 0, $opt_autoescape$$1$$)
+$JSCompiler_prototypeAlias$$.escape = function $$JSCompiler_prototypeAlias$$$escape$($value$$67$$, $opt_type$$6$$, $opt_charset$$1$$, $opt_autoescape$$1$$) {
+  return $twig$filter$escape$$(0, $value$$67$$, $opt_type$$6$$, 0, $opt_autoescape$$1$$)
 };
 $JSCompiler_prototypeAlias$$.$macro$ = function $$JSCompiler_prototypeAlias$$$$macro$$($templateCtor$$, $macroName$$, $var_args$$56$$) {
   var $template$$2$$ = this.$createTemplate$($templateCtor$$), $macro$$1$$ = $template$$2$$["get" + $macroName$$];
@@ -385,8 +385,8 @@ $JSCompiler_prototypeAlias$$.$setTest$ = function $$JSCompiler_prototypeAlias$$$
 $JSCompiler_prototypeAlias$$.$setGlobals$ = function $$JSCompiler_prototypeAlias$$$$setGlobals$$($globals$$) {
   this.$globals_$ = $globals$$
 };
-$JSCompiler_prototypeAlias$$.$setGlobal$ = function $$JSCompiler_prototypeAlias$$$$setGlobal$$($key$$43$$, $value$$67$$) {
-  this.$globals_$[$key$$43$$] = $value$$67$$
+$JSCompiler_prototypeAlias$$.$setGlobal$ = function $$JSCompiler_prototypeAlias$$$$setGlobal$$($key$$43$$, $value$$68$$) {
+  this.$globals_$[$key$$43$$] = $value$$68$$
 };
 $JSCompiler_prototypeAlias$$.$getGlobals$ = function $$JSCompiler_prototypeAlias$$$$getGlobals$$() {
   return this.$globals_$
@@ -558,6 +558,11 @@ $goog$exportSymbol$$("twig.filter.nl2br", function($str$$47$$) {
 });
 $goog$exportSymbol$$("twig.filter.abs", function($n$$5$$) {
   return Math.abs($n$$5$$)
+});
+$goog$exportSymbol$$("twig.filter.title", function($env$$7$$, $value$$66$$) {
+  return $value$$66$$.split(" ").map(function($word$$) {
+    return $word$$.charAt(0).toUpperCase() + $word$$.substr(1).toLowerCase()
+  }).join(" ")
 });
 $goog$exportSymbol$$("twig.StringBuffer", $goog$string$StringBuffer$$);
 $goog$string$StringBuffer$$.prototype.append = $goog$string$StringBuffer$$.prototype.append;

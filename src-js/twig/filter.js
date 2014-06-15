@@ -186,3 +186,14 @@ twig.filter.first = function(env, value) {
 twig.filter.abs = function(n) {
 	return Math.abs(n);
 };
+
+/**
+ * @param {twig.Environment} env
+ * @param {string} value
+ * @return {string}
+ */
+twig.filter.title = function(env, value) {
+	return value.split(" ").map(function(word) {
+		return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+	}).join(" ");
+};

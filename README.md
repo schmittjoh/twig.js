@@ -80,7 +80,6 @@ anybody hoping to make a contribution to the project.
 * `min`
 * `parent`
 * `random`
-* `range`
 * `source`
 * `template_from_string`
 

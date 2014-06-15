@@ -17,19 +17,6 @@
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
 
-            function testCount() {
-                assertEquals(0, twig.count(""));
-                assertEquals(3, twig.count("foo"));
-
-                assertEquals(0, twig.count([]));
-                assertEquals(4, twig.count(["a", "b", "c", "d"]));
-
-                assertEquals(0, twig.count({}));
-                assertEquals(2, twig.count({foo:"bar",bar:"baz"}));
-                assertEquals(1, twig.count({length:3}));
-                assertEquals(2, twig.count(99));
-            }
-        
             function testContains() {
                 assertTrue(twig.contains("foobar", "foo"));
                 assertFalse(twig.contains("foo", "bar"));

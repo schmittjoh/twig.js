@@ -1,0 +1,8 @@
+--TEST--
+Hello Foo test
+--TEMPLATE--
+Hello {{ name|default("World") }}!
+--DATA--
+return array("name" => "<aFoo")
+--EXPECT--
+Hello &lt;aFoo!

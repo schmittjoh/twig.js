@@ -7,7 +7,6 @@
     <body>
         <script language="javascript" type="text/javascript" src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
         <script language="javascript" type="text/javascript" src="../../twig.dev.js"></script>
-        <script language="javascript" type="text/javascript" src="./js/hello_world.js"></script>
         <script language="javascript" type="text/javascript" src="./js/layout.js"></script>
         <script language="javascript" type="text/javascript" src="./js/ajax_layout.js"></script>
         <script language="javascript" type="text/javascript" src="./js/traitable.js"></script>
@@ -18,14 +17,6 @@
             goog.require('goog.testing.asserts');
             goog.require('goog.testing.jsunit');
             goog.require('goog.string');
-
-            function testHelloWorld() {
-                var helloWorldTpl = Twig.createTemplate(hello_world);
-
-                assertEquals("Hello World!", Twig.render(hello_world));
-                assertEquals("Hello Johannes!", Twig.render(hello_world, {name: "Johannes"}));
-                assertEquals("Hello &lt;aFoo!", Twig.render(hello_world, {name: "<aFoo"}));
-            }
 
             function testMacros() {
                 assertEquals('<a href="a" title="c">b</a>', Twig.macro(macros, 'link', 'a', 'b', 'c').trim());

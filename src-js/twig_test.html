@@ -17,17 +17,6 @@
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
 
-            function testContains() {
-                assertTrue(twig.contains("foobar", "foo"));
-                assertFalse(twig.contains("foo", "bar"));
-
-                assertTrue(twig.contains(["foo", "bar"], "bar"));
-                assertFalse(twig.contains(["foo"], "bar"));
-
-                assertTrue(twig.contains({foo:"bar"}, "bar"));
-                assertFalse(twig.contains({foo:"bar"}, "foo"));
-            }
-        
             function testRange() {
                 assertArrayEquals([1, 2, 3], twig.range(1, 3));
             }

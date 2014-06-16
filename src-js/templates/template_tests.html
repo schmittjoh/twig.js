@@ -13,7 +13,6 @@
         <script language="javascript" type="text/javascript" src="./js/traitable.js"></script>
         <script language="javascript" type="text/javascript" src="./js/macros.js"></script>
         <script language="javascript" type="text/javascript" src="./js/welcome.js"></script>
-        <script language="javascript" type="text/javascript" src="./js/counter.js"></script>
         <script language="javascript" type="text/javascript" src="./js/fields.js"></script>
         <script language="javascript" type="text/javascript">
             goog.require('goog.testing.asserts');
@@ -22,7 +21,6 @@
 
             function testHelloWorld() {
                 var helloWorldTpl = Twig.createTemplate(hello_world);
-                var counterTpl = Twig.createTemplate(counter);
 
                 assertEquals("Hello World!", Twig.render(hello_world));
                 assertEquals("Hello Johannes!", Twig.render(hello_world, {name: "Johannes"}));
@@ -50,9 +48,6 @@
                 );
             }
 
-            function testCounter() {
-                assertEquals("1, 1, 2, 2, 3, 3, 4, 4, 5, 5", Twig.render(counter));
-            }
         </script>
     </body>
 </html>

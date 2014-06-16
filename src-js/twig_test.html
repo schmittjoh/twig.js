@@ -17,12 +17,6 @@
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
 
-            function testSpaceless() {
-                assertEquals("", twig.spaceless("          "));
-                assertEquals("foo", twig.spaceless("    foo  "));
-                assertEquals('<a href="#"><img /></a>', twig.spaceless('  <a href="#">  <img /> </a>   '));
-            }
-        
             function testForEachWithArray() {
                 var arr = [1,2,3];
                 var func = goog.testing.createFunctionMock();

@@ -43,6 +43,7 @@ goog.exportSymbol('twig.count', twig.count);
 goog.exportSymbol('twig.forEach', twig.forEach);
 goog.exportSymbol('twig.empty', twig.empty);
 goog.exportSymbol('twig.createObj', twig.createObj);
+goog.exportSymbol('twig.pregQuote', twig.pregQuote);
 
 goog.exportSymbol('twig.filter.capitalize', twig.filter.capitalize);
 goog.exportSymbol('twig.filter.escape', twig.filter.escape);

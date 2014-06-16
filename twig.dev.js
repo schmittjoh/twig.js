@@ -527,6 +527,7 @@ $goog$exportSymbol$$("twig.createObj", function($var_args$$52$$) {
   }
   return $rs$$1$$
 });
+$goog$exportSymbol$$("twig.pregQuote", $twig$pregQuote$$);
 $goog$exportSymbol$$("twig.filter.capitalize", function($env$$1$$, $str$$46$$) {
   return $str$$46$$.charAt(0).toUpperCase() + $str$$46$$.substring(1)
 });

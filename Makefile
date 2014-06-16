@@ -17,9 +17,9 @@ bin/plovr:
 	wget $(PLOVR_URL) -O bin/plovr
 
 test: vendor node_modules
-	node test/dnode.js &
+	node tests-js/dnode.js &
 	./vendor/bin/phpunit
-	./node_modules/.bin/mocha --require test/bootstrap.js test/twig/* test/twig/*/*
+	./node_modules/.bin/mocha --require tests-js/bootstrap.js tests-js/twig/* tests-js/twig/*/*
 
 node_modules:
 	npm install

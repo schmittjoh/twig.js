@@ -35,7 +35,7 @@ Mocha Test Suite
 The Mocha test suite is run by installing the NPM dependencies using "npm
 install", and then by running the mocha binary installed by NPM.
 
-    $ ./node_modules/.bin/mocha --require test/bootstrap.js test/twig/* test/twig/*/*
+    $ ./node_modules/.bin/mocha --require tests-js/bootstrap.js tests-js/twig/* tests-js/twig/*/*
 
 If you also made changes to the Javascript, you need to re-compile the minified
 versions of twig.js::

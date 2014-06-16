@@ -17,22 +17,6 @@
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
 
-            function testEmpty() {
-                assertTrue(twig.empty(""));
-                assertTrue(twig.empty(0));
-                assertTrue(twig.empty(false));
-                assertTrue(twig.empty(undefined));
-                assertTrue(twig.empty([]));
-                assertTrue(twig.empty({}));
-                assertTrue(twig.empty(null));
-
-                assertFalse(twig.empty("foo"));
-                assertFalse(twig.empty(true));
-                assertFalse(twig.empty([1]));
-                assertFalse(twig.empty({foo:"bar"}));
-                assertFalse(twig.empty(1));
-            }
-
             function testPregQuote() {
                 assertEquals("\\.", twig.pregQuote("."));
                 assertEquals("\\\\", twig.pregQuote("\\"));

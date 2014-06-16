@@ -10,17 +10,12 @@
         <script language="javascript" type="text/javascript" src="./js/layout.js"></script>
         <script language="javascript" type="text/javascript" src="./js/ajax_layout.js"></script>
         <script language="javascript" type="text/javascript" src="./js/traitable.js"></script>
-        <script language="javascript" type="text/javascript" src="./js/macros.js"></script>
         <script language="javascript" type="text/javascript" src="./js/welcome.js"></script>
         <script language="javascript" type="text/javascript" src="./js/fields.js"></script>
         <script language="javascript" type="text/javascript">
             goog.require('goog.testing.asserts');
             goog.require('goog.testing.jsunit');
             goog.require('goog.string');
-
-            function testMacros() {
-                assertEquals('<a href="a" title="c">b</a>', Twig.macro(macros, 'link', 'a', 'b', 'c').trim());
-            }
 
             function testWelcome() {
                 assertEquals(

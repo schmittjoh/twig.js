@@ -17,16 +17,6 @@
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
 
-            function testExtends() {
-                var a = {foo:"bar"};
-                var b = {bar:"baz"};
-        	
-                assertHashEquals({foo:"bar",bar:"baz"}, twig.extend({}, a, b));
-        	
-                var target = {};
-                assertEquals(target, twig.extend(target));
-            }
-
             function testEmpty() {
                 assertTrue(twig.empty(""));
                 assertTrue(twig.empty(0));

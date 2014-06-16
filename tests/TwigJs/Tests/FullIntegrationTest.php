@@ -138,7 +138,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
         $output = '';
         $this->dnode->connect(7070, function ($remote, $connection) use ($name, $javascript, $parameters, &$output) {
             $remote->render($name, $javascript, $parameters, function ($rendered) use ($connection, &$output) {
-                $output = trim($rendered, "\n");
+                $output = trim($rendered, "\n ");
                 $connection->end();
             });
         });

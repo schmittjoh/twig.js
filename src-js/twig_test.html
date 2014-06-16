@@ -17,29 +17,6 @@
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
 
-            function testForEachWithArray() {
-                var arr = [1,2,3];
-                var func = goog.testing.createFunctionMock();
-                func(1, 0, arr);
-                func(2, 1, arr);
-                func(3, 2, arr);
-                func.$replay();
-
-                twig.forEach(arr, func);
-                func.$verify();
-            }
-        
-            function testForEachWithObject() {
-                var obj = {foo:"bar",bar:"baz"};
-                var func = goog.testing.createFunctionMock();
-                func("bar", "foo", obj);
-                func("baz", "bar", obj);
-                func.$replay();
-
-                twig.forEach(obj, func);
-                func.$verify();
-            }
-        
             function testExtends() {
                 var a = {foo:"bar"};
                 var b = {bar:"baz"};

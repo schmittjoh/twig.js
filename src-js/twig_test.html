@@ -17,10 +17,6 @@
             goog.require('goog.testing.jsunit');
             goog.require('goog.testing.FunctionMock');
 
-            function testRange() {
-                assertArrayEquals([1, 2, 3], twig.range(1, 3));
-            }
-        
             function testSpaceless() {
                 assertEquals("", twig.spaceless("          "));
                 assertEquals("foo", twig.spaceless("    foo  "));

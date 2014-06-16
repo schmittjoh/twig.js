@@ -15,6 +15,5 @@
  */
 
 var _allTests = [
-    "twig/environment_test.html",
     "templates/template_tests.html"
 ];

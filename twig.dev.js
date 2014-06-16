@@ -616,6 +616,7 @@ $goog$exportSymbol$$("twig.functions.min", function($value$$74$$) {
 $goog$exportSymbol$$("twig.StringBuffer", $goog$string$StringBuffer$$);
 $goog$string$StringBuffer$$.prototype.append = $goog$string$StringBuffer$$.prototype.append;
 $goog$string$StringBuffer$$.prototype.toString = $goog$string$StringBuffer$$.prototype.toString;
+$goog$exportSymbol$$("twig.Environment", $twig$Environment$$);
 $twig$Environment$$.prototype.createTemplate = $twig$Environment$$.prototype.$createTemplate$;
 $twig$Environment$$.prototype.filter = $twig$Environment$$.prototype.filter;
 $twig$Environment$$.prototype.invoke = $twig$Environment$$.prototype.$invoke$;

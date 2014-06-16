@@ -70,6 +70,7 @@ goog.exportSymbol('twig.StringBuffer', twig.StringBuffer);
 goog.exportProperty(twig.StringBuffer.prototype, 'append', twig.StringBuffer.prototype.append);
 goog.exportProperty(twig.StringBuffer.prototype, 'toString', twig.StringBuffer.prototype.toString);
 
+goog.exportSymbol('twig.Environment', twig.Environment);
 goog.exportProperty(twig.Environment.prototype, 'createTemplate', twig.Environment.prototype.createTemplate);
 goog.exportProperty(twig.Environment.prototype, 'filter', twig.Environment.prototype.filter);
 goog.exportProperty(twig.Environment.prototype, 'invoke', twig.Environment.prototype.invoke);

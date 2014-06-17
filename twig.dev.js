@@ -613,6 +613,9 @@ $goog$exportSymbol$$("twig.functions.max", function($value$$73$$) {
 $goog$exportSymbol$$("twig.functions.min", function($value$$74$$) {
   return $goog$isArray$$($value$$74$$) ? Math.min.apply($JSCompiler_alias_NULL$$, $value$$74$$) : $goog$isObject$$($value$$74$$) ? Math.min.apply($JSCompiler_alias_NULL$$, $goog$object$getValues$$($value$$74$$)) : Math.min.apply($JSCompiler_alias_NULL$$, arguments)
 });
+$goog$exportSymbol$$("twig.functions.random", function($env$$10$$, $value$$75$$) {
+  return $goog$isArray$$($value$$75$$) || $goog$isString$$($value$$75$$) ? $value$$75$$[Math.floor(Math.random() * $value$$75$$.length)] : "number" == typeof $value$$75$$ ? Math.floor(Math.random() * $value$$75$$) : $value$$75$$ === $JSCompiler_alias_NULL$$ || "undefined" === typeof $value$$75$$ ? Math.floor(2147483647 * Math.random()) : ""
+});
 $goog$exportSymbol$$("twig.StringBuffer", $goog$string$StringBuffer$$);
 $goog$string$StringBuffer$$.prototype.append = $goog$string$StringBuffer$$.prototype.append;
 $goog$string$StringBuffer$$.prototype.toString = $goog$string$StringBuffer$$.prototype.toString;

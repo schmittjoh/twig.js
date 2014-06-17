@@ -1,0 +1,8 @@
+--TEST--
+"random" function
+--TEMPLATE--
+{{ random("A") }}
+--DATA--
+return array()
+--EXPECT--
+A

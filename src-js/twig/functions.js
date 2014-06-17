@@ -49,3 +49,20 @@ twig.functions.min = function(value) {
 		return Math.min.apply(null, arguments);
 	}
 };
+
+/**
+ * @param {twig.Environment} env
+ * @param {goog.array.ArrayLike|Object} value
+ * @return {goog.array.ArrayLike|Object|string|number}
+ */
+twig.functions.random = function(env, value) {
+	if (goog.isArray(value) || goog.isString(value)) {
+		var index = Math.floor(Math.random() * value.length);
+		return value[index];
+	} else if (goog.isNumber(value)) {
+		return Math.floor(Math.random() * value);
+	} else if (value === null || typeof value === "undefined") {
+		return Math.floor(Math.random() * 2147483647);
+	}
+	return "";
+};

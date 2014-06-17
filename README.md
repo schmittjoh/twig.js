@@ -44,6 +44,7 @@ and functions described below.
 * `include`
 * `max`
 * `min`
+* `random`
 * `range`
 
 Incompatibilities
@@ -77,7 +78,6 @@ anybody hoping to make a contribution to the project.
 * `date`
 * `dump`
 * `parent`
-* `random`
 * `source`
 * `template_from_string`
 

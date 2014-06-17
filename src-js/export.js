@@ -65,6 +65,7 @@ goog.exportSymbol('twig.filter.reverse', twig.filter.reverse);
 
 goog.exportSymbol('twig.functions.max', twig.functions.max);
 goog.exportSymbol('twig.functions.min', twig.functions.min);
+goog.exportSymbol('twig.functions.random', twig.functions.random);
 
 goog.exportSymbol('twig.StringBuffer', twig.StringBuffer);
 goog.exportProperty(twig.StringBuffer.prototype, 'append', twig.StringBuffer.prototype.append);

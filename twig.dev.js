@@ -607,6 +607,14 @@ $goog$exportSymbol$$("twig.filter.reverse", function($env$$9$$, $value$$70$$) {
   }
   return $goog$isString$$($value$$70$$) ? $value$$70$$.split("").reverse().join("") : $value$$70$$
 });
+$goog$exportSymbol$$("twig.filter.batch", function($array$$15$$, $batchSize$$, $opt_filler$$) {
+  for(var $batches$$ = Array(Math.ceil($array$$15$$.length / $batchSize$$)), $iterations$$ = $batches$$.length * $batchSize$$, $i$$50$$ = 0;$i$$50$$ < $iterations$$;$i$$50$$++) {
+    var $batchIndex$$ = Math.floor($i$$50$$ / $batchSize$$);
+    "undefined" === typeof $batches$$[$batchIndex$$] && ($batches$$[$batchIndex$$] = []);
+    "undefined" !== typeof $array$$15$$[$i$$50$$] ? $batches$$[$batchIndex$$].push($array$$15$$[$i$$50$$]) : $goog$isString$$($opt_filler$$) && $batches$$[$batchIndex$$].push($opt_filler$$)
+  }
+  return $batches$$
+});
 $goog$exportSymbol$$("twig.functions.max", function($value$$73$$) {
   return $goog$isArray$$($value$$73$$) ? Math.max.apply($JSCompiler_alias_NULL$$, $value$$73$$) : $goog$isObject$$($value$$73$$) ? Math.max.apply($JSCompiler_alias_NULL$$, $goog$object$getValues$$($value$$73$$)) : Math.max.apply($JSCompiler_alias_NULL$$, arguments)
 });

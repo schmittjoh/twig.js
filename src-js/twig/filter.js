@@ -258,3 +258,26 @@ twig.filter.reverse = function(env, value) {
 	}
 	return value;
 };
+
+/**
+ * @param {goog.array.ArrayLike} array
+ * @param {number} batchSize
+ * @param {string=} opt_filler
+ * @return {goog.array.ArrayLike}
+ */
+twig.filter.batch = function(array, batchSize, opt_filler) {
+	var batches = new Array(Math.ceil(array.length / batchSize));
+	var iterations = batches.length * batchSize;
+	for (var i = 0; i < iterations; i++) {
+		var batchIndex = Math.floor(i / batchSize);
+		if (typeof batches[batchIndex] === "undefined") {
+			batches[batchIndex] = [];
+		}
+		if (typeof array[i] !== "undefined") {
+			batches[batchIndex].push(array[i]);
+		} else if (goog.isString(opt_filler)) {
+			batches[batchIndex].push(opt_filler);
+		}
+	}
+	return batches;
+};

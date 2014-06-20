@@ -11,7 +11,7 @@ code, and do not make an additional round-trip through your twig.js environment.
 
 You can add compile-time filters to the JsCompiler by simply calling::
 
-    $compiler->setFilterFunctionName('filter-name', 'js-function-name');
+    $compiler->setFilterFunction('filter-name', 'js-function-name');
 
 Also make sure that the "js-function-name" is available wherever you have included
 twig.js.

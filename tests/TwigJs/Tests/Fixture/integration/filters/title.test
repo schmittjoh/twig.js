@@ -5,7 +5,7 @@ d
 {{ "HELLO world" | title }}
 d
 --DATA--
-return array()
+{}
 --EXPECT--
 d
 Hello World

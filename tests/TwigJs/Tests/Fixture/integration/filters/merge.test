@@ -13,7 +13,7 @@
 {{ merged | json_encode | raw }}
 
 --DATA--
-return array()
+{}
 --EXPECT--
 [1,2]
 [1,2,"apple","orange"]

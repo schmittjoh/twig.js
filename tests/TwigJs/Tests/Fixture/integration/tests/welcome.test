@@ -50,7 +50,7 @@ Welcome test
 --TEMPLATE(traitable.twig)--
 {% block title %}foo{% endblock %}
 --DATA--
-return array("name" => "Johannes")
+{ name: "Johannes" }
 --EXPECT--
 <!DOCTYPE html>
 <html>

@@ -5,7 +5,7 @@
 {{ foo|join(', ') }}
 {{ bar|join(', ') }}
 --DATA--
-return array('foo' => array(1, 2), 'bar' => new ArrayObject(array(3, 4)))
+{ foo: [1, 2], bar: [3, 4] }
 --EXPECT--
 foo, bar
 1, 2

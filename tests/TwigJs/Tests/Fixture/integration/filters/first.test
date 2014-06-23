@@ -7,7 +7,7 @@
 {{ arr|first }}
 {{ 'Ä€é'|first }}
 --DATA--
-return array('arr' => new ArrayObject(array(1, 2, 3, 4)))
+{ arr: [1, 2, 3, 4] }
 --EXPECT--
 1
 1

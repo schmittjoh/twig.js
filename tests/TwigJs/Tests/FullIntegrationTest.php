@@ -50,7 +50,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
     public function integrationTest($file, $message, $condition, $templates, $exception, $outputs)
     {
         foreach ($outputs as $match) {
-            $templateParameters = eval($match[1] . ';');
+            $templateParameters = $match[1];
             $templateSource = $templates['index.twig'];
             $javascript = '';
             foreach ($templates as $name => $twig) {

@@ -3,6 +3,6 @@ Hello Johannes test
 --TEMPLATE--
 Hello {{ name|default("World") }}!
 --DATA--
-return array("name" => "Johannes")
+{ name: "Johannes" }
 --EXPECT--
 Hello Johannes!

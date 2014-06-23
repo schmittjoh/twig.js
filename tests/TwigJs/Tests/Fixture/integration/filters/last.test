@@ -5,7 +5,7 @@
 {{ { a:1, b:2, c:3 } | last }}
 {{ "1234" | last }}
 --DATA--
-return array()
+{}
 --EXPECT--
 3
 3

@@ -34,7 +34,7 @@ Twig supports the in operator
 0 TRUE
 {% endif %}
 --DATA--
-return array('bar' => 'bar', 'foo' => array('bar' => 'bar'))
+{ bar: "bar", foo: { bar: "bar" } }
 --EXPECT--
 1 TRUE
 2 TRUE

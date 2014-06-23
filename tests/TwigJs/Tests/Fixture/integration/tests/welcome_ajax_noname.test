@@ -50,7 +50,7 @@ Welcome AJAX noname test
 --TEMPLATE(traitable.twig)--
 {% block title %}foo{% endblock %}
 --DATA--
-return array("ajax" => true)
+{ ajax: true }
 --EXPECT--
 <h1>Welcome World!</h1>
 

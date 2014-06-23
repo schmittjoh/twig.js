@@ -289,48 +289,48 @@ function $twig$Markup$$($content$$) {
 $twig$Markup$$.prototype.toString = function $$twig$Markup$$$$toString$() {
   return this.$content_$
 };
-function $twig$filter$escape$$($env$$2_s$$inline_16_str$$inline_152$$, $sb$$inline_17_value$$60$$, $i$$inline_18_opt_type$$5$$, $JSCompiler_temp_const$$142_opt_charset$$, $JSCompiler_temp_const$$141_opt_autoescape$$) {
-  if($JSCompiler_temp_const$$141_opt_autoescape$$ && $sb$$inline_17_value$$60$$ instanceof $twig$Markup$$) {
+function $twig$filter$escape$$($env$$2_s$$inline_16_str$$inline_165$$, $sb$$inline_17_value$$60$$, $i$$inline_18_opt_type$$5$$, $JSCompiler_temp_const$$155_opt_charset$$, $JSCompiler_temp_const$$154_opt_autoescape$$) {
+  if($JSCompiler_temp_const$$154_opt_autoescape$$ && $sb$$inline_17_value$$60$$ instanceof $twig$Markup$$) {
     return $sb$$inline_17_value$$60$$.toString()
   }
   $sb$$inline_17_value$$60$$ = $sb$$inline_17_value$$60$$ == $JSCompiler_alias_NULL$$ ? "" : String($sb$$inline_17_value$$60$$);
   if($twig$filter$escape$Type$JAVASCRIPT$$ === $i$$inline_18_opt_type$$5$$) {
-    $env$$2_s$$inline_16_str$$inline_152$$ = String($sb$$inline_17_value$$60$$);
-    if($env$$2_s$$inline_16_str$$inline_152$$.quote) {
-      $sb$$inline_17_value$$60$$ = $env$$2_s$$inline_16_str$$inline_152$$.quote()
+    $env$$2_s$$inline_16_str$$inline_165$$ = String($sb$$inline_17_value$$60$$);
+    if($env$$2_s$$inline_16_str$$inline_165$$.quote) {
+      $sb$$inline_17_value$$60$$ = $env$$2_s$$inline_16_str$$inline_165$$.quote()
     }else {
       $sb$$inline_17_value$$60$$ = ['"'];
-      for($i$$inline_18_opt_type$$5$$ = 0;$i$$inline_18_opt_type$$5$$ < $env$$2_s$$inline_16_str$$inline_152$$.length;$i$$inline_18_opt_type$$5$$++) {
-        var $JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$ = $env$$2_s$$inline_16_str$$inline_152$$.charAt($i$$inline_18_opt_type$$5$$), $cc$$inline_20_rv$$inline_149$$ = $JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$.charCodeAt(0), $JSCompiler_temp_const$$142_opt_charset$$ = $sb$$inline_17_value$$60$$, $JSCompiler_temp_const$$141_opt_autoescape$$ = $i$$inline_18_opt_type$$5$$ + 1, $JSCompiler_temp$$143_cc$$inline_150$$;
-        if(!($JSCompiler_temp$$143_cc$$inline_150$$ = $goog$string$specialEscapeChars_$$[$JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$])) {
-          if(!(31 < $cc$$inline_20_rv$$inline_149$$ && 127 > $cc$$inline_20_rv$$inline_149$$)) {
-            if($JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$ in $goog$string$jsEscapeCache_$$) {
-              $JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$]
+      for($i$$inline_18_opt_type$$5$$ = 0;$i$$inline_18_opt_type$$5$$ < $env$$2_s$$inline_16_str$$inline_165$$.length;$i$$inline_18_opt_type$$5$$++) {
+        var $JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$ = $env$$2_s$$inline_16_str$$inline_165$$.charAt($i$$inline_18_opt_type$$5$$), $cc$$inline_20_rv$$inline_162$$ = $JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$.charCodeAt(0), $JSCompiler_temp_const$$155_opt_charset$$ = $sb$$inline_17_value$$60$$, $JSCompiler_temp_const$$154_opt_autoescape$$ = $i$$inline_18_opt_type$$5$$ + 1, $JSCompiler_temp$$156_cc$$inline_163$$;
+        if(!($JSCompiler_temp$$156_cc$$inline_163$$ = $goog$string$specialEscapeChars_$$[$JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$])) {
+          if(!(31 < $cc$$inline_20_rv$$inline_162$$ && 127 > $cc$$inline_20_rv$$inline_162$$)) {
+            if($JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$ in $goog$string$jsEscapeCache_$$) {
+              $JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$]
             }else {
-              if($JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$ in $goog$string$specialEscapeChars_$$) {
-                $JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$] = $goog$string$specialEscapeChars_$$[$JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$]
+              if($JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$ in $goog$string$specialEscapeChars_$$) {
+                $JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$] = $goog$string$specialEscapeChars_$$[$JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$]
               }else {
-                $cc$$inline_20_rv$$inline_149$$ = $JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$;
-                $JSCompiler_temp$$143_cc$$inline_150$$ = $JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$.charCodeAt(0);
-                if(31 < $JSCompiler_temp$$143_cc$$inline_150$$ && 127 > $JSCompiler_temp$$143_cc$$inline_150$$) {
-                  $cc$$inline_20_rv$$inline_149$$ = $JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$
+                $cc$$inline_20_rv$$inline_162$$ = $JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$;
+                $JSCompiler_temp$$156_cc$$inline_163$$ = $JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$.charCodeAt(0);
+                if(31 < $JSCompiler_temp$$156_cc$$inline_163$$ && 127 > $JSCompiler_temp$$156_cc$$inline_163$$) {
+                  $cc$$inline_20_rv$$inline_162$$ = $JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$
                 }else {
-                  if(256 > $JSCompiler_temp$$143_cc$$inline_150$$) {
-                    if($cc$$inline_20_rv$$inline_149$$ = "\\x", 16 > $JSCompiler_temp$$143_cc$$inline_150$$ || 256 < $JSCompiler_temp$$143_cc$$inline_150$$) {
-                      $cc$$inline_20_rv$$inline_149$$ += "0"
+                  if(256 > $JSCompiler_temp$$156_cc$$inline_163$$) {
+                    if($cc$$inline_20_rv$$inline_162$$ = "\\x", 16 > $JSCompiler_temp$$156_cc$$inline_163$$ || 256 < $JSCompiler_temp$$156_cc$$inline_163$$) {
+                      $cc$$inline_20_rv$$inline_162$$ += "0"
                     }
                   }else {
-                    $cc$$inline_20_rv$$inline_149$$ = "\\u", 4096 > $JSCompiler_temp$$143_cc$$inline_150$$ && ($cc$$inline_20_rv$$inline_149$$ += "0")
+                    $cc$$inline_20_rv$$inline_162$$ = "\\u", 4096 > $JSCompiler_temp$$156_cc$$inline_163$$ && ($cc$$inline_20_rv$$inline_162$$ += "0")
                   }
-                  $cc$$inline_20_rv$$inline_149$$ += $JSCompiler_temp$$143_cc$$inline_150$$.toString(16).toUpperCase()
+                  $cc$$inline_20_rv$$inline_162$$ += $JSCompiler_temp$$156_cc$$inline_163$$.toString(16).toUpperCase()
                 }
-                $JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$] = $cc$$inline_20_rv$$inline_149$$
+                $JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$ = $goog$string$jsEscapeCache_$$[$JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$] = $cc$$inline_20_rv$$inline_162$$
               }
             }
           }
-          $JSCompiler_temp$$143_cc$$inline_150$$ = $JSCompiler_temp$$144_c$$inline_148_ch$$inline_19$$
+          $JSCompiler_temp$$156_cc$$inline_163$$ = $JSCompiler_temp$$157_c$$inline_161_ch$$inline_19$$
         }
-        $JSCompiler_temp_const$$142_opt_charset$$[$JSCompiler_temp_const$$141_opt_autoescape$$] = $JSCompiler_temp$$143_cc$$inline_150$$
+        $JSCompiler_temp_const$$155_opt_charset$$[$JSCompiler_temp_const$$154_opt_autoescape$$] = $JSCompiler_temp$$156_cc$$inline_163$$
       }
       $sb$$inline_17_value$$60$$.push('"');
       $sb$$inline_17_value$$60$$ = $sb$$inline_17_value$$60$$.join("")
@@ -338,8 +338,8 @@ function $twig$filter$escape$$($env$$2_s$$inline_16_str$$inline_152$$, $sb$$inli
     return $sb$$inline_17_value$$60$$.substring(1, $sb$$inline_17_value$$60$$.length - 1)
   }
   if(!$i$$inline_18_opt_type$$5$$ || $twig$filter$escape$Type$HTML$$ === $i$$inline_18_opt_type$$5$$) {
-    return $env$$2_s$$inline_16_str$$inline_152$$ = $sb$$inline_17_value$$60$$, $goog$string$allRe_$$.test($env$$2_s$$inline_16_str$$inline_152$$) && (-1 != $env$$2_s$$inline_16_str$$inline_152$$.indexOf("&") && ($env$$2_s$$inline_16_str$$inline_152$$ = $env$$2_s$$inline_16_str$$inline_152$$.replace($goog$string$amperRe_$$, "&amp;")), -1 != $env$$2_s$$inline_16_str$$inline_152$$.indexOf("<") && ($env$$2_s$$inline_16_str$$inline_152$$ = $env$$2_s$$inline_16_str$$inline_152$$.replace($goog$string$ltRe_$$, 
-    "&lt;")), -1 != $env$$2_s$$inline_16_str$$inline_152$$.indexOf(">") && ($env$$2_s$$inline_16_str$$inline_152$$ = $env$$2_s$$inline_16_str$$inline_152$$.replace($goog$string$gtRe_$$, "&gt;")), -1 != $env$$2_s$$inline_16_str$$inline_152$$.indexOf('"') && ($env$$2_s$$inline_16_str$$inline_152$$ = $env$$2_s$$inline_16_str$$inline_152$$.replace($goog$string$quotRe_$$, "&quot;"))), $env$$2_s$$inline_16_str$$inline_152$$
+    return $env$$2_s$$inline_16_str$$inline_165$$ = $sb$$inline_17_value$$60$$, $goog$string$allRe_$$.test($env$$2_s$$inline_16_str$$inline_165$$) && (-1 != $env$$2_s$$inline_16_str$$inline_165$$.indexOf("&") && ($env$$2_s$$inline_16_str$$inline_165$$ = $env$$2_s$$inline_16_str$$inline_165$$.replace($goog$string$amperRe_$$, "&amp;")), -1 != $env$$2_s$$inline_16_str$$inline_165$$.indexOf("<") && ($env$$2_s$$inline_16_str$$inline_165$$ = $env$$2_s$$inline_16_str$$inline_165$$.replace($goog$string$ltRe_$$, 
+    "&lt;")), -1 != $env$$2_s$$inline_16_str$$inline_165$$.indexOf(">") && ($env$$2_s$$inline_16_str$$inline_165$$ = $env$$2_s$$inline_16_str$$inline_165$$.replace($goog$string$gtRe_$$, "&gt;")), -1 != $env$$2_s$$inline_16_str$$inline_165$$.indexOf('"') && ($env$$2_s$$inline_16_str$$inline_165$$ = $env$$2_s$$inline_16_str$$inline_165$$.replace($goog$string$quotRe_$$, "&quot;"))), $env$$2_s$$inline_16_str$$inline_165$$
   }
   if($twig$filter$escape$Type$URL$$ === $i$$inline_18_opt_type$$5$$) {
     return encodeURIComponent($sb$$inline_17_value$$60$$)
@@ -497,25 +497,25 @@ $goog$exportSymbol$$("twig.range", function($start$$6$$, $end$$2$$) {
   return $rs$$
 });
 $goog$exportSymbol$$("twig.contains", function($haystack$$, $needle$$) {
-  var $JSCompiler_temp$$146_JSCompiler_temp$$147_key$$inline_156$$;
+  var $JSCompiler_temp$$159_JSCompiler_temp$$160_key$$inline_169$$;
   if($goog$isArray$$($haystack$$)) {
-    $JSCompiler_temp$$146_JSCompiler_temp$$147_key$$inline_156$$ = 0 <= $goog$array$indexOf$$($haystack$$, $needle$$)
+    $JSCompiler_temp$$159_JSCompiler_temp$$160_key$$inline_169$$ = 0 <= $goog$array$indexOf$$($haystack$$, $needle$$)
   }else {
     if($goog$isString$$($haystack$$)) {
-      $JSCompiler_temp$$146_JSCompiler_temp$$147_key$$inline_156$$ = -1 != $haystack$$.indexOf($needle$$) && ("" !== $needle$$ || "" === $haystack$$)
+      $JSCompiler_temp$$159_JSCompiler_temp$$160_key$$inline_169$$ = -1 != $haystack$$.indexOf($needle$$) && ("" !== $needle$$ || "" === $haystack$$)
     }else {
       a: {
-        for($JSCompiler_temp$$146_JSCompiler_temp$$147_key$$inline_156$$ in $haystack$$) {
-          if($haystack$$[$JSCompiler_temp$$146_JSCompiler_temp$$147_key$$inline_156$$] == $needle$$) {
-            $JSCompiler_temp$$146_JSCompiler_temp$$147_key$$inline_156$$ = $JSCompiler_alias_TRUE$$;
+        for($JSCompiler_temp$$159_JSCompiler_temp$$160_key$$inline_169$$ in $haystack$$) {
+          if($haystack$$[$JSCompiler_temp$$159_JSCompiler_temp$$160_key$$inline_169$$] == $needle$$) {
+            $JSCompiler_temp$$159_JSCompiler_temp$$160_key$$inline_169$$ = $JSCompiler_alias_TRUE$$;
             break a
           }
         }
-        $JSCompiler_temp$$146_JSCompiler_temp$$147_key$$inline_156$$ = $JSCompiler_alias_FALSE$$
+        $JSCompiler_temp$$159_JSCompiler_temp$$160_key$$inline_169$$ = $JSCompiler_alias_FALSE$$
       }
     }
   }
-  return $JSCompiler_temp$$146_JSCompiler_temp$$147_key$$inline_156$$
+  return $JSCompiler_temp$$159_JSCompiler_temp$$160_key$$inline_169$$
 });
 $goog$exportSymbol$$("twig.countable", $twig$countable$$);
 $goog$exportSymbol$$("twig.count", $twig$count$$);
@@ -614,6 +614,28 @@ $goog$exportSymbol$$("twig.filter.batch", function($array$$15$$, $batchSize$$, $
     "undefined" !== typeof $array$$15$$[$i$$50$$] ? $batches$$[$batchIndex$$].push($array$$15$$[$i$$50$$]) : $goog$isString$$($opt_filler$$) && $batches$$[$batchIndex$$].push($opt_filler$$)
   }
   return $batches$$
+});
+$goog$exportSymbol$$("twig.filter.merge", function($value1$$6$$, $value2$$6$$) {
+  var $merged$$ = [];
+  if($goog$isArray$$($value1$$6$$) && $goog$isArray$$($value2$$6$$)) {
+    for(var $arr$$inline_29_res$$inline_39$$ = $merged$$ = $value1$$6$$.concat($value2$$6$$), $key$$inline_40_seen$$inline_32$$ = {}, $cursorInsert$$inline_33$$ = 0, $cursorRead$$inline_34$$ = 0;$cursorRead$$inline_34$$ < $arr$$inline_29_res$$inline_39$$.length;) {
+      var $current$$inline_35$$ = $arr$$inline_29_res$$inline_39$$[$cursorRead$$inline_34$$++], $key$$inline_36$$ = $goog$isObject$$($current$$inline_35$$) ? "o" + ($current$$inline_35$$[$goog$UID_PROPERTY_$$] || ($current$$inline_35$$[$goog$UID_PROPERTY_$$] = ++$goog$uidCounter_$$)) : (typeof $current$$inline_35$$).charAt(0) + $current$$inline_35$$;
+      Object.prototype.hasOwnProperty.call($key$$inline_40_seen$$inline_32$$, $key$$inline_36$$) || ($key$$inline_40_seen$$inline_32$$[$key$$inline_36$$] = $JSCompiler_alias_TRUE$$, $arr$$inline_29_res$$inline_39$$[$cursorInsert$$inline_33$$++] = $current$$inline_35$$)
+    }
+    $arr$$inline_29_res$$inline_39$$.length = $cursorInsert$$inline_33$$
+  }else {
+    if($goog$isObject$$($value1$$6$$) && $goog$isObject$$($value2$$6$$)) {
+      $arr$$inline_29_res$$inline_39$$ = {};
+      for($key$$inline_40_seen$$inline_32$$ in $value1$$6$$) {
+        $arr$$inline_29_res$$inline_39$$[$key$$inline_40_seen$$inline_32$$] = $value1$$6$$[$key$$inline_40_seen$$inline_32$$]
+      }
+      $merged$$ = $arr$$inline_29_res$$inline_39$$;
+      $goog$object$forEach$$($value2$$6$$, function($element$$6$$, $index$$52$$) {
+        $merged$$[$index$$52$$] = $element$$6$$
+      })
+    }
+  }
+  return $merged$$
 });
 $goog$exportSymbol$$("twig.functions.max", function($value$$73$$) {
   return $goog$isArray$$($value$$73$$) ? Math.max.apply($JSCompiler_alias_NULL$$, $value$$73$$) : $goog$isObject$$($value$$73$$) ? Math.max.apply($JSCompiler_alias_NULL$$, $goog$object$getValues$$($value$$73$$)) : Math.max.apply($JSCompiler_alias_NULL$$, arguments)

@@ -281,3 +281,22 @@ twig.filter.batch = function(array, batchSize, opt_filler) {
 	}
 	return batches;
 };
+
+/**
+ * @param {goog.array.ArrayLike|Object} value1
+ * @param {goog.array.ArrayLike|Object} value2
+ * @return {goog.array.ArrayLike|Object}
+ */
+twig.filter.merge = function(value1, value2) {
+	var merged = [];
+	if (goog.isArray(value1) && goog.isArray(value2)) {
+		merged = value1.concat(value2);
+		goog.array.removeDuplicates(merged);
+	} else if (goog.isObject(value1) && goog.isObject(value2)) {
+		merged = goog.object.clone(value1);
+		goog.object.forEach(value2, function(element, index) {
+			merged[index] = element;
+		});
+	}
+	return merged;
+};

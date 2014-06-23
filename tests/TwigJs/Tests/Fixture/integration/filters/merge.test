@@ -1,0 +1,22 @@
+--TEST--
+"merge" filter
+--TEMPLATE--
+
+{% set original = [1, 2] %}
+{% set merged = original | merge(["apple", "orange"]) %}
+{{ original | json_encode | raw }}
+{{ merged | json_encode | raw }}
+
+{% set original = { "apple": "fruit", "orange": "fruit", "peugeot": "unknown" } %}
+{% set merged = original | merge({ "peugeot": "car", "renault": "car" }) %}
+{{ original | json_encode | raw }}
+{{ merged | json_encode | raw }}
+
+--DATA--
+return array()
+--EXPECT--
+[1,2]
+[1,2,"apple","orange"]
+
+{"apple":"fruit","orange":"fruit","peugeot":"unknown"}
+{"apple":"fruit","orange":"fruit","peugeot":"car","renault":"car"}

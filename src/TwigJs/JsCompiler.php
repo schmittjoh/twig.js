@@ -210,6 +210,7 @@ class JsCompiler extends \Twig_Compiler
             'last'        => 'twig.filter.last',
             'length'      => 'twig.filter.length',
             'lower'       => 'twig.filter.lower',
+            'merge'       => 'twig.filter.merge',
             'nl2br'       => 'twig.filter.nl2br',
             'replace'     => 'twig.filter.replace',
             'reverse'     => 'twig.filter.reverse',

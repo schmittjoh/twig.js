@@ -31,6 +31,7 @@ and functions described below.
 * `last`
 * `length`
 * `lower`
+* `merge`
 * `nl2br`
 * `replace`
 * `reverse`
@@ -62,7 +63,6 @@ anybody hoping to make a contribution to the project.
 * `date_modify`
 * `format`
 * `number_format`
-* `merge`
 * `raw`
 * `round`
 * `slice`

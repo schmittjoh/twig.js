@@ -1,0 +1,21 @@
+--TEST--
+Method call test for schmittjoh/twig.js#83
+--TEMPLATE--
+
+{{ object.getFoo() }}
+{{ object.get("attr") }}
+
+--DATA--
+{
+  object: {
+    getFoo: function() {
+      return "foo";
+    },
+    get: function(name) {
+      return "foo" + name;
+    }
+  }
+}
+--EXPECT--
+foo
+fooattr

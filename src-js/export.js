@@ -25,6 +25,7 @@ goog.require('twig');
 goog.require('twig.Environment');
 goog.require('twig.Markup');
 goog.require('twig.filter');
+goog.require('twig.functions');
 
 window['Twig'] = new twig.Environment();
 
@@ -42,6 +43,8 @@ goog.exportSymbol('twig.count', twig.count);
 goog.exportSymbol('twig.forEach', twig.forEach);
 goog.exportSymbol('twig.empty', twig.empty);
 goog.exportSymbol('twig.createObj', twig.createObj);
+goog.exportSymbol('twig.pregQuote', twig.pregQuote);
+
 goog.exportSymbol('twig.filter.capitalize', twig.filter.capitalize);
 goog.exportSymbol('twig.filter.escape', twig.filter.escape);
 goog.exportSymbol('twig.filter.first', twig.filter.first);
@@ -53,11 +56,24 @@ goog.exportSymbol('twig.filter.keys', twig.filter.keys);
 goog.exportSymbol('twig.filter.upper', twig.filter.upper);
 goog.exportSymbol('twig.filter.lower', twig.filter.lower);
 goog.exportSymbol('twig.filter.nl2br', twig.filter.nl2br);
+goog.exportSymbol('twig.filter.abs', twig.filter.abs);
+goog.exportSymbol('twig.filter.title', twig.filter.title);
+goog.exportSymbol('twig.filter.trim', twig.filter.trim);
+goog.exportSymbol('twig.filter.json_encode', twig.filter.json_encode);
+goog.exportSymbol('twig.filter.last', twig.filter.last);
+goog.exportSymbol('twig.filter.reverse', twig.filter.reverse);
+goog.exportSymbol('twig.filter.batch', twig.filter.batch);
+goog.exportSymbol('twig.filter.merge', twig.filter.merge);
+
+goog.exportSymbol('twig.functions.max', twig.functions.max);
+goog.exportSymbol('twig.functions.min', twig.functions.min);
+goog.exportSymbol('twig.functions.random', twig.functions.random);
 
 goog.exportSymbol('twig.StringBuffer', twig.StringBuffer);
 goog.exportProperty(twig.StringBuffer.prototype, 'append', twig.StringBuffer.prototype.append);
 goog.exportProperty(twig.StringBuffer.prototype, 'toString', twig.StringBuffer.prototype.toString);
 
+goog.exportSymbol('twig.Environment', twig.Environment);
 goog.exportProperty(twig.Environment.prototype, 'createTemplate', twig.Environment.prototype.createTemplate);
 goog.exportProperty(twig.Environment.prototype, 'filter', twig.Environment.prototype.filter);
 goog.exportProperty(twig.Environment.prototype, 'invoke', twig.Environment.prototype.invoke);
@@ -69,6 +85,8 @@ goog.exportProperty(twig.Environment.prototype, 'setFunction', twig.Environment.
 goog.exportProperty(twig.Environment.prototype, 'setTest', twig.Environment.prototype.setTest);
 goog.exportProperty(twig.Environment.prototype, 'render', twig.Environment.prototype.render);
 goog.exportProperty(twig.Environment.prototype, 'getGlobals', twig.Environment.prototype.getGlobals);
+goog.exportProperty(twig.Environment.prototype, 'setGlobals', twig.Environment.prototype.setGlobals);
+goog.exportProperty(twig.Environment.prototype, 'setGlobal', twig.Environment.prototype.setGlobal);
 goog.exportProperty(twig.Environment.prototype, 'initRuntime', twig.Environment.prototype.initRuntime);
 goog.exportProperty(twig.Environment.prototype, 'hasExtension', twig.Environment.prototype.hasExtension);
 goog.exportProperty(twig.Environment.prototype, 'getExtension', twig.Environment.prototype.getExtension);

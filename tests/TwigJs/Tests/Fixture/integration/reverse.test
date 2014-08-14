@@ -1,0 +1,23 @@
+--TEST--
+"reverse" filter
+--TEMPLATE--
+{% for number in [1, 2, 3] | reverse %}
+{{ number }}
+{% endfor %}
+
+{% for key, value in { a:44, b:55 } | reverse %}
+{{ key }}: {{ value }}
+{% endfor %}
+
+{{ "abcdef" | reverse }}
+--DATA--
+{}
+--EXPECT--
+3
+2
+1
+
+b: 55
+a: 44
+
+fedcba

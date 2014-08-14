@@ -1,0 +1,15 @@
+--TEST--
+for loop scope bug regression test for schmittjoh/twig.js#64
+--TEMPLATE--
+{% set minimum = 9999 %}
+{% set list = [1, 2, 3] %}
+{% for element in list %}
+  {% if element < minimum %}
+    {% set minimum = element %}
+  {% endif %}
+{% endfor %}
+{{ minimum }}
+--DATA--
+{}
+--EXPECT--
+1

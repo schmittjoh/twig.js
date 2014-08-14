@@ -1,0 +1,12 @@
+--TEST--
+"join" filter
+--TEMPLATE--
+{{ ["foo", "bar"]|join(', ') }}
+{{ foo|join(', ') }}
+{{ bar|join(', ') }}
+--DATA--
+{ foo: [1, 2], bar: [3, 4] }
+--EXPECT--
+foo, bar
+1, 2
+3, 4

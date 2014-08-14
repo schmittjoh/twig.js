@@ -177,3 +177,126 @@ twig.filter.first = function(env, value) {
 	}
 	return '';
 };
+
+/**
+ * @param {twig.Environment} env
+ * @param {goog.array.ArrayLike|Object|string} value
+ * @return {string}
+ */
+twig.filter.last = function(env, value) {
+	if (goog.isArray(value)) {
+		return value[(value.length - 1)];
+	} else if (goog.isObject(value)) {
+		var keys = Object.keys(value);
+		return value[keys[(keys.length - 1)]];
+	} else if (goog.isString(value)) {
+		return value.charAt(value.length - 1);
+	}
+	return '';
+};
+
+/**
+ * @export
+ * @param {number} n
+ * @return {number}
+ */
+twig.filter.abs = function(n) {
+	return Math.abs(n);
+};
+
+/**
+ * @param {twig.Environment} env
+ * @param {string} value
+ * @return {string}
+ */
+twig.filter.title = function(env, value) {
+	return value.split(" ").map(function(word) {
+		return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+	}).join(" ");
+};
+
+/**
+ * @param {string} value
+ * @param {string=} opt_charactermask
+ * @return {string}
+ */
+twig.filter.trim = function(value, opt_charactermask) {
+	var mask = "\n ";
+	if (opt_charactermask) {
+		mask = twig.pregQuote(opt_charactermask);
+	}
+	value = value.replace(new RegExp("^[" + mask + "]+"), "");
+	value = value.replace(new RegExp("[" + mask + "]+$"), "");
+	return value;
+};
+
+/**
+ * @param {string} value
+ * @return {string}
+ */
+twig.filter.json_encode = function(value) {
+	return JSON.stringify(value);
+};
+
+/**
+ * @param {twig.Environment} env
+ * @param {goog.array.ArrayLike|Object|string} value
+ * @return {goog.array.ArrayLike|Object|string}
+ */
+twig.filter.reverse = function(env, value) {
+	if (goog.isArray(value)) {
+		return value.reverse();
+	} else if (goog.isObject(value)) {
+		var reverse = {};
+		var reverseKeys = goog.object.getKeys(value).reverse();
+		for (var i = 0; i < reverseKeys.length; i++) {
+			reverse[reverseKeys[i]] = value[reverseKeys[i]];
+		}
+		return reverse;
+	} else if (goog.isString(value)) {
+		return value.split("").reverse().join("");
+	}
+	return value;
+};
+
+/**
+ * @param {goog.array.ArrayLike} array
+ * @param {number} batchSize
+ * @param {string=} opt_filler
+ * @return {goog.array.ArrayLike}
+ */
+twig.filter.batch = function(array, batchSize, opt_filler) {
+	var batches = new Array(Math.ceil(array.length / batchSize));
+	var iterations = batches.length * batchSize;
+	for (var i = 0; i < iterations; i++) {
+		var batchIndex = Math.floor(i / batchSize);
+		if (typeof batches[batchIndex] === "undefined") {
+			batches[batchIndex] = [];
+		}
+		if (typeof array[i] !== "undefined") {
+			batches[batchIndex].push(array[i]);
+		} else if (goog.isString(opt_filler)) {
+			batches[batchIndex].push(opt_filler);
+		}
+	}
+	return batches;
+};
+
+/**
+ * @param {goog.array.ArrayLike|Object} value1
+ * @param {goog.array.ArrayLike|Object} value2
+ * @return {goog.array.ArrayLike|Object}
+ */
+twig.filter.merge = function(value1, value2) {
+	var merged = [];
+	if (goog.isArray(value1) && goog.isArray(value2)) {
+		merged = value1.concat(value2);
+		goog.array.removeDuplicates(merged);
+	} else if (goog.isObject(value1) && goog.isObject(value2)) {
+		merged = goog.object.clone(value1);
+		goog.object.forEach(value2, function(element, index) {
+			merged[index] = element;
+		});
+	}
+	return merged;
+};

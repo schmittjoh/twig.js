@@ -1,6 +1,9 @@
 Twig.js
 =======
 
+[![Build Badge]] [Build Status]
+[![Scrutinizer Badge]] [Scrutinizer Code Quality]
+
 [Twig.js](http://jmsyst.com/libs/twig.js) is a PHP project that compiles Twig
 templates into executable Javascript for client-side execution. It is not to be
 confused with [Twig.js](https://github.com/justjohn/twig.js/), which is a pure
@@ -15,17 +18,25 @@ and functions described below.
 
 #### Supported Filters
 
+* `abs`
+* `batch`
 * `capitalize`
 * `default`
 * `e`
 * `escape`
 * `first`
 * `join`
+* `json_encode`
 * `keys`
+* `last`
 * `length`
 * `lower`
+* `merge`
 * `nl2br`
 * `replace`
+* `reverse`
+* `title`
+* `trim`
 * `upper`
 * `url_encode`
 
@@ -33,6 +44,9 @@ and functions described below.
 
 * `block`
 * `include`
+* `max`
+* `min`
+* `random`
 * `range`
 
 Incompatibilities
@@ -44,27 +58,17 @@ anybody hoping to make a contribution to the project.
 
 #### Unsupported Filters
 
-* `abs`
-* `batch`
 * `convert_encoding`
 * `date`
 * `date_modify`
 * `format`
-* `json_encode`
-* `last`
 * `number_format`
-* `merge`
-* `upper`
 * `raw`
-* `reverse`
 * `round`
 * `slice`
 * `sort`
 * `split`
 * `striptags`
-* `title`
-* `trim`
-* `url_encode`
 
 #### Unsupported Functions
 
@@ -73,13 +77,18 @@ anybody hoping to make a contribution to the project.
 * `cycle`
 * `date`
 * `dump`
-* `max`
-* `min`
 * `parent`
-* `random`
-* `range`
 * `source`
 * `template_from_string`
+
+Testing
+-------
+
+To run the tests, you'll need [Composer], [Node] and [NPM] on your system.
+
+```bash
+$ make test
+```
 
 License
 -------
@@ -87,3 +96,10 @@ License
 Twig.js is released under the [Apache License], Version 2.0.
 
 [Apache License]: http://www.apache.org/licenses/LICENSE-2.0
+[Composer]: https://getcomposer.org/
+[Node]: http://nodejs.org/
+[NPM]: https://www.npmjs.org/
+[Build Badge]: https://secure.travis-ci.org/schmittjoh/twig.js.png
+[Build Status]: http://travis-ci.org/schmittjoh/twig.js
+[Scrutinizer Badge]: https://scrutinizer-ci.com/g/h2s/twig.js/badges/quality-score.png?b=master
+[Scrutinizer Code Quality]: https://scrutinizer-ci.com/g/h2s/twig.js/?branch=master

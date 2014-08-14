@@ -1,0 +1,12 @@
+--TEST--
+"title" filter
+--TEMPLATE--
+d
+{{ "HELLO world" | title }}
+d
+--DATA--
+{}
+--EXPECT--
+d
+Hello World
+d

@@ -15,7 +15,10 @@ Running the Test Suite
 
 twig.js has a PHP, and a Javascript Test Suite. Depending on which parts of the
 code you change, you need to run either one, or both test suites to verify that
-your changes have not broken anything.
+your changes have not broken anything. On most systems, you can run the entire
+test suite instantly with one simple command.
+
+    $ make test
 
 PHPUnit Test Suite
 ------------------
@@ -26,15 +29,13 @@ If you run this for the first time, you need to first create a config.php where
 you specify all the paths to twig.js dependencies. The distribution already
 includes a config.php.dist which you can use as a starting point.
 
-JsUnit Test Suite
------------------
-The JsUnit test suite is run by opening src-js/all_tests.html in your preferred
-browser, and then clicking the "start" button.
+Mocha Test Suite
+----------------
 
-Note that if you made change to the compiler code, you first need to rebuild all
-test templates by running (from the root folder)::
+The Mocha test suite is run by installing the NPM dependencies using "npm
+install", and then by running the mocha binary installed by NPM.
 
-    $ php bin/generate_test_templates.php
+    $ ./node_modules/.bin/mocha --require tests-js/bootstrap.js tests-js/twig/* tests-js/twig/*/*
 
 If you also made changes to the Javascript, you need to re-compile the minified
 versions of twig.js::

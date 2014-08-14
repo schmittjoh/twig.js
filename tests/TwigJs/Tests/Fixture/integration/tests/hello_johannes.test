@@ -1,0 +1,8 @@
+--TEST--
+Hello Johannes test
+--TEMPLATE--
+Hello {{ name|default("World") }}!
+--DATA--
+{ name: "Johannes" }
+--EXPECT--
+Hello Johannes!

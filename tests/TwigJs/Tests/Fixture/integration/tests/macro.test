@@ -1,0 +1,13 @@
+--TEST--
+Macro test
+--TEMPLATE--
+{% macro link(link, content, title) %}
+<a href="{{ link }}"
+    {%- if title is not empty %} title="{{ title }}"{% endif -%}
+    >{{ content }}</a>
+{% endmacro %}
+{{ _self.link("http://example.org", "Example", "Read more") }}
+--DATA--
+{}
+--EXPECT--
+<a href="http://example.org" title="Read more">Example</a>

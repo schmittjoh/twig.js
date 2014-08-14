@@ -1,1 +1,0 @@
-var _integrationTests = ["templates\/integration\/expressions\/array\/test.html"];

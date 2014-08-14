@@ -1,0 +1,17 @@
+--TEST--
+"counter" test
+--TEMPLATE--
+{% for i in 1..5 %}
+    {{- i -}}
+    
+    {%- for j in range(i, i) -%}
+        {{ ", " ~ j }}
+    {%- endfor -%}
+    
+    {%- if not loop.last %}, {% endif -%}
+    
+{% endfor %}
+--DATA--
+{}
+--EXPECT--
+1, 1, 2, 2, 3, 3, 4, 4, 5, 5

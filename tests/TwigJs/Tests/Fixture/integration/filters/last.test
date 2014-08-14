@@ -1,0 +1,12 @@
+--TEST--
+"last" filter
+--TEMPLATE--
+{{ [1, 2, 3] | last }}
+{{ { a:1, b:2, c:3 } | last }}
+{{ "1234" | last }}
+--DATA--
+{}
+--EXPECT--
+3
+3
+4

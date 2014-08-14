@@ -12,4 +12,9 @@
             <directory suffix=".php">./src/TwigJs/</directory>
         </whitelist>
     </filter>
+
+    <listeners>
+        <listener class="\TwigJs\Tests\Listener" file="./tests/TwigJs/Tests/Listener.php">
+        </listener>
+    </listeners>
 </phpunit>

@@ -16,8 +16,13 @@ twig.dev.js: bin/plovr
 bin/plovr:
 	wget $(PLOVR_URL) -O bin/plovr
 
-test: vendor
+test: vendor node_modules
+	node tests-js/dnode.js &
 	./vendor/bin/phpunit
+	./node_modules/.bin/mocha --require tests-js/bootstrap.js tests-js/twig/* tests-js/twig/*/*
+
+node_modules:
+	npm install
 
 vendor:
 	composer install

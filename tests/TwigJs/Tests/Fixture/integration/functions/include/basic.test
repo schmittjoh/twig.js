@@ -1,0 +1,16 @@
+--TEST--
+"include" function
+--TEMPLATE--
+FOO
+{% include("foo.twig") %}
+
+BAR
+--TEMPLATE(foo.twig)--
+FOOBAR
+--DATA--
+{}
+--EXPECT--
+FOO
+
+FOOBAR
+BAR

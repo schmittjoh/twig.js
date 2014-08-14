@@ -196,24 +196,35 @@ class JsCompiler extends \Twig_Compiler
 
         $this->filterCompilers = array();
         $this->filterFunctions = array(
-            'escape' => 'twig.filter.escape',
-            'e' => 'twig.filter.escape',
-            'length' => 'twig.filter.length',
-            'capitalize' => 'twig.filter.capitalize',
-            'default' => 'twig.filter.def',
-            '_default' => 'twig.filter.def',
-            'upper' => 'twig.filter.upper',
-            'lower' => 'twig.filter.lower',
-            'url_encode' => 'encodeURIComponent',
-            'replace' => 'twig.filter.replace',
-            'join' => 'twig.filter.join',
-            'keys' => 'twig.filter.keys',
-            'nl2br' => 'twig.filter.nl2br',
-            'first' => 'twig.filter.first',
+            '_default'    => 'twig.filter.def',
+            'abs'         => 'twig.filter.abs',
+            'batch'       => 'twig.filter.batch',
+            'capitalize'  => 'twig.filter.capitalize',
+            'default'     => 'twig.filter.def',
+            'e'           => 'twig.filter.escape',
+            'escape'      => 'twig.filter.escape',
+            'first'       => 'twig.filter.first',
+            'join'        => 'twig.filter.join',
+            'json_encode' => 'twig.filter.json_encode',
+            'keys'        => 'twig.filter.keys',
+            'last'        => 'twig.filter.last',
+            'length'      => 'twig.filter.length',
+            'lower'       => 'twig.filter.lower',
+            'merge'       => 'twig.filter.merge',
+            'nl2br'       => 'twig.filter.nl2br',
+            'replace'     => 'twig.filter.replace',
+            'reverse'     => 'twig.filter.reverse',
+            'title'       => 'twig.filter.title',
+            'trim'        => 'twig.filter.trim',
+            'upper'       => 'twig.filter.upper',
+            'url_encode'  => 'encodeURIComponent',
         );
 
         $this->functionMap = array(
-            'range' => 'twig.range',
+            'max'    => 'twig.functions.max',
+            'min'    => 'twig.functions.min',
+            'random' => 'twig.functions.random',
+            'range'  => 'twig.range',
         );
     }
 

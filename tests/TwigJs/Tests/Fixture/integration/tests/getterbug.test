@@ -1,0 +1,16 @@
+--TEST--
+Getter bug from schmittjoh/twig.js#85
+--TEMPLATE--
+{{ user.getName }}
+{{ user.name }}
+--DATA--
+{
+  user: {
+    getName: function() {
+      return "John Doe"
+    }
+  }
+}
+--EXPECT--
+John Doe
+John Doe

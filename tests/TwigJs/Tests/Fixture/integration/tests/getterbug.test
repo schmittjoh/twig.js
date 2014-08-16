@@ -3,14 +3,18 @@ Getter bug from schmittjoh/twig.js#85
 --TEMPLATE--
 {{ user.getName }}
 {{ user.name }}
+{{ user.age }}
 --DATA--
-return {
-  user: {
-    getName: function() {
-      return "John Doe"
-    }
-  }
-}
+var user = {
+  getName: function() {
+    return "John Doe"
+  },
+};
+Object.defineProperty(user, 'age', {
+  get: function() { return 21; }
+});
+return { user: user };
 --EXPECT--
 John Doe
 John Doe
+21

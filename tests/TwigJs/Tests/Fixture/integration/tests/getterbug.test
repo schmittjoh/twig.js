@@ -4,11 +4,19 @@ Getter bug from schmittjoh/twig.js#85
 {{ user.getName }}
 {{ user.name }}
 {{ user.age }}
+{{ user.address }}
 --DATA--
 var user = {
+  _address: "123 Test Road",
   getName: function() {
     return "John Doe"
   },
+  get address () {
+    return this._address;
+  },
+  set address (address) {
+    this._address = address;
+  }
 };
 Object.defineProperty(user, 'age', {
   get: function() { return 21; }
@@ -18,3 +26,4 @@ return { user: user };
 John Doe
 John Doe
 21
+123 Test Road

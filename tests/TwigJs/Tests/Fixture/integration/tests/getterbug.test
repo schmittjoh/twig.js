@@ -4,7 +4,7 @@ Getter bug from schmittjoh/twig.js#85
 {{ user.getName }}
 {{ user.name }}
 --DATA--
-{
+return {
   user: {
     getName: function() {
       return "John Doe"

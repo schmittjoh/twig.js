@@ -5,7 +5,7 @@
 {{ min([1, 2, 3]) }}
 {{ min({ a:1, b:2, c:3 }) }}
 --DATA--
-{}
+return {}
 --EXPECT--
 1
 1

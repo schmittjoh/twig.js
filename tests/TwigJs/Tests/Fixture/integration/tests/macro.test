@@ -8,6 +8,6 @@ Macro test
 {% endmacro %}
 {{ _self.link("http://example.org", "Example", "Read more") }}
 --DATA--
-{}
+return {}
 --EXPECT--
 <a href="http://example.org" title="Read more">Example</a>

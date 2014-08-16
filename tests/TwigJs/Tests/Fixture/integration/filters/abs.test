@@ -4,6 +4,6 @@
 {% set number = -5 %}
 {{ number | abs }}
 --DATA--
-{}
+return {}
 --EXPECT--
 5

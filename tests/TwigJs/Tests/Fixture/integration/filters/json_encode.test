@@ -3,6 +3,6 @@
 --TEMPLATE--
 {{ [1, 2, 3] | json_encode }}
 --DATA--
-{}
+return {}
 --EXPECT--
 [1,2,3]

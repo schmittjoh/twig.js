@@ -3,6 +3,6 @@
 --TEMPLATE--
 {{ random("A") }}
 --DATA--
-{}
+return {}
 --EXPECT--
 A

@@ -5,7 +5,7 @@
 {{ string|length }}
 {{ number|length }}
 --DATA--
-{ array: [1, 4], string: "foo", number: 1000 }
+return { array: [1, 4], string: "foo", number: 1000 }
 --EXPECT--
 2
 3

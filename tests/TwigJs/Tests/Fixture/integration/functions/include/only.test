@@ -6,6 +6,6 @@
 --TEMPLATE(multiply.twig)--
 {{ number * multiplier }}
 --DATA--
-{}
+return {}
 --EXPECT--
 0

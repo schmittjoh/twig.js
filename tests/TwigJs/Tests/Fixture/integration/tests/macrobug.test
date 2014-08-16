@@ -6,6 +6,6 @@ The value is {{ value }}
 {% endmacro %}
 {{ _self.show("Hello World!") }}
 --DATA--
-{}
+return {}
 --EXPECT--
 The value is Hello World!

@@ -11,7 +11,7 @@
 {% endfor %}
 </table>
 --DATA--
-{}
+return {}
 --EXPECT--
 <table>
   <tr>

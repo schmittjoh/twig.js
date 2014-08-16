@@ -11,7 +11,7 @@
 
 {{ "abcdef" | reverse }}
 --DATA--
-{}
+return {}
 --EXPECT--
 3
 2

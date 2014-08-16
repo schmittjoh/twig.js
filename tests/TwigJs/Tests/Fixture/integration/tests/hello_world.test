@@ -3,6 +3,6 @@ Hello World test
 --TEMPLATE--
 Hello {{ name|default("World") }}!
 --DATA--
-{}
+return {}
 --EXPECT--
 Hello World!

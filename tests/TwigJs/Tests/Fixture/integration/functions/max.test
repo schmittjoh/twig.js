@@ -5,7 +5,7 @@
 {{ max([1, 2, 3]) }}
 {{ max({ a:1, b:2, c:3 }) }}
 --DATA--
-{}
+return {}
 --EXPECT--
 3
 3

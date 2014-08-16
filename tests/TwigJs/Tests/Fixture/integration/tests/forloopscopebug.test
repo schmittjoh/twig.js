@@ -10,6 +10,6 @@ for loop scope bug regression test for schmittjoh/twig.js#64
 {% endfor %}
 {{ minimum }}
 --DATA--
-{}
+return {}
 --EXPECT--
 1

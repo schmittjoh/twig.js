@@ -6,7 +6,7 @@ Method call test for schmittjoh/twig.js#83
 {{ object.get("attr") }}
 
 --DATA--
-{
+return {
   object: {
     getFoo: function() {
       return "foo";

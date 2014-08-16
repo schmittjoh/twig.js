@@ -6,7 +6,8 @@ eval(twigSource);
 var server = dnode(function (remote, conn) {
     this.render = function (name, source, parameters, cb) {
       eval(source);
-      cb(window.Twig.render(eval(name), eval("(" + parameters + ")")));
+      parameters = eval("(function (){" + parameters + "}());");
+      cb(window.Twig.render(eval(name), parameters));
     };
     this.exit = function (cb) {
       cb();

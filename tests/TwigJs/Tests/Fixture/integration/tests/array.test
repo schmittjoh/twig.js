@@ -5,7 +5,7 @@ array index test
 {{ key }}
 {% endfor %}
 --DATA--
-{ days: {
+return { days: {
     1  : { money : 9  },
     2  : { money : 21 },
     3  : { money : 38 },

@@ -1,13 +1,18 @@
 --TEST--
 Getter bug from schmittjoh/twig.js#85
 --TEMPLATE--
+{% if user.name is defined %}
 {{ user.name }}
+{% endif %}
 {% if user.age is defined %}
 {{ user.age }}
 {% endif %}
 {% if user.address is defined %}
 {{ user.address }}
 {% endif %}
+{{ user.name | default("Not defined") }}
+{{ user.age | default("Not defined") }}
+{{ user.address | default("Not defined") }}
 --DATA--
 var user = {
   _address: "123 Test Road",
@@ -26,6 +31,9 @@ Object.defineProperty(user, 'age', {
 });
 return { user: user };
 --EXPECT--
+John Doe
+21
+123 Test Road
 John Doe
 21
 123 Test Road

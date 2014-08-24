@@ -60,7 +60,7 @@ anybody hoping to make a contribution to the project.
 #### Unsupported Filters
 
 * `convert_encoding`
-* `date`
+* `date` (See [pull request #11])
 * `date_modify`
 * `format`
 * `number_format`

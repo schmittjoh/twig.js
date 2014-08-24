@@ -33,6 +33,7 @@ and functions described below.
 * `lower`
 * `merge`
 * `nl2br`
+* `raw`
 * `replace`
 * `reverse`
 * `title`
@@ -63,7 +64,6 @@ anybody hoping to make a contribution to the project.
 * `date_modify`
 * `format`
 * `number_format`
-* `raw`
 * `round`
 * `slice`
 * `sort`

@@ -1,0 +1,10 @@
+--TEST--
+"raw" filter
+--TEMPLATE--
+{{ html }}
+{{ html | raw }}
+--DATA--
+return { html: "<h1>test</h1>" }
+--EXPECT--
+&lt;h1&gt;test&lt;/h1&gt;
+<h1>test</h1>

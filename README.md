@@ -75,7 +75,7 @@ anybody hoping to make a contribution to the project.
 * `attribute`
 * `constant`
 * `cycle`
-* `date`
+* `date` (See [pull request #11])
 * `dump`
 * `parent`
 * `source`
@@ -103,3 +103,4 @@ Twig.js is released under the [Apache License], Version 2.0.
 [Build Status]: http://travis-ci.org/schmittjoh/twig.js
 [Scrutinizer Badge]: https://scrutinizer-ci.com/g/h2s/twig.js/badges/quality-score.png?b=master
 [Scrutinizer Code Quality]: https://scrutinizer-ci.com/g/h2s/twig.js/?branch=master
+[pull request #11]: https://github.com/schmittjoh/twig.js/pull/11

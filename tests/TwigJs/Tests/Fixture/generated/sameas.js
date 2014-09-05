@@ -32,6 +32,7 @@ sameas.prototype.getParent_ = function(context) {
  * @inheritDoc
  */
 sameas.prototype.render_ = function(sb, context, blocks) {
+    blocks = typeof(blocks) == "undefined" ? {} : blocks;
     // line 1
     sb.append("This is a simple template.<br \/><br \/>\n\n");
     // line 3

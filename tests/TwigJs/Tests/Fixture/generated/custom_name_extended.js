@@ -32,6 +32,7 @@ bar.prototype.getParent_ = function(context) {
  * @inheritDoc
  */
 bar.prototype.render_ = function(sb, context, blocks) {
+    blocks = typeof(blocks) == "undefined" ? {} : blocks;
     this.getParent(context).render_(sb, context, twig.extend({}, this.getBlocks(), blocks));
 };
 

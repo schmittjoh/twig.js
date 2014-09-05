@@ -190,6 +190,7 @@ abstract class ModuleCompiler
             ->write("/**\n", " * @inheritDoc\n", " */\n")
             ->write($this->functionName.".prototype.render_ = function(sb, context, blocks) {\n")
             ->indent()
+            ->write("blocks = typeof(blocks) == \"undefined\" ? {} : blocks;"."\n")
         ;
     }
 

@@ -1,0 +1,19 @@
+--TEST--
+Test for bug reported in pull request #79
+--TEMPLATE--
+Template A start
+{% include("b.twig") %}
+Template A end
+--TEMPLATE(b.twig)--
+{% extends "c.twig" %}
+{% block example %}block b
+{% endblock %}
+--TEMPLATE(c.twig)--
+Template C's block says: {% block example %}C block{% endblock %}
+--DATA--
+return {}
+--EXPECT--
+Template A start
+
+Template C's block says: block b
+Template A end

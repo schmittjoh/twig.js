@@ -32,6 +32,7 @@ foo.prototype.getParent_ = function(context) {
  * @inheritDoc
  */
 foo.prototype.render_ = function(sb, context, blocks) {
+    blocks = typeof(blocks) == "undefined" ? {} : blocks;
     // line 2
     sb.append("Hello!\n");
 };

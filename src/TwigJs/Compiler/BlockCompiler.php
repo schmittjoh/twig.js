@@ -45,6 +45,7 @@ class BlockCompiler implements TypeCompilerInterface
             ->raw($node->getAttribute('name').' = function(sb, context, blocks) {'."\n")
             ->indent()
             ->enterScope()
+            ->raw("blocks = typeof(blocks) == \"undefined\" ? {} : blocks;"."\n")
             ->subcompile($node->getNode('body'))
             ->leaveScope()
             ->outdent()

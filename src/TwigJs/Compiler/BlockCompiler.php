@@ -43,6 +43,7 @@ class BlockCompiler implements TypeCompilerInterface
             ->write(" * @param {Object.<Function>} blocks\n", " */\n")
             ->write("{$compiler->templateFunctionName}.prototype.block_")
             ->raw($node->getAttribute('name').' = function(sb, context, blocks) {'."\n")
+            ->raw("blocks = typeof(blocks) == \"undefined\" ? {} : blocks;"."\n")
             ->indent()
             ->enterScope()
             ->subcompile($node->getNode('body'))

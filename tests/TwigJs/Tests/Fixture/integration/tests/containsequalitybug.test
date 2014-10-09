@@ -1,0 +1,10 @@
+--TEST--
+twig.contains strict equality bug regression test for schmittjoh/twig.js#86
+--TEMPLATE--
+{% set number = '1' %}
+{% set list = [1, 2] %}
+{% if number in list %}yes{% else %}no{% endif %}
+--DATA--
+return {}
+--EXPECT--
+yes

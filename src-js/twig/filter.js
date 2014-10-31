@@ -28,14 +28,14 @@ goog.require('goog.object');
  * @param {Object.<string>} map
  * @return {string}
  */
-twig.filter.replace = function(str, map) {
-	for (var key in map) {
-		var escapedKey;
-		escapedKey = twig.pregQuote(key);
-		str = str.replace(new RegExp(escapedKey, 'g'), map[key]);
-	}
-	
-	return str;
+twig.filter.replace = function (str, map) {
+    for (var key in map) {
+        var escapedKey;
+        escapedKey = twig.pregQuote(key);
+        str = str.replace(new RegExp(escapedKey, 'g'), map[key]);
+    }
+
+    return str;
 };
 
 /**
@@ -44,12 +44,12 @@ twig.filter.replace = function(str, map) {
  * @param {*=} opt_default
  * @return {*}
  */
-twig.filter.def = function(value, opt_default) {
-	if (twig.empty(value)) {
-		return opt_default || '';
-	}
-	
-	return value;
+twig.filter.def = function (value, opt_default) {
+    if (twig.empty(value)) {
+        return opt_default || '';
+    }
+
+    return value;
 };
 
 /**
@@ -58,8 +58,8 @@ twig.filter.def = function(value, opt_default) {
  * @param {string} str
  * @return {string}
  */
-twig.filter.capitalize = function(env, str) {
-	return str.charAt(0).toUpperCase() + str.substring(1);
+twig.filter.capitalize = function (env, str) {
+    return str.charAt(0).toUpperCase() + str.substring(1);
 };
 
 /**
@@ -71,33 +71,33 @@ twig.filter.capitalize = function(env, str) {
  * @param {boolean=} opt_autoescape defaults to false
  * @return {string}
  */
-twig.filter.escape = function(env, value, opt_type, opt_charset, opt_autoescape) {
-	if (opt_autoescape && value instanceof twig.Markup) {
-		return value.toString();
-	}
-	
-	value = goog.string.makeSafe(value);
-	
-	if (twig.filter.escape.Type.JAVASCRIPT === opt_type) {
-		value = goog.string.quote(value);
-		
-		return value.substring(1, value.length - 1);
-	} else if (!opt_type || twig.filter.escape.Type.HTML === opt_type) {
-		return goog.string.htmlEscape(value);
-	} else if (twig.filter.escape.Type.URL === opt_type) {
-		return encodeURIComponent(value);
-	}
-	
-	throw Error("The type '" + opt_type + "' is not supported.");
+twig.filter.escape = function (env, value, opt_type, opt_charset, opt_autoescape) {
+    if (opt_autoescape && value instanceof twig.Markup) {
+        return value.toString();
+    }
+
+    value = goog.string.makeSafe(value);
+
+    if (twig.filter.escape.Type.JAVASCRIPT === opt_type) {
+        value = goog.string.quote(value);
+
+        return value.substring(1, value.length - 1);
+    } else if (!opt_type || twig.filter.escape.Type.HTML === opt_type) {
+        return goog.string.htmlEscape(value);
+    } else if (twig.filter.escape.Type.URL === opt_type) {
+        return encodeURIComponent(value);
+    }
+
+    throw Error("The type '" + opt_type + "' is not supported.");
 };
 
 /**
  * @enum {string}
  */
 twig.filter.escape.Type = {
-	HTML: "html",
-	JAVASCRIPT: "js",
-	URL: "url"
+    HTML: "html",
+    JAVASCRIPT: "js",
+    URL: "url"
 };
 
 /**
@@ -106,31 +106,31 @@ twig.filter.escape.Type = {
  * @param {goog.array.ArrayLike|Object|string} value
  * @return {number}
  */
-twig.filter.length = function(env, value) {
-	return twig.count(value);
+twig.filter.length = function (env, value) {
+    return twig.count(value);
 };
 
 /**
- * 
+ *
  * @param {Array|Object} value
  * @param {string=} opt_glue
  * @return {string}
  */
-twig.filter.join = function(value, opt_glue) {
-	var glue = opt_glue || '';
-	var buffer = new twig.StringBuffer();
-	
-	var first = true;
-	twig.forEach(value, function(v) {
-		if (!first) {
-			buffer.append(glue);
-		}
-		first = false;
-		
-		buffer.append(v);
-	});
-	
-	return buffer.toString();
+twig.filter.join = function (value, opt_glue) {
+    var glue = opt_glue || '';
+    var buffer = new twig.StringBuffer();
+
+    var first = true;
+    twig.forEach(value, function (v) {
+        if (!first) {
+            buffer.append(glue);
+        }
+        first = false;
+
+        buffer.append(v);
+    });
+
+    return buffer.toString();
 };
 
 twig.filter.keys = goog.object.getKeys;
@@ -140,8 +140,8 @@ twig.filter.keys = goog.object.getKeys;
  * @param {string} value
  * @return {string}
  */
-twig.filter.upper = function(env, value) {
-	return value.toUpperCase();
+twig.filter.upper = function (env, value) {
+    return value.toUpperCase();
 };
 
 /**
@@ -149,8 +149,8 @@ twig.filter.upper = function(env, value) {
  * @param {string} value
  * @return {string}
  */
-twig.filter.lower = function(env, value) {
-	return value.toLowerCase();
+twig.filter.lower = function (env, value) {
+    return value.toLowerCase();
 };
 
 /**
@@ -158,8 +158,8 @@ twig.filter.lower = function(env, value) {
  * @param {string} str
  * @return {string}
  */
-twig.filter.nl2br = function(str) {
-	return str.replace(/\n/g, "<br />");
+twig.filter.nl2br = function (str) {
+    return str.replace(/\n/g, "<br />");
 };
 
 /**
@@ -167,15 +167,15 @@ twig.filter.nl2br = function(str) {
  * @param {string} value
  * @return {string}
  */
-twig.filter.first = function(env, value) {
-	if (goog.isArray(value)) {
-		return value[0];
-	} else if (goog.isObject(value)) {
-		return value[Object.keys(value)[0]];
-	} else if (goog.isString(value)) {
-		return value.charAt(0);
-	}
-	return '';
+twig.filter.first = function (env, value) {
+    if (goog.isArray(value)) {
+        return value[0];
+    } else if (goog.isObject(value)) {
+        return value[Object.keys(value)[0]];
+    } else if (goog.isString(value)) {
+        return value.charAt(0);
+    }
+    return '';
 };
 
 /**
@@ -183,16 +183,16 @@ twig.filter.first = function(env, value) {
  * @param {goog.array.ArrayLike|Object|string} value
  * @return {string}
  */
-twig.filter.last = function(env, value) {
-	if (goog.isArray(value)) {
-		return value[(value.length - 1)];
-	} else if (goog.isObject(value)) {
-		var keys = Object.keys(value);
-		return value[keys[(keys.length - 1)]];
-	} else if (goog.isString(value)) {
-		return value.charAt(value.length - 1);
-	}
-	return '';
+twig.filter.last = function (env, value) {
+    if (goog.isArray(value)) {
+        return value[(value.length - 1)];
+    } else if (goog.isObject(value)) {
+        var keys = Object.keys(value);
+        return value[keys[(keys.length - 1)]];
+    } else if (goog.isString(value)) {
+        return value.charAt(value.length - 1);
+    }
+    return '';
 };
 
 /**
@@ -200,8 +200,8 @@ twig.filter.last = function(env, value) {
  * @param {number} n
  * @return {number}
  */
-twig.filter.abs = function(n) {
-	return Math.abs(n);
+twig.filter.abs = function (n) {
+    return Math.abs(n);
 };
 
 /**
@@ -209,10 +209,10 @@ twig.filter.abs = function(n) {
  * @param {string} value
  * @return {string}
  */
-twig.filter.title = function(env, value) {
-	return value.split(" ").map(function(word) {
-		return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
-	}).join(" ");
+twig.filter.title = function (env, value) {
+    return value.split(" ").map(function (word) {
+        return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+    }).join(" ");
 };
 
 /**
@@ -220,22 +220,22 @@ twig.filter.title = function(env, value) {
  * @param {string=} opt_charactermask
  * @return {string}
  */
-twig.filter.trim = function(value, opt_charactermask) {
-	var mask = "\n ";
-	if (opt_charactermask) {
-		mask = twig.pregQuote(opt_charactermask);
-	}
-	value = value.replace(new RegExp("^[" + mask + "]+"), "");
-	value = value.replace(new RegExp("[" + mask + "]+$"), "");
-	return value;
+twig.filter.trim = function (value, opt_charactermask) {
+    var mask = "\n ";
+    if (opt_charactermask) {
+        mask = twig.pregQuote(opt_charactermask);
+    }
+    value = value.replace(new RegExp("^[" + mask + "]+"), "");
+    value = value.replace(new RegExp("[" + mask + "]+$"), "");
+    return value;
 };
 
 /**
  * @param {string} value
  * @return {string}
  */
-twig.filter.json_encode = function(value) {
-	return JSON.stringify(value);
+twig.filter.json_encode = function (value) {
+    return JSON.stringify(value);
 };
 
 /**
@@ -243,20 +243,20 @@ twig.filter.json_encode = function(value) {
  * @param {goog.array.ArrayLike|Object|string} value
  * @return {goog.array.ArrayLike|Object|string}
  */
-twig.filter.reverse = function(env, value) {
-	if (goog.isArray(value)) {
-		return value.reverse();
-	} else if (goog.isObject(value)) {
-		var reverse = {};
-		var reverseKeys = goog.object.getKeys(value).reverse();
-		for (var i = 0; i < reverseKeys.length; i++) {
-			reverse[reverseKeys[i]] = value[reverseKeys[i]];
-		}
-		return reverse;
-	} else if (goog.isString(value)) {
-		return value.split("").reverse().join("");
-	}
-	return value;
+twig.filter.reverse = function (env, value) {
+    if (goog.isArray(value)) {
+        return value.slice(0).reverse();
+    } else if (goog.isObject(value)) {
+        var reverse = {};
+        var reverseKeys = goog.object.getKeys(value).reverse();
+        for (var i = 0; i < reverseKeys.length; i++) {
+            reverse[reverseKeys[i]] = value[reverseKeys[i]];
+        }
+        return reverse;
+    } else if (goog.isString(value)) {
+        return value.split("").reverse().join("");
+    }
+    return value;
 };
 
 /**
@@ -265,21 +265,21 @@ twig.filter.reverse = function(env, value) {
  * @param {string=} opt_filler
  * @return {goog.array.ArrayLike}
  */
-twig.filter.batch = function(array, batchSize, opt_filler) {
-	var batches = new Array(Math.ceil(array.length / batchSize));
-	var iterations = batches.length * batchSize;
-	for (var i = 0; i < iterations; i++) {
-		var batchIndex = Math.floor(i / batchSize);
-		if (typeof batches[batchIndex] === "undefined") {
-			batches[batchIndex] = [];
-		}
-		if (typeof array[i] !== "undefined") {
-			batches[batchIndex].push(array[i]);
-		} else if (goog.isString(opt_filler)) {
-			batches[batchIndex].push(opt_filler);
-		}
-	}
-	return batches;
+twig.filter.batch = function (array, batchSize, opt_filler) {
+    var batches = new Array(Math.ceil(array.length / batchSize));
+    var iterations = batches.length * batchSize;
+    for (var i = 0; i < iterations; i++) {
+        var batchIndex = Math.floor(i / batchSize);
+        if (typeof batches[batchIndex] === "undefined") {
+            batches[batchIndex] = [];
+        }
+        if (typeof array[i] !== "undefined") {
+            batches[batchIndex].push(array[i]);
+        } else if (goog.isString(opt_filler)) {
+            batches[batchIndex].push(opt_filler);
+        }
+    }
+    return batches;
 };
 
 /**
@@ -287,16 +287,16 @@ twig.filter.batch = function(array, batchSize, opt_filler) {
  * @param {goog.array.ArrayLike|Object} value2
  * @return {goog.array.ArrayLike|Object}
  */
-twig.filter.merge = function(value1, value2) {
-	var merged = [];
-	if (goog.isArray(value1) && goog.isArray(value2)) {
-		merged = value1.concat(value2);
-		goog.array.removeDuplicates(merged);
-	} else if (goog.isObject(value1) && goog.isObject(value2)) {
-		merged = goog.object.clone(value1);
-		goog.object.forEach(value2, function(element, index) {
-			merged[index] = element;
-		});
-	}
-	return merged;
+twig.filter.merge = function (value1, value2) {
+    var merged = [];
+    if (goog.isArray(value1) && goog.isArray(value2)) {
+        merged = value1.concat(value2);
+        goog.array.removeDuplicates(merged);
+    } else if (goog.isObject(value1) && goog.isObject(value2)) {
+        merged = goog.object.clone(value1);
+        goog.object.forEach(value2, function (element, index) {
+            merged[index] = element;
+        });
+    }
+    return merged;
 };

@@ -17,4 +17,32 @@ describe("twig.filter.reverse", function () {
     reverse[keys[1]].should.equal(98);
   });
 
+  describe("keeps old value intact when", function () {
+
+    it("reverses string", function(){
+      var value = "abcdef";
+      twig.filter.reverse(null, value).should.not.equal(value);
+    });
+
+    it("reverses arrays", function () {
+      var value = [1, 2, 3, 4];
+      var reversed = twig.filter.reverse(null, value);
+
+      reversed[0].should.not.equal(value[0]);
+      reversed[1].should.not.equal(value[1]);
+      reversed[2].should.not.equal(value[2]);
+      reversed[3].should.not.equal(value[3]);
+    });
+
+    it("reverses objects", function () {
+      var object = { a:98, b:99 };
+      var reverse = twig.filter.reverse(null, object);
+      var keys = Object.keys(object);
+      var reverseKeys = Object.keys(reverse);
+
+      reverseKeys[0].should.not.equal(keys[0]);
+      reverseKeys[1].should.not.equal(keys[1]);
+    });
+  })
+
 });

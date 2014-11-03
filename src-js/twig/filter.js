@@ -34,7 +34,7 @@ twig.filter.replace = function(str, map) {
 		escapedKey = twig.pregQuote(key);
 		str = str.replace(new RegExp(escapedKey, 'g'), map[key]);
 	}
-
+	
 	return str;
 };
 
@@ -48,7 +48,7 @@ twig.filter.def = function(value, opt_default) {
 	if (twig.empty(value)) {
 		return opt_default || '';
 	}
-
+	
 	return value;
 };
 
@@ -75,19 +75,19 @@ twig.filter.escape = function(env, value, opt_type, opt_charset, opt_autoescape)
 	if (opt_autoescape && value instanceof twig.Markup) {
 		return value.toString();
 	}
-
+	
 	value = goog.string.makeSafe(value);
-
+	
 	if (twig.filter.escape.Type.JAVASCRIPT === opt_type) {
 		value = goog.string.quote(value);
-
+		
 		return value.substring(1, value.length - 1);
 	} else if (!opt_type || twig.filter.escape.Type.HTML === opt_type) {
 		return goog.string.htmlEscape(value);
 	} else if (twig.filter.escape.Type.URL === opt_type) {
 		return encodeURIComponent(value);
 	}
-
+	
 	throw Error("The type '" + opt_type + "' is not supported.");
 };
 
@@ -119,17 +119,17 @@ twig.filter.length = function(env, value) {
 twig.filter.join = function(value, opt_glue) {
 	var glue = opt_glue || '';
 	var buffer = new twig.StringBuffer();
-
+	
 	var first = true;
 	twig.forEach(value, function(v) {
 		if (!first) {
 			buffer.append(glue);
 		}
 		first = false;
-
+		
 		buffer.append(v);
 	});
-
+	
 	return buffer.toString();
 };
 

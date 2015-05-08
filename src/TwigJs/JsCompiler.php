@@ -332,6 +332,10 @@ class JsCompiler extends \Twig_Compiler
 
     public function subcompile(\Twig_NodeInterface $node, $raw = true)
     {
+        if ($node instanceof \Twig_Profiler_Node_EnterProfile || $node instanceof \Twig_Profiler_Node_LeaveProfile) {
+            return $this;
+        }
+
         if (false === $raw) {
             $this->addIndentation();
         }

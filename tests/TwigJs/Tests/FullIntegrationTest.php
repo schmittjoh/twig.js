@@ -90,6 +90,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
     {
         $test = file_get_contents($file);
 
+        // @codingStandardsIgnoreStart
         if (preg_match('/--TEST--\s*(.*?)\s*(?:--CONDITION--\s*(.*))?\s*((?:--TEMPLATE(?:\(.*?\))?--(?:.*?))+)\s*(?:--DATA--\s*(.*))?\s*--EXCEPTION--\s*(.*)/sx', $test, $match)) {
             $message = $match[1];
             $condition = $match[2];
@@ -105,6 +106,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
         } else {
             throw new InvalidArgumentException(sprintf('Test "%s" is not valid.', $file));
         }
+        // @codingStandardsIgnoreStart
 
         return array(
             $file,

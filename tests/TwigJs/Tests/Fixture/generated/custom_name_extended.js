@@ -6,7 +6,7 @@
  * @suppress {checkTypes|fileoverviewTags}
  */
 
-goog.provide('bar');
+goog.provide('Twig.templates.bar');
 
 goog.require('twig');
 goog.require('twig.filter');
@@ -16,22 +16,22 @@ goog.require('twig.filter');
  * @param {twig.Environment} env
  * @extends {twig.Template}
  */
-bar = function(env) {
+Twig.templates['bar'] = function(env) {
     twig.Template.call(this, env);
 };
-twig.inherits(bar, twig.Template);
+twig.inherits(Twig.templates['bar'], twig.Template);
 
 /**
  * @inheritDoc
  */
-bar.prototype.getParent_ = function(context) {
-    return foo;
+Twig.templates['bar'].prototype.getParent_ = function(context) {
+    return Twig.templates.foo;
 };
 
 /**
  * @inheritDoc
  */
-bar.prototype.render_ = function(sb, context, blocks) {
+Twig.templates['bar'].prototype.render_ = function(sb, context, blocks) {
     blocks = typeof(blocks) == "undefined" ? {} : blocks;
     this.getParent(context).render_(sb, context, twig.extend({}, this.getBlocks(), blocks));
 };
@@ -39,7 +39,7 @@ bar.prototype.render_ = function(sb, context, blocks) {
 /**
  * @inheritDoc
  */
-bar.prototype.getTemplateName = function() {
+Twig.templates['bar'].prototype.getTemplateName = function() {
     return "bar";
 };
 
@@ -48,6 +48,6 @@ bar.prototype.getTemplateName = function() {
  *
  * @return {boolean}
  */
-bar.prototype.isTraitable = function() {
+Twig.templates['bar'].prototype.isTraitable = function() {
     return false;
 };

@@ -6,7 +6,7 @@
  * @suppress {checkTypes|fileoverviewTags}
  */
 
-goog.provide('simple_standalone');
+goog.provide('Twig.templates.simple_standalone');
 
 goog.require('twig');
 goog.require('twig.filter');
@@ -16,22 +16,22 @@ goog.require('twig.filter');
  * @param {twig.Environment} env
  * @extends {twig.Template}
  */
-simple_standalone = function(env) {
+Twig.templates['simple_standalone'] = function(env) {
     twig.Template.call(this, env);
 };
-twig.inherits(simple_standalone, twig.Template);
+twig.inherits(Twig.templates['simple_standalone'], twig.Template);
 
 /**
  * @inheritDoc
  */
-simple_standalone.prototype.getParent_ = function(context) {
+Twig.templates['simple_standalone'].prototype.getParent_ = function(context) {
     return false;
 };
 
 /**
  * @inheritDoc
  */
-simple_standalone.prototype.render_ = function(sb, context, blocks) {
+Twig.templates['simple_standalone'].prototype.render_ = function(sb, context, blocks) {
     blocks = typeof(blocks) == "undefined" ? {} : blocks;
     // line 1
     sb.append("This is a simple template.<br \/><br \/>\n\n");
@@ -50,7 +50,7 @@ simple_standalone.prototype.render_ = function(sb, context, blocks) {
 /**
  * @inheritDoc
  */
-simple_standalone.prototype.getTemplateName = function() {
+Twig.templates['simple_standalone'].prototype.getTemplateName = function() {
     return "simple_standalone";
 };
 
@@ -59,6 +59,6 @@ simple_standalone.prototype.getTemplateName = function() {
  *
  * @return {boolean}
  */
-simple_standalone.prototype.isTraitable = function() {
+Twig.templates['simple_standalone'].prototype.isTraitable = function() {
     return false;
 };

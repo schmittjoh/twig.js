@@ -44,7 +44,7 @@ class ConstantCompiler implements TypeCompilerInterface
             $source = $env->getLoader()->getSource($node->getAttribute('value'));
             $module = $env->parse($env->tokenize($source, $node->getAttribute('value')));
 
-            $compiler->raw($compiler->getFunctionName($module));
+            $compiler->raw('Twig.templates.'.$compiler->getFunctionName($module));
 
             return;
         }

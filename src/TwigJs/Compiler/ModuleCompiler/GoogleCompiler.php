@@ -54,7 +54,7 @@ class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
         ;
 
         $compiler
-            ->write("goog.provide('$functionName');\n")
+            ->write("goog.provide('Twig.templates.$functionName');\n")
             ->write("\n")
             ->write("goog.require('twig');\n")
             ->write("goog.require('twig.filter');\n")
@@ -66,7 +66,7 @@ class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
                 " * @extends {twig.Template}\n",
                 " */\n"
             )
-            ->write("$functionName = function(env) {\n")
+            ->write("Twig.templates['".$functionName."'] = function(env) {\n")
             ->indent()
             ->write("twig.Template.call(this, env);\n")
         ;
@@ -78,7 +78,7 @@ class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
         $compiler
             ->outdent()
             ->write("};\n")
-            ->write("twig.inherits($functionName, twig.Template);\n\n")
+            ->write("twig.inherits(Twig.templates['$functionName'], twig.Template);\n\n")
         ;
     }
 

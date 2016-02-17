@@ -41,7 +41,7 @@ class BlockCompiler implements TypeCompilerInterface
             ->write("/**\n", " * @param {!twig.StringBuffer} sb\n")
             ->write(" * @param {Object.<*>} context\n")
             ->write(" * @param {Object.<Function>} blocks\n", " */\n")
-            ->write("{$compiler->templateFunctionName}.prototype.block_")
+            ->write("Twig.templates['{$compiler->templateFunctionName}'].prototype.block_")
             ->raw($node->getAttribute('name').' = function(sb, context, blocks) {'."\n")
             ->indent()
             ->enterScope()

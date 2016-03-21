@@ -1,0 +1,21 @@
+--TEST--
+for loop index bug regression test for schmittjoh/twig.js#88
+--TEMPLATE--
+{% set letters = ['a', 'b', 'c'] %}
+{% for letter1 in letters %}
+{% for letter2 in letters %}
+{{ loop.index }}
+{% endfor %}
+{% endfor %}
+--DATA--
+return {}
+--EXPECT--
+1
+2
+3
+1
+2
+3
+1
+2
+3

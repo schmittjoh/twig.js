@@ -31,6 +31,7 @@ window['Twig'] = new twig.Environment();
 
 goog.exportSymbol('goog.provide', goog.provide);
 goog.exportSymbol('goog.require', function(namespace) { });
+goog.exportSymbol('twig.templates', {});
 goog.exportSymbol('twig.attr', twig.attr);
 goog.exportSymbol('twig.bind', twig.bind);
 goog.exportSymbol('twig.inherits', twig.inherits);

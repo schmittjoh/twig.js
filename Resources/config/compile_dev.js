@@ -7,5 +7,7 @@
 	
 	"define": {
 		"goog.DEBUG":true
-	}
+	},
+
+	"mode": "SIMPLE"
 }

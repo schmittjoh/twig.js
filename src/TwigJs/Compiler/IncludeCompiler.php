@@ -76,7 +76,7 @@ class IncludeCompiler implements TypeCompilerInterface
                 ;
             }
         } else {
-            if (null === $node->getNode('variables')) {
+            if (!$node->hasNode('variables')) {
                 $compiler->raw('{}');
             } else {
                 $compiler->subcompile($node->getNode('variables'));

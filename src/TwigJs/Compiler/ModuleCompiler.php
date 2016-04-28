@@ -6,6 +6,18 @@ use Twig_NodeInterface;
 
 abstract class ModuleCompiler
 {
+    /**
+     * Original template name
+     *
+     * @var string
+     */
+    protected $originalName;
+
+    /**
+     * Function name
+     *
+     * @var string
+     */
     protected $functionName;
 
     abstract protected function compileClassHeader(JsCompiler $compiler, Twig_NodeInterface $node);
@@ -213,7 +225,7 @@ abstract class ModuleCompiler
             ->write("/**\n", " * @inheritDoc\n", " */\n")
             ->write($this->functionName.".prototype.getTemplateName = function() {\n")
             ->indent()
-            ->write('return '.json_encode($this->functionName).";\n")
+            ->write('return '.json_encode($this->originalName).";\n")
             ->outdent()
             ->write("};\n\n")
         ;
@@ -231,7 +243,7 @@ abstract class ModuleCompiler
         $traitable = (!$node->hasNode('parent') || null === $node->getNode('parent')) && 0 === count($node->getNode('macros'));
         if ($traitable) {
             if (!count($nodes = $node->getNode('body'))) {
-                $nodes = new Twig_Node(array($node->getNode('body')));
+                $nodes = new \Twig_Node(array($node->getNode('body')));
             }
 
             foreach ($nodes as $node) {
@@ -239,11 +251,11 @@ abstract class ModuleCompiler
                     continue;
                 }
 
-                if ($node instanceof Twig_Node_Text && ctype_space($node->getAttribute('data'))) {
+                if ($node instanceof \Twig_Node_Text && ctype_space($node->getAttribute('data'))) {
                     continue;
                 }
 
-                if ($node instanceof Twig_Node_BlockReference) {
+                if ($node instanceof \Twig_Node_BlockReference) {
                     continue;
                 }
 

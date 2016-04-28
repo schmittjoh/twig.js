@@ -26,7 +26,19 @@ interface FunctionNamingStrategyInterface
      * The returned string may contain dots, e.g. "foo.bar.baz".
      *
      * @param  \Twig_Node_Module $module
+     *
      * @return string
      */
     public function getFunctionName(\Twig_Node_Module $module);
+
+    /**
+     * Returns the original template name.
+     *
+     * The returned string may contain dots, e.g. "foo.bar.baz".
+     *
+     * @param  \Twig_Node_Module $module
+     *
+     * @return string
+     */
+    public function getOriginalName(\Twig_Node_Module $module);
 }

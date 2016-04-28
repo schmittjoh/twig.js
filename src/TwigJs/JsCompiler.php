@@ -251,7 +251,7 @@ class JsCompiler extends \Twig_Compiler
     /**
      * Returns the function name for the given template name.
      *
-     * @param  \Twig_Node_Module $templateName
+     * @param  \Twig_Node_Module $module
      * @return string
      */
     final public function getFunctionName(\Twig_Node_Module $module)
@@ -261,6 +261,21 @@ class JsCompiler extends \Twig_Compiler
         }
 
         return $this->functionNamingStrategy->getFunctionName($module);
+    }
+
+    /**
+     * Returns the name for the given template.
+     *
+     * @param  \Twig_Node_Module $module
+     * @return string
+     */
+    final public function getOriginalName(\Twig_Node_Module $module)
+    {
+        if (null === $this->functionNamingStrategy) {
+            $this->functionNamingStrategy = new DefaultFunctionNamingStrategy();
+        }
+
+        return $this->functionNamingStrategy->getOriginalName($module);
     }
 
     public function setTypeCompilers(array $compilers)

@@ -25,22 +25,16 @@ use TwigJs\TypeCompilerInterface;
 
 class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
 {
-    private $constantParent;
-
-    protected function compileClassHeader(JsCompiler $compiler, Twig_NodeInterface $node)
+    /**
+     * @param JsCompiler          $compiler
+     * @param \Twig_NodeInterface $node
+     */
+    protected function compileClassHeader(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
-        $this->functionName = $functionName = $compiler->templateFunctionName
-            = $compiler->getFunctionName($node);
+        $functionName = $this->functionName = $compiler->templateFunctionName = $compiler->getFunctionName($node);
+        $this->originalName = $compiler->getOriginalName($node);
 
-        $parts = explode('.', $functionName);
-        array_pop($parts);
-
-        $filename = $node->getAttribute('filename');
-        if (!empty($filename)
-                && false !== strpos($filename, DIRECTORY_SEPARATOR)) {
-            $parts = explode(DIRECTORY_SEPARATOR, realpath($filename));
-            $filename = implode(DIRECTORY_SEPARATOR, array_splice($parts, -4));
-        }
+        $filename = basename($node->getAttribute('filename'));
 
         $compiler
             ->write("/**\n")
@@ -54,8 +48,7 @@ class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
         ;
 
         $compiler
-            ->write("goog.provide('$functionName');\n")
-            ->write("\n")
+            ->write("goog.provide('twig.templates');\n\n")
             ->write("goog.require('twig');\n")
             ->write("goog.require('twig.filter');\n")
             ->write("\n")
@@ -82,7 +75,11 @@ class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
         ;
     }
 
-    protected function compileClassFooter(JsCompiler $compiler, Twig_NodeInterface $node)
+    /**
+     * @param JsCompiler         $compiler
+     * @param \Twig_NodeInterface $node
+     */
+    protected function compileClassFooter(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
     }
 }

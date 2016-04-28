@@ -61,7 +61,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
             }
             $expectedOutput = trim($match[3], "\n ");
             try {
-                $renderedOutput = $this->renderTemplate('index', $javascript, $templateParameters);
+                $renderedOutput = $this->renderTemplate("twig.templates['index']", $javascript, $templateParameters);
             } catch (Exception $e) {
                 $this->markTestSkipped($e->getMessage());
             }

@@ -1,12 +1,12 @@
 /**
  * @fileoverview Compiled template for file
  *
- * Tests/Fixture/templates/custom_name.twig
+ * custom_name.twig
  *
  * @suppress {checkTypes|fileoverviewTags}
  */
 
-goog.provide('foo');
+goog.provide('twig.templates');
 
 goog.require('twig');
 goog.require('twig.filter');
@@ -16,22 +16,22 @@ goog.require('twig.filter');
  * @param {twig.Environment} env
  * @extends {twig.Template}
  */
-foo = function(env) {
+twig.templates['foo'] = function(env) {
     twig.Template.call(this, env);
 };
-twig.inherits(foo, twig.Template);
+twig.inherits(twig.templates['foo'], twig.Template);
 
 /**
  * @inheritDoc
  */
-foo.prototype.getParent_ = function(context) {
+twig.templates['foo'].prototype.getParent_ = function(context) {
     return false;
 };
 
 /**
  * @inheritDoc
  */
-foo.prototype.render_ = function(sb, context, blocks) {
+twig.templates['foo'].prototype.render_ = function(sb, context, blocks) {
     blocks = typeof(blocks) == "undefined" ? {} : blocks;
     // line 2
     sb.append("Hello!\n");
@@ -40,7 +40,7 @@ foo.prototype.render_ = function(sb, context, blocks) {
 /**
  * @inheritDoc
  */
-foo.prototype.getTemplateName = function() {
+twig.templates['foo'].prototype.getTemplateName = function() {
     return "foo";
 };
 
@@ -49,6 +49,6 @@ foo.prototype.getTemplateName = function() {
  *
  * @return {boolean}
  */
-foo.prototype.isTraitable = function() {
+twig.templates['foo'].prototype.isTraitable = function() {
     return false;
 };

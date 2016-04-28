@@ -19,11 +19,16 @@ class TemplateGenerationTest extends \PHPUnit_Framework_TestCase
         $env->setCompiler(new JsCompiler($env));
 
         $source = file_get_contents($inputFile);
+        $expected = file_get_contents($outputFile);
+        $actual = $env->compileSource($source, $inputFile);
 
-        $this->assertEquals(
-            file_get_contents($outputFile),
-            $env->compileSource($source, $inputFile)
-        );
+        // checking for Windows and Windows Subsystem for Linux
+        if (substr(PHP_OS, 0, 3) === 'WIN' || strpos(php_uname(), 'Microsoft') !== false) {
+            $expected = str_replace("\r\n", "\n", $expected);
+            $actual = str_replace("\r\n", "\n", $actual);
+        }
+
+        $this->assertEquals($expected, $actual);
     }
 
     public function getGenerationTests()

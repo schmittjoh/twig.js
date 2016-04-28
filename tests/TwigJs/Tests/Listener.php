@@ -1,28 +1,47 @@
 <?php
 namespace TwigJs\Tests;
 
-use DNode;
+use DNode\DNode;
 use Exception;
 use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Test;
 use PHPUnit_Framework_TestListener;
 use PHPUnit_Framework_TestSuite;
 use React;
+use React\EventLoop\StreamSelectLoop;
 use TwigJs;
 
 class Listener implements PHPUnit_Framework_TestListener
 {
+    /**
+     * Loop
+     *
+     * @var StreamSelectLoop
+     */
+    private $loop;
+
+    /**
+     * Dnode
+     *
+     * @var DNode
+     */
+    private $dnode;
+
     public function startTest(PHPUnit_Framework_Test $test)
     {
         if ($test instanceof TwigJs\Tests\FullIntegrationTest) {
             $this->loop = new React\EventLoop\StreamSelectLoop();
-            $this->dnode = new DNode\DNode($this->loop);
+            $this->dnode = new DNode($this->loop);
             $test->setDnode($this->dnode, $this->loop);
         }
     }
 
     public function endTestSuite(PHPUnit_Framework_TestSuite $suite)
     {
+        if (!$this->dnode) {
+            return;
+        }
+
         $exit = function ($remote, $connection) {
             $remote->exit(function () use ($connection) {
                 $connection->end();

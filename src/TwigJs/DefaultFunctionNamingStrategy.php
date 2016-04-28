@@ -20,7 +20,29 @@ namespace TwigJs;
 
 class DefaultFunctionNamingStrategy implements FunctionNamingStrategyInterface
 {
+    /**
+     * @var string
+     */
+    private $namespace = 'twig.templates[\'%s\']';
+
+    /**
+     * @param \Twig_Node_Module $module
+     *
+     * @return string
+     */
     public function getFunctionName(\Twig_Node_Module $module)
+    {
+        return sprintf($this->namespace, $this->getOriginalName($module));
+    }
+
+    /**
+     * Get original name
+     *
+     * @param \Twig_Node_Module $module
+     *
+     * @return mixed|string
+     */
+    public function getOriginalName(\Twig_Node_Module $module)
     {
         if ($module->hasAttribute('twig_js_name')) {
             return $module->getAttribute('twig_js_name');

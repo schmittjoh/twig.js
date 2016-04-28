@@ -1,11 +1,12 @@
 
-PLOVR_URL="http://plovr.googlecode.com/files/plovr-81ed862.jar"
+PLOVR_URL="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/plovr/plovr-81ed862.jar"
 
 build: clean twig.js twig.dev.js
 
 clean:
 	rm -f twig.js
 	rm -f twig.dev.js
+	rm -f bin/plovr
 
 twig.js: bin/plovr
 	java -jar bin/plovr build Resources/config/compile.js
@@ -22,10 +23,10 @@ test: vendor node_modules
 	./node_modules/.bin/mocha --require tests-js/bootstrap.js tests-js/twig/* tests-js/twig/*/*
 
 node_modules:
-	npm install
+	npm install -f
 
 vendor:
-	composer install
+	COMPOSER_DISCARD_CHANGES=1 composer install
 
 phpcs: vendor
 	./vendor/bin/phpcs --standard=PSR2 --error-severity=1 src

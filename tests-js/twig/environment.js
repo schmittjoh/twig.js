@@ -25,7 +25,7 @@ describe("twig.Environment", function () {
 
     it("assigns a property into the environment's globals", function () {
       env.setGlobal("foo", "bar");
-      env.$globals_$.should.eql({ foo:"bar" });
+      env.getGlobals().should.eql({ foo:"bar" });
     });
 
   });
@@ -77,8 +77,8 @@ describe("twig.Environment", function () {
     });
 
     it("generates templates that render their output correctly", function () {
-      template.$render$().should.equal("Foo");
-      diffTemplate.$render$().should.equal("Bar");
+      template.render().should.equal("Foo");
+      diffTemplate.render().should.equal("Bar");
     });
 
   });

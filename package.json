@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "dnode": "1.2.0",
+    "dnode": "git+https://github.com/substack/dnode.git#master",
     "mocha": "1.15.1",
     "should": "2.1.1",
     "sinon": "1.7.3"

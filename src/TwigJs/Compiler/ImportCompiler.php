@@ -46,7 +46,7 @@ class ImportCompiler implements TypeCompilerInterface
             ->raw(' = ')
         ;
 
-        if ($node->getNode('expr') instanceof Twig_Node_Expression_Name
+        if ($node->getNode('expr') instanceof \Twig_Node_Expression_Name
             && '_self' === $node->getNode('expr')->getAttribute('name')
         ) {
             $compiler->raw("this");

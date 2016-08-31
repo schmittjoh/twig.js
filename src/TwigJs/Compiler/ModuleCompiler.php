@@ -231,7 +231,7 @@ abstract class ModuleCompiler
         $traitable = null === $node->getNode('parent') && 0 === count($node->getNode('macros'));
         if ($traitable) {
             if (!count($nodes = $node->getNode('body'))) {
-                $nodes = new Twig_Node(array($node->getNode('body')));
+                $nodes = new \Twig_Node(array($node->getNode('body')));
             }
 
             foreach ($nodes as $node) {
@@ -239,11 +239,11 @@ abstract class ModuleCompiler
                     continue;
                 }
 
-                if ($node instanceof Twig_Node_Text && ctype_space($node->getAttribute('data'))) {
+                if ($node instanceof \Twig_Node_Text && ctype_space($node->getAttribute('data'))) {
                     continue;
                 }
 
-                if ($node instanceof Twig_Node_BlockReference) {
+                if ($node instanceof \Twig_Node_BlockReference) {
                     continue;
                 }
 

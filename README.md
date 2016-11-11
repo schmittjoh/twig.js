@@ -100,7 +100,7 @@ Twig.js is released under the [Apache License], Version 2.0.
 [Node]: http://nodejs.org/
 [NPM]: https://www.npmjs.org/
 [Build Badge]: https://secure.travis-ci.org/schmittjoh/twig.js.png
-[Build Status]: http://travis-ci.org/schmittjoh/twig.js
+[Build Status]: http://travis-ci.org/forknetwork/twig.js
 [Scrutinizer Badge]: https://scrutinizer-ci.com/g/h2s/twig.js/badges/quality-score.png?b=master
 [Scrutinizer Code Quality]: https://scrutinizer-ci.com/g/h2s/twig.js/?branch=master
 [pull request #11]: https://github.com/schmittjoh/twig.js/pull/11

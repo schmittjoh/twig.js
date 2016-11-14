@@ -73,7 +73,7 @@ class ForCompiler implements TypeCompilerInterface
             ->raw(";\n")
         ;
 
-        if (null !== $node->getNode('else')) {
+        if ($this->hasElseNode($node)) {
             $compiler->write("var $iteratedName = false;\n");
         }
 
@@ -117,7 +117,7 @@ class ForCompiler implements TypeCompilerInterface
         $ref = new \ReflectionProperty($node, 'loop');
         $ref->setAccessible(true);
         $loop = $ref->getValue($node);
-        $loop->setAttribute('else', null !== $node->getNode('else'));
+        $loop->setAttribute('else', $this->hasElseNode($node));
         $loop->setAttribute('with_loop', $node->getAttribute('with_loop'));
         $loop->setAttribute('ifexpr', $node->getAttribute('ifexpr'));
 
@@ -135,7 +135,7 @@ class ForCompiler implements TypeCompilerInterface
             ->write("}, this);\n")
         ;
 
-        if (null !== $node->getNode('else')) {
+        if ($this->hasElseNode($node)) {
             $compiler
                 ->write("if (!$iteratedName) {\n")
                 ->indent()
@@ -149,5 +149,18 @@ class ForCompiler implements TypeCompilerInterface
             $compiler->leaveScope();
         }
         $this->count = $count;
+    }
+
+    private function hasElseNode(\Twig_NodeInterface $node)
+    {
+        if (!$node->hasNode('else')) {
+            return false;
+        }
+
+        if (null === $node->getNode('else')) {
+            return false;
+        }
+
+        return true;
     }
 }

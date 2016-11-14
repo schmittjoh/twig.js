@@ -23,11 +23,13 @@ class DefinedCompiler implements TypeCompilerInterface
             );
         }
 
+        $arguments = $node->hasNode('arguments') ? $node->getNode('arguments') : null;
+
         $compiler->subcompile(
             new \Twig_Node_Expression_Test(
                 $node->getNode('node'),
                 $node->getAttribute('name'),
-                $node->getNode('arguments'),
+                $arguments,
                 $node->getLine()
             )
         );

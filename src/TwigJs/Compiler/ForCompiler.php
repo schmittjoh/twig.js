@@ -135,7 +135,7 @@ class ForCompiler implements TypeCompilerInterface
             ->write("}, this);\n")
         ;
 
-        if ($node->hasNode('else')) {
+        if ($this->hasElseNode($node)) {
             $compiler
                 ->write("if (!$iteratedName) {\n")
                 ->indent()
@@ -149,5 +149,18 @@ class ForCompiler implements TypeCompilerInterface
             $compiler->leaveScope();
         }
         $this->count = $count;
+    }
+
+    private function hasElseNode(\Twig_NodeInterface $node)
+    {
+        if (!$node->hasNode('else')) {
+            return false;
+        }
+
+        if (null === $node->getNode('else')) {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -41,14 +41,6 @@ class IncludeCompiler implements TypeCompilerInterface
 
         $compiler->addDebugInfo($node);
 
-        // Is there are use case for conditional includes at runtime?
-//         if ($node->getAttribute('ignore_missing')) {
-//             $compiler
-//                 ->write("try {\n")
-//                 ->indent()
-//             ;
-//         }
-
         $compiler->isTemplateName = true;
         if ($node->getNode('expr') instanceof Twig_Node_Expression_Constant) {
             $compiler
@@ -66,7 +58,7 @@ class IncludeCompiler implements TypeCompilerInterface
         $compiler->isTemplateName = false;
 
         if (false === $node->getAttribute('only')) {
-            if (!$node->hasNode('variables')) {
+            if (!$this->hasVariablesNode($node)) {
                 $compiler->raw('context');
             } else {
                 $compiler
@@ -84,16 +76,18 @@ class IncludeCompiler implements TypeCompilerInterface
         }
 
         $compiler->raw(");\n");
+    }
 
-//         if ($node->getAttribute('ignore_missing')) {
-//             $compiler
-//                 ->outdent()
-//                 ->write("} catch (Twig_Error_Loader \$e) {\n")
-//                 ->indent()
-//                 ->write("// ignore missing template\n")
-//                 ->outdent()
-//                 ->write("}\n\n")
-//             ;
-//         }
+    private function hasVariablesNode(\Twig_NodeInterface $node)
+    {
+        if (!$node->hasNode('variables')) {
+            return false;
+        }
+
+        if (null === $node->getNode('variables')) {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -66,7 +66,7 @@ class IncludeCompiler implements TypeCompilerInterface
         $compiler->isTemplateName = false;
 
         if (false === $node->getAttribute('only')) {
-            if (null === $node->getNode('variables')) {
+            if (null === ($node->hasNode('variables') ? $node->getNode('variables') : null)) {
                 $compiler->raw('context');
             } else {
                 $compiler

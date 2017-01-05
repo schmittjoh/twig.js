@@ -18,7 +18,7 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase
 
     private function getEnv()
     {
-        $env = new \Twig_Environment();
+        $env = new \Twig_Environment(new \Twig_Loader_Array(array()));
         $env->addExtension(new TwigJsExtension());
 
         return $env;

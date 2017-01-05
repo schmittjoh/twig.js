@@ -29,14 +29,16 @@ class Listener implements PHPUnit_Framework_TestListener
             });
         };
 
-        $this->dnode->on('error', function ($e) {
-            // Do nothing.
-            // This error means the dnode server isn't running, so it doesn't
-            // matter that we can't connect to it in order to shut it down.
-        });
+        if (isset($this->loop) && isset($this->dnode)) {
+            $this->dnode->on('error', function ($e) {
+                // Do nothing.
+                // This error means the dnode server isn't running, so it doesn't
+                // matter that we can't connect to it in order to shut it down.
+            });
 
-        $this->dnode->connect(7070, $exit);
-        $this->loop->run();
+            $this->dnode->connect(7070, $exit);
+            $this->loop->run();
+        }
     }
 
     public function addError(PHPUnit_Framework_Test $test, Exception $e, $time)

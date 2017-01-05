@@ -73,7 +73,7 @@ class ForCompiler implements TypeCompilerInterface
             ->raw(";\n")
         ;
 
-        if (null !== $node->getNode('else')) {
+        if ($node->hasNode('else') && null !== $node->getNode('else')) {
             $compiler->write("var $iteratedName = false;\n");
         }
 
@@ -117,7 +117,7 @@ class ForCompiler implements TypeCompilerInterface
         $ref = new \ReflectionProperty($node, 'loop');
         $ref->setAccessible(true);
         $loop = $ref->getValue($node);
-        $loop->setAttribute('else', null !== $node->getNode('else'));
+        $loop->setAttribute('else', $node->hasNode('else') && null !== $node->getNode('else'));
         $loop->setAttribute('with_loop', $node->getAttribute('with_loop'));
         $loop->setAttribute('ifexpr', $node->getAttribute('ifexpr'));
 
@@ -135,7 +135,7 @@ class ForCompiler implements TypeCompilerInterface
             ->write("}, this);\n")
         ;
 
-        if (null !== $node->getNode('else')) {
+        if ($node->hasNode('else') && null !== $node->getNode('else')) {
             $compiler
                 ->write("if (!$iteratedName) {\n")
                 ->indent()

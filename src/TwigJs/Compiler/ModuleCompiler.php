@@ -57,7 +57,7 @@ abstract class ModuleCompiler
             ->write('return ')
         ;
 
-        if (null === $node->getNode('parent')) {
+        if (!$node->hasNode('parent') || null === $node->getNode('parent')) {
             $compiler->repr(false);
         } else {
             $compiler
@@ -82,7 +82,7 @@ abstract class ModuleCompiler
             ->leaveScope()
         ;
 
-        if (null !== $node->getNode('parent')) {
+        if ($node->hasNode('parent') && null !== $node->getNode('parent')) {
             $compiler
                 ->write("this.getParent(context).render_(sb, context, twig.extend({}, this.getBlocks(), blocks));\n")
             ;
@@ -228,7 +228,7 @@ abstract class ModuleCompiler
         //
         // Put another way, a template can be used as a trait if it
         // only contains blocks and use statements.
-        $traitable = null === $node->getNode('parent') && 0 === count($node->getNode('macros'));
+        $traitable = (!$node->hasNode('parent') || null === $node->getNode('parent')) && 0 === count($node->getNode('macros'));
         if ($traitable) {
             if (!count($nodes = $node->getNode('body'))) {
                 $nodes = new Twig_Node(array($node->getNode('body')));

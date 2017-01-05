@@ -9,7 +9,11 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase
     public function testNameIsSetOnModule()
     {
         $env = $this->getEnv();
-        $module = $env->parse($env->tokenize('{% twig_js name="foo" %}'));
+        $source = '{% twig_js name="foo" %}';
+        if (class_exists('Twig_Source')) {
+            $source = new \Twig_Source($source, 'twig_module_name');
+        }
+        $module = $env->parse($env->tokenize($source));
 
         $this->assertTrue($module->hasAttribute('twig_js_name'));
         $this->assertEquals('foo', $module->getAttribute('twig_js_name'));

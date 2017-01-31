@@ -12,7 +12,7 @@ class ConstantCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Test_Constant';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Test_Constant) {
             throw new \RuntimeException(
@@ -28,7 +28,7 @@ class ConstantCompiler implements TypeCompilerInterface
                 $node->getNode('node'),
                 $node->getAttribute('name'),
                 $node->getNode('arguments'),
-                $node->getLine()
+                $node->getTemplateLine()
             )
         );
     }

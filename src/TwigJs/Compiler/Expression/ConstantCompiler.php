@@ -28,7 +28,7 @@ class ConstantCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Constant';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Constant) {
             throw new \RuntimeException(
@@ -41,7 +41,7 @@ class ConstantCompiler implements TypeCompilerInterface
 
         if ($compiler->isTemplateName) {
             $env = $compiler->getEnvironment();
-            $source = $env->getLoader()->getSource($node->getAttribute('value'));
+            $source = $env->getLoader()->getSourceContext($node->getAttribute('value'));
             $module = $env->parse($env->tokenize($source, $node->getAttribute('value')));
 
             $compiler->raw($compiler->getFunctionName($module));

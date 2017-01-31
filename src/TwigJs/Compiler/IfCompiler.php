@@ -28,7 +28,7 @@ class IfCompiler implements TypeCompilerInterface
         return 'Twig_Node_If';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_If) {
             throw new \RuntimeException(sprintf('$node must be an instanceof of \If, but got "%s".', get_class($node)));

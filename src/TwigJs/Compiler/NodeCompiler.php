@@ -28,7 +28,7 @@ class NodeCompiler implements TypeCompilerInterface
         return 'Twig_Node';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         foreach ($node as $subNode) {
             $compiler->subcompile($subNode);

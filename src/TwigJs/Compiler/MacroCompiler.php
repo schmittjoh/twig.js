@@ -28,7 +28,7 @@ class MacroCompiler implements TypeCompilerInterface
         return 'Twig_Node_Macro';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Macro) {
             throw new \RuntimeException(

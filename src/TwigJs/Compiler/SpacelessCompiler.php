@@ -30,7 +30,7 @@ class SpacelessCompiler implements TypeCompilerInterface
         return 'Twig_Node_Spaceless';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Spaceless) {
             throw new \RuntimeException(

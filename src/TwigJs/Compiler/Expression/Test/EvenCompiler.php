@@ -12,7 +12,7 @@ class EvenCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Test_Even';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Test_Even) {
             throw new \RuntimeException(
@@ -28,7 +28,7 @@ class EvenCompiler implements TypeCompilerInterface
                 $node->getNode('node'),
                 $node->getAttribute('name'),
                 $node->hasNode('arguments') ? $node->getNode('arguments') : null,
-                $node->getLine()
+                $node->getTemplateLine()
             )
         );
     }

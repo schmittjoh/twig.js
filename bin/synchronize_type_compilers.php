@@ -56,7 +56,7 @@ foreach ($iterator as $file) {
     			."        return ".var_export('Twig_Node_'.str_replace('/', '_', substr($subPath, 1, -4)), true).";\n"
     			."    }\n"
     			."\n"
-    			."    public function compile(JsCompiler \$compiler, \Twig_NodeInterface \$node)\n"
+    			."    public function compile(JsCompiler \$compiler, \Twig_Node \$node)\n"
     			."    {\n"
     			."        if (!\$node instanceof \\Twig_Node_".str_replace('/', '_', substr($subPath, 1, -4)).") {\n"
     			."            throw new \RuntimeException(sprintf('\$node must be an instanceof of \\Twig_Node_".str_replace('/', '_', substr($subPath, 1, -4)).", but got \"%s\".', get_class(\$node)));\n"

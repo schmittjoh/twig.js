@@ -28,7 +28,7 @@ class NegCompiler extends UnaryCompiler
         return 'Twig_Node_Expression_Unary_Neg';
     }
 
-    protected function operator(JsCompiler $compiler, \Twig_NodeInterface $node)
+    protected function operator(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Unary_Neg) {
             throw new \RuntimeException(

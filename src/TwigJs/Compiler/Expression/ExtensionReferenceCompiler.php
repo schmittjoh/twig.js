@@ -28,7 +28,7 @@ class ExtensionReferenceCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_ExtensionReference';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_ExtensionReference) {
             throw new \RuntimeException(

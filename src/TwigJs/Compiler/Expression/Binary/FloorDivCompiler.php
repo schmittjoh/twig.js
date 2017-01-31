@@ -28,7 +28,7 @@ class FloorDivCompiler extends BinaryCompiler
         return 'Twig_Node_Expression_Binary_FloorDiv';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Binary_FloorDiv) {
             throw new \RuntimeException(
@@ -44,7 +44,7 @@ class FloorDivCompiler extends BinaryCompiler
         $compiler->raw(')');
     }
 
-    protected function operator(JsCompiler $compiler, \Twig_NodeInterface $node)
+    protected function operator(JsCompiler $compiler, \Twig_Node $node)
     {
         return $compiler->raw('/');
     }

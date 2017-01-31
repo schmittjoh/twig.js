@@ -9,7 +9,9 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase
     public function testNameIsSetOnModule()
     {
         $env = $this->getEnv();
-        $module = $env->parse($env->tokenize('{% twig_js name="foo" %}'));
+        $sourceString = '{% twig_js name="foo" %}';
+        $source = new \Twig_Source($sourceString, 'twig_module_name');
+        $module = $env->parse($env->tokenize($source));
 
         $this->assertTrue($module->hasAttribute('twig_js_name'));
         $this->assertEquals('foo', $module->getAttribute('twig_js_name'));
@@ -18,7 +20,7 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase
 
     private function getEnv()
     {
-        $env = new \Twig_Environment();
+        $env = new \Twig_Environment(new \Twig_Loader_Array(array()));
         $env->addExtension(new TwigJsExtension());
 
         return $env;

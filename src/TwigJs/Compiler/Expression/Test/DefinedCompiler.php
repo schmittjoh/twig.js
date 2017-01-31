@@ -12,7 +12,7 @@ class DefinedCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Test_Defined';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Test_Defined) {
             throw new \RuntimeException(
@@ -28,7 +28,7 @@ class DefinedCompiler implements TypeCompilerInterface
                 $node->getNode('node'),
                 $node->getAttribute('name'),
                 $node->hasNode('arguments') ? $node->getNode('arguments') : null,
-                $node->getLine()
+                $node->getTemplateLine()
             )
         );
     }

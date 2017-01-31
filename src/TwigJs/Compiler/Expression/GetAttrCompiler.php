@@ -28,7 +28,7 @@ class GetAttrCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_GetAttr';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_GetAttr) {
             throw new \RuntimeException(
@@ -44,9 +44,9 @@ class GetAttrCompiler implements TypeCompilerInterface
         if ($node->getAttribute('is_defined_test') && $compiler->getEnvironment()->isStrictVariables()) {
             $compiler->subcompile(new \Twig_Node_Expression_Filter(
                 $node->getNode('node'),
-                new \Twig_Node_Expression_Constant('default', $node->getLine()),
+                new \Twig_Node_Expression_Constant('default', $node->getTemplateLine()),
                 new \Twig_Node(),
-                $node->getLine()
+                $node->getTemplateLine()
             ));
         } else {
             $compiler->subcompile($node->getNode('node'));
@@ -58,7 +58,7 @@ class GetAttrCompiler implements TypeCompilerInterface
         ;
 
         $defaultArguments = 0 === count($node->getNode('arguments'));
-        $defaultAccess = \Twig_TemplateInterface::ANY_CALL === $node->getAttribute('type');
+        $defaultAccess = \Twig_Template::ANY_CALL === $node->getAttribute('type');
         $defaultTest = false == $node->getAttribute('is_defined_test');
 
         if (!$defaultArguments) {

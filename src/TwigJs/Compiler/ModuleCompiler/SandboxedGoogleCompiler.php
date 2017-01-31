@@ -27,7 +27,7 @@ class SandboxedGoogleCompiler extends GoogleCompiler
         return 'Twig_Node_SandboxedModule';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_SandboxedModule) {
             throw new \RuntimeException(

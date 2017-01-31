@@ -29,10 +29,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->arrayLoader = new Twig_Loader_Array(array());
-        $this->env = new Twig_Environment();
-        $this->env->addExtension(new Twig_Extension_Core());
-        $this->env->addExtension(new TwigJsExtension());
-        $this->env->setLoader(
+        $this->env = new Twig_Environment(
             new Twig_Loader_Chain(
                 array(
                     $this->arrayLoader,
@@ -40,6 +37,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
                 )
             )
         );
+        $this->env->addExtension(new TwigJsExtension());
         $this->env->setCompiler(new JsCompiler($this->env));
     }
 
@@ -131,7 +129,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
 
     private function compileTemplate($source, $name)
     {
-        $javascript = $this->env->compileSource($source, $name);
+        $javascript = $this->env->compileSource(new \Twig_Source($source, $name));
         return $javascript;
     }
 

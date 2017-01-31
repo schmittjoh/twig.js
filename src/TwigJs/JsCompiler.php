@@ -317,7 +317,7 @@ class JsCompiler extends \Twig_Compiler
             $this->functionMap[$twigFunctionName] : null;
     }
 
-    public function compile(\Twig_NodeInterface $node, $indentation = 0)
+    public function compile(\Twig_Node $node, $indentation = 0)
     {
         $this->lastLine = null;
         $this->source = '';
@@ -330,14 +330,15 @@ class JsCompiler extends \Twig_Compiler
         return $this;
     }
 
-    public function subcompile(\Twig_NodeInterface $node, $raw = true)
+    public function subcompile(\Twig_Node $node, $raw = true)
     {
         if ($node instanceof \Twig_Profiler_Node_EnterProfile || $node instanceof \Twig_Profiler_Node_LeaveProfile) {
             return $this;
         }
 
         if (false === $raw) {
-            $this->addIndentation();
+            $this->write('\'');
+            //$this->addIndentation();
         }
 
         $nodeClass = get_class($node);

@@ -27,7 +27,7 @@ class SandboxedPrintCompiler extends PrintCompiler
         return 'Twig_Node_SandboxedPrint';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_SandboxedPrint) {
             throw new \RuntimeException(

@@ -12,7 +12,7 @@ class MacroCallCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_MacroCall';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (! $node instanceof \Twig_Node_Expression_MacroCall) {
             throw new \LogicException(sprintf('This compiler does not support the type "%s".', get_class($node)));
@@ -37,7 +37,7 @@ class MacroCallCompiler implements TypeCompilerInterface
                         'Positional arguments cannot be used after named arguments for macro "%s".',
                         $node->getAttribute('name')
                     ),
-                    $node->getLine()
+                    $node->getTemplateLine()
                 );
             } else {
                 $positionalCount++;

@@ -28,7 +28,7 @@ class PrintCompiler implements TypeCompilerInterface
         return 'Twig_Node_Print';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Print) {
             throw new \RuntimeException(

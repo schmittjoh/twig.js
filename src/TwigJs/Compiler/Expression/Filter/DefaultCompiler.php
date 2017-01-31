@@ -12,7 +12,7 @@ class DefaultCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Filter_Default';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Filter_Default) {
             throw new \RuntimeException(

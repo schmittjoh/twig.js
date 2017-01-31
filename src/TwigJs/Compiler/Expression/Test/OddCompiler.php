@@ -27,7 +27,7 @@ class OddCompiler implements TypeCompilerInterface
             new \Twig_Node_Expression_Test(
                 $node->getNode('node'),
                 $node->getAttribute('name'),
-                $node->getNode('arguments'),
+                $node->hasNode('arguments') ? $node->getNode('arguments') : null,
                 $node->getLine()
             )
         );

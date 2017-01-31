@@ -1,5 +1,6 @@
 bin/plovr
 phpunit.xml
+composer.lock
 config.php
 vendor/
 tmp/

@@ -18,9 +18,15 @@ class TemplateGenerationTest extends \PHPUnit_Framework_TestCase
 
         $source = file_get_contents($inputFile);
 
+        $internalHash = '19e4402c168b2b967e32502724fd7259940b610e71106e32d1ab38064bc9dbad';
+        $normalizeInternal = function ($s) use ($internalHash) {
+            $pattern = '__internal_[a-z0-9]*';
+            return preg_replace(sprintf('/%s/', $pattern), '__internal_'.$internalHash, $s);
+        };
+
         $this->assertEquals(
-            file_get_contents($outputFile),
-            $env->compileSource(new \Twig_Source($source, $inputFile))
+            $normalizeInternal(file_get_contents($outputFile)),
+            $normalizeInternal($env->compileSource(new \Twig_Source($source, $inputFile)))
         );
 
         if ($twice) {
@@ -42,7 +48,7 @@ class TemplateGenerationTest extends \PHPUnit_Framework_TestCase
         );
         foreach ($files as $file) {
             /** @var $file \SplFileInfo */
-            if (!$file->isFile()) {
+            if (!$file->isFile() || 'twig' != $file->getExtension()) {
                 continue;
             }
 

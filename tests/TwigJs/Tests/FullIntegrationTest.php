@@ -102,7 +102,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
             $exception = false;
             preg_match_all('/--DATA--(.*?)(?:--CONFIG--(.*?))?--EXPECT--(.*?)(?=\-\-DATA\-\-|$)/s', $test, $outputs, PREG_SET_ORDER);
         } else {
-            throw new InvalidArgumentException(sprintf('Test "%s" is not valid.', $file));
+            throw new \InvalidArgumentException(sprintf('Test "%s" is not valid.', $file));
         }
         // @codingStandardsIgnoreStart
 

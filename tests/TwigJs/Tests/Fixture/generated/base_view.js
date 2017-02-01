@@ -40,7 +40,7 @@ base_view.prototype.getParent_ = function(context) {
 base_view.prototype.render_ = function(sb, context, blocks) {
     blocks = typeof(blocks) == "undefined" ? {} : blocks;
     // line 3
-    context["__internal_19e4402c168b2b967e32502724fd7259940b610e71106e32d1ab38064bc9dbad"] = this.env_.createTemplate(macros.twig.inc);
+    context["__internal_19e4402c168b2b967e32502724fd7259940b610e71106e32d1ab38064bc9dbad"] = this.env_.createTemplate(macros);
     this.getParent(context).render_(sb, context, twig.extend({}, this.getBlocks(), blocks));
 };
 

@@ -1,0 +1,25 @@
+{% extends "base.twig" %}
+
+{% from "macros.twig.inc" import link %}
+
+{% block title %}Yup{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script language="javascript" type="text/javascript" src="welcome.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    <h1>Welcome {{ name|default("World") }}!</h1>
+
+    <p>
+        {%- if name is not empty -%}
+        Some Status.
+        {%- else -%}
+        {{ link("/login", "Please login.", "Login") }}
+        {%- endif -%}
+    </p>
+
+{% endblock %}

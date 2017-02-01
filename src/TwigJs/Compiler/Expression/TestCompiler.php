@@ -51,7 +51,7 @@ class TestCompiler implements TypeCompilerInterface
 
         $compiler
             ->raw('this.env_.test(')
-            ->string($name)
+            ->repr($name)
             ->raw(', ')
             ->subcompile($subNode)
         ;

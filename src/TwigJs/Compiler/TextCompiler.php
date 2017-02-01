@@ -42,7 +42,7 @@ class TextCompiler implements TypeCompilerInterface
         $compiler
             ->addDebugInfo($node)
             ->write('sb.append(')
-            ->string($node->getAttribute('data'))
+            ->repr($node->getAttribute('data'))
             ->raw(");\n")
         ;
     }

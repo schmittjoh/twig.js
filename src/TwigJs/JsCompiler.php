@@ -191,7 +191,7 @@ class JsCompiler extends \Twig_Compiler
             'none' => new NoneCompiler(),
             'null' => new NullCompiler(),
             'odd' => new OddCompiler(),
-            'sameas' => new SameAsCompiler(),
+            'same as' => new SameAsCompiler(),
         );
 
         $this->filterCompilers = array();
@@ -319,6 +319,7 @@ class JsCompiler extends \Twig_Compiler
 
     public function compile(\Twig_Node $node, $indentation = 0)
     {
+        // TODO: these are all private
         $this->lastLine = null;
         $this->source = '';
         $this->sourceOffset = 0;
@@ -338,7 +339,7 @@ class JsCompiler extends \Twig_Compiler
 
         if (false === $raw) {
             // indentation
-            $this->write('\'');
+            $this->write('');
         }
 
         $nodeClass = get_class($node);
@@ -395,15 +396,8 @@ class JsCompiler extends \Twig_Compiler
         return $this;
     }
 
-    public function string($value)
-    {
-        return $this->repr($value);
-    }
-
     public function repr($value)
     {
-        $this->source .= json_encode($value);
-
-        return $this;
+        return $this->raw(json_encode($value));
     }
 }

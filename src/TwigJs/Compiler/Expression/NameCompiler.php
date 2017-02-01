@@ -75,9 +75,9 @@ class NameCompiler implements TypeCompilerInterface
             //        see Template::getContext()
             $compiler
                 ->raw('(')
-                ->string($name)
+                ->repr($name)
                 ->raw(' in context ? context[')
-                ->string($name)
+                ->repr($name)
                 ->raw('] : null)')
             ;
         }

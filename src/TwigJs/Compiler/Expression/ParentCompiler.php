@@ -48,7 +48,7 @@ class ParentCompiler implements TypeCompilerInterface
 
         $compiler
             ->raw("this.renderParentBlock(")
-            ->string($node->getAttribute('name'))
+            ->repr($node->getAttribute('name'))
             ->raw(", context, blocks)")
         ;
 

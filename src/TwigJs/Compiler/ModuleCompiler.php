@@ -34,6 +34,7 @@ abstract class ModuleCompiler
         $this->compileClassHeader($compiler, $node);
 
         $this->compileGetParent($compiler, $node);
+
         $this->compileDisplayHeader($compiler, $node);
         $this->compileDisplayBody($compiler, $node);
         $this->compileDisplayFooter($compiler, $node);
@@ -116,9 +117,9 @@ abstract class ModuleCompiler
                         ->write(sprintf("trait_%s_blocks[", $i))
                         ->subcompile($value)
                         ->raw(sprintf("] = trait_%s_blocks[", $i))
-                        ->string($key)
+                        ->repr($key)
                         ->raw(sprintf("]; delete trait_%s_blocks[", $i))
-                        ->string($key)
+                        ->repr($key)
                         ->raw("];\n\n")
                     ;
                 }

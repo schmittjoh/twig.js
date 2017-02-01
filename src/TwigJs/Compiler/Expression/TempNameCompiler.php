@@ -56,9 +56,9 @@ class TempNameCompiler implements TypeCompilerInterface
         */
         $compiler
             ->raw('(')
-            ->string($name)
+            ->repr($name)
             ->raw(' in context ? context[')
-            ->string($name)
+            ->repr($name)
             ->raw('] : null)')
         ;
     }

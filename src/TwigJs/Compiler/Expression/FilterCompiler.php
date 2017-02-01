@@ -52,7 +52,7 @@ class FilterCompiler implements TypeCompilerInterface
         } else {
             $compiler
                 ->raw('this.env_.filter(')
-                ->string($name)
+                ->repr($name)
                 ->raw(', ')
             ;
         }

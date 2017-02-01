@@ -55,7 +55,7 @@ class FunctionCompiler implements TypeCompilerInterface
         } else {
             $compiler
                 ->raw('this.env_.invoke(')
-                ->string($node->getAttribute('name'))
+                ->repr($node->getAttribute('name'))
                 ->raw(', ')
             ;
         }

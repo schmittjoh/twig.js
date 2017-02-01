@@ -38,7 +38,7 @@ class AssignNameCompiler implements TypeCompilerInterface
 
         $compiler
             ->raw('context[')
-            ->string($node->getAttribute('name'))
+            ->repr($node->getAttribute('name'))
             ->unsetVar($node->getAttribute('name'))
             ->raw(']')
         ;

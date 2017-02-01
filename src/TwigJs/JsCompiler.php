@@ -18,6 +18,7 @@
 
 namespace TwigJs;
 
+use TwigJs\Compiler\SubcompileNode;
 use TwigJs\Compiler\MacroCompiler;
 use TwigJs\Compiler\Test\SameAsCompiler;
 use TwigJs\Compiler\Test\OddCompiler;
@@ -319,16 +320,9 @@ class JsCompiler extends \Twig_Compiler
 
     public function compile(\Twig_Node $node, $indentation = 0)
     {
-        // TODO: these are all private
-        $this->lastLine = null;
-        $this->source = '';
-        $this->sourceOffset = 0;
-        $this->sourceLine = 0;
-        $this->indentation = $indentation;
-
-        $this->subcompile($node);
-
-        return $this;
+        // ok, parent properties are private
+        // so we'll need somehow use the parent method to reset things...
+        return parent::compile(new SubcompileNode($node), $indentation);
     }
 
     public function subcompile(\Twig_Node $node, $raw = true)

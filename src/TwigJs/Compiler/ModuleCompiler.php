@@ -32,7 +32,6 @@ abstract class ModuleCompiler
     protected function compileTemplate(JsCompiler $compiler, \Twig_Node $node)
     {
         $this->compileClassHeader($compiler, $node);
-
         $this->compileGetParent($compiler, $node);
 
         $this->compileDisplayHeader($compiler, $node);

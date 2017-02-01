@@ -185,7 +185,7 @@ class JsCompiler extends \Twig_Compiler
 
         $this->testCompilers = array(
             'defined' => new DefinedCompiler(),
-            'divisibleby' => new DivisibleByCompiler(),
+            'divisible by' => new DivisibleByCompiler(),
             'empty' => new EmptyCompiler(),
             'even' => new EvenCompiler(),
             'none' => new NoneCompiler(),

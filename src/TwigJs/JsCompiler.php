@@ -337,8 +337,8 @@ class JsCompiler extends \Twig_Compiler
         }
 
         if (false === $raw) {
+            // indentation
             $this->write('\'');
-            //$this->addIndentation();
         }
 
         $nodeClass = get_class($node);

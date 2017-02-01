@@ -13,7 +13,6 @@ class TemplateGenerationTest extends \PHPUnit_Framework_TestCase
     public function testGenerate($inputFile, $outputFile)
     {
         $env = new \Twig_Environment(new \Twig_Loader_Filesystem(__DIR__.'/Fixture/templates'));
-        //$env->addExtension(new \Twig_Extension_Core());
         $env->addExtension(new TwigJsExtension());
         $env->setCompiler(new JsCompiler($env));
 

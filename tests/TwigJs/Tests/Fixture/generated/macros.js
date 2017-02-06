@@ -46,7 +46,7 @@ macros.prototype.render_ = function(sb, context, blocks) {
  * @param {*} opt_title
  * @return {string}
  */
-macros.prototype.getlink = function(opt_link, opt_content, opt_title) {
+macros.prototype.macro_link = function(opt_link, opt_content, opt_title) {
     var context = twig.extend({}, this.env_.getGlobals());
 
     var sb = new twig.StringBuffer;

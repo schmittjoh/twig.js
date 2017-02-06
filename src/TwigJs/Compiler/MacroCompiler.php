@@ -23,6 +23,8 @@ use TwigJs\TypeCompilerInterface;
 
 class MacroCompiler implements TypeCompilerInterface
 {
+    const MACRO_PREFIX = 'macro_';
+
     public function getType()
     {
         return 'Twig_Node_Macro';
@@ -64,7 +66,8 @@ class MacroCompiler implements TypeCompilerInterface
             ->write(" * @return {string}\n")
             ->write(" */\n")
             ->raw($compiler->templateFunctionName)
-            ->raw(".prototype.get")
+            ->raw(".prototype.")
+            ->raw(self::MACRO_PREFIX)
             ->raw($node->getAttribute('name'))
             ->raw(" = function(".implode(', ', $arguments).") {\n")
             ->indent()

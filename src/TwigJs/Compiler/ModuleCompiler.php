@@ -228,7 +228,8 @@ abstract class ModuleCompiler
         //
         // Put another way, a template can be used as a trait if it
         // only contains blocks and use statements.
-        $traitable = (!$node->hasNode('parent') || null === $node->getNode('parent')) && 0 === count($node->getNode('macros'));
+        $traitable = (!$node->hasNode('parent') || null === $node->getNode('parent'))
+                          && 0 === count($node->getNode('macros'));
         if ($traitable) {
             if (!count($nodes = $node->getNode('body'))) {
                 $nodes = new Twig_Node(array($node->getNode('body')));

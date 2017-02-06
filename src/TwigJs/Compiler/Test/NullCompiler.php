@@ -2,7 +2,6 @@
 
 namespace TwigJs\Compiler\Test;
 
-
 class NullCompiler extends NoneCompiler
 {
     public function getName()

@@ -321,7 +321,8 @@ class JsCompiler extends \Twig_Compiler
     {
         // ok, parent properties are private
         // so we'll need somehow use the parent method to reset things...
-        return parent::compile(new class($node) extends \Twig_Node {
+        return parent::compile(
+            new class($node) extends \Twig_Node {
                 protected $node;
 
                 public function __construct(\Twig_Node $node)

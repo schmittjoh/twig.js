@@ -16,9 +16,9 @@
     },
 
     "require-dev": {
-        "dnode/dnode": "dev-master",
-        "phpunit/phpunit": "3.7.*@dev",
-        "squizlabs/php_codesniffer": "1.*"
+        "dnode/dnode": "^0.2",
+        "phpunit/phpunit": "^5.7",
+        "squizlabs/php_codesniffer": "^2.0"
     },
 
     "minimum-stability": "dev",

@@ -111,7 +111,7 @@ twig.filter.length = function(env, value) {
 };
 
 /**
- * 
+ *
  * @param {Array|Object} value
  * @param {string=} opt_glue
  * @return {string}
@@ -245,7 +245,7 @@ twig.filter.json_encode = function(value) {
  */
 twig.filter.reverse = function(env, value) {
 	if (goog.isArray(value)) {
-		return value.reverse();
+		return value.slice(0).reverse();
 	} else if (goog.isObject(value)) {
 		var reverse = {};
 		var reverseKeys = goog.object.getKeys(value).reverse();

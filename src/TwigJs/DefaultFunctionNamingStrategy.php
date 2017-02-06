@@ -32,6 +32,6 @@ class DefaultFunctionNamingStrategy implements FunctionNamingStrategyInterface
         $templateName = preg_replace('/\.+/', '.', $templateName);
         $templateName = trim($templateName, '.');
 
-        return $templateName;
+        return sprintf('twig.templates[\'%s\']', $templateName);
     }
 }

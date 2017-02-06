@@ -68,7 +68,19 @@ class MacroCompiler implements TypeCompilerInterface
             ->raw($node->getAttribute('name'))
             ->raw(" = function(".implode(', ', $arguments).") {\n")
             ->indent()
-            ->write("var context = twig.extend({}, this.env_.getGlobals());\n\n")
+        ;
+
+        if (!count($arguments)) {
+            $compiler->write("var context = twig.extend({}, this.env_.getGlobals());\n\n");
+        } else {
+            $localVarMap = json_encode($compiler->localVarMap);
+            foreach ($arguments as $argument) {
+                $localVarMap = str_replace('"'.$argument.'"', $argument, $localVarMap);
+            }
+            $compiler->write("var context = twig.extend({}, $localVarMap, this.env_.getGlobals());\n\n");
+        }
+
+        $compiler
             ->write("var sb = new twig.StringBuffer;\n")
             ->subcompile($node->getNode('body'))
             ->raw("\n")

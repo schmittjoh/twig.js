@@ -29,15 +29,13 @@ class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
 
     protected function compileClassHeader(JsCompiler $compiler, Twig_NodeInterface $node)
     {
-        $this->functionName = $functionName = $compiler->templateFunctionName
-            = $compiler->getFunctionName($node);
+        $functionName = $this->functionName = $compiler->templateFunctionName = $compiler->getFunctionName($node);
 
-        $parts = explode('.', $functionName);
+        $parts = explode('.', preg_replace('/twig\.templates\[\'(.*)\'\]/', '$1', $functionName));
         array_pop($parts);
 
         $filename = $node->getAttribute('filename');
-        if (!empty($filename)
-                && false !== strpos($filename, DIRECTORY_SEPARATOR)) {
+        if (!empty($filename) && false !== strpos($filename, DIRECTORY_SEPARATOR)) {
             $parts = explode(DIRECTORY_SEPARATOR, realpath($filename));
             $filename = implode(DIRECTORY_SEPARATOR, array_splice($parts, -4));
         }
@@ -54,9 +52,8 @@ class GoogleCompiler extends ModuleCompiler implements TypeCompilerInterface
         ;
 
         $compiler
-            ->write("goog.provide('$functionName');\n")
-            ->write("\n")
             ->write("goog.require('twig');\n")
+            ->write("goog.provide('twig.templates');\n")
             ->write("goog.require('twig.filter');\n")
             ->write("\n")
             ->write(

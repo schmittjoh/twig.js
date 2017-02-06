@@ -162,7 +162,7 @@ twig.Environment.prototype.escape = function(value, opt_type, opt_charset, opt_a
  */
 twig.Environment.prototype.macro = function(templateCtor, macroName, var_args) {
 	var template = this.createTemplate(templateCtor);
-	var macro = template['get' + macroName];
+	var macro = template['macro_' + macroName];
 	
 	if (!macro) {
 		throw Error("The macro '" + macroName + "' does not exist on template '" + template.getTemplateName() + "'.");

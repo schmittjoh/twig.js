@@ -1,5 +1,5 @@
 
-PLOVR_URL="http://plovr.googlecode.com/files/plovr-81ed862.jar"
+PLOVR_URL="https://github.com/bolinfest/plovr/releases/download/v5.2.0/plovr.jar"
 
 build: clean twig.js twig.dev.js
 

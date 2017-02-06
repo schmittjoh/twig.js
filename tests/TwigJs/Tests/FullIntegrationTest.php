@@ -61,7 +61,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
             }
             $expectedOutput = trim($match[3], "\n ");
             try {
-                $renderedOutput = $this->renderTemplate('index', $javascript, $templateParameters);
+                $renderedOutput = $this->renderTemplate('Twig.templates.index', $javascript, $templateParameters);
             } catch (Exception $e) {
                 $this->markTestSkipped($e->getMessage());
             }
@@ -104,7 +104,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
             $exception = false;
             preg_match_all('/--DATA--(.*?)(?:--CONFIG--(.*?))?--EXPECT--(.*?)(?=\-\-DATA\-\-|$)/s', $test, $outputs, PREG_SET_ORDER);
         } else {
-            throw new InvalidArgumentException(sprintf('Test "%s" is not valid.', $file));
+            throw new \InvalidArgumentException(sprintf('Test "%s" is not valid.', $file));
         }
         // @codingStandardsIgnoreStart
 

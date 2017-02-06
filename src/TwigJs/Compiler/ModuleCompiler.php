@@ -52,7 +52,7 @@ abstract class ModuleCompiler
     {
         $compiler
             ->write("/**\n", " * @inheritDoc\n", " */\n")
-            ->write($this->functionName.".prototype.getParent_ = function(context) {\n")
+            ->write("Twig.templates['".$this->functionName."'].prototype.getParent_ = function(context) {\n")
             ->indent()
             ->write('return ')
         ;
@@ -188,7 +188,7 @@ abstract class ModuleCompiler
     {
         $compiler
             ->write("/**\n", " * @inheritDoc\n", " */\n")
-            ->write($this->functionName.".prototype.render_ = function(sb, context, blocks) {\n")
+            ->write("Twig.templates['".$this->functionName."'].prototype.render_ = function(sb, context, blocks) {\n")
             ->indent()
             ->write("blocks = typeof(blocks) == \"undefined\" ? {} : blocks;"."\n")
         ;
@@ -211,7 +211,7 @@ abstract class ModuleCompiler
     {
         $compiler
             ->write("/**\n", " * @inheritDoc\n", " */\n")
-            ->write($this->functionName.".prototype.getTemplateName = function() {\n")
+            ->write("Twig.templates['".$this->functionName."'].prototype.getTemplateName = function() {\n")
             ->indent()
             ->write('return '.json_encode($this->functionName).";\n")
             ->outdent()
@@ -259,7 +259,7 @@ abstract class ModuleCompiler
                 " *\n",
                 " * @return {boolean}\n",
                 " */\n"
-            )->write($this->functionName.".prototype.isTraitable = function() {\n")
+            )->write("Twig.templates['".$this->functionName."'].prototype.isTraitable = function() {\n")
             ->indent()
             ->write(sprintf("return %s;\n", $traitable ? 'true' : 'false'))
             ->outdent()

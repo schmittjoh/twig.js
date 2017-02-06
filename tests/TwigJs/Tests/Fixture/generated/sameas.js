@@ -6,7 +6,7 @@
  * @suppress {checkTypes|fileoverviewTags}
  */
 
-goog.provide('sameas');
+goog.provide('Twig.templates.sameas');
 
 goog.require('twig');
 goog.require('twig.filter');
@@ -16,22 +16,22 @@ goog.require('twig.filter');
  * @param {twig.Environment} env
  * @extends {twig.Template}
  */
-sameas = function(env) {
+Twig.templates['sameas'] = function(env) {
     twig.Template.call(this, env);
 };
-twig.inherits(sameas, twig.Template);
+twig.inherits(Twig.templates['sameas'], twig.Template);
 
 /**
  * @inheritDoc
  */
-sameas.prototype.getParent_ = function(context) {
+Twig.templates['sameas'].prototype.getParent_ = function(context) {
     return false;
 };
 
 /**
  * @inheritDoc
  */
-sameas.prototype.render_ = function(sb, context, blocks) {
+Twig.templates['sameas'].prototype.render_ = function(sb, context, blocks) {
     blocks = typeof(blocks) == "undefined" ? {} : blocks;
     // line 1
     sb.append("This is a simple template.<br \/><br \/>\n\n");
@@ -45,7 +45,7 @@ sameas.prototype.render_ = function(sb, context, blocks) {
 /**
  * @inheritDoc
  */
-sameas.prototype.getTemplateName = function() {
+Twig.templates['sameas'].prototype.getTemplateName = function() {
     return "sameas";
 };
 
@@ -54,6 +54,6 @@ sameas.prototype.getTemplateName = function() {
  *
  * @return {boolean}
  */
-sameas.prototype.isTraitable = function() {
+Twig.templates['sameas'].prototype.isTraitable = function() {
     return false;
 };

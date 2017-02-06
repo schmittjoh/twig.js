@@ -63,7 +63,7 @@ class MacroCompiler implements TypeCompilerInterface
         $compiler
             ->write(" * @return {string}\n")
             ->write(" */\n")
-            ->raw($compiler->templateFunctionName)
+            ->raw("Twig.templates['".$compiler->templateFunctionName."']")
             ->raw(".prototype.get")
             ->raw($node->getAttribute('name'))
             ->raw(" = function(".implode(', ', $arguments).") {\n")

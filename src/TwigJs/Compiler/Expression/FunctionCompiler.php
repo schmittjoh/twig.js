@@ -50,7 +50,14 @@ class FunctionCompiler implements TypeCompilerInterface
             );
         }
 
-        if ($jsFunction = $compiler->getJsFunction($node->getAttribute('name'))) {
+        if ($functionCompiler = $compiler->getFunctionCompiler($node)) {
+
+            // Let the function compiler completely handle compilation and alter
+            // the method signature as it requires.
+            $functionCompiler->compile($compiler, $node);
+            return;
+
+        } elseif ($jsFunction = $compiler->getJsFunction($node->getAttribute('name'))) {
             $compiler->raw($jsFunction.'(');
         } else {
             $compiler

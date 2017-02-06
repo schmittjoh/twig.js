@@ -29,7 +29,11 @@ vendor:
 
 phpcs: vendor
 	./vendor/bin/phpcs --standard=PSR2 --error-severity=1 src
-	./vendor/bin/phpcs --standard=PSR2 --error-severity=1 tests
+	./vendor/bin/phpcs --standard=PSR2 --ignore=tests/TwigJs/Tests/Fixture --error-severity=1 tests
+
+phpcbf: vendor
+	./vendor/bin/phpcbf --standard=PSR2 --error-severity=1 src
+	./vendor/bin/phpcbf --standard=PSR2 --ignore=tests/TwigJs/Tests/Fixture --error-severity=1 tests
 
 .PHONY: build clean test phpcs
 

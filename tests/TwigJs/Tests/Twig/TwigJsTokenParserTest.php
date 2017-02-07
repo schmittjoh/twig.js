@@ -2,9 +2,10 @@
 
 namespace TwigJs\Tests\Twig;
 
+use PHPUnit\Framework\TestCase;
 use TwigJs\Twig\TwigJsTokenParser;
 
-class TwigJsTokenParserTest extends \PHPUnit_Framework_TestCase
+class TwigJsTokenParserTest extends TestCase
 {
     public function testParse()
     {

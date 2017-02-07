@@ -4,12 +4,12 @@ namespace TwigJs\Tests;
 
 use DNode;
 use Exception;
-use PHPUnit_Framework_TestCase;
 use React;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RecursiveRegexIterator;
 use RegexIterator;
+use PHPUnit\Framework\TestCase;
 use TwigJs\Twig\TwigJsExtension;
 use TwigJs\JsCompiler;
 use Twig_Environment;
@@ -18,7 +18,7 @@ use Twig_Loader_Array;
 use Twig_Loader_Chain;
 use Twig_Loader_Filesystem;
 
-class FullIntegrationTest extends PHPUnit_Framework_TestCase
+class FullIntegrationTest extends TestCase
 {
     public function setDnode($dnode, $loop)
     {

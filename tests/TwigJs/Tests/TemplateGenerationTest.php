@@ -2,10 +2,11 @@
 
 namespace TwigJs\Tests;
 
+use PHPUnit\Framework\TestCase;
 use TwigJs\Twig\TwigJsExtension;
 use TwigJs\JsCompiler;
 
-class TemplateGenerationTest extends \PHPUnit_Framework_TestCase
+class TemplateGenerationTest extends TestCase
 {
     /**
      * @dataProvider getGenerationTests

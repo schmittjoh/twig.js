@@ -1,0 +1,4 @@
+{% macro show(value) -%}
+    the value is: {{ value }}
+{%- endmacro %}
+{{ _self.show('Hello World!') }}

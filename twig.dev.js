@@ -324,12 +324,12 @@ $JSCompiler_prototypeAlias$$.$render$ = function $$JSCompiler_prototypeAlias$$$$
   this.render_($sb$$4$$, $opt_context$$5$$ || {}, $opt_blocks$$2$$ || {});
   return $sb$$4$$.toString();
 };
-$JSCompiler_prototypeAlias$$.$callMacro$ = function $$JSCompiler_prototypeAlias$$$$callMacro$$($template$$1$$, $macro$$, $args$$4$$, $opt_namedNames$$) {
-  if (!$template$$1$$["macro_" + $macro$$]) {
-    throw Error("The macro " + $macro$$ + " is not defined in " + $template$$1$$.$getTemplateName$() + ".");
+$JSCompiler_prototypeAlias$$.$callMacro$ = function $$JSCompiler_prototypeAlias$$$$callMacro$$($template$$1$$, $macro$$1$$, $args$$4$$, $opt_namedNames$$) {
+  if (!$template$$1$$["macro_" + $macro$$1$$]) {
+    throw Error("The macro " + $macro$$1$$ + " is not defined in " + $template$$1$$.$getTemplateName$() + ".");
   }
   if (void 0 === $opt_namedNames$$) {
-    return $template$$1$$["macro_" + $macro$$].apply($template$$1$$, $args$$4$$);
+    return $template$$1$$["macro_" + $macro$$1$$].apply($template$$1$$, $args$$4$$);
   }
   throw Error("Positional arguments, or default values in macro arguments are not supported, yet.");
 };
@@ -432,11 +432,11 @@ $JSCompiler_prototypeAlias$$.escape = function $$JSCompiler_prototypeAlias$$$esc
   return $twig$filter$escape$$(0, $value$$111$$, $opt_type$$8$$, 0, $opt_autoescape$$1$$);
 };
 $JSCompiler_prototypeAlias$$.$macro$ = function $$JSCompiler_prototypeAlias$$$$macro$$($templateCtor$$, $macroName$$, $var_args$$78$$) {
-  var $template$$3$$ = this.$createTemplate$($templateCtor$$), $macro$$1$$ = $template$$3$$["macro_" + $macroName$$];
-  if (!$macro$$1$$) {
+  var $template$$3$$ = this.$createTemplate$($templateCtor$$), $macro$$2$$ = $template$$3$$["macro_" + $macroName$$];
+  if (!$macro$$2$$) {
     throw Error("The macro '" + $macroName$$ + "' does not exist on template '" + $template$$3$$.$getTemplateName$() + "'.");
   }
-  return $macro$$1$$.apply($template$$3$$, Array.prototype.slice.call(arguments, 2)).toString();
+  return $macro$$2$$.apply($template$$3$$, Array.prototype.slice.call(arguments, 2)).toString();
 };
 $JSCompiler_prototypeAlias$$.$setFilter$ = function $$JSCompiler_prototypeAlias$$$$setFilter$$($name$$78$$, $filter$$2$$) {
   this.$filters_$[$name$$78$$] = $filter$$2$$;
@@ -518,10 +518,10 @@ $goog$exportSymbol$$("twig.attr", function($obj$$70$$, $attr_functionName$$, $op
     return $isTest_opt_isTest$$ ? !1 : null;
   }
   $attr_functionName$$ = $attr_functionName$$.toLowerCase();
-  var $getter$$ = "get" + $attr_functionName$$, $isser$$ = "is" + $attr_functionName$$;
+  var $getter$$ = "get" + $attr_functionName$$, $macro$$ = "macro_" + $attr_functionName$$, $isser$$ = "is" + $attr_functionName$$;
   return ($attr_functionName$$ = $goog$object$findKey$$($obj$$70$$, function($v$$1$$, $k$$1$$) {
     $k$$1$$ = $k$$1$$.toLowerCase();
-    return $k$$1$$ === $getter$$ || $k$$1$$ === $isser$$;
+    return $k$$1$$ === $getter$$ || $k$$1$$ === $isser$$ || $k$$1$$ === $macro$$;
   })) && "function" == $goog$typeOf$$($obj$$70$$[$attr_functionName$$]) ? $isTest_opt_isTest$$ ? !0 : $obj$$70$$[$attr_functionName$$].apply($obj$$70$$, $opt_args$$1$$ || []) : $isTest_opt_isTest$$ ? !1 : null;
 });
 $goog$exportSymbol$$("twig.bind", $twig$bind$$);

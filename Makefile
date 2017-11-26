@@ -22,7 +22,7 @@ test: vendor node_modules
 	./node_modules/.bin/mocha --require tests-js/bootstrap.js tests-js/twig/* tests-js/twig/*/*
 
 node_modules:
-	npm install
+	npm install --no-optional
 
 vendor:
 	composer install

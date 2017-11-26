@@ -15,5 +15,7 @@ var server = dnode(function (remote, conn) {
         process.exit(0);
       }, 100);
     };
+}, {
+    weak: false
 });
 server.listen(7070);

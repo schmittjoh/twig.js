@@ -1,5 +1,5 @@
 
-PLOVR_URL="http://plovr.googlecode.com/files/plovr-81ed862.jar"
+PLOVR_URL="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/plovr/plovr-81ed862.jar"
 
 build: clean twig.js twig.dev.js
 

@@ -31,7 +31,14 @@ class CompileRequestHandler
 
     public function process(CompileRequest $request)
     {
-        $curCompiler = $this->env->getCompiler();
+        $curCompiler = null;
+        if (method_exists($this->env, 'getCompiler')) {
+            $curCompiler = $this->env->getCompiler();
+        } else {
+            $rp = new \ReflectionProperty($this->env, 'compiler');
+            $rp->setAccessible(true);
+            $curCompiler = $rp->getValue($this->env);
+        }
         $this->env->setCompiler($this->compiler);
         $this->compiler->setDefines($request->getDefines());
 
@@ -40,12 +47,20 @@ class CompileRequestHandler
                 $source = $this->env->getLoader()->getSource($request->getName());
             }
 
+            if (is_string($source)) {
+                $source = new \Twig_Source($source, 'inline');
+            }
+
             $compiled = $this->env->compileSource($source, $request->getName());
-            $this->env->setCompiler($curCompiler);
+            if ($curCompiler) {
+                $this->env->setCompiler($curCompiler);
+            }
 
             return $compiled;
         } catch (\Exception $ex) {
-            $this->env->setCompiler($curCompiler);
+            if ($curCompiler) {
+                $this->env->setCompiler($curCompiler);
+            }
 
             throw $ex;
         }

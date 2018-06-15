@@ -28,7 +28,7 @@ class FunctionCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Function';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Function) {
             throw new \RuntimeException(
@@ -46,7 +46,7 @@ class FunctionCompiler implements TypeCompilerInterface
                     'The function "%s" does not exist',
                     $node->getAttribute('name')
                 ),
-                $node->getLine()
+                $node->getTemplateLine()
             );
         }
 
@@ -55,7 +55,7 @@ class FunctionCompiler implements TypeCompilerInterface
         } else {
             $compiler
                 ->raw('this.env_.invoke(')
-                ->string($node->getAttribute('name'))
+                ->repr($node->getAttribute('name'))
                 ->raw(', ')
             ;
         }

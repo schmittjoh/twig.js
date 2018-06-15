@@ -28,7 +28,7 @@ class PowerCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Binary_Power';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Binary_Power) {
             throw new \RuntimeException(

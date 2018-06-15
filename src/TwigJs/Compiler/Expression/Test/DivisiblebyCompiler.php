@@ -12,7 +12,7 @@ class DivisiblebyCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Test_Divisibleby';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Test_Divisibleby) {
             throw new \RuntimeException(
@@ -28,7 +28,7 @@ class DivisiblebyCompiler implements TypeCompilerInterface
                 $node->getNode('node'),
                 $node->getAttribute('name'),
                 $node->getNode('arguments'),
-                $node->getLine()
+                $node->getTemplateLine()
             )
         );
     }

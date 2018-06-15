@@ -1,7 +1,7 @@
 <?php
 namespace TwigJs\Compiler\ModuleCompiler;
 
-use Twig_NodeInterface;
+use Twig_Node;
 use TwigJs\JsCompiler;
 use TwigJs\Compiler\ModuleCompiler;
 use TwigJs\TypeCompilerInterface;
@@ -18,7 +18,7 @@ class AmdCompiler extends ModuleCompiler implements TypeCompilerInterface
         $this->explicitName = $explicitName;
     }
 
-    protected function compileClassHeader(JsCompiler $compiler, Twig_NodeInterface $node)
+    protected function compileClassHeader(JsCompiler $compiler, Twig_Node $node)
     {
         $this->functionName = $functionName = $compiler->templateFunctionName
             = $compiler->getFunctionName($node);
@@ -75,7 +75,7 @@ class AmdCompiler extends ModuleCompiler implements TypeCompilerInterface
         ;
     }
 
-    protected function compileClassFooter(JsCompiler $compiler, \Twig_NodeInterface $node)
+    protected function compileClassFooter(JsCompiler $compiler, \Twig_Node $node)
     {
         $compiler
             ->write("return ".$this->functionName.";\n")

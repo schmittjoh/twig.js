@@ -28,7 +28,7 @@ class LessCompiler extends BinaryCompiler
         return 'Twig_Node_Expression_Binary_Less';
     }
 
-    protected function operator(JsCompiler $compiler, \Twig_NodeInterface $node)
+    protected function operator(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Binary_Less) {
             throw new \RuntimeException(

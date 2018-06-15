@@ -28,7 +28,7 @@ class ParentCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Parent';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Parent) {
             throw new \RuntimeException(
@@ -48,7 +48,7 @@ class ParentCompiler implements TypeCompilerInterface
 
         $compiler
             ->raw("this.renderParentBlock(")
-            ->string($node->getAttribute('name'))
+            ->repr($node->getAttribute('name'))
             ->raw(", context, blocks)")
         ;
 

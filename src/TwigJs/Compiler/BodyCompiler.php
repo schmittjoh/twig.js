@@ -27,7 +27,7 @@ class BodyCompiler extends NodeCompiler
         return 'Twig_Node_Body';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Body) {
             throw new \RuntimeException(

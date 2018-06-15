@@ -28,7 +28,7 @@ class NotCompiler extends UnaryCompiler
         return 'Twig_Node_Expression_Unary_Not';
     }
 
-    protected function operator(JsCompiler $compiler, \Twig_NodeInterface $node)
+    protected function operator(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Unary_Not) {
             throw new \RuntimeException(

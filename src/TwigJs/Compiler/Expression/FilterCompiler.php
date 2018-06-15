@@ -28,7 +28,7 @@ class FilterCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Filter';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Filter) {
             throw new \RuntimeException(
@@ -41,7 +41,7 @@ class FilterCompiler implements TypeCompilerInterface
 
         $name = $node->getNode('filter')->getAttribute('value');
         if (false === $filter = $compiler->getEnvironment()->getFilter($name)) {
-            throw new \Twig_Error_Syntax(sprintf('The filter "%s" does not exist', $name), $node->getLine());
+            throw new \Twig_Error_Syntax(sprintf('The filter "%s" does not exist', $name), $node->getTemplateLine());
         }
 
         if (($filterCompiler = $compiler->getFilterCompiler($name))
@@ -52,7 +52,7 @@ class FilterCompiler implements TypeCompilerInterface
         } else {
             $compiler
                 ->raw('this.env_.filter(')
-                ->string($name)
+                ->repr($name)
                 ->raw(', ')
             ;
         }

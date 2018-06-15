@@ -185,13 +185,13 @@ class JsCompiler extends \Twig_Compiler
 
         $this->testCompilers = array(
             'defined' => new DefinedCompiler(),
-            'divisibleby' => new DivisibleByCompiler(),
+            'divisible by' => new DivisibleByCompiler(),
             'empty' => new EmptyCompiler(),
             'even' => new EvenCompiler(),
             'none' => new NoneCompiler(),
             'null' => new NullCompiler(),
             'odd' => new OddCompiler(),
-            'sameas' => new SameAsCompiler(),
+            'same as' => new SameAsCompiler(),
         );
 
         $this->filterCompilers = array();
@@ -317,27 +317,38 @@ class JsCompiler extends \Twig_Compiler
             $this->functionMap[$twigFunctionName] : null;
     }
 
-    public function compile(\Twig_NodeInterface $node, $indentation = 0)
+    public function compile(\Twig_Node $node, $indentation = 0)
     {
-        $this->lastLine = null;
-        $this->source = '';
-        $this->sourceOffset = 0;
-        $this->sourceLine = 0;
-        $this->indentation = $indentation;
+        // ok, parent properties are private
+        // so we'll need somehow use the parent method to reset things...
+        return parent::compile(
+            new class($node) extends \Twig_Node {
+                protected $node;
 
-        $this->subcompile($node);
+                public function __construct(\Twig_Node $node)
+                {
+                    parent::__construct();
+                    $this->node = $node;
+                }
 
-        return $this;
+                public function compile(\Twig_Compiler $compiler)
+                {
+                    $compiler->subcompile($this->node);
+                }
+            },
+            $indentation
+        );
     }
 
-    public function subcompile(\Twig_NodeInterface $node, $raw = true)
+    public function subcompile(\Twig_Node $node, $raw = true)
     {
         if ($node instanceof \Twig_Profiler_Node_EnterProfile || $node instanceof \Twig_Profiler_Node_LeaveProfile) {
             return $this;
         }
 
         if (false === $raw) {
-            $this->addIndentation();
+            // indentation
+            $this->write('');
         }
 
         $nodeClass = get_class($node);
@@ -394,15 +405,8 @@ class JsCompiler extends \Twig_Compiler
         return $this;
     }
 
-    public function string($value)
-    {
-        return $this->repr($value);
-    }
-
     public function repr($value)
     {
-        $this->source .= json_encode($value);
-
-        return $this;
+        return $this->raw(json_encode($value));
     }
 }

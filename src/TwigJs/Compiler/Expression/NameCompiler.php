@@ -28,7 +28,7 @@ class NameCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_Name';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Name) {
             throw new \RuntimeException(
@@ -75,9 +75,9 @@ class NameCompiler implements TypeCompilerInterface
             //        see Template::getContext()
             $compiler
                 ->raw('(')
-                ->string($name)
+                ->repr($name)
                 ->raw(' in context ? context[')
-                ->string($name)
+                ->repr($name)
                 ->raw('] : null)')
             ;
         }

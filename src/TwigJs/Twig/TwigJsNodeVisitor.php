@@ -6,7 +6,7 @@ class TwigJsNodeVisitor implements \Twig_NodeVisitorInterface
 {
     private $moduleNode;
 
-    public function enterNode(\Twig_NodeInterface $node, \Twig_Environment $env)
+    public function enterNode(\Twig_Node $node, \Twig_Environment $env)
     {
         if ($node instanceof \Twig_Node_Module) {
             return $this->moduleNode = $node;
@@ -15,7 +15,7 @@ class TwigJsNodeVisitor implements \Twig_NodeVisitorInterface
         return $node;
     }
 
-    public function leaveNode(\Twig_NodeInterface $node, \Twig_Environment $env)
+    public function leaveNode(\Twig_Node $node, \Twig_Environment $env)
     {
         if ($node instanceof TwigJsNode) {
             if ($node->hasAttribute('name')) {

@@ -169,12 +169,12 @@ twig.Template.prototype.render = function(opt_context, opt_blocks) {
  * @return {string}
  */
 twig.Template.prototype.callMacro = function(template, macro, args, opt_namedNames, opt_namedCount, opt_positionalCount) {
-    if ( ! template['get' + macro]) {
+    if ( ! template['macro_' + macro]) {
         throw Error("The macro " + macro + " is not defined in " + template.getTemplateName() + ".");
     }
 
     if (opt_namedNames === undefined) {
-        return template['get' + macro].apply(template, args);
+        return template['macro_' + macro].apply(template, args);
     }
 
     throw Error("Positional arguments, or default values in macro arguments are not supported, yet.");

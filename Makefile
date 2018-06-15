@@ -1,5 +1,5 @@
 
-PLOVR_URL="http://plovr.googlecode.com/files/plovr-81ed862.jar"
+PLOVR_URL="https://github.com/bolinfest/plovr/releases/download/v5.2.0/plovr.jar"
 
 build: clean twig.js twig.dev.js
 
@@ -29,7 +29,11 @@ vendor:
 
 phpcs: vendor
 	./vendor/bin/phpcs --standard=PSR2 --error-severity=1 src
-	./vendor/bin/phpcs --standard=PSR2 --error-severity=1 tests
+	./vendor/bin/phpcs --standard=PSR2 --ignore=tests/TwigJs/Tests/Fixture --error-severity=1 tests
+
+phpcbf: vendor
+	./vendor/bin/phpcbf --standard=PSR2 --error-severity=1 src
+	./vendor/bin/phpcbf --standard=PSR2 --ignore=tests/TwigJs/Tests/Fixture --error-severity=1 tests
 
 .PHONY: build clean test phpcs
 

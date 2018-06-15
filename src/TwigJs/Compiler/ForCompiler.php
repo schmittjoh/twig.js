@@ -30,7 +30,7 @@ class ForCompiler implements TypeCompilerInterface
         return 'Twig_Node_For';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_For) {
             throw new \RuntimeException(

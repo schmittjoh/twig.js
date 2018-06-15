@@ -4,12 +4,12 @@ namespace TwigJs\Tests;
 
 use DNode;
 use Exception;
-use PHPUnit_Framework_TestCase;
 use React;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RecursiveRegexIterator;
 use RegexIterator;
+use PHPUnit\Framework\TestCase;
 use TwigJs\Twig\TwigJsExtension;
 use TwigJs\JsCompiler;
 use Twig_Environment;
@@ -18,7 +18,7 @@ use Twig_Loader_Array;
 use Twig_Loader_Chain;
 use Twig_Loader_Filesystem;
 
-class FullIntegrationTest extends PHPUnit_Framework_TestCase
+class FullIntegrationTest extends TestCase
 {
     public function setDnode($dnode, $loop)
     {
@@ -29,10 +29,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->arrayLoader = new Twig_Loader_Array(array());
-        $this->env = new Twig_Environment();
-        $this->env->addExtension(new Twig_Extension_Core());
-        $this->env->addExtension(new TwigJsExtension());
-        $this->env->setLoader(
+        $this->env = new Twig_Environment(
             new Twig_Loader_Chain(
                 array(
                     $this->arrayLoader,
@@ -40,6 +37,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
                 )
             )
         );
+        $this->env->addExtension(new TwigJsExtension());
         $this->env->setCompiler(new JsCompiler($this->env));
     }
 
@@ -75,7 +73,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
         $tests = array();
         $directory = new RecursiveDirectoryIterator(__DIR__ . '/Fixture/integration');
         $iterator = new RecursiveIteratorIterator($directory);
-        $regex = new RegexIterator($iterator, '/\.test/', RecursiveRegexIterator::GET_MATCH);
+        $regex = new RegexIterator($iterator, '/\.test$/', RecursiveRegexIterator::GET_MATCH);
         $test = $this;
         $tests = array_map(
             function ($file) use ($test) {
@@ -104,7 +102,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
             $exception = false;
             preg_match_all('/--DATA--(.*?)(?:--CONFIG--(.*?))?--EXPECT--(.*?)(?=\-\-DATA\-\-|$)/s', $test, $outputs, PREG_SET_ORDER);
         } else {
-            throw new InvalidArgumentException(sprintf('Test "%s" is not valid.', $file));
+            throw new \InvalidArgumentException(sprintf('Test "%s" is not valid.', $file));
         }
         // @codingStandardsIgnoreStart
 
@@ -131,7 +129,7 @@ class FullIntegrationTest extends PHPUnit_Framework_TestCase
 
     private function compileTemplate($source, $name)
     {
-        $javascript = $this->env->compileSource($source, $name);
+        $javascript = $this->env->compileSource(new \Twig_Source($source, $name));
         return $javascript;
     }
 

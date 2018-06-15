@@ -28,7 +28,7 @@ class TempNameCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_TempName';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_TempName) {
             throw new \RuntimeException(
@@ -56,9 +56,9 @@ class TempNameCompiler implements TypeCompilerInterface
         */
         $compiler
             ->raw('(')
-            ->string($name)
+            ->repr($name)
             ->raw(' in context ? context[')
-            ->string($name)
+            ->repr($name)
             ->raw('] : null)')
         ;
     }

@@ -9,7 +9,7 @@ class SameAsCompiler implements TestCompilerInterface
 {
     public function getName()
     {
-        return 'sameas';
+        return 'same as';
     }
 
     public function compile(JsCompiler $compiler, \Twig_Node_Expression_Test $node)

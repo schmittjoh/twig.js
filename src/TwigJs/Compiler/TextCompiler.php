@@ -28,7 +28,7 @@ class TextCompiler implements TypeCompilerInterface
         return 'Twig_Node_Text';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Text) {
             throw new \RuntimeException(
@@ -42,7 +42,7 @@ class TextCompiler implements TypeCompilerInterface
         $compiler
             ->addDebugInfo($node)
             ->write('sb.append(')
-            ->string($node->getAttribute('data'))
+            ->repr($node->getAttribute('data'))
             ->raw(");\n")
         ;
     }

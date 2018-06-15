@@ -28,7 +28,7 @@ class AssignNameCompiler implements TypeCompilerInterface
         return 'Twig_Node_Expression_AssignName';
     }
 
-    public function compile(JsCompiler $compiler, \Twig_NodeInterface $node)
+    public function compile(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_AssignName) {
             throw new \RuntimeException(
@@ -38,7 +38,7 @@ class AssignNameCompiler implements TypeCompilerInterface
 
         $compiler
             ->raw('context[')
-            ->string($node->getAttribute('name'))
+            ->repr($node->getAttribute('name'))
             ->unsetVar($node->getAttribute('name'))
             ->raw(']')
         ;

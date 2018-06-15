@@ -28,7 +28,7 @@ class PosCompiler extends UnaryCompiler
         return 'Twig_Node_Expression_Unary_Pos';
     }
 
-    protected function operator(JsCompiler $compiler, \Twig_NodeInterface $node)
+    protected function operator(JsCompiler $compiler, \Twig_Node $node)
     {
         if (!$node instanceof \Twig_Node_Expression_Unary_Pos) {
             throw new \RuntimeException(

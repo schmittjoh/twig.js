@@ -57,7 +57,7 @@ class GetAttrCompiler implements TypeCompilerInterface
             ->subcompile($node->getNode('attribute'))
         ;
 
-        $defaultArguments = 0 === count($node->getNode('arguments'));
+        $defaultArguments = 0 === ($node->hasNode('arguments') ? count($node->getNode('arguments')) : 0);
         $defaultAccess = \Twig_TemplateInterface::ANY_CALL === $node->getAttribute('type');
         $defaultTest = false == $node->getAttribute('is_defined_test');
 
